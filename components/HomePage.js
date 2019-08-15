@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import { Text, View, ImageBackground, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default class HomePage extends Component {
+    static navigationOptions = {
+        header: null
+    };
+
     render() {
+        const {navigate} = this.props.navigation;
+
         return (
             <View style={styles.container}>
                 <ImageBackground source={require("../resources/homepage/stc.jpg")} style={styles.background}>
@@ -14,7 +20,7 @@ export default class HomePage extends Component {
                             <TouchableOpacity style={styles.navButton}>
                                 <Text style={styles.navText}>Venue Map</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.navButton}>
+                            <TouchableOpacity style={styles.navButton} onPress={() => navigate("Schedule")}>
                                 <Text style={styles.navText}>Schedule</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.navButton}>
