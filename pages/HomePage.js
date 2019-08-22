@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, ImageBackground, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default class HomePage extends Component {
-    static navigationOptions = {
-        header: null
-    };
-
     render() {
         const {navigate} = this.props.navigation;
 
