@@ -23,18 +23,18 @@ export default class HomePage extends Component {
                             <TouchableOpacity style={styles.navButton} onPress={() => navigate("Schedule")}>
                                 <Text style={styles.navText}>Schedule</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.navButton}>
+                            <TouchableOpacity style={styles.navButton} onPress={() => navigate("Welcomes")}>
                                 <Text style={styles.navText}>Welcomes</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={styles.navRow}>
-                            <TouchableOpacity style={styles.navButton}>
+                            <TouchableOpacity style={styles.navButton} onPress={() => navigate("Info")}>
                                 <Text style={styles.navText}>General Info</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.navButton}>
+                            <TouchableOpacity style={styles.navButton} onPress={() => navigate("Documents")}>
                                 <Text style={styles.navText}>Documents</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.navButton}>
+                            <TouchableOpacity style={styles.navButton} onPress={() => navigate("People")}>
                                 <Text style={styles.navText}>CNH People</Text>
                             </TouchableOpacity>
                         </View>
