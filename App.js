@@ -1,9 +1,7 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import OnboardingPage from './pages/OnboardingPage';
 import HomePage from './pages/HomePage';
 import SchedulePage from './pages/SchedulePage';
-import VenuePage from './pages/VenuePage';
+import MapPage from './pages/MapPage';
 import InfoPage from './pages/InfoPage';
 import WelcomesPage from './pages/WelcomesPage';
 import PeoplePage from './pages/PeoplePage';
@@ -29,7 +27,7 @@ const MainNavigator = createStackNavigator({
   Onboarding: { screen: OnboardingPage },
   Home: { screen: HomePage },
   Schedule: { screen: SchedulePage },
-  Venue: { screen: VenuePage },
+  Map: { screen: MapPage },
   Info: { screen: InfoPage },
   Welcomes: { screen: WelcomesPage },
   People: { screen: PeoplePage },
