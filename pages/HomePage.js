@@ -34,7 +34,7 @@ export default class HomePage extends Component {
 
     getSectionTitleRender(title) {
         return (
-            <PlainText>{title}</PlainText>
+            <PlainText style={styles.navTitle}>{title}</PlainText>
         );
     }
 
@@ -93,19 +93,22 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     trailer: {
+        marginTop: 10,
         height: 150,
         width: "100%"
     },
     navList: {
         paddingTop: 10,
-        paddingLeft: 16
     },
     navRow: {
         marginTop: 5,
         marginBottom: 10
     },
+    navTitle: {
+        marginLeft: 10
+    },
     navButton: {
-        marginRight: 10
+        marginLeft: 10
     },
     siteButton: {
         marginBottom: 15,

@@ -1,3 +1,5 @@
+import React from 'react';
+import { View, StyleSheet, StatusBar } from 'react-native';
 import OnboardingPage from './pages/OnboardingPage';
 import HomePage from './pages/HomePage';
 import SchedulePage from './pages/SchedulePage';
@@ -7,21 +9,6 @@ import WelcomesPage from './pages/WelcomesPage';
 import PeoplePage from './pages/PeoplePage';
 import DocumentPage from './pages/DocumentPage';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
-
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <SchedulePage />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff'
-//   }
-// });
 
 const MainNavigator = createStackNavigator({
   Onboarding: { screen: OnboardingPage },
@@ -36,6 +23,19 @@ const MainNavigator = createStackNavigator({
   headerMode: "none"
 });
 
-const App = createAppContainer(MainNavigator);
+const AppContainer = createAppContainer(MainNavigator);
 
-export default App;
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <StatusBar hidden />
+      <AppContainer />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});

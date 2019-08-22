@@ -9,9 +9,7 @@ export default class OnboardingPage extends Component {
 
         return (
             <View style={styles.container}>
-                <View style={styles.introText}>
-                    <PlainText>i am a</PlainText>
-                </View>
+                <PlainText style={styles.introText}>i am a</PlainText>
                 <PlainButton style={styles.memberButton} onPress={() => navigate("Home")}>first timer</PlainButton>
                 <PlainButton style={styles.memberButton} onPress={() => navigate("Home")}>returner</PlainButton>
                 <PlainButton style={styles.memberButton} onPress={() => navigate("Home")}>club president</PlainButton>
