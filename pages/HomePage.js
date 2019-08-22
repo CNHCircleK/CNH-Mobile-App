@@ -17,7 +17,7 @@ export default class HomePage extends Component {
                     </View>
                     <View style={styles.nav}>
                         <View style={styles.navRow}>
-                            <TouchableOpacity style={styles.navButton}>
+                            <TouchableOpacity style={styles.navButton} onPress={() => navigate("Venue")}>
                                 <Text style={styles.navText}>Venue Map</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.navButton} onPress={() => navigate("Schedule")}>

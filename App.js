@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import HomePage from './components/HomePage';
-import SchedulePage from './components/SchedulePage';
+import HomePage from './pages/HomePage';
+import SchedulePage from './pages/SchedulePage';
+import VenuePage from './pages/VenuePage';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 // export default function App() {
@@ -21,7 +22,8 @@ import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
   Home: { screen: HomePage },
-  Schedule: { screen: SchedulePage }
+  Schedule: { screen: SchedulePage },
+  Venue: { screen: VenuePage }
 });
 
 const App = createAppContainer(MainNavigator);
