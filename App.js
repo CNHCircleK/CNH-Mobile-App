@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import OnboardingPage from './pages/OnboardingPage';
 import HomePage from './pages/HomePage';
 import SchedulePage from './pages/SchedulePage';
 import VenuePage from './pages/VenuePage';
@@ -25,6 +26,7 @@ import {createStackNavigator, createAppContainer} from 'react-navigation';
 // });
 
 const MainNavigator = createStackNavigator({
+  Onboarding: { screen: OnboardingPage },
   Home: { screen: HomePage },
   Schedule: { screen: SchedulePage },
   Venue: { screen: VenuePage },
@@ -32,6 +34,8 @@ const MainNavigator = createStackNavigator({
   Welcomes: { screen: WelcomesPage },
   People: { screen: PeoplePage },
   Documents: { screen: DocumentPage }
+}, {
+  headerMode: "none"
 });
 
 const App = createAppContainer(MainNavigator);
