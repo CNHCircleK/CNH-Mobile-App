@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, SectionList, FlatList } from 'react-native';
+import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList } from 'react-native';
 import PlainButton from '../components/PlainButton';
 import PlainText from '../components/PlainText';
 
@@ -12,10 +12,6 @@ export default class HomePage extends Component {
         {
             title: "know before you go",
             data: [["packing list", "code of conduct", "faq"]]
-        },
-        {
-            title: "leadership opportunities",
-            data: [["workshops", "campfire skits", "team leaders"]]
         }
     ]
 
@@ -27,7 +23,18 @@ export default class HomePage extends Component {
                 showsHorizontalScrollIndicator={false}
                 key={index}
                 data={item}
-                renderItem={({item}) => <PlainButton style={styles.navButton} key={item}>{item}</PlainButton>}
+                renderItem={({item}) => 
+                <ImageBackground source={require("../resources/homepage/hintpapers.png")}
+                style={styles.navButton}>
+                    <View style={styles.navButtonTextContainer}>
+                    <Text style={styles.navButtonText}>
+                        {item}
+                    </Text>
+                    </View>
+        
+                    
+                    
+                </ImageBackground>}
             />
         );
     }
@@ -74,14 +81,20 @@ export default class HomePage extends Component {
             //     </ImageBackground>
             // </View>
             <View style={styles.container}>
-                <PlainButton style={styles.trailer}>teaser trailer / call to ftc trailer</PlainButton>
+                {/* <PlainButton style={styles.trailer}>teaser trailer / call to ftc trailer</PlainButton> */}
+                <Image source={require("../resources/homepage/LOGO1222.png")} 
+                style={styles.logo}
+                /> 
+                <Image source={require("../resources/homepage/stc.jpg")} 
+                style={styles.trailer}
+                /> 
                 <SectionList
                     style={styles.navList}
                     renderItem={({ item, index, section }) => this.getItemRender(item, index)}
                     renderSectionHeader={({ section: {title} }) => this.getSectionTitleRender(title)}
                     sections={this.homeData}
                 />
-                <PlainButton style={styles.siteButton}>view ftc website</PlainButton>
+                <Text style={styles.siteButton}>view ftc website</Text>
             </View>
         );
     }
@@ -90,34 +103,52 @@ export default class HomePage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "#14314D"
+    },
+    logo: {
+        position: "absolute",
+        width: 150,
+        height: 150,
+        top: 30,
+        zIndex: 10,
+        marginTop: 10
+
+
     },
     trailer: {
-        marginTop: 10,
+        marginTop: 150,
         height: 150,
         width: "100%"
     },
     navList: {
-        paddingTop: 10,
+        paddingTop: 30,
     },
     navRow: {
-        marginTop: 5,
-        marginBottom: 10
+        marginTop: 25,
+        marginBottom: 30
     },
     navTitle: {
-        marginLeft: 10
+        marginLeft: 25,
+        color: "#FFFFFF"
     },
     navButton: {
-        marginLeft: 10
+        marginLeft: 10,
+        width: 150,
+        height: 150
+    },
+    navButtonTextContainer: {
+        justifyContent: "center",
+        alignItems: "center",
+        flex: 1,
+    },
+    navButtonText: {
+        fontSize: 13,
+        color: "#FFFFFF",
     },
     siteButton: {
-        marginBottom: 15,
-        paddingTop: 0,
-        paddingLeft: 0,
-        height: 50,
-        width: 150,
-        alignItems: "center",
-        justifyContent: "center"
+        marginBottom: 100,
+        color: "#FFFFFF"
     }
     // background: {
     //     width: "100%",

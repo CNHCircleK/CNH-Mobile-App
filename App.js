@@ -11,8 +11,8 @@ import DocumentPage from './pages/DocumentPage';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
-  Onboarding: { screen: OnboardingPage },
   Home: { screen: HomePage },
+  Onboarding: { screen: OnboardingPage },
   Schedule: { screen: SchedulePage },
   Map: { screen: MapPage },
   Info: { screen: InfoPage },
