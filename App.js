@@ -8,11 +8,13 @@ import InfoPage from './pages/InfoPage';
 import WelcomesPage from './pages/WelcomesPage';
 import PeoplePage from './pages/PeoplePage';
 import DocumentPage from './pages/DocumentPage';
+import ComingSoonPage from './pages/ComingSoonPage';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
-  Onboarding: { screen: OnboardingPage },
+  ComingSoon: { screen: ComingSoonPage },
   Home: { screen: HomePage },
+  Onboarding: { screen: OnboardingPage },
   Schedule: { screen: SchedulePage },
   Map: { screen: MapPage },
   Info: { screen: InfoPage },
