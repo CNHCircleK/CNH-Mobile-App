@@ -24,7 +24,7 @@ export default class HomePage extends Component {
                 key={index}
                 data={item}
                 renderItem={({item}) => 
-                <ImageBackground source={require("../resources/homepage/hintpapers.png")}
+                <ImageBackground source={require("../resources/homepage/hint_papers.png")}
                 style={styles.navButton}>
                     <View style={styles.navButtonTextContainer}>
                     <Text style={styles.navButtonText}>
@@ -82,7 +82,7 @@ export default class HomePage extends Component {
             // </View>
             <View style={styles.container}>
                 {/* <PlainButton style={styles.trailer}>teaser trailer / call to ftc trailer</PlainButton> */}
-                <Image source={require("../resources/homepage/LOGO1222.png")} 
+                <Image source={require("../resources/homepage/ftc_logo.png")} 
                 style={styles.logo}
                 /> 
                 <Image source={require("../resources/homepage/stc.jpg")} 
@@ -113,8 +113,6 @@ const styles = StyleSheet.create({
         top: 30,
         zIndex: 10,
         marginTop: 10
-
-
     },
     trailer: {
         marginTop: 150,
