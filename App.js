@@ -12,8 +12,8 @@ import ComingSoonPage from './pages/ComingSoonPage';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
-  ComingSoon: { screen: ComingSoonPage },
   Home: { screen: HomePage },
+  ComingSoon: { screen: ComingSoonPage },
   Onboarding: { screen: OnboardingPage },
   Schedule: { screen: SchedulePage },
   Map: { screen: MapPage },
