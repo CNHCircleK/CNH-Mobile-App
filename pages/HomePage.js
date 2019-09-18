@@ -50,7 +50,7 @@ export default class HomePage extends Component {
         return (
             <View style={styles.container}>
                 <Image source={require('../resources/images/HomePage/ftc_logo.png')} style={styles.logo} /> 
-                <Image source={require('../resources/image/HomePage/stc.jpg')} style={styles.trailer} /> 
+                <Image source={require('../resources/images/HomePage/stc.jpg')} style={styles.trailer} /> 
                 <SectionList
                     style={styles.navList}
                     renderItem={({ item, index, section }) => this.getItemRender(item, index)}
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#14314D'
+        backgroundColor: '#14314d'
     },
     logo: {
         position: 'absolute',

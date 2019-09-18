@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginBottom: 5,
-        backgroundColor: 'e7e7e7',
+        backgroundColor: '#e7e7e7',
         borderRadius: 10
     },
     eventTime: {

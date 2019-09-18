@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, StatusBar } from 'react-native';
-import OnboardingPage from './OnboardingPage';
+import OnboardingPage from './pages/OnboardingPage';
 import HomePage from './pages/HomePage';
 import SchedulePage from './pages/SchedulePage';
 import MapPage from './pages/MapPage';
@@ -21,17 +21,4 @@ const MainNavigator = createStackNavigator({
 
 const AppContainer = createAppContainer(MainNavigator);
 
-export default function App() {
-    return (
-        <View style={styles.container}>
-            <StatusBar hidden />
-            <AppContainer />
-        </View>
-    );
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    }
-});
+export default AppContainer;
