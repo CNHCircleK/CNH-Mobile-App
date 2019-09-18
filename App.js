@@ -15,6 +15,7 @@ const TabNavigatorPages = createBottomTabNavigator({
 })
 
 
+
 const StackNavigator = createStackNavigator({
     Onboarding: { screen: OnboardingPage },
     TabNavigator: { screen: TabNavigatorPages }
