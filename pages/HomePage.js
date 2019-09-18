@@ -49,7 +49,7 @@ export default class HomePage extends Component {
 
         return (
             <View style={styles.container}>
-                <Image source={require('../resources/images/HomePage/ftc_logo.png')} style={styles.logo} /> 
+                <Image source={require('../resources/images/HomePage/FTC2019_LOGO.png')} style={styles.logo} /> 
                 <Image source={require('../resources/images/HomePage/stc.jpg')} style={styles.trailer} /> 
                 <SectionList
                     style={styles.navList}
