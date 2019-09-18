@@ -1,4 +1,4 @@
-import strings from './strings/strings'
+import strings from './strings'
 
 const Res = {
   strings

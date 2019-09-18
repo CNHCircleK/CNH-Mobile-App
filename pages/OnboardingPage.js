@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import PlainButton from '../components/PlainButton';
 import PlainText from '../components/PlainText';
-import { OnboardingStrings } from '../resources/strings';
+import Res from '../resources/res'
 
 export default class OnboardingPage extends Component {
     render() {
@@ -11,10 +11,10 @@ export default class OnboardingPage extends Component {
         return (
             <View style={styles.container}>
                 <PlainText style={styles.introText}>i am a</PlainText>
-                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{OnboardingStrings.firstTimer}</PlainButton>
-                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{OnboardingStrings.returner}</PlainButton>
-                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{OnboardingStrings.clubPresident}</PlainButton>
-                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{OnboardingStrings.kiwanian}</PlainButton>
+                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{Res.strings.onBoarding.firstTimer}</PlainButton>
+                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{Res.strings.onBoarding.returner}</PlainButton>
+                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{Res.strings.onBoarding.clubPresident}</PlainButton>
+                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{Res.strings.onBoarding.kiwanian}</PlainButton>
             </View>
         );
     }
