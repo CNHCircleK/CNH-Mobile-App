@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, ImageBackground, Text } from 'react-native';
+import { ComingSoonStrings } from '../resources/strings';
 
 export default class ComingSoonPage extends Component {
     render() {
@@ -7,8 +8,8 @@ export default class ComingSoonPage extends Component {
 
         return (
             <View style={styles.container}>
-                <ImageBackground source={require('../resources/comingsoonpage/sign.png')} style={styles.sign}>
-                    <Text style={styles.comingSoonText}>Coming Soon</Text>
+                <ImageBackground source={require('../resources/images/ComingSoonPage/sign.png')} style={styles.sign}>
+                    <Text style={styles.comingSoonText}>{ComingSoonStrings.comingSoon}}</Text>
                 </ImageBackground> 
             </View>
         );

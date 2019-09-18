@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList } from 'react-native';
 import PlainText from '../components/PlainText';
+import { HomeStrings } from '../resources/strings';
 
 export default class HomePage extends Component {
     homeData = [
         {
-            title: "news",
-            data: [["teaser trailer", "committee", "office hours"]]
+            title: HomeStrings.titleNews,
+            data: [HomeStrings.cateNews]
         }, 
         {
-            title: "know before you go",
-            data: [["packing list", "code of conduct", "faq"]]
+            title: HomeStrings.titleKnow,
+            data: [HomeStrings.cateKnow]
+        },
+        {
+            title: HomeStrings.titleLeadership,
+            data: [HomeStrings.cateLeadership]
         }
     ]
 
@@ -23,7 +28,7 @@ export default class HomePage extends Component {
                 key={index}
                 data={item}
                 renderItem={({ item }) => 
-                    <ImageBackground source={require('../resources/homepage/hint_papers.png')} style={styles.navButton}>
+                    <ImageBackground source={require('../resources/images/HomePage/hint_papers.png')} style={styles.navButton}>
                         <View style={styles.navButtonTextContainer}>
                             <Text style={styles.navButtonText}>{item}</Text>
                         </View>
@@ -44,15 +49,15 @@ export default class HomePage extends Component {
 
         return (
             <View style={styles.container}>
-                <Image source={require('../resources/homepage/ftc_logo.png')} style={styles.logo} /> 
-                <Image source={require('../resources/homepage/stc.jpg')} style={styles.trailer} /> 
+                <Image source={require('../resources/images/HomePage/ftc_logo.png')} style={styles.logo} /> 
+                <Image source={require('../resources/image/HomePage/stc.jpg')} style={styles.trailer} /> 
                 <SectionList
                     style={styles.navList}
                     renderItem={({ item, index, section }) => this.getItemRender(item, index)}
                     renderSectionHeader={({ section: { title } }) => this.getSectionTitleRender(title)}
                     sections={this.homeData}
                 />
-                <Text style={styles.siteButton}>view ftc website</Text>
+                <Text style={styles.siteButton}>{HomeStrings.ftcWebsite}</Text>
             </View>
         );
     }
