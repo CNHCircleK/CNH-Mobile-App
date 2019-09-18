@@ -11,7 +11,7 @@ export default class OnboardingPage extends Component {
         return (
             <View style={styles.container}>
                 <PlainText style={styles.introText}>i am a</PlainText>
-                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{OnboardingStrings.firstTimer}}</PlainButton>
+                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{OnboardingStrings.firstTimer}</PlainButton>
                 <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{OnboardingStrings.returner}</PlainButton>
                 <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{OnboardingStrings.clubPresident}</PlainButton>
                 <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>{OnboardingStrings.kiwanian}</PlainButton>
