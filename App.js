@@ -1,43 +1,37 @@
 import React from 'react';
 import { View, StyleSheet, StatusBar } from 'react-native';
-import OnboardingPage from './pages/OnboardingPage';
+import OnboardingPage from './OnboardingPage';
 import HomePage from './pages/HomePage';
 import SchedulePage from './pages/SchedulePage';
 import MapPage from './pages/MapPage';
 import InfoPage from './pages/InfoPage';
-import WelcomesPage from './pages/WelcomesPage';
-import PeoplePage from './pages/PeoplePage';
-import DocumentPage from './pages/DocumentPage';
 import ComingSoonPage from './pages/ComingSoonPage';
-import {createStackNavigator, createAppContainer} from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
-  ComingSoon: { screen: ComingSoonPage },
-  Home: { screen: HomePage },
-  Onboarding: { screen: OnboardingPage },
-  Schedule: { screen: SchedulePage },
-  Map: { screen: MapPage },
-  Info: { screen: InfoPage },
-  Welcomes: { screen: WelcomesPage },
-  People: { screen: PeoplePage },
-  Documents: { screen: DocumentPage }
+    Home: { screen: HomePage },
+    Onboarding: { screen: OnboardingPage },
+    Schedule: { screen: SchedulePage },
+    Map: { screen: MapPage },
+    Info: { screen: InfoPage },
+    ComingSoon: { screen: ComingSoonPage },
 }, {
-  headerMode: "none"
+    headerMode: 'none'
 });
 
 const AppContainer = createAppContainer(MainNavigator);
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <StatusBar hidden />
-      <AppContainer />
-    </View>
-  );
+    return (
+        <View style={styles.container}>
+            <StatusBar hidden />
+            <AppContainer />
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
+    container: {
+        flex: 1
+    }
 });

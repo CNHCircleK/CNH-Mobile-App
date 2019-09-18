@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SectionList, ImageBackground, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 export default class MapPage extends Component {
     render() {

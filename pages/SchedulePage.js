@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, SectionList, ImageBackground, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, SectionList, StyleSheet } from 'react-native';
 
 export default class SchedulePage extends Component {
     scheduleData = [
@@ -74,40 +74,40 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginTop: 20,
-        borderColor: "#000000",
+        borderColor: '#000000',
         borderTopWidth: 2,
         borderBottomWidth: 2
     },
     headerText: {
         fontSize: 32,
-        fontWeight: "bold"
+        fontWeight: 'bold'
     },
     eventRow: {
-        flexDirection: "row",
+        flexDirection: 'row',
         padding: 5,
         paddingLeft: 10,
         marginLeft: 10,
         marginRight: 10,
         marginBottom: 5,
-        backgroundColor: "#e7e7e7",
+        backgroundColor: 'e7e7e7',
         borderRadius: 10
     },
     eventTime: {
         flex: 1,
         fontSize: 10,
-        justifyContent: "center"
+        justifyContent: 'center'
     },
     eventTimeText: {
         fontSize: 10,
-        color: "#4c4c4c"
+        color: '#4c4c4c'
     },
     eventNameLocation: {
         flex: 2,
-        justifyContent: "center"
+        justifyContent: 'center'
     },
     eventNameText: {
         fontSize: 12,
-        fontWeight: "bold"
+        fontWeight: 'bold'
     },
     eventLocationText: {
         fontSize: 10
@@ -116,6 +116,6 @@ const styles = StyleSheet.create({
         margin: 5,
         marginLeft: 10,
         marginTop: 10,
-        fontWeight: "bold"
+        fontWeight: 'bold'
     }
 });

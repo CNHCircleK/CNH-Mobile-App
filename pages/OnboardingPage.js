@@ -10,10 +10,10 @@ export default class OnboardingPage extends Component {
         return (
             <View style={styles.container}>
                 <PlainText style={styles.introText}>i am a</PlainText>
-                <PlainButton style={styles.memberButton} onPress={() => navigate("Home")}>first timer</PlainButton>
-                <PlainButton style={styles.memberButton} onPress={() => navigate("Home")}>returner</PlainButton>
-                <PlainButton style={styles.memberButton} onPress={() => navigate("Home")}>club president</PlainButton>
-                <PlainButton style={styles.memberButton} onPress={() => navigate("Home")}>kiwanian</PlainButton>
+                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>first timer</PlainButton>
+                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>returner</PlainButton>
+                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>club president</PlainButton>
+                <PlainButton style={styles.memberButton} onPress={() => navigate('Home')}>kiwanian</PlainButton>
             </View>
         );
     }
@@ -22,8 +22,8 @@ export default class OnboardingPage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center"
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     introText: {
         marginBottom: 5
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         paddingLeft: 0,
         height: 50,
         width: 150,
-        alignItems: "center",
-        justifyContent: "center"
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });

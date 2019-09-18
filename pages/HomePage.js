@@ -22,8 +22,8 @@ export default class HomePage extends Component {
                 showsHorizontalScrollIndicator={false}
                 key={index}
                 data={item}
-                renderItem={({item}) => 
-                    <ImageBackground source={require("../resources/homepage/hint_papers.png")} style={styles.navButton}>
+                renderItem={({ item }) => 
+                    <ImageBackground source={require('../resources/homepage/hint_papers.png')} style={styles.navButton}>
                         <View style={styles.navButtonTextContainer}>
                             <Text style={styles.navButtonText}>{item}</Text>
                         </View>
@@ -44,12 +44,12 @@ export default class HomePage extends Component {
 
         return (
             <View style={styles.container}>
-                <Image source={require("../resources/homepage/ftc_logo.png")} style={styles.logo} /> 
-                <Image source={require("../resources/homepage/stc.jpg")} style={styles.trailer} /> 
+                <Image source={require('../resources/homepage/ftc_logo.png')} style={styles.logo} /> 
+                <Image source={require('../resources/homepage/stc.jpg')} style={styles.trailer} /> 
                 <SectionList
                     style={styles.navList}
                     renderItem={({ item, index, section }) => this.getItemRender(item, index)}
-                    renderSectionHeader={({ section: {title} }) => this.getSectionTitleRender(title)}
+                    renderSectionHeader={({ section: { title } }) => this.getSectionTitleRender(title)}
                     sections={this.homeData}
                 />
                 <Text style={styles.siteButton}>view ftc website</Text>
@@ -61,11 +61,11 @@ export default class HomePage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center",
-        backgroundColor: "#14314D"
+        alignItems: 'center',
+        backgroundColor: '#14314D'
     },
     logo: {
-        position: "absolute",
+        position: 'absolute',
         width: 150,
         height: 150,
         top: 30,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     trailer: {
         marginTop: 150,
         height: 150,
-        width: "100%"
+        width: '100%'
     },
     navList: {
         paddingTop: 30,
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     },
     navTitle: {
         marginLeft: 25,
-        color: "#FFFFFF"
+        color: '#ffffff'
     },
     navButton: {
         marginLeft: 10,
@@ -94,16 +94,16 @@ const styles = StyleSheet.create({
         height: 150
     },
     navButtonTextContainer: {
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: 'center',
+        alignItems: 'center',
         flex: 1,
     },
     navButtonText: {
         fontSize: 13,
-        color: "#FFFFFF",
+        color: '#ffffff',
     },
     siteButton: {
         marginBottom: 100,
-        color: "#FFFFFF"
+        color: '#ffffff'
     }
 }); 

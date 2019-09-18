@@ -3,11 +3,11 @@ import { View, StyleSheet, ImageBackground, Text } from 'react-native';
 
 export default class ComingSoonPage extends Component {
     render() {
-        const {navigate} = this.props.navigation;
+        const { navigate } = this.props.navigation;
 
         return (
             <View style={styles.container}>
-                <ImageBackground source={require("../resources/comingsoonpage/sign.png")} style={styles.sign}>
+                <ImageBackground source={require('../resources/comingsoonpage/sign.png')} style={styles.sign}>
                     <Text style={styles.comingSoonText}>Coming Soon</Text>
                 </ImageBackground> 
             </View>
@@ -18,12 +18,12 @@ export default class ComingSoonPage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#14314d"
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#14314d'
     },
     sign: {
-        position: "relative",
+        position: 'relative',
         left: 50,
         width: 300,
         height: 500
@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
         marginTop: 80,
         marginLeft: 15,
         fontSize: 24,
-        fontWeight: "bold",
-        color: "#14314d",
+        fontWeight: 'bold',
+        color: '#14314d',
         transform: [{ rotate: '345deg' }]
     }
 });
