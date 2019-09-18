@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList } from 'react-native';
 import PlainText from '../components/PlainText';
-import { HomeStrings } from '../resources/strings';
+import Res from '../resources/res'
 
 export default class HomePage extends Component {
     homeData = [
         {
-            title: HomeStrings.titleNews,
-            data: [HomeStrings.cateNews]
-        }, 
-        {
-            title: HomeStrings.titleKnow,
-            data: [HomeStrings.cateKnow]
+            title: Res.strings.home.titleNews,
+            data: [Res.strings.home.cateNews]
         },
         {
-            title: HomeStrings.titleLeadership,
-            data: [HomeStrings.cateLeadership]
+            title: Res.strings.home.titleKnow,
+            data: [Res.strings.home.cateKnow]
+        },
+        {
+            title: Res.strings.home.titleLeadership,
+            data: [Res.strings.home.cateLeadership]
         }
     ]
 
     getItemRender(item, index) {
         return (
-            <FlatList 
+            <FlatList
                 style={styles.navRow}
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 key={index}
                 data={item}
-                renderItem={({ item }) => 
+                renderItem={({ item }) =>
                     <ImageBackground source={require('../resources/images/HomePage/hint_papers.png')} style={styles.navButton}>
                         <View style={styles.navButtonTextContainer}>
                             <Text style={styles.navButtonText}>{item}</Text>
@@ -49,15 +49,15 @@ export default class HomePage extends Component {
 
         return (
             <View style={styles.container}>
-                <Image source={require('../resources/images/HomePage/FTC2019_LOGO.png')} style={styles.logo} /> 
-                <Image source={require('../resources/images/HomePage/stc.jpg')} style={styles.trailer} /> 
+                <Image source={require('../resources/images/HomePage/FTC2019_LOGO.png')} style={styles.logo} />
+                <Image source={require('../resources/images/HomePage/stc.jpg')} style={styles.trailer} />
                 <SectionList
                     style={styles.navList}
                     renderItem={({ item, index, section }) => this.getItemRender(item, index)}
                     renderSectionHeader={({ section: { title } }) => this.getSectionTitleRender(title)}
                     sections={this.homeData}
                 />
-                <Text style={styles.siteButton}>{HomeStrings.ftcWebsite}</Text>
+                <Text style={styles.siteButton}>{Res.strings.home.ftcWebsite}</Text>
             </View>
         );
     }
@@ -111,4 +111,4 @@ const styles = StyleSheet.create({
         marginBottom: 100,
         color: '#ffffff'
     }
-}); 
+});
