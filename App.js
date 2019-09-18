@@ -12,7 +12,8 @@ const TabNavigatorPages = createBottomTabNavigator({
     Schedule: { screen: SchedulePage },
     Map: { screen: MapPage },
     Info: { screen: InfoPage },
-});
+})
+
 
 const StackNavigator = createStackNavigator({
     Onboarding: { screen: OnboardingPage },
