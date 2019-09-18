@@ -6,29 +6,25 @@ import HomePage from './pages/HomePage';
 import SchedulePage from './pages/SchedulePage';
 import MapPage from './pages/MapPage';
 import InfoPage from './pages/InfoPage';
-import WelcomesPage from './pages/WelcomesPage';
-import PeoplePage from './pages/PeoplePage';
-import DocumentPage from './pages/DocumentPage';
-import ComingSoonPage from './pages/ComingSoonPage';
-import TemplateInfoPage from './pages/TemplateInfoPage';
-import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-const MainNavigator = createStackNavigator({
-  TemplateInfo: {screen: TemplateInfoPage},
-  Home: { screen: HomePage },
-  ComingSoon: { screen: ComingSoonPage },
-  Onboarding: { screen: OnboardingPage },
-  Schedule: { screen: SchedulePage },
-  Map: { screen: MapPage },
-  Info: { screen: InfoPage },
-  Welcomes: { screen: WelcomesPage },
-  People: { screen: PeoplePage },
-  Documents: { screen: DocumentPage }
+import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
+
+const TabNavigatorPages = createBottomTabNavigator({
+    Home: { screen: HomePage },
+    Schedule: { screen: SchedulePage },
+    Map: { screen: MapPage },
+    Info: { screen: InfoPage },
+})
+
+
+const StackNavigator = createStackNavigator({
+    Onboarding: { screen: OnboardingPage },
+    TabNavigator: { screen: TabNavigatorPages }
 }, {
-  headerMode: "none"
-});
+    headerMode: 'none'
+})
 
-const AppContainer = createAppContainer(MainNavigator);
+const AppContainer = createAppContainer(StackNavigator);
 
 export default class App extends PureComponent {
   state = {};
