@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, Image, StyleSheet } from 'react-native';
 import { Font, AppLoading } from 'expo';
-import InfoParagraph from '../components/InfoParagraph'
-import InfoHeader from '../components/InfoHeader'
-import InfoTitle from '../components/InfoTitle'
-import Res from '../resources/res'
+import InfoParagraph from './InfoParagraph';
+import InfoHeader from './InfoHeader';
+import InfoTitle from './InfoTitle';
+import Res from '@resources';
 
 export default class TemplateInfoPage extends Component {
   constructor(props){
@@ -18,7 +18,7 @@ export default class TemplateInfoPage extends Component {
   }
     render() {
         return (
-            <ScrollView>
+            <ScrollView style={styles.height}>
                 <View style={styles.container}>
                 {this.state.title !== undefined &&
                   <InfoTitle>
@@ -47,10 +47,14 @@ export default class TemplateInfoPage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#14314D",
         padding: 20,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    // Move background color a level up in the hierarchy so it takes up the full screen
+    height: {
+      flex: 1,
+      backgroundColor: "#14314D",
     }
 
 });

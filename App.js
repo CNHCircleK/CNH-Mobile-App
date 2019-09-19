@@ -1,17 +1,10 @@
-import React, { PureComponent } from 'react';
-import { Font, AppLoading } from 'expo';
+import React, { Component, PureComponent } from 'react';
+import { AppLoading } from 'expo';
+import * as Font from 'expo-font';
 import { View, StyleSheet, StatusBar } from 'react-native';
-import OnboardingPage from './pages/OnboardingPage';
-import HomePage from './pages/HomePage';
-import SchedulePage from './pages/SchedulePage';
-import MapPage from './pages/MapPage';
-import InfoPage from './pages/InfoPage';
-import WorkshopsPage from './pages/WorkshopsPage';
-import TeamCaptainPage from './pages/TeamCaptainPage';
-import DjPage from './pages/DjPage';
-import CampfireSkitsPage from './pages/CampfireSkitsPage';
-import SAAPage from './pages/SAAPage';
-import MediaPage from './pages/MediaPage';
+import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePage,
+CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage,
+FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage } from './pages';
 
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
@@ -32,13 +25,20 @@ const StackNavigator = createStackNavigator({
     CampfireSkits: { screen: CampfireSkitsPage },
     Saa: { screen: SAAPage },
     Media: { screen: MediaPage },
+    FAQRegistration: { screen: FAQRegistrationPage },
+    FAQTime: { screen: FAQTimePage },
+    FAQActivities: { screen: FAQActivitiesPage },
+    FAQFinance: { screen: FAQFinancePage },
+    FAQSAA: { screen: FAQSAAPage },
+    FAQNavigation: { screen: FAQNavigationPage },
+    FAQMisc: { screen: FAQMiscPage }
 }, {
     headerMode: 'none'
 })
 
 const AppContainer = createAppContainer(StackNavigator);
 
-export default class App extends PureComponent {
+export default class App extends Component {
   state = {};
 
   async componentDidMount(){

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList, TouchableOpacity } from 'react-native';
-import PlainText from '../components/PlainText';
-import Res from '../resources/res'
+import PlainText from '@components/PlainText';
+import Res from '@resources';
 
 export default class HomePage extends Component {
     homeData = [
@@ -11,7 +11,8 @@ export default class HomePage extends Component {
         },
         {
             title: Res.strings.home.titleKnow,
-            data: [Res.strings.home.cateKnow],
+            data: [Object.keys(Res.strings.home.cateKnow)],
+            screens: Res.strings.home.cateKnow
         },
         {
             title: Res.strings.home.titleLeadership,

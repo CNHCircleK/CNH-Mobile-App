@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import TemplateInfoPage from './TemplateInfoPage';
-import Res from '../resources/res'
+import TemplateInfoPage from '@components/TemplateInfoPage';
+import Res from '@resources';
 
 export default class TeamCaptainPage extends Component {
     render() {
