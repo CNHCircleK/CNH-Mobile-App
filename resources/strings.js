@@ -93,6 +93,23 @@ at FTC by creating unforgettable memories and bonds with your fellow club member
 and making all of CNH smile while you're at it! So what are you waiting for? \
 Grab your friends and start planning for your Campfire performance at FTC 2019.
 `},
+saa: {
+  title: "Sergeant-At-Arms",
+  image: require("./images/LeadershipOpportunities/saa.png"),
+  header: "Due: 10/11",
+  body: `Hi! hi! My name is Alicia and I highly encourage you to apply to be an \
+Sergeant-at-Arms (SAA) because as an SAA you can directly see how your leadership \
+skills impact attendees' experience. Also you get to meet cool and fun people all \
+over the district!
+
+Every year, members are given the opportunity to serve the district and lead \
+others as a Sergeant-At-Arms at Fall Training Conference. As highly motivated \
+and willing volunteers, SAAs ensure that FTC is a safe and enjoyable experience \
+for all attendees by promoting and enforcing the Code of Conduct and the \
+campsite rules and regulations at all times. Each SAA is responsible for duties \
+such as monitoring the campground, reporting inappropriate activities or \
+suspicious behavior, and assisting people in any way they can to help make sure \
+that everyone is having an extraordinary experience at FTC. `},
 }
 
 
