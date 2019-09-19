@@ -110,6 +110,22 @@ campsite rules and regulations at all times. Each SAA is responsible for duties 
 such as monitoring the campground, reporting inappropriate activities or \
 suspicious behavior, and assisting people in any way they can to help make sure \
 that everyone is having an extraordinary experience at FTC. `},
+media: {
+  title: "Media Team",
+  image: require("./images/LeadershipOpportunities/media.png"),
+  header: "Due: 10/20",
+  body: `Hello it's me Ralph, the FTC 2019 Media Chair. Do you have a growing \
+passion for videography/photography? Well I believe joining the media team \
+will definitely help you out with that.  Just wanna join in with your camera \
+and learn? Well come right in, this media team will be a memorable experience \
+for you.
+
+The Media Crew Committee will be providing media coverage of the entire event \
+from Friday night to Saturday night. All photos and footage will be compiled \
+into a video to be showcased during the closing session. At this large event \
+with more than 700 attendees and collecting a full day's worth of coverage, \
+Media Members will assist in providing footage or photos to capture the moment.
+ `},
 }
 
 
