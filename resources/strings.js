@@ -82,7 +82,17 @@ What we are looking for this year is a DJ who would love to provide a great atmo
 other members attending Fall Training Conference, appeal to an array of musical tastes\
 throughout the night, and to also have a good time themselves! A DJ who has their own\
 equipment would be great as well and any help will be provided.
-`}
+`},
+campfireSkits: {
+  title: "Campfire Skits",
+  image: require("./images/LeadershipOpportunities/talent.png"),
+  header: "Due: 10/13",
+  body: `Hello! My name is Douglas and I encourage you to apply for the Campfire \
+performance as a skit or talent act! This is a great way to enhance your experience \
+at FTC by creating unforgettable memories and bonds with your fellow club members, \
+and making all of CNH smile while you're at it! So what are you waiting for? \
+Grab your friends and start planning for your Campfire performance at FTC 2019.
+`},
 }
 
 
