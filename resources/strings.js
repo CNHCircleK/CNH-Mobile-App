@@ -126,6 +126,17 @@ into a video to be showcased during the closing session. At this large event \
 with more than 700 attendees and collecting a full day's worth of coverage, \
 Media Members will assist in providing footage or photos to capture the moment.
  `},
+ workshops: {
+   title: "Workshop Host",
+   image: require("./images/LeadershipOpportunities/workshops.png"),
+   header: "Due: 9/22",
+   body: `Hey! We are Zahin and Kathleen. Want to spread knowledge and advice \
+about something you're passionate about!? If yes, we highly encourage you to \
+apply to be a workshop host as it can greatly elevate your FTC experience! \
+Teaching a workshop can help you learn how to create effective/entertaining \
+presentations, improve your public speaking skills, educate and inspire your \
+fellow members and much more! Take advantage of this valuable leadership \
+opportunity today! You won’t regret it!`},
 }
 
 
