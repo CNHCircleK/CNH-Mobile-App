@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList } from 'react-native';
+import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList, TouchableOpacity } from 'react-native';
 import PlainText from '../components/PlainText';
 import Res from '../resources/res'
 
@@ -7,19 +7,21 @@ export default class HomePage extends Component {
     homeData = [
         {
             title: Res.strings.home.titleNews,
-            data: [Res.strings.home.cateNews]
+            data: [Res.strings.home.cateNews],
         },
         {
             title: Res.strings.home.titleKnow,
-            data: [Res.strings.home.cateKnow]
+            data: [Res.strings.home.cateKnow],
         },
         {
             title: Res.strings.home.titleLeadership,
-            data: [Res.strings.home.cateLeadership]
+            data: [Object.keys(Res.strings.home.cateLeadership)],
+            screens: Res.strings.home.cateLeadership
         }
     ]
 
-    getItemRender(item, index) {
+    getItemRender(item, index, section) {
+        const {navigate} = this.props.navigation;
         return (
             <FlatList
                 style={styles.navRow}
@@ -28,11 +30,13 @@ export default class HomePage extends Component {
                 key={index}
                 data={item}
                 renderItem={({ item }) =>
+                <TouchableOpacity onPress={() => section.screens !== undefined && navigate(section.screens[item])}>
                     <ImageBackground source={require('../resources/images/HomePage/hint_papers.png')} style={styles.navButton}>
                         <View style={styles.navButtonTextContainer}>
                             <Text style={styles.navButtonText}>{item}</Text>
                         </View>
                     </ImageBackground>
+                </TouchableOpacity>
                 }
             />
         );
@@ -53,7 +57,7 @@ export default class HomePage extends Component {
                 <Image source={require('../resources/images/HomePage/stc.jpg')} style={styles.trailer} />
                 <SectionList
                     style={styles.navList}
-                    renderItem={({ item, index, section }) => this.getItemRender(item, index)}
+                    renderItem={({ item, index, section }) => this.getItemRender(item, index, section)}
                     renderSectionHeader={({ section: { title } }) => this.getSectionTitleRender(title)}
                     sections={this.homeData}
                 />

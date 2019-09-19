@@ -6,6 +6,12 @@ import HomePage from './pages/HomePage';
 import SchedulePage from './pages/SchedulePage';
 import MapPage from './pages/MapPage';
 import InfoPage from './pages/InfoPage';
+import WorkshopsPage from './pages/WorkshopsPage';
+import TeamCaptainPage from './pages/TeamCaptainPage';
+import DjPage from './pages/DjPage';
+import CampfireSkitsPage from './pages/CampfireSkitsPage';
+import SAAPage from './pages/SAAPage';
+import MediaPage from './pages/MediaPage';
 
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
@@ -19,7 +25,13 @@ const TabNavigatorPages = createBottomTabNavigator({
 
 const StackNavigator = createStackNavigator({
     Onboarding: { screen: OnboardingPage },
-    TabNavigator: { screen: TabNavigatorPages }
+    TabNavigator: { screen: TabNavigatorPages },
+    Workshops: { screen: WorkshopsPage },
+    TeamCaptain: { screen: TeamCaptainPage },
+    Dj: { screen: DjPage },
+    CampfireSkits: { screen: CampfireSkitsPage },
+    Saa: { screen: SAAPage },
+    Media: { screen: MediaPage },
 }, {
     headerMode: 'none'
 })

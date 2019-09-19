@@ -5,7 +5,14 @@ const strings = {
     titleLeadership: "Leadership Opportunites",
     cateNews: ["Teaser Trailer", "Committee", "Office Hours"],
     cateKnow: ["FAQ", "Packing List", "Code of Conduct"],
-    cateLeadership: ["Team Captain", "DJ", "SAA", "Campfire Skits", "Media Team"],
+    cateLeadership: {
+      "Workshops": "Workshops",
+      "Team Captain": "TeamCaptain",
+      "DJ": "Dj",
+      "SAA": "Saa",
+      "Campfire Skits": "CampfireSkits",
+      "Media Team": "Media"
+    },
     ftcWebsite: "view ftc website"
   },
   comingSoon:{
