@@ -3,14 +3,14 @@ import { View, StyleSheet } from 'react-native';
 import TemplateInfoPage from './TemplateInfoPage';
 import Res from '../resources/res'
 
-export default class TeamCaptainPage extends Component {
+export default class DjPage extends Component {
     render() {
         return (
           <TemplateInfoPage
-          title={Res.strings.teamCaptain.title}
-          image={Res.strings.teamCaptain.image}
-          header={Res.strings.teamCaptain.header}
-          body = {Res.strings.teamCaptain.body}/>
+          title={Res.strings.dj.title}
+          image={Res.strings.dj.image}
+          header={Res.strings.dj.header}
+          body = {Res.strings.dj.body}/>
         );
     }
 }

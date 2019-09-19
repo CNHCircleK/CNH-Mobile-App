@@ -67,7 +67,23 @@ members.
 ● Leading roughly 10 to 20 members throughout games and activities.
 ● Creating an open and friendly space for team members.
 ● Having fun! c:`
-  }
+},
+dj: {
+  title: "DJ",
+  image: require("./images/LeadershipOpportunities/dj.png"),
+  header: "Due: 10/06",
+  body: `Hey hey hey! My name is Madeline and I am here to encourage all you\
+aspiring DJs to apply to be a part of one of the most memorable nights during FTC. \
+I want to be able to create an entertaining atmosphere that all members can enjoy and \
+I need your help to achieve that goal! So be sure to check out that application and \
+apply, you won't regret it!
+
+What we are looking for this year is a DJ who would love to provide a great atmosphere for the\
+other members attending Fall Training Conference, appeal to an array of musical tastes\
+throughout the night, and to also have a good time themselves! A DJ who has their own\
+equipment would be great as well and any help will be provided.
+`}
 }
+
 
 export default strings
