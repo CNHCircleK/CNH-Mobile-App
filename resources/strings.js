@@ -72,7 +72,7 @@ dj: {
   title: "DJ",
   image: require("./images/LeadershipOpportunities/dj.png"),
   header: "Due: 10/06",
-  body: `Hey hey hey! My name is Madeline and I am here to encourage all you\
+  body: `Hey hey hey! My name is Madeline and I am here to encourage all you \
 aspiring DJs to apply to be a part of one of the most memorable nights during FTC. \
 I want to be able to create an entertaining atmosphere that all members can enjoy and \
 I need your help to achieve that goal! So be sure to check out that application and \
