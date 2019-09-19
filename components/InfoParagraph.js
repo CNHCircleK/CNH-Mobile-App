@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   paragraph: {
     fontFamily: 'Cabin-Regular',
     color: "#fefefe",
-    fontSize: 18
+    fontSize: 18,
+    textAlign: 'justify'
   }
 });
