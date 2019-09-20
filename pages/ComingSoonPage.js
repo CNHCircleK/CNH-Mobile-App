@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#14314d'
+        backgroundColor: '#1a1d32'
     },
     sign: {
         position: 'relative',

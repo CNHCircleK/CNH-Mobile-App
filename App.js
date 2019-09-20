@@ -43,7 +43,7 @@ const TabNavigatorPages = createBottomTabNavigator({
     activeTintColor: '#ffffff',
     inactiveTintColor: '#9b9c98',
     style: {
-      backgroundColor: '#0d86a8'
+      backgroundColor: '#055c75'
     },
     labelStyle: {
       marginBottom: 6,
