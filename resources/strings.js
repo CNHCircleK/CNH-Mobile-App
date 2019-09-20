@@ -21,7 +21,7 @@ const strings = {
       "Campfire Skits": "CampfireSkits",
       "Media Team": "Media"
     },
-    ftcWebsite: "view ftc website"
+    ftcWebsite: "Visit FTC Website"
   },
   comingSoon:{
     comingSoon: "Coming Soon"

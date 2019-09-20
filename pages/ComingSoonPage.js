@@ -9,7 +9,7 @@ export default class ComingSoonPage extends Component {
         return (
             <View style={styles.container}>
                 <ImageBackground source={require('../resources/images/ComingSoonPage/sign.png')} style={styles.sign}>
-                    <Text style={styles.comingSoonText}>{Res.strings.comingSoon}</Text>
+                    <Text style={styles.comingSoonText}>{Res.strings.comingSoon.comingSoon}</Text>
                 </ImageBackground> 
             </View>
         );
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
         marginLeft: 35,
         fontSize: 24,
         fontWeight: 'bold',
+        fontFamily: 'Musket-Regular',
         color: '#14314d',
         transform: [{ rotate: '345deg' }]
     }

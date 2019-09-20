@@ -7,14 +7,53 @@ CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage,
 FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage } from './pages';
 
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const TabNavigatorPages = createBottomTabNavigator({
-    Home: { screen: HomePage },
-    Schedule: { screen: SchedulePage },
-    Map: { screen: MapPage },
-    Info: { screen: InfoPage },
+    Home: { screen: HomePage,
+      navigationOptions: {
+        tabBarLabel: 'Home',
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name='md-home' size={20} color={tintColor} />
+        )
+      } },
+    Schedule: { screen: SchedulePage,
+      navigationOptions: {
+        tabBarLabel: 'Schedule',
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name='md-list-box' size={20} color={tintColor} />
+        )
+      } },
+    Map: { screen: ComingSoonPage,
+      navigationOptions: {
+        tabBarLabel: 'Map',
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name='md-map' size={20} color={tintColor} />
+        )
+      } },
+    Info: { screen: ComingSoonPage,
+      navigationOptions: {
+        tabBarLabel: 'Info',
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name='md-information-circle' size={20} color={tintColor} />
+        )
+      } }
+}, {
+  tabBarOptions: {
+    activeTintColor: '#ffffff',
+    inactiveTintColor: '#9b9c98',
+    style: {
+      backgroundColor: '#0d86a8'
+    },
+    labelStyle: {
+      marginBottom: 6,
+      fontFamily: 'Musket-Regular'
+    },
+    iconStyle: {
+      marginTop: 6
+    }
+  }
 })
-
 
 const StackNavigator = createStackNavigator({
     Onboarding: { screen: OnboardingPage },
