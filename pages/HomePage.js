@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList, TouchableOpacity, Linking } from 'react-native';
 import PlainText from '@components/PlainText';
 import Res from '@resources';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class HomePage extends Component {
     homeData = [
@@ -54,7 +55,7 @@ export default class HomePage extends Component {
 
         return (
             <View style={styles.container}>
-                <Image source={require('../resources/images/HomePage/FTC2019_LOGO.png')} style={styles.logo} />
+                <Image source={require('../resources/images/HomePage/ftc_logo.png')} style={styles.logo} />
                 <Image source={require('../resources/images/HomePage/stc.jpg')} style={styles.trailer} />
                 <SectionList
                     style={styles.navList}
@@ -62,7 +63,10 @@ export default class HomePage extends Component {
                     renderSectionHeader={({ section: { title } }) => this.getSectionTitleRender(title)}
                     sections={this.homeData}
                 />
-                <Text style={styles.siteButton}>{Res.strings.home.ftcWebsite}</Text>
+                <TouchableOpacity style={styles.siteButton} onPress={() => Linking.openURL('https://ftc.cnhcirclek.org/')}>
+                    <Text style={styles.siteButtonText}>{Res.strings.home.ftcWebsite}</Text>
+                    <Icon name='md-open' size={18} color={'#ffffff'} />
+                </TouchableOpacity>
             </View>
         );
     }
@@ -76,30 +80,32 @@ const styles = StyleSheet.create({
     },
     logo: {
         position: 'absolute',
-        width: 150,
-        height: 150,
-        top: 30,
+        width: 120,
+        height: 120,
+        top: 10,
         zIndex: 10,
         marginTop: 10
     },
     trailer: {
-        marginTop: 150,
+        marginTop: 90,
         height: 150,
         width: '100%'
     },
     navList: {
-        paddingTop: 30,
+        paddingTop: 20,
+        marginBottom: 20
     },
     navRow: {
-        marginTop: 25,
-        marginBottom: 30
+        marginTop: -5,
+        marginBottom: 10
     },
     navTitle: {
         marginLeft: 25,
+        fontFamily: 'Musket-Regular',
         color: '#ffffff'
     },
     navButton: {
-        marginLeft: 10,
+        marginLeft: 5,
         width: 150,
         height: 150
     },
@@ -110,10 +116,16 @@ const styles = StyleSheet.create({
     },
     navButtonText: {
         fontSize: 13,
+        fontFamily: 'Cabin-Regular',
         color: '#ffffff',
     },
     siteButton: {
-        marginBottom: 100,
-        color: '#ffffff'
+        marginBottom: 10,
+        flexDirection: 'row'
+    },
+    siteButtonText: {
+        fontFamily: 'Musket-Regular',
+        color: '#ffffff',
+        marginRight: 8
     }
 });
