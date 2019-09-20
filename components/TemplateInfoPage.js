@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     // Move background color a level up in the hierarchy so it takes up the full screen
     height: {
       flex: 1,
-      backgroundColor: "#14314D",
+      backgroundColor: "#1a1d32",
     }
 
 });
