@@ -4,7 +4,7 @@ import * as Font from 'expo-font';
 import { View, StyleSheet, StatusBar } from 'react-native';
 import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePage,
 CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage,
-FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage } from './pages';
+FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage, ContactsPage } from './pages';
 
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -70,7 +70,8 @@ const StackNavigator = createStackNavigator({
     FAQFinance: { screen: FAQFinancePage },
     FAQSAA: { screen: FAQSAAPage },
     FAQNavigation: { screen: FAQNavigationPage },
-    FAQMisc: { screen: FAQMiscPage }
+    FAQMisc: { screen: FAQMiscPage },
+    Contacts: { screen: ContactsPage }
 }, {
     headerMode: 'none'
 })

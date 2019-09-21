@@ -11,7 +11,7 @@ const strings = {
       "Finance": "FAQFinance",
       "SAA": "FAQSAA",
       "Navigation": "FAQNavigation",
-      "Misc.": "FAQMisc"
+      "Misc.": "FAQMisc",
     },
     cateLeadership: {
       "Workshops": "Workshops",
