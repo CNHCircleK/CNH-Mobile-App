@@ -8,7 +8,8 @@ export default class HomePage extends Component {
     homeData = [
         {
             title: Res.strings.home.titleNews,
-            data: [Res.strings.home.cateNews],
+            data: [Object.keys(Res.strings.home.cateNews)],
+            screens: Res.strings.home.cateNews
         },
         {
             title: Res.strings.home.titleKnow,

@@ -7,10 +7,9 @@ export default class ContactsPage extends Component {
     render() {
         return (
           <TemplateInfoPage
-          title={Res.strings.dj.title}
-          image={Res.strings.dj.image}
-          header={Res.strings.dj.header}
-          body = {Res.strings.dj.body}/>
+          title={Res.strings.contact.title}
+          image={Res.strings.contact.image}
+          body = {Res.strings.contact.body}/>
         );
     }
 }

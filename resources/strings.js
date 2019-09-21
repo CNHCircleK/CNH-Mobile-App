@@ -3,7 +3,11 @@ const strings = {
     titleNews: "News/Updates",
     titleKnow: "FAQ",
     titleLeadership: "Leadership Opportunites",
-    cateNews: ["Teaser Trailer", "Committee", "Office Hours"],
+    cateNews: {
+      "Teaser Trailer": "", 
+      "Committee": "Contacts",
+     "Office Hours": ""
+    },
     cateKnow: {
       "Registration": "FAQRegistration",
       "Time": "FAQTime",
@@ -152,6 +156,11 @@ Teaching a workshop can help you learn how to create effective/entertaining \
 presentations, improve your public speaking skills, educate and inspire your \
 fellow members and much more! Take advantage of this valuable leadership \
 opportunity today! You won’t regret it!`
+},
+contact: {
+  title: "Contact Us!",
+  image: require("./images/LeadershipOpportunities/workshops.png"),
+  body: `Will input contact info here`
 },
 
   faq: {
