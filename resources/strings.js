@@ -160,7 +160,80 @@ opportunity today! You won’t regret it!`
 contact: {
   title: "Contact Us!",
   image: require("./images/LeadershipOpportunities/workshops.png"),
-  body: `Will input contact info here`
+  body: `
+  Olivia Chang
+  FTC Chair 
+  
+  
+  Jonathan Chu
+  Executive Assistant
+  
+  
+  Aaron Lee
+  Executive Assistant
+  
+  
+  Douglas Shimizu
+  Campfire Skits
+  
+
+  Maddie Villanueua
+  Entertainment/Dining
+
+
+  Vy Bui
+  Decorations
+
+
+  Alison Ono
+  Decorations
+
+
+  Minh Ton
+  Technology
+
+
+  Ralph Gamboa
+  Media
+
+
+  Nhi Truong 
+  Graphics
+
+
+  Tate Yeung
+  Programs
+
+
+  Jenny Koug
+  Registration
+
+
+  Alicia Sieu
+  SAA
+
+
+  Jason Liu
+  Team Activities
+
+
+  Thuy Tran
+  Team Activities
+
+
+  Zahin Rahman
+  Workshops
+
+
+  Kathleen Panganiban
+  Workshops
+
+
+  Bill & Virginia Carpenter
+  FTC Advisor
+  
+  
+  `
 },
 
   faq: {
