@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import PlainButton from '../components/PlainButton';
 import PlainText from '../components/PlainText';
-import Res from '../resources/res'
+import Res from '@resources';
 
 export default class OnboardingPage extends Component {
     render() {

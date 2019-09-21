@@ -10,7 +10,8 @@ export default class TeamCaptainPage extends Component {
           title={Res.strings.teamCaptain.title}
           image={Res.strings.teamCaptain.image}
           header={Res.strings.teamCaptain.header}
-          body = {Res.strings.teamCaptain.body}/>
+          body = {Res.strings.teamCaptain.body}
+          navigation={this.props.navigation}/>
         );
     }
 }

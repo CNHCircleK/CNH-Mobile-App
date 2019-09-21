@@ -16,5 +16,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Musket-Regular',
     color: "#fefefe",
     fontSize: 32,
+      textShadowColor: 'black',
+      textShadowOffset: {width: 2, height: 3},
+      textShadowRadius: 4
   },
 });

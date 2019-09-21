@@ -10,7 +10,8 @@ export default class DjPage extends Component {
           title={Res.strings.dj.title}
           image={Res.strings.dj.image}
           header={Res.strings.dj.header}
-          body = {Res.strings.dj.body}/>
+          body = {Res.strings.dj.body}
+          navigation={this.props.navigation}/>
         );
     }
 }

@@ -5,6 +5,8 @@ export MapPage from './MapPage';
 export OnboardingPage from './OnboardingPage';
 export SchedulePage from './SchedulePage';
 
+export OfficeHoursPage from './news/OfficeHoursPage';
+
 export CampfireSkitsPage from './leadership/CampfireSkitsPage';
 export DjPage from './leadership/DjPage';
 export MediaPage from './leadership/MediaPage';

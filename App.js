@@ -3,6 +3,7 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { View, StyleSheet, StatusBar } from 'react-native';
 import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePage,
+OfficeHoursPage,
 CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage,
 FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage } from './pages';
 
@@ -17,7 +18,7 @@ const TabNavigatorPages = createBottomTabNavigator({
           <Icon name='md-home' size={20} color={tintColor} />
         )
       } },
-    Schedule: { screen: SchedulePage,
+    Schedule: { screen: ComingSoonPage,
       navigationOptions: {
         tabBarLabel: 'Schedule',
         tabBarIcon: ({ tintColor }) => (
@@ -58,6 +59,7 @@ const TabNavigatorPages = createBottomTabNavigator({
 const StackNavigator = createStackNavigator({
     Onboarding: { screen: OnboardingPage },
     TabNavigator: { screen: TabNavigatorPages },
+    OfficeHours: { screen: OfficeHoursPage },
     Workshops: { screen: WorkshopsPage },
     TeamCaptain: { screen: TeamCaptainPage },
     Dj: { screen: DjPage },

@@ -9,7 +9,8 @@ export default class FAQNavigationPage extends Component {
         return (
           <TemplateInfoPage
           title={Res.strings.faq.navigation.title}
-          body = {Res.strings.faq.navigation.body}/>
+          body = {Res.strings.faq.navigation.body}
+          navigation={this.props.navigation}/>
         );
     }
 }

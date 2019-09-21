@@ -10,7 +10,8 @@ export default class MediaPage extends Component {
           title={Res.strings.media.title}
           image={Res.strings.media.image}
           header={Res.strings.media.header}
-          body = {Res.strings.media.body}/>
+          body = {Res.strings.media.body}
+          navigation={this.props.navigation}/>
         );
     }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList, TouchableOpacity, Linking } from 'react-native';
+import { Video } from 'expo-av';
 import PlainText from '@components/PlainText';
 import Res from '@resources';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -8,7 +9,8 @@ export default class HomePage extends Component {
     homeData = [
         {
             title: Res.strings.home.titleNews,
-            data: [Res.strings.home.cateNews],
+            data: [Object.keys(Res.strings.home.cateNews)],
+            screens: Res.strings.home.cateNews
         },
         {
             title: Res.strings.home.titleKnow,
@@ -32,7 +34,7 @@ export default class HomePage extends Component {
                 key={index}
                 data={item}
                 renderItem={({ item }) =>
-                <TouchableOpacity onPress={() => section.screens !== undefined && navigate(section.screens[item])}>
+                <TouchableOpacity onPress={() => section.screens !== undefined && (section.screens[item].includes("http") ? Linking.openURL(section.screens[item]) : navigate(section.screens[item]))}>
                     <ImageBackground source={require('../resources/images/HomePage/hint_papers.png')} style={styles.navButton}>
                         <View style={styles.navButtonTextContainer}>
                             <Text style={styles.navButtonText}>{item}</Text>
@@ -56,17 +58,27 @@ export default class HomePage extends Component {
         return (
             <View style={styles.container}>
                 <Image source={require('../resources/images/HomePage/ftc_logo.png')} style={styles.logo} />
-                <Image source={require('../resources/images/HomePage/stc.jpg')} style={styles.trailer} />
+                <Video
+                  source={require('../resources/videos/Homepage-Call-to-FTC.mp4')}
+                  rate={1.0}
+                  isMuted={true}
+                  resizeMode="cover"
+                  shouldPlay
+                  isLooping
+                  style={ styles.trailer }
+                />
                 <SectionList
                     style={styles.navList}
                     renderItem={({ item, index, section }) => this.getItemRender(item, index, section)}
                     renderSectionHeader={({ section: { title } }) => this.getSectionTitleRender(title)}
                     sections={this.homeData}
                 />
-                <TouchableOpacity style={styles.siteButton} onPress={() => Linking.openURL('https://ftc.cnhcirclek.org/')}>
-                    <Text style={styles.siteButtonText}>{Res.strings.home.ftcWebsite}</Text>
-                    <Icon name='md-open' size={18} color={'#ffffff'} />
-                </TouchableOpacity>
+                <View style={styles.siteBar}>
+                    <TouchableOpacity style={styles.siteButton} onPress={() => Linking.openURL('https://ftc.cnhcirclek.org/')}>
+                        <Text style={styles.siteButtonText}>{Res.strings.home.ftcWebsite}</Text>
+                        <Icon name='md-open' size={18} color={'black'} />
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     }
@@ -92,8 +104,7 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     navList: {
-        paddingTop: 20,
-        marginBottom: 20
+        paddingTop: 20
     },
     navRow: {
         marginTop: -5,
@@ -102,6 +113,7 @@ const styles = StyleSheet.create({
     navTitle: {
         marginLeft: 25,
         fontFamily: 'Musket-Regular',
+        fontSize: 20,
         color: '#ffffff'
     },
     navButton: {
@@ -119,13 +131,18 @@ const styles = StyleSheet.create({
         fontFamily: 'Cabin-Regular',
         color: '#ffffff',
     },
+    siteBar: {
+        width: "100%",
+        backgroundColor: "#aaaaaa",
+        paddingVertical: 8
+    },
     siteButton: {
-        marginBottom: 10,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignSelf: 'center',
     },
     siteButtonText: {
         fontFamily: 'Musket-Regular',
-        color: '#ffffff',
-        marginRight: 8
+        color: 'black',
+        marginRight: 8,
     }
 });
