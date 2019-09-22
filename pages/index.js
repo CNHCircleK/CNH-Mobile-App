@@ -1,9 +1,11 @@
+
 export ComingSoonPage from './ComingSoonPage';
 export HomePage from './HomePage';
 export InfoPage from './InfoPage';
 export MapPage from './MapPage';
 export OnboardingPage from './OnboardingPage';
 export SchedulePage from './SchedulePage';
+export ContactsPage from './news/ContactsPage';
 
 export OfficeHoursPage from './news/OfficeHoursPage';
 

@@ -15,7 +15,7 @@ const strings = {
       "Finance": "FAQFinance",
       "SAA": "FAQSAA",
       "Navigation": "FAQNavigation",
-      "Misc.": "FAQMisc"
+      "Misc.": "FAQMisc",
     },
     cateLeadership: {
       "Workshops": "Workshops",
@@ -156,6 +156,84 @@ Teaching a workshop can help you learn how to create effective/entertaining \
 presentations, improve your public speaking skills, educate and inspire your \
 fellow members and much more! Take advantage of this valuable leadership \
 opportunity today! You won’t regret it!`
+},
+contact: {
+  title: "Contact Us!",
+  image: require("./images/LeadershipOpportunities/workshops.png"),
+  body: `
+  Olivia Chang
+  FTC Chair 
+  ftc@cnhcirclek.org
+  
+  Jonathan Chu
+  Executive Assistant
+  ftc.execassistant@gmail.com
+  
+  Aaron Lee
+  Executive Assistant
+  ftc.execassistant@gmail.com
+  
+  Douglas Shimizu
+  Campfire Skits
+  ftc.campfireskits@gmail.com
+
+  Maddie Villanueua
+  Entertainment/Dining
+  ftc.entertainments@gmail.com
+
+  Vy Bui
+  Decorations
+  ftc.decorations@gmail.com
+
+  Alison Ono
+  Decorations
+  ftc.decorations@gmail.com
+
+  Minh Ton
+  Technology
+  ftc.aaaaaaa@gmail.com
+
+  Ralph Gamboa
+  Media
+  ftc.mediachair@gmail.com
+
+  Nhi Truong 
+  Graphics
+  ftc.graphics@gmail.com
+
+  Tate Yeung
+  Programs
+  ftc.programs@gmail.com
+
+  Jenny Koug
+  Registration
+  ftc.register@gmail.com
+
+  Alicia Sieu
+  SAA
+  ftc.saachair@gmail.com
+
+  Jason Liu
+  Team Activities
+  ftc.teamactivities@gmail.com
+
+  Thuy Tran
+  Team Activities
+  ftc.teamactivities@gmail.com
+
+  Zahin Rahman
+  Workshops
+  ftc.workshops@gmail.com
+
+  Kathleen Panganiban
+  Workshops
+  ftc.workshops@gmail.com
+
+  Bill & Virginia Carpenter
+  FTC Advisor
+  ftc-advisor@cnhcirclek.org
+  
+  `
 },
 
 news: {
