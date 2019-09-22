@@ -16,11 +16,6 @@ export default class HomePage extends Component {
 
     homeData = [
         {
-            title: Res.strings.home.titleNews,
-            data: [Object.keys(Res.strings.home.cateNews)],
-            screens: Res.strings.home.cateNews
-        },
-        {
             title: Res.strings.home.titleKnow,
             data: [Object.keys(Res.strings.home.cateKnow)],
             screens: Res.strings.home.cateKnow
@@ -29,6 +24,11 @@ export default class HomePage extends Component {
             title: Res.strings.home.titleLeadership,
             data: [Object.keys(Res.strings.home.cateLeadership)],
             screens: Res.strings.home.cateLeadership
+        },
+        {
+            title: Res.strings.home.titleNews,
+            data: [Object.keys(Res.strings.home.cateNews)],
+            screens: Res.strings.home.cateNews
         }
     ]
 
