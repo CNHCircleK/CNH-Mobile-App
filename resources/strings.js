@@ -2,7 +2,7 @@ const strings = {
   home: {
     titleNews: "Find out more",
     titleKnow: "FAQ",
-    titleLeadership: "Leadership Opportunites",
+    titleLeadership: "Leadership Opportunities",
     cateNews: {
       "Contacts": "Contacts",
       "Office Hours": "OfficeHours",
@@ -10,11 +10,11 @@ const strings = {
     },
     cateKnow: {
       "Registration": "FAQRegistration",
-      "Time": "FAQTime",
+      "Start/End Time": "FAQTime",
       "Activities": "FAQActivities",
-      "Finance": "FAQFinance",
+      "Cost and Merch": "FAQFinance",
       "SAA": "FAQSAA",
-      "Navigation": "FAQNavigation",
+      "Getting There": "FAQNavigation",
       "Misc.": "FAQMisc",
     },
     cateLeadership: {
@@ -23,7 +23,8 @@ const strings = {
       "DJ": "Dj",
       "SAA": "Saa",
       "Campfire Skits": "CampfireSkits",
-      "Media Team": "Media"
+      "Media Team": "Media",
+      "Tech Team": "Tech"
     },
     ftcWebsite: "Visit FTC Website"
   },
@@ -145,6 +146,9 @@ into a video to be showcased during the closing session. At this large event \
 with more than 700 attendees and collecting a full day's worth of coverage, \
 Media Members will assist in providing footage or photos to capture the moment.
  `},
+tech: {
+  image: require("./images/LeadershipOpportunities/tech.png")
+},
  workshops: {
    title: "Workshop Host",
    image: require("./images/LeadershipOpportunities/workshops.png"),
@@ -159,81 +163,79 @@ opportunity today! You won’t regret it!`
 },
 contact: {
   title: "Contact Us!",
-  image: require("./images/LeadershipOpportunities/workshops.png"),
-  body: `
-  Olivia Chang
-  FTC Chair 
-  ftc@cnhcirclek.org
-  
-  Jonathan Chu
-  Executive Assistant
-  ftc.execassistant@gmail.com
-  
-  Aaron Lee
-  Executive Assistant
-  ftc.execassistant@gmail.com
-  
-  Douglas Shimizu
-  Campfire Skits
-  ftc.campfireskits@gmail.com
+  body:
+`
+Olivia Chang
+FTC Chair 
+ftc@cnhcirclek.org
 
-  Maddie Villanueua
-  Entertainment/Dining
-  ftc.entertainments@gmail.com
+Jonathan Chu
+Executive Assistant
+ftc.execassistant@gmail.com
 
-  Vy Bui
-  Decorations
-  ftc.decorations@gmail.com
+Aaron Lee
+Executive Assistant
+ftc.execassistant@gmail.com
 
-  Alison Ono
-  Decorations
-  ftc.decorations@gmail.com
+Douglas Shimizu
+Campfire Skits
+ftc.campfireskits@gmail.com
 
-  Minh Ton
-  Technology
-  ftc.aaaaaaa@gmail.com
+Maddie Villanueua
+Entertainment/Dining
+ftc.entertainments@gmail.com
 
-  Ralph Gamboa
-  Media
-  ftc.mediachair@gmail.com
+Vy Bui
+Decorations
+ftc.decorations@gmail.com
 
-  Nhi Truong 
-  Graphics
-  ftc.graphics@gmail.com
+Alison Ono
+Decorations
+ftc.decorations@gmail.com
 
-  Tate Yeung
-  Programs
-  ftc.programs@gmail.com
+Minh Ton
+Technology
+avtech.ftc@gmail.com
 
-  Jenny Koug
-  Registration
-  ftc.register@gmail.com
+Ralph Gamboa
+Media
+ftc.mediachair@gmail.com
 
-  Alicia Sieu
-  SAA
-  ftc.saachair@gmail.com
+Nhi Truong 
+Graphics
+ftc.graphics@gmail.com
 
-  Jason Liu
-  Team Activities
-  ftc.teamactivities@gmail.com
+Tate Yeung
+Programs
+ftc.programs@gmail.com
 
-  Thuy Tran
-  Team Activities
-  ftc.teamactivities@gmail.com
+Jenny Koug
+Registration
+ftc.register@gmail.com
 
-  Zahin Rahman
-  Workshops
-  ftc.workshops@gmail.com
+Alicia Sieu
+SAA
+ftc.saachair@gmail.com
 
-  Kathleen Panganiban
-  Workshops
-  ftc.workshops@gmail.com
+Jason Liu
+Team Activities
+ftc.teamactivities@gmail.com
 
-  Bill & Virginia Carpenter
-  FTC Advisor
-  ftc-advisor@cnhcirclek.org
-  
-  `
+Thuy Tran
+Team Activities
+ftc.teamactivities@gmail.com
+
+Zahin Rahman
+Workshops
+ftc.workshops@gmail.com
+
+Kathleen Panganiban
+Workshops
+ftc.workshops@gmail.com
+
+Bill & Virginia Carpenter
+FTC Advisor
+ftc-advisor@cnhcirclek.org`
 },
 
 news: {
@@ -272,7 +274,7 @@ If you will be a first-time FTC attendee, make sure to let your president/treasu
 you to participate in something special.`
     },
     time: {
-      title: "Time",
+      title: "Start/End Time",
       body:
 `WHEN SHOULD I ARRIVE AT FTC?
 Registration for FTC will open at 5:30PM. Opening Session will begin at 9:00PM on Friday.
@@ -303,7 +305,7 @@ There will also be activities ranging from workshops, team activities, campfire 
 entertainment, fundraising, spirit, and more!`
     },
     finance: {
-      title: "Finance",
+      title: "Cost and Fundraisers",
       body:
 `HOW MUCH DOES FTC COST?
 Early Registration, due by October 10th, will cost $155 per member. After that date, the registration price \
@@ -333,7 +335,7 @@ WHERE CAN I SIGN UP?
 Look under Leadership Opportunities for more information. <TODO: or click this button>`
     },
     navigation: {
-      title: "Navigation",
+      title: "Getting There",
       body:
 `WHERE IS FTC?
 Old Oak Ranch Conference Center
