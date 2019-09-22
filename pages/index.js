@@ -15,6 +15,7 @@ export MediaPage from './leadership/MediaPage';
 export SAAPage from './leadership/SAAPage';
 export TeamCaptainPage from './leadership/TeamCaptainPage';
 export WorkshopsPage from './leadership/WorkshopsPage';
+export TechPage from './leadership/TechPage';
 
 export FAQRegistrationPage from './faq/FAQRegistrationPage';
 export FAQTimePage from './faq/FAQTimePage';

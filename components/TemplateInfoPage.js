@@ -24,7 +24,7 @@ export default class TemplateInfoPage extends Component {
 
         return (
             <ScrollView style={styles.height}>
-              <HeaderBackButton onPress={() => navigation.goBack(null)} />
+              <HeaderBackButton tintColor='#fefefe' onPress={() => navigation.goBack(null)} />
               <View style={styles.container}>
                 {this.state.title !== undefined &&
                   <InfoTitle>
@@ -61,8 +61,5 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: "#1a1d32",
     },
-    header: {
-      
-    }
 
 });

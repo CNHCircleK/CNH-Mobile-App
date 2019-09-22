@@ -4,7 +4,7 @@ import * as Font from 'expo-font';
 import { View, StyleSheet, StatusBar } from 'react-native';
 import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePage,
 OfficeHoursPage,
-CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage,
+CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage, TechPage,
 FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage, ContactsPage } from './pages';
 
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
@@ -66,6 +66,7 @@ const StackNavigator = createStackNavigator({
     CampfireSkits: { screen: CampfireSkitsPage },
     Saa: { screen: SAAPage },
     Media: { screen: MediaPage },
+    Tech: { screen: TechPage },
     FAQRegistration: { screen: FAQRegistrationPage },
     FAQTime: { screen: FAQTimePage },
     FAQActivities: { screen: FAQActivitiesPage },
@@ -75,7 +76,8 @@ const StackNavigator = createStackNavigator({
     FAQMisc: { screen: FAQMiscPage },
     Contacts: { screen: ContactsPage }
 }, {
-    headerMode: 'none'
+    headerMode: 'none',
+    initialRouteName: "TabNavigator"
 })
 
 const AppContainer = createAppContainer(StackNavigator);

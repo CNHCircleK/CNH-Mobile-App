@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList, TouchableOpacity, Linking } from 'react-native';
+import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList, TouchableOpacity, TouchableWithoutFeedback, Linking, Modal } from 'react-native';
 import { Video } from 'expo-av';
 import PlainText from '@components/PlainText';
 import Res from '@resources';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class HomePage extends Component {
+    state = {
+        modalVisible: false
+    };
+
+    setModalVisible(visible) {
+      this.setState({ modalVisible: visible });
+    }
+
     homeData = [
         {
             title: Res.strings.home.titleNews,
@@ -57,7 +65,20 @@ export default class HomePage extends Component {
 
         return (
             <View style={styles.container}>
-                <Image source={require('../resources/images/HomePage/ftc_logo.png')} style={styles.logo} />
+                <Modal
+                  animationType="slide"
+                  transparent={true}
+                  visible={this.state.modalVisible}
+                  >
+                  <View style={styles.eggContainer}>
+                      <TouchableWithoutFeedback onPress={()=>this.setModalVisible(false)}>
+                          <Image style={styles.egg} resizeMode="contain" source={require('../resources/images/HomePage/detective.png')} />
+                      </TouchableWithoutFeedback>
+                  </View>
+                </Modal>
+                <TouchableOpacity style={styles.logo} onPress={()=>{this.setModalVisible(true)}}>
+                    <Image source={require('../resources/images/HomePage/ftc_logo.png')} style={styles.logo} />
+                    </TouchableOpacity>
                 <Video
                   source={require('../resources/videos/Homepage-Call-to-FTC.mp4')}
                   rate={1.0}
@@ -144,5 +165,14 @@ const styles = StyleSheet.create({
         fontFamily: 'Musket-Regular',
         color: 'black',
         marginRight: 8,
+    },
+    eggContainer: {
+        alignItems: 'center',
+        marginTop: 100,
+        justifyContent: 'center',
+        height: 500,
+    },
+    egg: {
+        width: "75%"
     }
 });
