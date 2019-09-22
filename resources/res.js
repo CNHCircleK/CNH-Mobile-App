@@ -1,7 +1,9 @@
-import strings from './strings'
+import strings from './strings';
+import links from './links';
 
 const Res = {
-  strings
+  strings, 
+  links
 }
 
 export default Res

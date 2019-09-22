@@ -86,7 +86,8 @@ members.
 ● Making sure everyone is participating and staying engaged.
 ● Leading roughly 10 to 20 members throughout games and activities.
 ● Creating an open and friendly space for team members.
-● Having fun! c:`
+● Having fun! c:`,
+    clickHereApplication: "Click here for the application."
 },
 dj: {
   title: "DJ",
@@ -101,8 +102,9 @@ apply, you won't regret it!
 What we are looking for this year is a DJ who would love to provide a great atmosphere for the \
 other members attending Fall Training Conference, appeal to an array of musical tastes \
 throughout the night, and to also have a good time themselves! A DJ who has their own \
-equipment would be great as well and any help will be provided.
-`},
+equipment would be great as well and any help will be provided.`,
+  clickHereApplication: "Click here for the application."
+},
 campfireSkits: {
   title: "Campfire Skits",
   image: require("./images/LeadershipOpportunities/talent.png"),
@@ -111,8 +113,10 @@ campfireSkits: {
 performance as a skit or talent act! This is a great way to enhance your experience \
 at FTC by creating unforgettable memories and bonds with your fellow club members, \
 and making all of CNH smile while you're at it! So what are you waiting for? \
-Grab your friends and start planning for your Campfire performance at FTC 2019.
-`},
+Grab your friends and start planning for your Campfire performance at FTC 2019.`,
+  clickHereCampfireApplication: "Click here for the Campfire Skits application.",
+  clickHereTalentApplication: "Click  here for the Talent Act application."
+},
 saa: {
   title: "Sergeant-At-Arms",
   image: require("./images/LeadershipOpportunities/saa.png"),
@@ -129,7 +133,9 @@ for all attendees by promoting and enforcing the Code of Conduct and the \
 campsite rules and regulations at all times. Each SAA is responsible for duties \
 such as monitoring the campground, reporting inappropriate activities or \
 suspicious behavior, and assisting people in any way they can to help make sure \
-that everyone is having an extraordinary experience at FTC. `},
+that everyone is having an extraordinary experience at FTC. `,
+  clickHereApplication: "Click here for the application."
+},
 media: {
   title: "Media Team",
   image: require("./images/LeadershipOpportunities/media.png"),
@@ -144,8 +150,9 @@ The Media Crew Committee will be providing media coverage of the entire event \
 from Friday night to Saturday night. All photos and footage will be compiled \
 into a video to be showcased during the closing session. At this large event \
 with more than 700 attendees and collecting a full day's worth of coverage, \
-Media Members will assist in providing footage or photos to capture the moment.
- `},
+Media Members will assist in providing footage or photos to capture the moment.`,
+  clickHereApplication: "Click here for the application."
+},
 tech: {
   image: require("./images/LeadershipOpportunities/tech.png")
 },
@@ -159,14 +166,16 @@ apply to be a workshop host as it can greatly elevate your FTC experience! \
 Teaching a workshop can help you learn how to create effective/entertaining \
 presentations, improve your public speaking skills, educate and inspire your \
 fellow members and much more! Take advantage of this valuable leadership \
-opportunity today! You won’t regret it!`
+opportunity today! You won’t regret it!`,
+  clickHereApplication: "Click here for the application."
+
 },
 contact: {
   title: "Contact Us!",
   body:
 `
 Olivia Chang
-FTC Chair 
+FTC Chair
 ftc@cnhcirclek.org
 
 Jonathan Chu
@@ -201,7 +210,7 @@ Ralph Gamboa
 Media
 ftc.mediachair@gmail.com
 
-Nhi Truong 
+Nhi Truong
 Graphics
 ftc.graphics@gmail.com
 
@@ -241,7 +250,7 @@ ftc-advisor@cnhcirclek.org`
 news: {
   oh: {
     title: "Office Hours",
-    body: 
+    body:
 `Meet the committee members and ask any questions you have during their office hours! Link to Hangouts: ftc.cnhcirclek.org/oh
 
 Upcoming office hours:
@@ -332,7 +341,8 @@ plus an additional SAA for every four members that attend. Review the SAA handbo
 detailed information.
 
 WHERE CAN I SIGN UP?
-Look under Leadership Opportunities for more information. <TODO: or click this button>`
+Look under Leadership Opportunities for more information.`,
+    clickHereApplication: "Click here for the application."
     },
     navigation: {
       title: "Getting There",
@@ -342,7 +352,8 @@ Old Oak Ranch Conference Center
 15250 Old Oak Ranch Rd, Sonora, CA 95370
 
 NEED HELP GETTING THERE?
-Click here to be redirected to our driving directions! <TODO: or click this button>`
+`,
+    clickHereDirections: "Click here to be redirected to our driving directions!"
     },
     misc: {
       title: "Miscellaneous",
@@ -350,13 +361,9 @@ Click here to be redirected to our driving directions! <TODO: or click this butt
 `WILL I HAVE SIGNAL OR WIFI?
 You may or may not get signal up at Old Oak Ranch! Please prepare and pack accordingly.
 
-HOW SHOULD I PACK FOR FTC?
-Click here to be redirected to our handy packing list!
-
 HOW CAN I GET INVOLVED?
 There are plenty of ways to get involved! Volunteer to be an SAA, apply to be a team captain \
-or workshop host, or apply to be a part of campfire skits & talent acts! Check out the apply \
-tab to see all the opportunities available to you! <TODO: or click this button>`
+or workshop host, or apply to be a part of campfire skits & talent acts!`
     }
   }
 }
