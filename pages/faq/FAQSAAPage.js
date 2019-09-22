@@ -9,7 +9,8 @@ export default class FAQSAAPage extends Component {
         return (
           <TemplateInfoPage
           title={Res.strings.faq.saa.title}
-          body = {Res.strings.faq.saa.body}/>
+          body = {Res.strings.faq.saa.body}
+          navigation={this.props.navigation}/>
         );
     }
 }

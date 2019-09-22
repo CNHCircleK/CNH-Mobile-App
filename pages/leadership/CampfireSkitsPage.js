@@ -10,7 +10,8 @@ export default class CampfireSkitsPage extends Component {
           title={Res.strings.campfireSkits.title}
           image={Res.strings.campfireSkits.image}
           header={Res.strings.campfireSkits.header}
-          body = {Res.strings.campfireSkits.body}/>
+          body = {Res.strings.campfireSkits.body}
+          navigation={this.props.navigation}/>
         );
     }
 }

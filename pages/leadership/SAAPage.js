@@ -10,7 +10,8 @@ export default class SAAPage extends Component {
           title={Res.strings.saa.title}
           image={Res.strings.saa.image}
           header={Res.strings.saa.header}
-          body = {Res.strings.saa.body}/>
+          body = {Res.strings.saa.body}
+          navigation={this.props.navigation}/>
         );
     }
 }

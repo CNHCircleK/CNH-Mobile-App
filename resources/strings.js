@@ -1,12 +1,12 @@
 const strings = {
   home: {
-    titleNews: "News/Updates",
+    titleNews: "Find out more",
     titleKnow: "FAQ",
     titleLeadership: "Leadership Opportunites",
     cateNews: {
-      "Teaser Trailer": "", 
-      "Committee": "Contacts",
-     "Office Hours": ""
+      "Contacts": "Contacts",
+      "Office Hours": "OfficeHours",
+      "Videos 🔗": "https://www.youtube.com/watch?v=MY6FFBYpTjM&list=PLYfMJoKpmeRoH4o16UT01bsQ-vs4r6k8s"
     },
     cateKnow: {
       "Registration": "FAQRegistration",
@@ -163,90 +163,109 @@ contact: {
   body: `
   Olivia Chang
   FTC Chair 
-  
+  ftc@cnhcirclek.org
   
   Jonathan Chu
   Executive Assistant
-  
+  ftc.execassistant@gmail.com
   
   Aaron Lee
   Executive Assistant
-  
+  ftc.execassistant@gmail.com
   
   Douglas Shimizu
   Campfire Skits
-  
+  ftc.campfireskits@gmail.com
 
   Maddie Villanueua
   Entertainment/Dining
-
+  ftc.entertainments@gmail.com
 
   Vy Bui
   Decorations
-
+  ftc.decorations@gmail.com
 
   Alison Ono
   Decorations
-
+  ftc.decorations@gmail.com
 
   Minh Ton
   Technology
-
+  ftc.aaaaaaa@gmail.com
 
   Ralph Gamboa
   Media
-
+  ftc.mediachair@gmail.com
 
   Nhi Truong 
   Graphics
-
+  ftc.graphics@gmail.com
 
   Tate Yeung
   Programs
-
+  ftc.programs@gmail.com
 
   Jenny Koug
   Registration
-
+  ftc.register@gmail.com
 
   Alicia Sieu
   SAA
-
+  ftc.saachair@gmail.com
 
   Jason Liu
   Team Activities
-
+  ftc.teamactivities@gmail.com
 
   Thuy Tran
   Team Activities
-
+  ftc.teamactivities@gmail.com
 
   Zahin Rahman
   Workshops
-
+  ftc.workshops@gmail.com
 
   Kathleen Panganiban
   Workshops
-
+  ftc.workshops@gmail.com
 
   Bill & Virginia Carpenter
   FTC Advisor
-  
+  ftc-advisor@cnhcirclek.org
   
   `
+},
+
+news: {
+  oh: {
+    title: "Office Hours",
+    body: 
+`Meet the committee members and ask any questions you have during their office hours! Link to Hangouts: ftc.cnhcirclek.org/oh
+
+Upcoming office hours:
+9/27 | Campfire Skits (8PM)
+10/1 | Registration (9PM)
+10/4 | DJ (8PM)
+10/6 | Campfire Skits (8PM), SAA (9PM)
+10/8 | Registration (9PM)
+10/10 | SAA (9PM)
+10/13 | Media (9PM)
+10/15 | Registration (9PM)
+10/18 | Media (9PM)`
+  }
 },
 
   faq: {
     registration: {
       title: "Registration",
       body:
-`👁️ How many attendees can I bring to FTC?
+`HOW MANY ATTENDEES CAN I BRING TO FTC?
 Each school is guaranteed 20 spots for members to attend. Further members wishing to attend will be placedon a waitlist.
 
-👁️ When do I need to pay dues to attend FTC?
+WHEN DO I NEED TO PAY DUES TO ATTEND FTC?
 You must be a dues-paid member before registration closes in order to attend.
 
-👁️ What is a new member?
+WHAT IS A NEW MEMBER?
 A new member is anyone who is attending Fall Training Conference for the very first time! \
 Registered new members will be able to participate in the New Member Induction Ceremony on Saturday night. \
 If you will be a first-time FTC attendee, make sure to let your president/treasurer know so they can register \
@@ -255,17 +274,17 @@ you to participate in something special.`
     time: {
       title: "Time",
       body:
-`👁️ When should I arrive at FTC?
+`WHEN SHOULD I ARRIVE AT FTC?
 Registration for FTC will open at 5:30PM. Opening Session will begin at 9:00PM on Friday.
 
-👁️ When does FTC end?
+WHEN DOES FTC END?
 Departure will be at 10:30AM on Sunday.
 
-👁️ What Happens if I arrive late to FTC?
+WHAT HAPPENS IF I ARRIVE LATE TO FTC?
 Registration closes at 12AM, but will reopen the next day at 6AM. You will be able to find housing \
 locations posted on the door to the lobby.
 
-👁️ How will daylight savings work?
+HOW WILL DAYLIGHT SAVINGS WORK?
 Daylight Savings Time ends on Sunday, November 3, but due to campsite rules, our schedule will be \
 disregarding the time change and will continue to proceed as normal on Sunday. Make sure to set your \
 phone clocks to manual/airplane mode the night before!`
@@ -273,12 +292,12 @@ phone clocks to manual/airplane mode the night before!`
     activities: {
       title: "Activities",
       body:
-`👁️ How can I get involve at FTC?
+`HOW CAN I GET INVOLVE AT FTC?
 There are plenty of ways to get involved! Volunteer to be an SAA, apply to be a team captain or \
 workshop host, or apply to be a part of campfire skits & talent acts! Check out the \
 “leadership opportunities” section to see all the opportunities available to you!
 
-👁️ What activities are there going to be?
+WHAT ACTIVITIES ARE THERE GOING TO BE?
 What makes FTC stand out from other district Circle K events is our new member induction ceremony! \
 There will also be activities ranging from workshops, team activities, campfire skits & talent acts, \
 entertainment, fundraising, spirit, and more!`
@@ -286,53 +305,53 @@ entertainment, fundraising, spirit, and more!`
     finance: {
       title: "Finance",
       body:
-`👁️ How much does FTC cost?
+`HOW MUCH DOES FTC COST?
 Early Registration, due by October 10th, will cost $155 per member. After that date, the registration price \
 will rise to $180 per member. Registration closes on October 17th.
 
-👁️ Are meals included in the price?
+ARE MEALS INCLUDED IN THE PRICE?
 Yes, attendees will be provided breakfast, lunch, and dinner on Saturday and breakfast on Sunday.
 
-👁️ Can my club sell merchandise/fundraise at FTC?
+CAN MY CLUB SELL MERCHANDISE/FUNDRAISE AT FTC?
 Yes, on Saturday night. Make sure to fill out a Club Sales Contract, your treasurer should have access to this.`
     },
     saa: {
       title: "SAA",
       body:
-`👁️ What is an SAA?
+`WHAT IS AN SAA?
 SAA stands for Sergeant-At-Arms. SAAs are volunteers responsible for knowing and enforcing the \
 Code of Conduct and the Old Oak Ranch Camp Guidelines. They make sure all attendees abide by the \
 rules at all times, ensure a safe environment for attendees, and offer assistance to members in \
 any way that they can!
 
-👁️ How many SAA's does a club need?
+HOW MANY SAA'S DOES A CLUB NEED?
 Each club with at least 4 members in attendance will be expected to register a minimum of 2 SAAs, \
 plus an additional SAA for every four members that attend. Review the SAA handbook for more \
 detailed information.
 
-👁️ Where can I sign up?
+WHERE CAN I SIGN UP?
 Look under Leadership Opportunities for more information. <TODO: or click this button>`
     },
     navigation: {
       title: "Navigation",
       body:
-`👁️ Where is FTC?
+`WHERE IS FTC?
 Old Oak Ranch Conference Center
 15250 Old Oak Ranch Rd, Sonora, CA 95370
 
-👁️ Need help getting there?
+NEED HELP GETTING THERE?
 Click here to be redirected to our driving directions! <TODO: or click this button>`
     },
     misc: {
       title: "Miscellaneous",
       body:
-`👁️ Will I have signal or wifi?
+`WILL I HAVE SIGNAL OR WIFI?
 You may or may not get signal up at Old Oak Ranch! Please prepare and pack accordingly.
 
-👁️ How should I pack for FTC?
+HOW SHOULD I PACK FOR FTC?
 Click here to be redirected to our handy packing list!
 
-👁️ How can I get involved?
+HOW CAN I GET INVOLVED?
 There are plenty of ways to get involved! Volunteer to be an SAA, apply to be a team captain \
 or workshop host, or apply to be a part of campfire skits & talent acts! Check out the apply \
 tab to see all the opportunities available to you! <TODO: or click this button>`

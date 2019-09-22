@@ -9,7 +9,8 @@ export default class FAQFinancePage extends Component {
         return (
           <TemplateInfoPage
           title={Res.strings.faq.finance.title}
-          body = {Res.strings.faq.finance.body}/>
+          body = {Res.strings.faq.finance.body}
+          navigation={this.props.navigation}/>
         );
     }
 }

@@ -9,7 +9,8 @@ export default class FAQTimePage extends Component {
         return (
           <TemplateInfoPage
           title={Res.strings.faq.time.title}
-          body = {Res.strings.faq.time.body}/>
+          body = {Res.strings.faq.time.body}
+          navigation={this.props.navigation}/>
         );
     }
 }

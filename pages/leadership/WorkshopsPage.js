@@ -10,7 +10,8 @@ export default class WorkshopsPage extends Component {
           title={Res.strings.workshops.title}
           image={Res.strings.workshops.image}
           header={Res.strings.workshops.header}
-          body = {Res.strings.workshops.body}/>
+          body = {Res.strings.workshops.body}
+          navigation={this.props.navigation}/>
         );
     }
 }
