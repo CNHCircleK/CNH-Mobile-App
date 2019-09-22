@@ -3,7 +3,11 @@ const strings = {
     titleNews: "News/Updates",
     titleKnow: "FAQ",
     titleLeadership: "Leadership Opportunites",
-    cateNews: ["Teaser Trailer", "Committee", "Office Hours"],
+    cateNews: {
+      "Teaser Trailer": "", 
+      "Committee": "Contacts",
+     "Office Hours": ""
+    },
     cateKnow: {
       "Registration": "FAQRegistration",
       "Time": "FAQTime",
@@ -11,7 +15,7 @@ const strings = {
       "Finance": "FAQFinance",
       "SAA": "FAQSAA",
       "Navigation": "FAQNavigation",
-      "Misc.": "FAQMisc"
+      "Misc.": "FAQMisc",
     },
     cateLeadership: {
       "Workshops": "Workshops",
@@ -152,6 +156,84 @@ Teaching a workshop can help you learn how to create effective/entertaining \
 presentations, improve your public speaking skills, educate and inspire your \
 fellow members and much more! Take advantage of this valuable leadership \
 opportunity today! You won’t regret it!`
+},
+contact: {
+  title: "Contact Us!",
+  image: require("./images/LeadershipOpportunities/workshops.png"),
+  body: `
+  Olivia Chang
+  FTC Chair 
+  
+  
+  Jonathan Chu
+  Executive Assistant
+  
+  
+  Aaron Lee
+  Executive Assistant
+  
+  
+  Douglas Shimizu
+  Campfire Skits
+  
+
+  Maddie Villanueua
+  Entertainment/Dining
+
+
+  Vy Bui
+  Decorations
+
+
+  Alison Ono
+  Decorations
+
+
+  Minh Ton
+  Technology
+
+
+  Ralph Gamboa
+  Media
+
+
+  Nhi Truong 
+  Graphics
+
+
+  Tate Yeung
+  Programs
+
+
+  Jenny Koug
+  Registration
+
+
+  Alicia Sieu
+  SAA
+
+
+  Jason Liu
+  Team Activities
+
+
+  Thuy Tran
+  Team Activities
+
+
+  Zahin Rahman
+  Workshops
+
+
+  Kathleen Panganiban
+  Workshops
+
+
+  Bill & Virginia Carpenter
+  FTC Advisor
+  
+  
+  `
 },
 
   faq: {
