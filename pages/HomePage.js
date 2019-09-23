@@ -113,11 +113,11 @@ const styles = StyleSheet.create({
     },
     logo: {
         position: 'absolute',
-        width: 120,
-        height: 120,
-        top: 10,
+        width: 150,
+        height: 150,
+        top: 0,
         zIndex: 10,
-        marginTop: 5
+        marginTop: 0
     },
     trailer: {
         marginTop: 90,
