@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text, Linking } from 'react-native';
 import TemplateInfoPage from '@components/TemplateInfoPage';
 import Res from '@resources';
 
@@ -9,7 +9,13 @@ export default class FAQNavigationPage extends Component {
         return (
           <TemplateInfoPage
           title={Res.strings.faq.navigation.title}
-          body = {Res.strings.faq.navigation.body}
+          body = {
+            <>
+            <Text>{Res.strings.faq.navigation.body}
+            <Text style={{color: '#107896'}} onPress={() => Linking.openURL(Res.links.drivingDirections)}>{Res.strings.faq.navigation.clickHereDirections}</Text>
+            </Text>
+            </>
+          }
           navigation={this.props.navigation}/>
         );
     }

@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         height: 120,
         top: 10,
         zIndex: 10,
-        marginTop: 10
+        marginTop: 5
     },
     trailer: {
         marginTop: 90,
