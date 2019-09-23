@@ -1,7 +1,8 @@
 import React, { Component, PureComponent } from 'react';
-import { AppLoading } from 'expo';
+import { AppLoading, SplashScreen } from 'expo';
 import * as Font from 'expo-font';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { Asset } from 'expo-asset';
+import { View, StyleSheet, StatusBar, Image, Dimensions } from 'react-native';
 import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePage,
 OfficeHoursPage,
 CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage, TechPage,
@@ -82,11 +83,22 @@ const StackNavigator = createStackNavigator({
 
 const AppContainer = createAppContainer(StackNavigator);
 
+async function cacheResources(resources) {
+  return resources.map(res => {
+    return typeof res === 'string' ? Image.prefetch(res) :
+    Asset.fromModule(res).downloadAsync();
+  });
+}
+
 export default class App extends Component {
   state = {};
 
-  async componentDidMount(){
-    await Font.loadAsync({
+  preloadSplash = async () => {
+    await cacheResources([require('./resources/images/splash.gif')]);
+  }
+  preloadRes = async () => {
+    SplashScreen.hide();
+    const fontRes = Font.loadAsync({
       'Cabin-Bold': require('./resources/fonts/Cabin-Bold.ttf'),
       'Cabin-BoldItalic': require('./resources/fonts/Cabin-BoldItalic.ttf'),
       'Cabin-Medium': require('./resources/fonts/Cabin-Medium.ttf'),
@@ -99,13 +111,44 @@ export default class App extends Component {
       'Musket-Regular': require('./resources/fonts/Musket-regular.ttf'),
 
     });
-    this.setState({loaded: true});
+    // TODO: images and colors need to be abstracted and stored in their own res
+    // files, much like strings
+    const imageRes =  cacheResources([
+      require('./resources/images/HomePage/hint_papers.png'),
+      require('./resources/images/HomePage/detective.png'),
+      require('./resources/images/HomePage/ftc_logo.png'),
+      require('./resources/videos/Homepage-Call-to-FTC.mp4'),
+      require('./resources/images/ComingSoonPage/sign.png'),
+      require("./resources/images/LeadershipOpportunities/teamcaptains.png"),
+      require("./resources/images/LeadershipOpportunities/dj.png"),
+      require("./resources/images/LeadershipOpportunities/talent.png"),
+      require("./resources/images/LeadershipOpportunities/saa.png"),
+      require("./resources/images/LeadershipOpportunities/media.png"),
+      require("./resources/images/LeadershipOpportunities/tech.png"),
+      require("./resources/images/LeadershipOpportunities/workshops.png")
+    ]);
+    await Promise.all([fontRes, imageRes]);
+    this.setState({resLoaded: true});
   }
 
   render() {
-    if (!this.state.loaded) {
-          return <AppLoading />;
+    if (!this.state.splashLoaded) {
+          return <AppLoading
+          autoHideSplash={false}
+          startAsync={this.preloadSplash}
+          onFinish={() => this.setState({ splashLoaded: true })}/>;
       }
+    if (!this.state.resLoaded) {
+      const {width, height} = Dimensions.get("window");
+      return (
+        <View style={{flex: 1, backgroundColor: "#252525"}}>
+          <Image style={{maxWidth: width, maxHeight: height}}
+          source={require('./resources/images/splash.gif')}
+          resizeMode="contain"
+          onLoad={this.preloadRes}/>
+        </View>
+      );
+    }
   return (
     <View style={styles.container}>
       <StatusBar hidden />
