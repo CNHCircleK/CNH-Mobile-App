@@ -1,33 +1,55 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, SectionList, FlatList } from 'react-native';
-import PlainButton from '../components/PlainButton';
-import PlainText from '../components/PlainText';
+import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList, TouchableOpacity, TouchableWithoutFeedback, Linking, Modal } from 'react-native';
+import { Video } from 'expo-av';
+import PlainText from '@components/PlainText';
+import Res from '@resources';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class HomePage extends Component {
+    state = {
+        modalVisible: false
+    };
+
+    setModalVisible(visible) {
+      this.setState({ modalVisible: visible });
+    }
+
     homeData = [
         {
-            title: "news",
-            data: [["teaser trailer", "committee", "office hours"]]
-        }, 
-        {
-            title: "know before you go",
-            data: [["packing list", "code of conduct", "faq"]]
+            title: Res.strings.home.titleKnow,
+            data: [Object.keys(Res.strings.home.cateKnow)],
+            screens: Res.strings.home.cateKnow
         },
         {
-            title: "leadership opportunities",
-            data: [["workshops", "campfire skits", "team leaders"]]
+            title: Res.strings.home.titleLeadership,
+            data: [Object.keys(Res.strings.home.cateLeadership)],
+            screens: Res.strings.home.cateLeadership
+        },
+        {
+            title: Res.strings.home.titleNews,
+            data: [Object.keys(Res.strings.home.cateNews)],
+            screens: Res.strings.home.cateNews
         }
     ]
 
-    getItemRender(item, index) {
+    getItemRender(item, index, section) {
+        const {navigate} = this.props.navigation;
         return (
-            <FlatList 
+            <FlatList
                 style={styles.navRow}
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 key={index}
                 data={item}
-                renderItem={({item}) => <PlainButton style={styles.navButton} key={item}>{item}</PlainButton>}
+                renderItem={({ item }) =>
+                <TouchableOpacity onPress={() => section.screens !== undefined && (section.screens[item].includes("http") ? Linking.openURL(section.screens[item]) : navigate(section.screens[item]))}>
+                    <ImageBackground source={require('../resources/images/HomePage/hint_papers.png')} style={styles.navButton}>
+                        <View style={styles.navButtonTextContainer}>
+                            <Text style={styles.navButtonText}>{item}</Text>
+                        </View>
+                    </ImageBackground>
+                </TouchableOpacity>
+                }
             />
         );
     }
@@ -42,46 +64,42 @@ export default class HomePage extends Component {
         const {navigate} = this.props.navigation;
 
         return (
-            // <View style={styles.container}>
-            //     <ImageBackground source={require("../resources/homepage/stc.jpg")} style={styles.background}>
-            //         <View style={styles.header}>
-            //             <Text style={styles.headerText}>CNH Circle K!</Text>
-            //         </View>
-            //         <View style={styles.nav}>
-            //             <View style={styles.navRow}>
-            //                 <TouchableOpacity style={styles.navButton} onPress={() => navigate("Map")}>
-            //                     <Text style={styles.navText}>Venue Map</Text>
-            //                 </TouchableOpacity>
-            //                 <TouchableOpacity style={styles.navButton} onPress={() => navigate("Schedule")}>
-            //                     <Text style={styles.navText}>Schedule</Text>
-            //                 </TouchableOpacity>
-            //                 <TouchableOpacity style={styles.navButton} onPress={() => navigate("Welcomes")}>
-            //                     <Text style={styles.navText}>Welcomes</Text>
-            //                 </TouchableOpacity>
-            //             </View>
-            //             <View style={styles.navRow}>
-            //                 <TouchableOpacity style={styles.navButton} onPress={() => navigate("Info")}>
-            //                     <Text style={styles.navText}>General Info</Text>
-            //                 </TouchableOpacity>
-            //                 <TouchableOpacity style={styles.navButton} onPress={() => navigate("Documents")}>
-            //                     <Text style={styles.navText}>Documents</Text>
-            //                 </TouchableOpacity>
-            //                 <TouchableOpacity style={styles.navButton} onPress={() => navigate("People")}>
-            //                     <Text style={styles.navText}>CNH People</Text>
-            //                 </TouchableOpacity>
-            //             </View>
-            //         </View>
-            //     </ImageBackground>
-            // </View>
             <View style={styles.container}>
-                <PlainButton style={styles.trailer}>teaser trailer / call to ftc trailer</PlainButton>
+                <Modal
+                  animationType="slide"
+                  transparent={true}
+                  visible={this.state.modalVisible}
+                  >
+                  <View style={styles.eggContainer}>
+                      <TouchableWithoutFeedback onPress={()=>this.setModalVisible(false)}>
+                          <Image style={styles.egg} resizeMode="contain" source={require('../resources/images/HomePage/detective.png')} />
+                      </TouchableWithoutFeedback>
+                  </View>
+                </Modal>
+                <TouchableOpacity style={styles.logo} onPress={()=>{this.setModalVisible(true)}}>
+                    <Image source={require('../resources/images/HomePage/ftc_logo.png')} style={styles.logo} />
+                    </TouchableOpacity>
+                <Video
+                  source={require('../resources/videos/Homepage-Call-to-FTC.mp4')}
+                  rate={1.0}
+                  isMuted={true}
+                  resizeMode="cover"
+                  shouldPlay
+                  isLooping
+                  style={ styles.trailer }
+                />
                 <SectionList
                     style={styles.navList}
-                    renderItem={({ item, index, section }) => this.getItemRender(item, index)}
-                    renderSectionHeader={({ section: {title} }) => this.getSectionTitleRender(title)}
+                    renderItem={({ item, index, section }) => this.getItemRender(item, index, section)}
+                    renderSectionHeader={({ section: { title } }) => this.getSectionTitleRender(title)}
                     sections={this.homeData}
                 />
-                <PlainButton style={styles.siteButton}>view ftc website</PlainButton>
+                <View style={styles.siteBar}>
+                    <TouchableOpacity style={styles.siteButton} onPress={() => Linking.openURL('https://ftc.cnhcirclek.org/')}>
+                        <Text style={styles.siteButtonText}>{Res.strings.home.ftcWebsite}</Text>
+                        <Icon name='md-open' size={18} color={'black'} />
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     }
@@ -90,76 +108,71 @@ export default class HomePage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center"
+        alignItems: 'center',
+        backgroundColor: '#1a1d32'
+    },
+    logo: {
+        position: 'absolute',
+        width: 150,
+        height: 150,
+        top: 0,
+        zIndex: 10,
+        marginTop: 0
     },
     trailer: {
-        marginTop: 10,
+        marginTop: 90,
         height: 150,
-        width: "100%"
+        width: '100%'
     },
     navList: {
-        paddingTop: 10,
+        paddingTop: 20
     },
     navRow: {
-        marginTop: 5,
+        marginTop: -5,
         marginBottom: 10
     },
     navTitle: {
-        marginLeft: 10
+        marginLeft: 25,
+        fontFamily: 'Musket-Regular',
+        fontSize: 20,
+        color: '#ffffff'
     },
     navButton: {
-        marginLeft: 10
+        marginLeft: 5,
+        width: 150,
+        height: 150
+    },
+    navButtonTextContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+    },
+    navButtonText: {
+        fontSize: 13,
+        fontFamily: 'Cabin-Regular',
+        color: '#ffffff',
+    },
+    siteBar: {
+        width: "100%",
+        backgroundColor: "#aaaaaa",
+        paddingVertical: 8
     },
     siteButton: {
-        marginBottom: 15,
-        paddingTop: 0,
-        paddingLeft: 0,
-        height: 50,
-        width: 150,
-        alignItems: "center",
-        justifyContent: "center"
+        flexDirection: 'row',
+        alignSelf: 'center',
+    },
+    siteButtonText: {
+        fontFamily: 'Musket-Regular',
+        color: 'black',
+        marginRight: 8,
+    },
+    eggContainer: {
+        alignItems: 'center',
+        marginTop: 100,
+        justifyContent: 'center',
+        height: 500,
+    },
+    egg: {
+        width: "75%"
     }
-    // background: {
-    //     width: "100%",
-    //     height: "100%"
-    // },
-    // header: {
-    //     marginTop: 60,
-    //     padding: 20,
-    //     backgroundColor: "rgba(0, 0, 0, 0.5)",
-    //     borderColor: "rgba(255, 30, 30, 0.1)",
-    //     borderTopWidth: 2,
-    //     borderBottomWidth: 2,
-    // },
-    // headerText: {
-    //     fontSize: 40,
-    //     fontWeight: "bold",
-    //     color: "white",
-    //     textShadowRadius: 100,
-    //     textAlign: "center"
-    // },
-    // nav: {
-    //     flex: 1,
-    //     alignItems: "center",
-    //     justifyContent: "center"
-    // },
-    // navRow: {
-    //     flexDirection: "row",
-    //     alignItems: "center",
-    //     justifyContent: "center"
-    // },  
-    // navButton: {
-    //     height: 100,
-    //     width: 100,
-    //     margin: 5,
-    //     backgroundColor: "rgba(0, 0, 0, 0.8)",
-    //     borderRadius: 50,
-    //     alignItems: "center",
-    //     justifyContent: "center"
-    // },
-    // navText: {
-    //     fontSize: 14,
-    //     fontWeight: "bold",
-    //     color: "white"
-    // }
-}); 
+});
