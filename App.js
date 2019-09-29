@@ -1,6 +1,7 @@
 import React, { Component, PureComponent } from 'react';
 import { AppLoading, SplashScreen } from 'expo';
 import * as Font from 'expo-font';
+import * as firebase from 'firebase';
 import { Asset } from 'expo-asset';
 import { View, StyleSheet, StatusBar, Image, Dimensions } from 'react-native';
 import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePage,
@@ -129,6 +130,20 @@ export default class App extends Component {
     ]);
     await Promise.all([fontRes, imageRes]);
     this.setState({resLoaded: true});
+
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "",
+      //authDomain: "<YOUR-AUTH-DOMAIN>",
+      databaseURL: "https://cnh-mobile-app-57295.firebaseio.com/",
+      //storageBucket: "<YOUR-STORAGE-BUCKET>"
+      projectID: "cnh-mobile-app-57295"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    firebase.database().ref('users/' + 1).set({
+      highscore: 2
+    });
   }
 
   render() {
