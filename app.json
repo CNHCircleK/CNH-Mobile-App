@@ -20,10 +20,19 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.cnhcki.solstice"
+      "bundleIdentifier": "com.cnhcki.solstice",
+      "splash": {
+        "image": "./resources/images/splash_still.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#252525"
+      },
     },
     "android": {
-      "package": "com.cnhcki.solstice"
+      "package": "com.cnhcki.solstice",
+      "splash": {
+        "resizeMode": "native",
+        "backgroundColor": "#252525"
+      },
     },
     "description": "Keep posted on the latest district events and news with the official CNH Circle K mobile app!"
   }

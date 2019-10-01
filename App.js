@@ -134,14 +134,13 @@ export default class App extends Component {
   render() {
     if (!this.state.splashLoaded) {
           return <AppLoading
-          autoHideSplash={false}
           startAsync={this.preloadSplash}
           onFinish={() => this.setState({ splashLoaded: true })}/>;
       }
     if (!this.state.resLoaded) {
       const {width, height} = Dimensions.get("window");
       return (
-        <View style={{flex: 1, backgroundColor: "#252525"}}>
+        <View style={{flex: 1, backgroundColor: "#252525", justifyContent: "center", alignItems: "center"}}>
           <Image style={{maxWidth: width, maxHeight: height}}
           source={require('./resources/images/splash.gif')}
           resizeMode="contain"
