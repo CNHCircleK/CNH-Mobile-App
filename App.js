@@ -18,28 +18,28 @@ const TabNavigatorPages = createBottomTabNavigator({
         tabBarIcon: ({ tintColor }) => (
           <Icon name='md-home' size={20} color={tintColor} />
         )
-      } },
-    Schedule: { screen: ComingSoonPage,
-      navigationOptions: {
-        tabBarLabel: 'Schedule',
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name='md-list-box' size={20} color={tintColor} />
-        )
-      } },
-    Map: { screen: ComingSoonPage,
-      navigationOptions: {
-        tabBarLabel: 'Map',
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name='md-map' size={20} color={tintColor} />
-        )
-      } },
-    Info: { screen: ComingSoonPage,
-      navigationOptions: {
-        tabBarLabel: 'Info',
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name='md-information-circle' size={20} color={tintColor} />
-        )
-      } }
+      } } // ,
+    // Schedule: { screen: ComingSoonPage,
+    //   navigationOptions: {
+    //     tabBarLabel: 'Schedule',
+    //     tabBarIcon: ({ tintColor }) => (
+    //       <Icon name='md-list-box' size={20} color={tintColor} />
+    //     )
+    //   } },
+    // Map: { screen: ComingSoonPage,
+    //   navigationOptions: {
+    //     tabBarLabel: 'Map',
+    //     tabBarIcon: ({ tintColor }) => (
+    //       <Icon name='md-map' size={20} color={tintColor} />
+    //     )
+    //   } },
+    // Info: { screen: ComingSoonPage,
+    //   navigationOptions: {
+    //     tabBarLabel: 'Info',
+    //     tabBarIcon: ({ tintColor }) => (
+    //       <Icon name='md-information-circle' size={20} color={tintColor} />
+    //     )
+    //   } }
 }, {
   tabBarOptions: {
     activeTintColor: '#ffffff',

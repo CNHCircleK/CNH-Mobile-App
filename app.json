@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Solstice",
-    "slug": "solstice",
+    "name": "Solstice development",
+    "slug": "solsticedev",
     "owner": "cnhtechsoftware",
     "privacy": "public",
     "sdkVersion": "35.0.0",
@@ -10,7 +10,7 @@
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/solstice_icon.png",
     "updates": {
@@ -25,14 +25,15 @@
         "image": "./resources/images/splash_still.png",
         "resizeMode": "contain",
         "backgroundColor": "#252525"
-      },
+      }
     },
     "android": {
+      "versionCode": 2,
       "package": "com.cnhcki.solstice",
       "splash": {
         "resizeMode": "native",
         "backgroundColor": "#252525"
-      },
+      }
     },
     "description": "Keep posted on the latest district events and news with the official CNH Circle K mobile app!"
   }
