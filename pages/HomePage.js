@@ -89,6 +89,7 @@ export default class HomePage extends Component {
                   style={ styles.trailer }
                 />
                 <SectionList
+                    stickySectionHeadersEnabled={false}
                     style={styles.navList}
                     renderItem={({ item, index, section }) => this.getItemRender(item, index, section)}
                     renderSectionHeader={({ section: { title } }) => this.getSectionTitleRender(title)}
