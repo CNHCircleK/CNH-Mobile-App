@@ -30,4 +30,5 @@ jobs:
         - npm install --save-dev expo-cli
         - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
         - npx expo publish --non-interactive --release-channel development
+      after_script:
         - sudo bash slack_script.sh $SLACK_WEBHOOK dev
