@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Solstice development",
-    "slug": "solsticedev",
+    "name": "Solstice",
+    "slug": "solstice",
     "owner": "cnhtechsoftware",
     "privacy": "public",
     "sdkVersion": "35.0.0",

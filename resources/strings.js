@@ -368,5 +368,48 @@ or workshop host, or apply to be a part of campfire skits & talent acts!`
   }
 }
 
+const schedule = [
+  {id: "committeeAndDistrictBoardArrival", title: "Committee & District Board Arrival", day: "1", time: "9:00am", location: "Lobby"},
+  {id: "setUp", title: "Set-Up", day: "1", time: "9:30am - 5:00pm", location: ""},
+  {id: "districtBoardMeeting", title: "District Board Meeting", day: "1", time: "1:30pm", location: ""},
+  {id: "committeeAndDistrictBoardDebrief", title: "Committee & District Board Debrief", day: "1", time: "3:30pm", location: ""},
+  {id: "memberMixer", title: "Member Mixer", day: "1", time: "5:00pm - 8:45pm", location: "tbd"},
+  {id: "registrationOpens", title: "Registration Opens", day: "1", time: "5:30pm", location: "Lobby"},
+  {id: "awardsSubmissions", title: "Awards Submissions", day: "1", time: "5:30pm - 8:00pm", location: "Lobby"},
+  {id: "saaBriefing", title: "SAA Briefing", day: "1", time: "8:00pm - 8:30pm", location: "Duncan Rec Rooms"},
+  {id: "openingSession", title: "Opening Session", day: "1", time: "9:00pm - 9:45pm", location: "Main Auditorium"},
+  {id: "workshopSessionIDay1", title: "Workshop Session I", day: "1", time: "10:00pm - 10:45pm", location: ""},
+  {id: "workshopSessionIIDay1", title: "Workshop Session II", day: "1", time: "10:50pm - 11:35pm", location: ""},
+  {id: "morningRegistrationOpensAndAwardsSubmissions", title: "Morning Registration Opens, Awards Submission", day: "2", time: "6:00am - 9:00am ", location: "Lobby"},
+  {id: "BreakfastI", title: "Breakfast I", day: "2", time: "7:10am - 7:55am", location: "Dining Hall"},
+  {id: "crypticChaosIIBreakfast", title: "Cryptic Chaos II", day: "2", time: "7:10am - 7:55am", location: "Fields"},
+  {id: "breakfastII", title: "Breakfast II", day: "2", time: "8:00am - 8:45am", location: "Dining Hall"},
+  {id: "crypticChaosIBreakfast", title: "Cryptic Chaos I", day: "2", time: "8:00am - 8:45am", location: "Fields"},
+  {id: "saaBriefing", title: "SAA Briefing", day: "2", time: "8:45am - 9:00am", location: "FC200"},
+  {id: "generalSessionI", title: "General Session I", day: "2", time: "9:00am - 10:00am", location: "Main Auditorium"},
+  {id: "workshopSessionIDay2", title: "Workshop Session I", day: "2", time: "10:10am - 11:00am", location: ""},
+  {id: "workshopSessionIIDay2", title: "Workshop Session II", day: "2", time: "11:10am - 12:00pm", location: ""},
+  {id: "lunchI", title: "Lunch I", day: "2", time: "12:10pm - 12:55pm", location: "Dining Hall"},
+  {id: "crypticChaosIILunch", title: "Cryptic Chaos II", day: "2", time: "12:10pm - 12:55pm", location: "Fields"},
+  {id: "lunchII", title: "Lunch II", day: "2", time: "1:00pm - 1:45pm", location: "Dining Hall"},
+  {id: "crypticChaosILunch", title: "Cryptic Chaos I", day: "2", time: "1:00pm - 1:45pm", location: "Fields"},
+  {id: "workshopSessionIII", title: "Workshop Session III", day: "2", time: "1:55pm - 2:45pm", location: ""},
+  {id: "workshopSessionIV", title: "Workshop Session IV", day: "2", time: "2:55pm - 3:45pm", location: ""},
+  {id: "workshopSessionV", title: "Workshop Session V", day: "2", time: "3:55pm - 4:45pm", location: ""},
+  {id: "dinner", title: "Dinner (New Members & Fashion Show Participants)", day: "2", time: "5:00pm - 5:45pm", location: "Dining Hall"},
+  {id: "valuedMembersMixer", title: "Valued Members Mixer (Returning Members)", day: "2", time: "5:00pm - 5:45pm", location: "Amphitheather"},
+  {id: "valuedMembersReceptionDinner", title: "Valued Members Reception Dinner (Returning Members)", day: "2", time: "5:50pm - 6:45pm", location: "Dining Hall"},
+  {id: "newMemberAndFashionShowRehearsal", title: "New Member & Fashion Show Rehearsal", day: "2", time: "5:50pm - 6:45pm", location: "Main Auditorium"},
+  {id: "generalSessionII", title: "General Session II", day: "2", time: "6:45pm - 8:30pm", location: "Main Auditorium"},
+  {id: "campfireSkitsAndTalentActs", title: "Campfire Skits & Talent Acts", day: "2", time: "8:45pm - 10:00pm", location: "Amphitheather"},
+  {id: "advisorSocial", title: "Advisor Social", day: "2", time: "10:00pm - 11:00pm", location: "Duncan Lounge"},
+  {id: "divisionalBonding", title: "Divisional Bonding", day: "2", time: "10:00pm - 10:45pm", location: ""},
+  {id: "nightActivitiesAndTShirtSpotlight", title: "Night Activities/T-Shirt Spotlight", day: "2", time: "10:45pm - 1:00am", location: ""},
+  {id: "campsiteRetirement", title: "Campfire Retirement", day: "2", time: "2:00am", location: ""},
+  {id: "breakfast", title: "Breakfast", day: "3", time: "7:10am - 8:45am", location: "Dining Hall"},
+  {id: "closingSession", title: "Closing Session", day: "3", time: "9:00am - 10:15am", location: "Main Auditorium"},
+  {id: "departCampgroundsAndCleanUp", title: "Depart Campground & Clean Up", day: "3", time: "10:30am", location: ""}
+]
 
 export default strings;
+export default schedule;
