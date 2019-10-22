@@ -411,5 +411,4 @@ const schedule = [
   {id: "departCampgroundsAndCleanUp", title: "Depart Campground & Clean Up", day: "3", time: "10:30am", location: ""}
 ]
 
-export default strings;
-export default schedule;
+export { strings, schedule };

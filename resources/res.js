@@ -1,8 +1,9 @@
-import strings from './strings';
+import { strings, schedule } from './strings';
 import links from './links';
 
 const Res = {
   strings, 
+  schedule,
   links
 }
 
