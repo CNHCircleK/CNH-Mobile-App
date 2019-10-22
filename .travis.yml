@@ -7,6 +7,9 @@ branches:
   only:
   - development
   - master
+notifications:
+  webhooks:
+    - $SLACK_WEBHOOK
 cache:
   directories:
     - ~/.npm

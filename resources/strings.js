@@ -412,4 +412,4 @@ const schedule = [
 ]
 
 export default strings;
-export default schedule;
+export schedule;
