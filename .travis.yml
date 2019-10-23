@@ -8,8 +8,7 @@ branches:
   - development
   - master
 notifications:
-  webhooks:
-    - $SLACK_WEBHOOK
+  slack: $SLACK_TOKEN
 cache:
   directories:
     - ~/.npm

@@ -368,7 +368,7 @@ or workshop host, or apply to be a part of campfire skits & talent acts!`
   }
 }
 
-const schedule = [
+export const schedule = [
   {id: "committeeAndDistrictBoardArrival", title: "Committee & District Board Arrival", day: "1", time: "9:00am", location: "Lobby"},
   {id: "setUp", title: "Set-Up", day: "1", time: "9:30am - 5:00pm", location: ""},
   {id: "districtBoardMeeting", title: "District Board Meeting", day: "1", time: "1:30pm", location: ""},
@@ -412,4 +412,3 @@ const schedule = [
 ]
 
 export default strings;
-export schedule;
