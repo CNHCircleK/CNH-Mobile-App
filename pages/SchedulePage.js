@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { Text, View, SectionList, StyleSheet } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { Text, View, FlatList, Picker, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Res from '@resources';
 
 export default class SchedulePage extends Component {
-    scheduleData = Res.schedule;
-
+    state = {
+        scheduleDay: "1",
+        scheduleData: Res.schedule.filter(event => event.day === "1")
+    }
+    
+    
     getEventRender(item) {
         return (
             <View style={styles.eventRow}>
@@ -27,10 +30,24 @@ export default class SchedulePage extends Component {
                 <View style={styles.header}>
                     <Text style={styles.headerText}>Schedule</Text>
                 </View>
+                <Picker
+                    selectedValue={this.state.scheduleDay}
+                    style={{ backgroundColor: '#ffffff', color: '#000000', alignItems: 'center', fontFamily: 'Musket-Regular' }}
+                    onValueChange={(itemValue) => {
+                        this.setState({
+                            scheduleDay: itemValue,
+                            scheduleData: Res.schedule.filter(event => event.day === itemValue)
+                        });
+                    }}>
+                    <Picker.Item label="Day 1" value="1" />
+                    <Picker.Item label="Day 2" value="2" />
+                    <Picker.Item label="Day 3" value="3" />
+                </Picker>
                 <FlatList
-                    data={this.scheduleData}
+                    data={this.state.scheduleData}
                     renderItem={({ item }) => this.getEventRender(item)}
                     keyExtractor={item => item.id}
+                    extraData={this.state}
                 />
             </View>
         );
@@ -78,6 +95,7 @@ const styles = StyleSheet.create({
     eventTimeLocationText: {
         fontSize: 12,
         fontFamily: 'Cabin-Regular',
-        color: '#b4b8b5'
+        color: '#fefefe',
+        opacity: 0.7
     }
 });
