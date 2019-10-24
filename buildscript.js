@@ -16,4 +16,4 @@ appData.expo.version = version;
 jsonfile.writeFileSync(buildNumFile, buildNumData, { spaces: 2, EOL: '\r\n' });
 jsonfile.writeFileSync(appFile, appData, { spaces: 2, EOL: '\r\n' });
 
-shell.exec('./gitscript ' + version);
+shell.exec('gitscript.sh ' + version);
