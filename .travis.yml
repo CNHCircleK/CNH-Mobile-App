@@ -6,6 +6,9 @@ node_js:
 branches:
   only:
   - development
+  - master
+notifications:
+  slack: $SLACK_TOKEN
 cache:
   directories:
     - ~/.npm
@@ -25,5 +28,6 @@ jobs:
         - sudo sysctl -p
         - npm install --save-dev expo-cli
         - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
-        - npx expo publish --non-interactive
-        - sudo bash slack_script.sh $SLACK_WEBHOOK
+        - npx expo publish --non-interactive --release-channel development
+      after_script:
+        - sudo bash slack_script.sh $SLACK_WEBHOOK dev
