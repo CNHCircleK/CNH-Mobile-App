@@ -1,8 +1,19 @@
 const shell = require('shelljs');
 const jsonfile = require('jsonfile');
-const file = 'otaBuildNum.json';
+const buildNumFile = 'otaBuildNum.json';
+const appFile = 'app.json';
 
-const data = jsonfile.readFileSync(file);
-data.otaBuildNum += 1;
+const buildNumData = jsonfile.readFileSync(buildNumFile);
+buildNumData.otaBuildNum += 1;
 
-jsonfile.writeFileSync(file, data, { spaces: 2, EOL: '\r\n' });
+const appData = jsonfile.readFileSync(appFile);
+let version = appData.expo.version;
+version = version.slice(0, -2);
+version = version + "." + buildNumData.otaBuildNum.toString();
+
+appData.expo.version = version;
+
+jsonfile.writeFileSync(buildNumFile, buildNumData, { spaces: 2, EOL: '\r\n' });
+jsonfile.writeFileSync(appFile, appData, { spaces: 2, EOL: '\r\n' });
+
+shell.exec('./gitscript ' + version);

@@ -3,9 +3,8 @@ language: node_js
 node_js:
   - node
   - lts/*
-branches:
-  only:
-  - development
+notifications:
+  slack: $SLACK_TOKEN
 cache:
   directories:
     - ~/.npm
@@ -17,7 +16,8 @@ script:
   # - npx jest --ci
 jobs:
   include:
-    - stage: deploy
+    - stage: publish-development
+      if: branch = development
       node_js: lts/*
       script:
         - npm ci
@@ -25,5 +25,18 @@ jobs:
         - sudo sysctl -p
         - npm install --save-dev expo-cli
         - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
-        - npx expo publish --non-interactive
-        - sudo bash slack_script.sh $SLACK_WEBHOOK
+        - npx expo publish --non-interactive --release-channel development
+      after_success:
+        - sudo bash slack_script.sh $SLACK_WEBHOOK dev
+    - stage: publish-master
+      if: branch = master_ci_pipeline AND sender != "cnhtech-software"
+      script:
+        - npm ci
+        - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+        - sudo sysctl -p
+        - node buildscript.js
+        - npm install --save-dev expo-cli
+        - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
+        - npx expo publish --non-interactive --release-channel citest
+      after_success:
+        - sudo bash slack_script.sh $SLACK_WEBHOOK master
