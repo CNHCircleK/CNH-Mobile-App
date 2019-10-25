@@ -18,14 +18,14 @@ const TabNavigatorPages = createBottomTabNavigator({
         tabBarIcon: ({ tintColor }) => (
           <Icon name='md-home' size={20} color={tintColor} />
         )
-      } } // ,
-    // Schedule: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Schedule',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-list-box' size={20} color={tintColor} />
-    //     )
-    //   } },
+      } },
+    Schedule: { screen: SchedulePage,
+      navigationOptions: {
+        tabBarLabel: 'Schedule',
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name='md-list-box' size={20} color={tintColor} />
+        )
+      } },
     // Map: { screen: ComingSoonPage,
     //   navigationOptions: {
     //     tabBarLabel: 'Map',

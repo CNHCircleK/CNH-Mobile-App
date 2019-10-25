@@ -376,7 +376,7 @@ export const schedule = [
   {id: "memberMixer", title: "Member Mixer", day: "1", time: "5:00pm - 8:45pm", location: "tbd"},
   {id: "registrationOpens", title: "Registration Opens", day: "1", time: "5:30pm", location: "Lobby"},
   {id: "awardsSubmissions", title: "Awards Submissions", day: "1", time: "5:30pm - 8:00pm", location: "Lobby"},
-  {id: "saaBriefing", title: "SAA Briefing", day: "1", time: "8:00pm - 8:30pm", location: "Duncan Rec Rooms"},
+  {id: "saaBriefingDay1", title: "SAA Briefing", day: "1", time: "8:00pm - 8:30pm", location: "Duncan Rec Rooms"},
   {id: "openingSession", title: "Opening Session", day: "1", time: "9:00pm - 9:45pm", location: "Main Auditorium"},
   {id: "workshopSessionIDay1", title: "Workshop Session I", day: "1", time: "10:00pm - 10:45pm", location: ""},
   {id: "workshopSessionIIDay1", title: "Workshop Session II", day: "1", time: "10:50pm - 11:35pm", location: ""},
@@ -385,7 +385,7 @@ export const schedule = [
   {id: "crypticChaosIIBreakfast", title: "Cryptic Chaos II", day: "2", time: "7:10am - 7:55am", location: "Fields"},
   {id: "breakfastII", title: "Breakfast II", day: "2", time: "8:00am - 8:45am", location: "Dining Hall"},
   {id: "crypticChaosIBreakfast", title: "Cryptic Chaos I", day: "2", time: "8:00am - 8:45am", location: "Fields"},
-  {id: "saaBriefing", title: "SAA Briefing", day: "2", time: "8:45am - 9:00am", location: "FC200"},
+  {id: "saaBriefingDay2", title: "SAA Briefing", day: "2", time: "8:45am - 9:00am", location: "FC200"},
   {id: "generalSessionI", title: "General Session I", day: "2", time: "9:00am - 10:00am", location: "Main Auditorium"},
   {id: "workshopSessionIDay2", title: "Workshop Session I", day: "2", time: "10:10am - 11:00am", location: ""},
   {id: "workshopSessionIIDay2", title: "Workshop Session II", day: "2", time: "11:10am - 12:00pm", location: ""},
@@ -411,4 +411,4 @@ export const schedule = [
   {id: "departCampgroundsAndCleanUp", title: "Depart Campground & Clean Up", day: "3", time: "10:30am", location: ""}
 ]
 
-export default strings;
+export { strings, schedule };
