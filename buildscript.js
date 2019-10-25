@@ -19,10 +19,12 @@ jsonfile.writeFileSync(appFile, appData, { spaces: 2, EOL: '\r\n' });
 var args = process.argv.slice(2);
 shell.exec(`git config --global user.email "cnhtech.software@gmail.com"`);
 shell.exec(`git config --global user.name "CNH Software Team"`);
+//shell.exec(`git config --global user.password "${args}"`);
 
-//shell.exec("git checkout -b master_ci_pipeline");
+shell.exec("git checkout master_ci_pipeline");
 shell.exec("git add .");
-shell.exec(`git commit --message "Release version: "` + appData.expo.version);
+shell.exec(`git commit --message "[Auto] Release version: "` + appData.expo.version);
 
-shell.exec(`git remote add master_ci_pipeline https://${args}@github.com/CNHCircleK/CNH-Mobile-App.git > /dev/null 2>&1`);
-shell.exec("git push --quiet --set-upstream master_ci_pipeline master_ci_pipeline");
+shell.exec("git remote rm origin");
+shell.exec(`git remote add origin https://cnhtech-software:${args}@github.com/CNHCircleK/CNH-Mobile-App.git > /dev/null 2>&1`);
+shell.exec("git push origin master_ci_pipeline");
