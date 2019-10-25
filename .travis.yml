@@ -1,4 +1,5 @@
 ---
+if: sender != "cnhtech-software"
 language: node_js
 node_js:
   - node
@@ -29,7 +30,7 @@ jobs:
       after_success:
         - sudo bash slack_script.sh $SLACK_WEBHOOK dev
     - stage: publish-master
-      if: branch = master_ci_pipeline AND sender != "cnhtech-software"
+      if: branch = master_ci_pipeline
       script:
         - npm ci
         - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
