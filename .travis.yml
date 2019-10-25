@@ -4,7 +4,7 @@ node_js:
   - node
   - lts/*
 notifications:
-  slack: $SLACK_TOKEN
+  slack: cnhtech1920:UPmFebRU4eqD0OpXnCm5dlwg
 cache:
   directories:
     - ~/.npm
