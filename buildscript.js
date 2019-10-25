@@ -8,10 +8,13 @@ buildNumData.otaBuildNum += 1;
 
 const appData = jsonfile.readFileSync(appFile);
 let version = appData.expo.version;
-version = version.slice(0, -2);
-version = version + "." + buildNumData.otaBuildNum.toString();
+let patchNum = version.charAt(version.length-1);
+let patchNumInt = parseInt(patchNum, 10);
+patchNumInt += 1;
+let newVersion = version.slice(0, -2);
+newVersion = newVersion + "." + patchNumInt.toString();
 
-appData.expo.version = version;
+appData.expo.version = newVersion;
 
 jsonfile.writeFileSync(buildNumFile, buildNumData, { spaces: 2, EOL: '\r\n' });
 jsonfile.writeFileSync(appFile, appData, { spaces: 2, EOL: '\r\n' });
@@ -23,7 +26,7 @@ shell.exec(`git config --global user.name "CNH Software Team"`);
 
 shell.exec("git checkout master_ci_pipeline");
 shell.exec("git add .");
-shell.exec(`git commit --message "[Auto] Release version: "` + appData.expo.version);
+shell.exec(`git commit --message "[Auto] Release version: ${appData.expo.version}; otaBuildNum: ${buildNumData.otaBuildNum}"`);
 
 shell.exec("git remote rm origin");
 shell.exec(`git remote add origin https://cnhtech-software:${args}@github.com/CNHCircleK/CNH-Mobile-App.git > /dev/null 2>&1`);
