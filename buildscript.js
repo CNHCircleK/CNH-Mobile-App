@@ -16,6 +16,7 @@ appData.expo.version = version;
 jsonfile.writeFileSync(buildNumFile, buildNumData, { spaces: 2, EOL: '\r\n' });
 jsonfile.writeFileSync(appFile, appData, { spaces: 2, EOL: '\r\n' });
 
+var args = process.argv.slice(2);
 shell.exec(`git config --global user.email "cnhtech.software@gmail.com"`);
 shell.exec(`git config --global user.name "CNH Software Team"`);
 
@@ -23,5 +24,5 @@ shell.exec(`git config --global user.name "CNH Software Team"`);
 shell.exec("git add .");
 shell.exec(`git commit --message "Release version: "` + appData.expo.version);
 
-shell.exec(`git remote add master_ci_pipeline https://${GH_TOKEN}@github.com/CNHCircleK/CNH-Mobile-App.git > /dev/null 2>&1`);
+shell.exec(`git remote add master_ci_pipeline https://${args}@github.com/CNHCircleK/CNH-Mobile-App.git > /dev/null 2>&1`);
 shell.exec("git push --quiet --set-upstream master_ci_pipeline master_ci_pipeline");
