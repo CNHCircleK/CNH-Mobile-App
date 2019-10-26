@@ -6,6 +6,10 @@ node_js:
   - lts/*
 notifications:
   slack: cnhtech1920:UPmFebRU4eqD0OpXnCm5dlwg
+branches:
+  only:
+  - master
+  - development
 cache:
   directories:
     - ~/.npm
@@ -30,7 +34,7 @@ jobs:
       after_success:
         - sudo bash slack_script.sh $SLACK_WEBHOOK dev
     - stage: publish-master
-      if: branch = master_ci_pipeline
+      if: branch = master
       script:
         - npm ci
         - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
@@ -38,6 +42,6 @@ jobs:
         - node buildscript.js $GH_TOKEN
         - npm install --save-dev expo-cli
         - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
-        - npx expo publish --non-interactive --release-channel citest
+        - npx expo publish --non-interactive
       after_success:
         - sudo bash slack_script.sh $SLACK_WEBHOOK master
