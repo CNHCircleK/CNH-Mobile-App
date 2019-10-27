@@ -2,13 +2,39 @@ import React, { Component } from 'react';
 import { Text, View, FlatList, Picker, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Res from '@resources';
+import { AsyncStorage } from 'react-native';
 
 export default class SchedulePage extends Component {
     state = {
         scheduleDay: "1",
         scheduleData: Res.schedule.filter(event => event.day === "1")
     }
+
+    async componentWillMount() {
+        try {
+            const day = await AsyncStorage.getItem('Schedule_Day');
+            if (day !== null) {
+                this.setState({ scheduleDay: day })
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
     
+    updateDay(day) {
+        this.setState({
+            scheduleDay: day,
+            scheduleData: Res.schedule.filter(event => event.day === day)
+        });
+
+        (async () => {
+            try {
+                await AsyncStorage.setItem('Schedule_Day', day);
+            } catch (error) {
+                console.error(error);
+            }
+        })();
+    }
     
     getEventRender(item) {
         return (
@@ -33,12 +59,7 @@ export default class SchedulePage extends Component {
                 <Picker
                     selectedValue={this.state.scheduleDay}
                     style={{ backgroundColor: '#ffffff', color: '#000000', alignItems: 'center', fontFamily: 'Musket-Regular' }}
-                    onValueChange={(itemValue) => {
-                        this.setState({
-                            scheduleDay: itemValue,
-                            scheduleData: Res.schedule.filter(event => event.day === itemValue)
-                        });
-                    }}>
+                    onValueChange={(itemValue) => { this.updateDay(itemValue) }}>
                     <Picker.Item label="Day 1" value="1" />
                     <Picker.Item label="Day 2" value="2" />
                     <Picker.Item label="Day 3" value="3" />
