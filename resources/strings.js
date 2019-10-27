@@ -368,6 +368,12 @@ or workshop host, or apply to be a part of campfire skits & talent acts!`
   }
 }
 
+const scheduleDays = [
+  { title: "Friday", value: "1" },
+  { title: "Saturday", value: "2"},
+  { title: "Sunday", value: "3"}
+]
+
 const schedule = [
   {id: "committeeAndDistrictBoardArrival", title: "Committee & District Board Arrival", day: "1", time: "9:00am", location: "Lobby"},
   {id: "setUp", title: "Set-Up", day: "1", time: "9:30am - 5:00pm", location: ""},
@@ -378,8 +384,8 @@ const schedule = [
   {id: "awardsSubmissions", title: "Awards Submissions", day: "1", time: "5:30pm - 8:00pm", location: "Lobby"},
   {id: "saaBriefingDay1", title: "SAA Briefing", day: "1", time: "8:00pm - 8:30pm", location: "Duncan Rec Rooms"},
   {id: "openingSession", title: "Opening Session", day: "1", time: "9:00pm - 9:45pm", location: "Main Auditorium"},
-  {id: "workshopSessionIDay1", title: "Workshop Session I", day: "1", time: "10:00pm - 10:45pm", location: ""},
-  {id: "workshopSessionIIDay1", title: "Workshop Session II", day: "1", time: "10:50pm - 11:35pm", location: ""},
+  {id: "workshopSessionIDay1", title: "Workshop Session I  >", day: "1", time: "10:00pm - 10:45pm", location: "see list"},
+  {id: "workshopSessionIIDay1", title: "Workshop Session II  >", day: "1", time: "10:50pm - 11:35pm", location: "see list"},
   {id: "morningRegistrationOpensAndAwardsSubmissions", title: "Morning Registration Opens, Awards Submission", day: "2", time: "6:00am - 9:00am ", location: "Lobby"},
   {id: "BreakfastI", title: "Breakfast I", day: "2", time: "7:10am - 7:55am", location: "Dining Hall"},
   {id: "crypticChaosIIBreakfast", title: "Cryptic Chaos II", day: "2", time: "7:10am - 7:55am", location: "Fields"},
@@ -393,9 +399,9 @@ const schedule = [
   {id: "crypticChaosIILunch", title: "Cryptic Chaos II", day: "2", time: "12:10pm - 12:55pm", location: "Fields"},
   {id: "lunchII", title: "Lunch II", day: "2", time: "1:00pm - 1:45pm", location: "Dining Hall"},
   {id: "crypticChaosILunch", title: "Cryptic Chaos I", day: "2", time: "1:00pm - 1:45pm", location: "Fields"},
-  {id: "workshopSessionIII", title: "Workshop Session III", day: "2", time: "1:55pm - 2:45pm", location: ""},
-  {id: "workshopSessionIV", title: "Workshop Session IV", day: "2", time: "2:55pm - 3:45pm", location: ""},
-  {id: "workshopSessionV", title: "Workshop Session V", day: "2", time: "3:55pm - 4:45pm", location: ""},
+  {id: "workshopSessionIII", title: "Workshop Session III  >", day: "2", time: "1:55pm - 2:45pm", location: ""},
+  {id: "workshopSessionIV", title: "Workshop Session IV  >", day: "2", time: "2:55pm - 3:45pm", location: ""},
+  {id: "workshopSessionV", title: "Workshop Session V  >", day: "2", time: "3:55pm - 4:45pm", location: ""},
   {id: "dinner", title: "Dinner (New Members & Fashion Show Participants)", day: "2", time: "5:00pm - 5:45pm", location: "Dining Hall"},
   {id: "valuedMembersMixer", title: "Valued Members Mixer (Returning Members)", day: "2", time: "5:00pm - 5:45pm", location: "Amphitheather"},
   {id: "valuedMembersReceptionDinner", title: "Valued Members Reception Dinner (Returning Members)", day: "2", time: "5:50pm - 6:45pm", location: "Dining Hall"},
@@ -411,4 +417,239 @@ const schedule = [
   {id: "departCampgroundsAndCleanUp", title: "Depart Campground & Clean Up", day: "3", time: "10:30am", location: ""}
 ]
 
-export { strings, schedule };
+// SchedulePage logic opens up a WorkshopsDetailPage (is actually more generic than Workshops)
+// if the row id exists in here
+const workshopDetails = {
+  workshopSessionIDay1: {
+    title: "Workshop Session I (Friday)",
+    data: [
+    {
+      title: "Murder Mystery",
+      location: "Main Auditorium (600+)",
+      description: "Alex Amaya & Marcus Dugenia"
+    },
+    {
+      title: "CKI Grants and Scholarships",
+      location: "FC 100 (100)",
+      description: "David Su"
+    },
+    {
+      title: "The Secret Behind Social Media",
+      location: "FC 200 (100-200)",
+      description: "Angela Chen & Erica Wei"
+    }
+    ]
+  },
+  workshopSessionIIDay1: {
+    title: "Workshop Session II (Friday)",
+    data: [
+    {
+      title: "How to Dance El Caballo Dorado",
+      location: "Main Auditorium (600+)",
+      description: "Gloria Rodriguez & Diana Aquino"
+    },
+    {
+      title: "Leadership Unsolved",
+      location: "FC 100 (100)",
+      description: "Anne Le & Katherine Hoang"
+    },
+    {
+      title: "Smash that Ice (Breakers)!",
+      location: "FC 200 (100-200)",
+      description: "Alayna Lieu & Kathy Tran"
+    }
+    ]
+  },
+  workshopSessionIDay2: {
+    title: "Workshop Session I (Saturday)",
+    data: [
+    {
+      title: "KPOP Dance",
+      location: "Main Auditorium (600+)",
+      description: "Mickey Cuento"
+    },
+    {
+      title: "Swiping Right in Life",
+      location: "FC 100 (100)",
+      description: "Aaron Lee"
+    },
+    {
+      title: "Member Recognition & Retention",
+      location: "FC 200 (100-200)",
+      description: "MR Committee"
+    },
+    {
+      title: "Solving the MYstery of Saving Money",
+      location: "Duncan Rec Room (100)",
+      description: "Calvin Lee"
+    },
+    {
+      title: "Tech & Software",
+      location: "Chapel (20-30)",
+      description: "Tiffany Nguyen"
+    },
+    {
+      title: "Executive Board 101 (session I & II)",
+      location: "Hilltop (100)",
+      description: "District Board"
+    }
+    ]
+  },
+  workshopSessionIIDay2: {
+    title: "Workshop Session II (Saturday)",
+    data: [
+    {
+      title: "Battle of Genders",
+      location: "Main Auditorium (600+)",
+      description: "Karl Yabes"
+    },
+    {
+      title: "Member to Member Recruitment",
+      location: "FC 100 (100)",
+      description: "Jamie Ly & Max Rico"
+    },
+    {
+      title: "How to Dress Good, Kind of?",
+      location: "FC 200 (100-200)",
+      description: "Eddy Yu & Thuy Tran"
+    },
+    {
+      title: "Navigating Your Journey: Career, Life, and Yourself",
+      location: "Duncan Rec Room (100)",
+      description: "Chris Tung"
+    },
+    {
+      title: "Circle K at the International Level",
+      location: "Chapel (20-30)",
+      description: "Don Nguyen & Racheal Fairley"
+    },
+    {
+      title: "Executive Board 101 (session I & II)",
+      location: "Hilltop (100)",
+      description: "District Board"
+    }
+    ]
+  },
+  workshopSessionIII: {
+    title: "Workshop Session III (Saturday)",
+    data: [
+    {
+      title: "Mediate and Learn to Manage Stress",
+      location: "Main Auditorium (600+)",
+      description: "Henry Pham & Joey Pontillas"
+    },
+    {
+      title: "Service for All",
+      location: "FC 100 (100)",
+      description: "Service Committee"
+    },
+    {
+      title: "Painting Like Bob Ross",
+      location: "FC 200 (100-200)",
+      description: "Heather Fann & Stella Liang"
+    },
+    {
+      title: "Awards Judging (session III & IV)",
+      location: "Duncan Rec Room (100)",
+      description: "invite only"
+    },
+    {
+      title: "Transfer Student Panel",
+      location: "Chapel (20-30)",
+      description: "Katherine Hoang"
+    },
+    {
+      title: "Preparing for the Perfect Interview",
+      location: "Hilltop (100)",
+      description: "Jessica Lam & Sergio Barrios"
+    },
+    {
+      title: "Spirit and Cheers",
+      location: "Amphitheater (600+)",
+      description: "Madeline Villanueva & Douglas Shimizu"
+    }
+    ]
+  },
+  workshopSessionIV: {
+    title: "Workshop Session IV (Saturday)",
+    data: [
+    {
+      title: "Hip Hop Dance",
+      location: "Main Auditorium (600+)",
+      description: "Andy Kim & Mickey Cuento"
+    },
+    {
+      title: "Benefits of Rejection",
+      location: "FC 100 (100)",
+      description: "Ian Mallari & Gabby Baniqued"
+    },
+    {
+      title: "Public Speaking",
+      location: "FC 200 (100-200)",
+      description: "Chris Lam & Minh Ton"
+    },
+    {
+      title: "Awards Judging (session III & IV)",
+      location: "Duncan Rec Room (100)",
+      description: "invite only"
+    },
+    {
+      title: "Building the Perfect Resume & Cover Letter",
+      location: "Chapel (20-30)",
+      description: "Jonathan Chu & Tiffany Nguyen"
+    },
+    {
+      title: "MD&E Panel",
+      location: "Hilltop (100)",
+      description: "MD&E Committee"
+    },
+    {
+      title: "Service Project",
+      location: "Amphitheater (600+)",
+      description: "Service Committee"
+    }
+    ]
+  },
+  workshopSessionV: {
+    title: "Workshop Session V (Saturday)",
+    data: [
+    {
+      title: "Transition Into a Sustainable Lifestyle",
+      location: "Main Auditorium (600+)",
+      description: "Darienne Viloria & Kristine Jiao"
+    },
+    {
+      title: "Successful Event Planning",
+      location: "FC 100 (100)",
+      description: "Matthew Kim & Bri Wong"
+    },
+    {
+      title: "Videography",
+      location: "FC 200 (100-200)",
+      description: "Andy Nguyen & Nathan Dang"
+    },
+    {
+      title: "Kiwanis Family Panel",
+      location: "Duncan Rec Room (100)",
+      description: "Kiwanis Family & Foundation Committee"
+    },
+    {
+      title: "Cooking on a Budget",
+      location: "Chapel (20-30)",
+      description: "Eddy Yu & Quan Vandinh"
+    },
+    {
+      title: "Put the FUN in Fundraising",
+      location: "Hilltop (100)",
+      description: "FiFun Committee"
+    },
+    {
+      title: "Real Talks",
+      location: "Amphitheater (600+)",
+      description: "Andy Kim"
+    }
+    ]
+  },
+}
+
+export { strings, schedule, scheduleDays, workshopDetails };

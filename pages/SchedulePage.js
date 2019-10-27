@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, Picker, StyleSheet } from 'react-native';
+import { Text, View, FlatList, Picker, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Res from '@resources';
 
 export default class SchedulePage extends Component {
     state = {
-        scheduleDay: "1",
+        scheduleDay: Res.scheduleDays[0].value,
         scheduleData: Res.schedule.filter(event => event.day === "1")
     }
     
     
     getEventRender(item) {
         return (
-            <View style={styles.eventRow}>
+            <TouchableOpacity style={styles.eventRow} onPress={() => this.handleRowPress(item)}>
                 <View style={styles.eventIconBox}>
                     <Icon style={styles.eventIcon} name='md-information-circle' size={24} color={'black'} />
                 </View>
@@ -20,8 +20,15 @@ export default class SchedulePage extends Component {
                     <Text style={styles.eventNameText}>{item.title}</Text>
                     <Text style={styles.eventTimeLocationText}>{item.time + " \u00B7 " + item.location}</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         );
+    }
+
+    handleRowPress(item) {
+        const workshopDetails = Res.workshopDetails[item.id];
+        if (workshopDetails) {
+            this.props.navigation.navigate('WorkshopsDetail', {title: workshopDetails.title, data: workshopDetails.data})
+        }
     }
 
     render() {
@@ -30,19 +37,19 @@ export default class SchedulePage extends Component {
                 <View style={styles.header}>
                     <Text style={styles.headerText}>Schedule</Text>
                 </View>
-                <Picker
-                    selectedValue={this.state.scheduleDay}
-                    style={{ backgroundColor: '#ffffff', color: '#000000', alignItems: 'center', fontFamily: 'Musket-Regular' }}
-                    onValueChange={(itemValue) => {
-                        this.setState({
-                            scheduleDay: itemValue,
-                            scheduleData: Res.schedule.filter(event => event.day === itemValue)
-                        });
-                    }}>
-                    <Picker.Item label="Day 1" value="1" />
-                    <Picker.Item label="Day 2" value="2" />
-                    <Picker.Item label="Day 3" value="3" />
-                </Picker>
+                <View style={styles.pickerContainer}>
+                    <Picker
+                        selectedValue={this.state.scheduleDay}
+                        style={styles.dateSelector}
+                        onValueChange={(itemValue) => {
+                            this.setState({
+                                scheduleDay: itemValue,
+                                scheduleData: Res.schedule.filter(event => event.day === itemValue)
+                            });
+                        }}>
+                        { Res.scheduleDays.map(day => <Picker.Item label={day.title} value={day.value} />)}
+                    </Picker>
+                </View>
                 <FlatList
                     data={this.state.scheduleData}
                     renderItem={({ item }) => this.getEventRender(item)}
@@ -97,5 +104,15 @@ const styles = StyleSheet.create({
         fontFamily: 'Cabin-Regular',
         color: '#fefefe',
         opacity: 0.7
+    },
+    pickerContainer: {
+        backgroundColor: "#ffffff"
+    },
+    dateSelector: {
+        // backgroundColor: '#ffffff',
+        color: '#000000',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontFamily: 'Musket-Regular',
     }
 });
