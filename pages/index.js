@@ -24,3 +24,5 @@ export FAQFinancePage from './faq/FAQFinancePage';
 export FAQSAAPage from './faq/FAQSAAPage';
 export FAQNavigationPage from './faq/FAQNavigationPage';
 export FAQMiscPage from './faq/FAQMiscPage';
+
+export WorkshopsDetailPage from './WorkshopsDetailPage';
