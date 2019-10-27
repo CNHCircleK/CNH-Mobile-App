@@ -6,7 +6,8 @@ import { View, StyleSheet, StatusBar, Image, Dimensions } from 'react-native';
 import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePage,
 OfficeHoursPage,
 CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage, TechPage,
-FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage, ContactsPage } from './pages';
+FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage, ContactsPage,
+WorkshopsDetailPage } from './pages';
 
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -75,7 +76,8 @@ const StackNavigator = createStackNavigator({
     FAQSAA: { screen: FAQSAAPage },
     FAQNavigation: { screen: FAQNavigationPage },
     FAQMisc: { screen: FAQMiscPage },
-    Contacts: { screen: ContactsPage }
+    Contacts: { screen: ContactsPage },
+    WorkshopsDetail: { screen: WorkshopsDetailPage }
 }, {
     headerMode: 'none',
     initialRouteName: "TabNavigator"
