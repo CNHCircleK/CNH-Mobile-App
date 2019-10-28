@@ -8,7 +8,10 @@ node_js:
   - node
   - lts/*
 notifications:
-  slack: cnhtech1920:UPmFebRU4eqD0OpXnCm5dlwg
+  slack:
+    on_pull_requests: false
+    rooms:
+      - cnhtech1920:UPmFebRU4eqD0OpXnCm5dlwg#lithub
 cache:
   directories:
     - ~/.npm
