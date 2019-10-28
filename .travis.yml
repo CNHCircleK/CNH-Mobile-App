@@ -1,15 +1,17 @@
 ---
-if: sender != "cnhtech-software"
+if: |
+    sender != "cnhtech-software" AND \
+    ((type = push AND (branch = master OR branch = development)) OR \
+    (type = pull_request AND (branch != master)))
 language: node_js
 node_js:
   - node
   - lts/*
 notifications:
-  slack: cnhtech1920:UPmFebRU4eqD0OpXnCm5dlwg
-branches:
-  only:
-  - master
-  - development
+  slack:
+    on_pull_requests: false
+    rooms:
+      - cnhtech1920:UPmFebRU4eqD0OpXnCm5dlwg#lithub
 cache:
   directories:
     - ~/.npm
@@ -22,7 +24,7 @@ script:
 jobs:
   include:
     - stage: publish-development
-      if: branch = development
+      if: branch = development AND type = push
       node_js: lts/*
       script:
         - npm ci
@@ -32,9 +34,9 @@ jobs:
         - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
         - npx expo publish --non-interactive --release-channel development
       after_success:
-        - sudo bash slack_script.sh $SLACK_WEBHOOK dev
+        - sudo bash slack_script.sh $SLACK_WEBHOOK dev $TRAVIS_COMMIT_MESSAGE
     - stage: publish-master
-      if: branch = master
+      if: branch = master AND type = push
       script:
         - npm ci
         - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
@@ -44,4 +46,13 @@ jobs:
         - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
         - npx expo publish --non-interactive
       after_success:
-        - sudo bash slack_script.sh $SLACK_WEBHOOK master
+        - sudo bash slack_script.sh $SLACK_WEBHOOK master $TRAVIS_COMMIT_MESSAGE
+    - stage: check-pr
+      if: branch != master AND type = pull_request
+      script:
+        - npm ci
+        - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+        - sudo sysctl -p
+        - npm install --save-dev expo-cli
+        - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
+        - npx expo publish --non-interactive --release-channel $TRAVIS_BUILD_NUMBER
