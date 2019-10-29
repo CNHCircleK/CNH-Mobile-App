@@ -19,6 +19,7 @@ const TabNavigatorPages = createBottomTabNavigator({
         tabBarIcon: ({ tintColor }) => (
           <Icon name='md-home' size={20} color={tintColor} />
         )
+<<<<<<< HEAD
       } },
     Schedule: { screen: SchedulePage,
       navigationOptions: {
@@ -34,6 +35,23 @@ const TabNavigatorPages = createBottomTabNavigator({
     //       <Icon name='md-map' size={20} color={tintColor} />
     //     )
     //   } },
+=======
+      } } ,
+    // Schedule: { screen: ComingSoonPage,
+    //   navigationOptions: {
+    //     tabBarLabel: 'Schedule',
+    //     tabBarIcon: ({ tintColor }) => (
+    //       <Icon name='md-list-box' size={20} color={tintColor} />
+    //     )
+    //   } },
+    Map: { screen: MapPage,
+    navigationOptions: {
+    tabBarLabel: 'Map',
+    tabBarIcon: ({ tintColor }) => (
+    <Icon name='md-map' size={20} color={tintColor} />
+    )
+    } }
+>>>>>>> ad18f08... map page
     // Info: { screen: ComingSoonPage,
     //   navigationOptions: {
     //     tabBarLabel: 'Info',

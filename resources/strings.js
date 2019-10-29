@@ -313,6 +313,9 @@ What makes FTC stand out from other district Circle K events is our new member i
 There will also be activities ranging from workshops, team activities, campfire skits & talent acts, \
 entertainment, fundraising, spirit, and more!`
     },
+    map: {
+      title: "Map",
+    },
     finance: {
       title: "Cost and Fundraisers",
       body:
