@@ -38,13 +38,16 @@ export default class SchedulePage extends Component {
     
     getEventRender(item) {
         return (
-            <TouchableOpacity style={styles.eventRow} onPress={() => this.handleRowPress(item)}>
+            <TouchableOpacity style={styles.eventRow} activeOpacity={Res.workshopDetails[item.id] ? 0.2 : 1} onPress={() => this.handleRowPress(item)}>
                 <View style={styles.eventIconBox}>
                     <Icon style={styles.eventIcon} name='md-information-circle' size={24} color={'black'} />
                 </View>
                 <View style={styles.eventData}>
                     <Text style={styles.eventNameText}>{item.title}</Text>
                     <Text style={styles.eventTimeLocationText}>{item.time + " \u00B7 " + item.location}</Text>
+                </View>
+                <View style={styles.eventChevron}>
+                    {Res.workshopDetails[item.id] && <Icon name='ios-arrow-forward' size={24} color={'white'} />}
                 </View>
             </TouchableOpacity>
         );
@@ -116,7 +119,7 @@ const styles = StyleSheet.create({
         color: "#ffffff"
     },
     eventData: {
-        flex: 4,
+        flex: 5,
         justifyContent: 'center'
     },
     eventNameText: {
@@ -130,6 +133,11 @@ const styles = StyleSheet.create({
         fontFamily: 'Cabin-Regular',
         color: '#fefefe',
         opacity: 0.7
+    },
+    eventChevron: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     pickerContainer: {
         backgroundColor: "#ffffff"
