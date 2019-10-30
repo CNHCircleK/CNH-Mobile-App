@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList, TouchableOpacity, TouchableWithoutFeedback, Linking, Modal } from 'react-native';
+import { View, StyleSheet, Image, ImageBackground, Text, SectionList, FlatList,
+  TouchableOpacity, TouchableWithoutFeedback, Linking, Modal, SafeAreaView,
+  Platform} from 'react-native';
 import { Video } from 'expo-av';
 import PlainText from '@components/PlainText';
 import Res from '@resources';
@@ -64,6 +66,7 @@ export default class HomePage extends Component {
         const {navigate} = this.props.navigation;
 
         return (
+            <SafeAreaView style={styles.safeContainer}>
             <View style={styles.container}>
                 <Modal
                   animationType="slide"
@@ -101,12 +104,17 @@ export default class HomePage extends Component {
                         <Icon name='md-open' size={18} color={'black'} />
                     </TouchableOpacity>
                 </View>
-            </View>
+                </View>
+            </SafeAreaView>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    safeContainer: {
+      flex: 1,
+      backgroundColor: '#1a1d32'
+    },
     container: {
         flex: 1,
         alignItems: 'center',
@@ -166,6 +174,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Musket-Regular',
         color: 'black',
         marginRight: 8,
+        alignSelf: 'center'
     },
     eggContainer: {
         alignItems: 'center',

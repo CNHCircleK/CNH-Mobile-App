@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, Image, StyleSheet, Button } from 'react-native';
+import { Text, View, ScrollView, Image, StyleSheet, Button, SafeAreaView } from 'react-native';
 import { Font, AppLoading } from 'expo';
 import Icon from 'react-native-vector-icons/Ionicons';
 import InfoParagraph from './InfoParagraph';
@@ -19,10 +19,11 @@ export default class TemplateInfoPage extends Component {
       };
     }
 
-    render() {        
+    render() {
         const navigation = this.props.navigation;
 
         return (
+          <SafeAreaView style={styles.safeContainer}>
             <ScrollView style={styles.height}>
               <HeaderBackButton tintColor='#fefefe' onPress={() => navigation.goBack(null)} />
               <View style={styles.container}>
@@ -46,11 +47,16 @@ export default class TemplateInfoPage extends Component {
                 }
               </View>
             </ScrollView>
+            </SafeAreaView>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    safeContainer: {
+      flex: 1,
+      backgroundColor: '#1a1d32'
+    },
     container: {
         flex: 1,
         padding: 20,
