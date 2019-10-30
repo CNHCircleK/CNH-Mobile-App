@@ -8,14 +8,15 @@ export default class MapPage extends Component {
     render() {
         return (
             <ScrollView style={{height: 1200}}>
-    <ScrollView horizontal style={{width: 1200}}>
+    <ScrollView horizontal style={{width: 1850}}>
     <ImageZoom cropWidth={Dimensions.get('window').width}
                        cropHeight={Dimensions.get('window').height}
-                       imageWidth={1550}
-                       imageHeight={1300}
-                       enableCenterFocus = {false}>
+                       imageWidth={1800}
+                       imageHeight={1350}
+                       enableCenterFocus = {false}
+                       minScale = {.25}>
     <Image 
-            style={{width: 1500, height: 1200}}
+            style={{width: 1700, height: 1300}}
             source={require('../resources/images/HomePage/map.png')} />
             </ImageZoom>
     </ScrollView>
