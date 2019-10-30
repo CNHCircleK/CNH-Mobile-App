@@ -7,18 +7,13 @@ import Res from '@resources';
 export default class MapPage extends Component {
     render() {
         return (
-            <ImageZoom cropWidth={Dimensions.get('window').width}
-                       cropHeight={Dimensions.get('window').height}
-                       imageWidth={1000}
-                       imageHeight={1000}>
-            <ScrollView contentContainerStyle={{height: 1000}}>
-    <ScrollView horizontal contentContainerStyle={{width: 1000}}>
+            <ScrollView minimumZoomScale={1} maximumZoomScale={5} contentContainerStyle={{height: 1000}}>
+    <ScrollView minimumZoomScale={1} maximumZoomScale={5} horizontal contentContainerStyle={{width: 1000}}>
     <Image 
             style={{width: 1000, height: 800}}
             source={require('../resources/images/HomePage/map.png')} />
     </ScrollView>
 </ScrollView>
-</ImageZoom>
         );
     }
 }
