@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, Picker, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, FlatList, Picker, StyleSheet, TouchableOpacity,
+  SafeAreaView, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Res from '@resources';
 import { HeaderBackButton } from 'react-navigation';
@@ -27,6 +28,7 @@ export default class WorkshopsDetailPage extends Component {
 
     render() {
         return (
+          <SafeAreaView style={styles.safeContainer}>
             <View style={styles.container}>
               <HeaderBackButton tintColor='#fefefe' onPress={() => this.props.navigation.goBack(null)} />
                 <View style={styles.header}>
@@ -39,14 +41,20 @@ export default class WorkshopsDetailPage extends Component {
                     extraData={this.state}
                 />
             </View>
+          </SafeAreaView>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    safeContainer: {
+        flex: 1,
+        backgroundColor: '#1a1d32',
+    },
     container: {
         flex: 1,
-        backgroundColor: '#1a1d32'
+        backgroundColor: '#1a1d32',
+        paddingLeft: 10
     },
     header: {
         margin: 20,

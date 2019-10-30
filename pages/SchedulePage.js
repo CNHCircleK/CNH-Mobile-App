@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, Picker, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, FlatList, Picker, StyleSheet, TouchableOpacity,
+        SafeAreaView, Platform } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Res from '@resources';
 import { AsyncStorage } from 'react-native';
@@ -20,7 +22,7 @@ export default class SchedulePage extends Component {
             console.error(error);
         }
     }
-    
+
     updateDay(day) {
         this.setState({
             scheduleDay: day,
@@ -35,7 +37,7 @@ export default class SchedulePage extends Component {
             }
         })();
     }
-    
+
     getEventRender(item) {
         return (
             <TouchableOpacity style={styles.eventRow} activeOpacity={Res.workshopDetails[item.id] ? 0.2 : 1} onPress={() => this.handleRowPress(item)}>
@@ -62,22 +64,28 @@ export default class SchedulePage extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <View style={styles.header}>
                     <Text style={styles.headerText}>Schedule</Text>
                 </View>
                 <View style={styles.pickerContainer}>
-                    <Picker
+                    <RNPickerSelect
                         selectedValue={this.state.scheduleDay}
-                        style={styles.dateSelector}
+                        style={Platform.OS === 'ios' ? pickerStyleiOS : pickerStyleAndroid}
                         onValueChange={(itemValue) => {
                             this.setState({
                                 scheduleDay: itemValue,
                                 scheduleData: Res.schedule.filter(event => event.day === itemValue)
                             });
-                        }}>
-                        { Res.scheduleDays.map(day => <Picker.Item label={day.title} value={day.value} />)}
-                    </Picker>
+                        }}
+                        items={Res.scheduleDays.map(day => ({ label: day.title, value: day.value }))}
+                        placeholder={{}}
+
+                        Icon={Platform.OS === 'android' ? undefined : (() => {
+                          return <Icon name='md-arrow-dropdown' size={24} color="gray" />;
+                        })}
+                       >
+                    </RNPickerSelect>
                 </View>
                 <FlatList
                     data={this.state.scheduleData}
@@ -85,7 +93,7 @@ export default class SchedulePage extends Component {
                     keyExtractor={item => item.id}
                     extraData={this.state}
                 />
-            </View>
+            </SafeAreaView>
         );
     }
 }
@@ -140,13 +148,36 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     pickerContainer: {
-        backgroundColor: "#ffffff"
-    },
-    dateSelector: {
-        // backgroundColor: '#ffffff',
-        color: '#000000',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontFamily: 'Musket-Regular',
+        backgroundColor: "#ffffff",
+        marginLeft: 15,
+        marginRight: 15
     }
+});
+
+const pickerStyleiOS = StyleSheet.create({
+  inputIOS: {
+    fontSize: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    color: '#000000',
+    paddingRight: 30,
+    fontFamily: 'Cabin-Regular',
+
+  },
+  iconContainer: {
+  top: 10,
+  right: 20,
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  },
+});
+
+const pickerStyleAndroid = StyleSheet.create({
+  inputAndroid: {
+    color: '#000000',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontFamily: 'Cabin-Regular'
+  },
 });
