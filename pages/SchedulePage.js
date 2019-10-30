@@ -47,7 +47,7 @@ export default class SchedulePage extends Component {
                     <Text style={styles.eventTimeLocationText}>{item.time + " \u00B7 " + item.location}</Text>
                 </View>
                 <View style={styles.eventChevron}>
-                    {Res.workshopDetails[item.id] && <Icon name='ios-arrow-forward' size={24} color={'white'} visibility={'none'} />}
+                    {Res.workshopDetails[item.id] && <Icon name='ios-arrow-forward' size={24} color={'white'} />}
                 </View>
             </TouchableOpacity>
         );
@@ -136,7 +136,8 @@ const styles = StyleSheet.create({
     },
     eventChevron: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     pickerContainer: {
         backgroundColor: "#ffffff"
