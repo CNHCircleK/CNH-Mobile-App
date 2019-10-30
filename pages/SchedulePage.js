@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, FlatList, Picker, StyleSheet, TouchableOpacity } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Res from '@resources';
 import { AsyncStorage } from 'react-native';
@@ -67,7 +68,7 @@ export default class SchedulePage extends Component {
                     <Text style={styles.headerText}>Schedule</Text>
                 </View>
                 <View style={styles.pickerContainer}>
-                    <Picker
+                    <RNPickerSelect
                         selectedValue={this.state.scheduleDay}
                         style={styles.dateSelector}
                         onValueChange={(itemValue) => {
@@ -75,9 +76,11 @@ export default class SchedulePage extends Component {
                                 scheduleDay: itemValue,
                                 scheduleData: Res.schedule.filter(event => event.day === itemValue)
                             });
-                        }}>
-                        { Res.scheduleDays.map(day => <Picker.Item label={day.title} value={day.value} />)}
-                    </Picker>
+                        }}
+                        items={Res.scheduleDays.map(day => ({ label: day.title, value: day.value }))}
+                        placeholder={{}}
+                       >
+                    </RNPickerSelect>
                 </View>
                 <FlatList
                     data={this.state.scheduleData}
