@@ -425,17 +425,17 @@ const workshopDetails = {
     data: [
     {
       title: "Murder Mystery",
-      location: "Main Auditorium (600+)",
+      location: "Main Auditorium",
       description: "Alex Amaya & Marcus Dugenia"
     },
     {
       title: "CKI Grants and Scholarships",
-      location: "FC 100 (100)",
+      location: "FC 100",
       description: "David Su"
     },
     {
       title: "The Secret Behind Social Media",
-      location: "FC 200 (100-200)",
+      location: "FC 200",
       description: "Angela Chen & Erica Wei"
     }
     ]
@@ -445,17 +445,17 @@ const workshopDetails = {
     data: [
     {
       title: "How to Dance El Caballo Dorado",
-      location: "Main Auditorium (600+)",
+      location: "Main Auditorium",
       description: "Gloria Rodriguez & Diana Aquino"
     },
     {
       title: "Leadership Unsolved",
-      location: "FC 100 (100)",
+      location: "FC 100",
       description: "Anne Le & Katherine Hoang"
     },
     {
       title: "Smash that Ice (Breakers)!",
-      location: "FC 200 (100-200)",
+      location: "FC 200",
       description: "Alayna Lieu & Kathy Tran"
     }
     ]
@@ -465,32 +465,32 @@ const workshopDetails = {
     data: [
     {
       title: "KPOP Dance",
-      location: "Main Auditorium (600+)",
+      location: "Main Auditorium",
       description: "Mickey Cuento"
     },
     {
       title: "Swiping Right in Life",
-      location: "FC 100 (100)",
+      location: "FC 100",
       description: "Aaron Lee"
     },
     {
       title: "Member Recognition & Retention",
-      location: "FC 200 (100-200)",
+      location: "FC 200",
       description: "MR Committee"
     },
     {
       title: "Solving the MYstery of Saving Money",
-      location: "Duncan Rec Room (100)",
+      location: "Duncan Rec Room",
       description: "Calvin Lee"
     },
     {
       title: "Tech & Software",
-      location: "Chapel (20-30)",
+      location: "Chapel",
       description: "Tiffany Nguyen"
     },
     {
       title: "Executive Board 101 (session I & II)",
-      location: "Hilltop (100)",
+      location: "Hilltop",
       description: "District Board"
     }
     ]
@@ -500,32 +500,32 @@ const workshopDetails = {
     data: [
     {
       title: "Battle of Genders",
-      location: "Main Auditorium (600+)",
+      location: "Main Auditorium",
       description: "Karl Yabes"
     },
     {
       title: "Member to Member Recruitment",
-      location: "FC 100 (100)",
+      location: "FC 100",
       description: "Jamie Ly & Max Rico"
     },
     {
       title: "How to Dress Good, Kind of?",
-      location: "FC 200 (100-200)",
+      location: "FC 200",
       description: "Eddy Yu & Thuy Tran"
     },
     {
       title: "Navigating Your Journey: Career, Life, and Yourself",
-      location: "Duncan Rec Room (100)",
+      location: "Duncan Rec Room",
       description: "Chris Tung"
     },
     {
       title: "Circle K at the International Level",
-      location: "Chapel (20-30)",
+      location: "Chapel",
       description: "Don Nguyen & Racheal Fairley"
     },
     {
       title: "Executive Board 101 (session I & II)",
-      location: "Hilltop (100)",
+      location: "Hilltop",
       description: "District Board"
     }
     ]
@@ -535,37 +535,37 @@ const workshopDetails = {
     data: [
     {
       title: "Mediate and Learn to Manage Stress",
-      location: "Main Auditorium (600+)",
+      location: "Main Auditorium",
       description: "Henry Pham & Joey Pontillas"
     },
     {
       title: "Service for All",
-      location: "FC 100 (100)",
+      location: "FC 100",
       description: "Service Committee"
     },
     {
       title: "Painting Like Bob Ross",
-      location: "FC 200 (100-200)",
+      location: "FC 200",
       description: "Heather Fann & Stella Liang"
     },
     {
       title: "Awards Judging (session III & IV)",
-      location: "Duncan Rec Room (100)",
+      location: "Duncan Rec Room",
       description: "invite only"
     },
     {
       title: "Transfer Student Panel",
-      location: "Chapel (20-30)",
+      location: "Chapel",
       description: "Katherine Hoang"
     },
     {
       title: "Preparing for the Perfect Interview",
-      location: "Hilltop (100)",
+      location: "Hilltop",
       description: "Jessica Lam & Sergio Barrios"
     },
     {
       title: "Spirit and Cheers",
-      location: "Amphitheater (600+)",
+      location: "Amphitheater",
       description: "Madeline Villanueva & Douglas Shimizu"
     }
     ]
@@ -575,37 +575,37 @@ const workshopDetails = {
     data: [
     {
       title: "Hip Hop Dance",
-      location: "Main Auditorium (600+)",
+      location: "Main Auditorium",
       description: "Andy Kim & Mickey Cuento"
     },
     {
       title: "Benefits of Rejection",
-      location: "FC 100 (100)",
+      location: "FC 100",
       description: "Ian Mallari & Gabby Baniqued"
     },
     {
       title: "Public Speaking",
-      location: "FC 200 (100-200)",
+      location: "FC 200",
       description: "Chris Lam & Minh Ton"
     },
     {
       title: "Awards Judging (session III & IV)",
-      location: "Duncan Rec Room (100)",
+      location: "Duncan Rec Room",
       description: "invite only"
     },
     {
       title: "Building the Perfect Resume & Cover Letter",
-      location: "Chapel (20-30)",
+      location: "Chapel",
       description: "Jonathan Chu & Tiffany Nguyen"
     },
     {
       title: "MD&E Panel",
-      location: "Hilltop (100)",
+      location: "Hilltop",
       description: "MD&E Committee"
     },
     {
       title: "Service Project",
-      location: "Amphitheater (600+)",
+      location: "Amphitheater",
       description: "Service Committee"
     }
     ]
@@ -615,37 +615,37 @@ const workshopDetails = {
     data: [
     {
       title: "Transition Into a Sustainable Lifestyle",
-      location: "Main Auditorium (600+)",
+      location: "Main Auditorium",
       description: "Darienne Viloria & Kristine Jiao"
     },
     {
       title: "Successful Event Planning",
-      location: "FC 100 (100)",
+      location: "FC 100",
       description: "Matthew Kim & Bri Wong"
     },
     {
       title: "Videography",
-      location: "FC 200 (100-200)",
+      location: "FC 200",
       description: "Andy Nguyen & Nathan Dang"
     },
     {
       title: "Kiwanis Family Panel",
-      location: "Duncan Rec Room (100)",
+      location: "Duncan Rec Room",
       description: "Kiwanis Family & Foundation Committee"
     },
     {
       title: "Cooking on a Budget",
-      location: "Chapel (20-30)",
+      location: "Chapel",
       description: "Eddy Yu & Quan Vandinh"
     },
     {
       title: "Put the FUN in Fundraising",
-      location: "Hilltop (100)",
+      location: "Hilltop",
       description: "FiFun Committee"
     },
     {
       title: "Real Talks",
-      location: "Amphitheater (600+)",
+      location: "Amphitheater",
       description: "Andy Kim"
     }
     ]
