@@ -34,7 +34,7 @@ jobs:
         - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
         - npx expo publish --non-interactive --release-channel development
       after_success:
-        - sudo bash slack_script.sh $SLACK_WEBHOOK dev '"$TRAVIS_COMMIT_MESSAGE"'
+        - sudo bash slack_script.sh $SLACK_WEBHOOK dev "'$TRAVIS_COMMIT_MESSAGE'"
     - stage: publish-master
       if: branch = master AND type = push
       script:
