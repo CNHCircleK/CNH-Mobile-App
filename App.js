@@ -7,7 +7,7 @@ import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePa
 OfficeHoursPage,
 CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage, TechPage,
 FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage, ContactsPage,
-WorkshopsDetailPage } from './pages';
+ScheduleDetailPage } from './pages';
 
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -77,7 +77,7 @@ const StackNavigator = createStackNavigator({
     FAQNavigation: { screen: FAQNavigationPage },
     FAQMisc: { screen: FAQMiscPage },
     Contacts: { screen: ContactsPage },
-    WorkshopsDetail: { screen: WorkshopsDetailPage }
+    ScheduleDetail: { screen: ScheduleDetailPage }
 }, {
     headerMode: 'none',
     initialRouteName: "TabNavigator"

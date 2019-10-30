@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Res from '@resources';
 import { HeaderBackButton } from 'react-navigation';
 
-export default class WorkshopsDetailPage extends Component {
+export default class ScheduleDetailPage extends Component {
     state = {
         title: this.props.navigation.getParam('title', "404"),
         data: this.props.navigation.getParam('data', [])
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     },
     eventRow: {
         flexDirection: 'row',
-        padding: 10
+        margin: 16
     },
     eventData: {
         flex: 4,
