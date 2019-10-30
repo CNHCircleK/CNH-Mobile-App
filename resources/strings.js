@@ -375,10 +375,7 @@ const scheduleDays = [
 ]
 
 const schedule = [
-  {id: "committeeAndDistrictBoardArrival", title: "Committee & District Board Arrival", day: "1", time: "9:00am", location: "Lobby"},
-  {id: "setUp", title: "Set-Up", day: "1", time: "9:30am - 5:00pm", location: ""},
   {id: "districtBoardMeeting", title: "District Board Meeting", day: "1", time: "1:30pm", location: ""},
-  {id: "committeeAndDistrictBoardDebrief", title: "Committee & District Board Debrief", day: "1", time: "3:30pm", location: ""},
   {id: "memberMixer", title: "Member Mixer", day: "1", time: "5:00pm - 8:45pm", location: "tbd"},
   {id: "registrationOpens", title: "Registration Opens", day: "1", time: "5:30pm", location: "Lobby"},
   {id: "awardsSubmissions", title: "Awards Submissions", day: "1", time: "5:30pm - 8:00pm", location: "Lobby"},
