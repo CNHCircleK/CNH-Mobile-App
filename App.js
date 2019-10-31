@@ -6,7 +6,8 @@ import { View, StyleSheet, StatusBar, Image, Dimensions } from 'react-native';
 import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePage,
 OfficeHoursPage,
 CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage, TechPage,
-FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage, ContactsPage } from './pages';
+FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage, ContactsPage,
+ScheduleDetailPage } from './pages';
 
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -18,7 +19,23 @@ const TabNavigatorPages = createBottomTabNavigator({
         tabBarIcon: ({ tintColor }) => (
           <Icon name='md-home' size={20} color={tintColor} />
         )
-      } } // ,
+      } },
+    Schedule: { screen: SchedulePage,
+      navigationOptions: {
+        tabBarLabel: 'Schedule',
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name='md-list-box' size={20} color={tintColor} />
+        )
+      } },
+    // Map: { screen: ComingSoonPage,
+    // Schedule: { screen: ComingSoonPage,
+    //   navigationOptions: {
+    //     tabBarLabel: 'Map',
+    //     tabBarIcon: ({ tintColor }) => (
+    //       <Icon name='md-map' size={20} color={tintColor} />
+    //     )
+    //   } },
+
     // Schedule: { screen: ComingSoonPage,
     //   navigationOptions: {
     //     tabBarLabel: 'Schedule',
@@ -26,13 +43,14 @@ const TabNavigatorPages = createBottomTabNavigator({
     //       <Icon name='md-list-box' size={20} color={tintColor} />
     //     )
     //   } },
-    // Map: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Map',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-map' size={20} color={tintColor} />
-    //     )
-    //   } },
+
+    Map: { screen: MapPage,
+    navigationOptions: {
+    tabBarLabel: 'Map',
+    tabBarIcon: ({ tintColor }) => (
+    <Icon name='md-map' size={20} color={tintColor} />
+    )
+    } }
     // Info: { screen: ComingSoonPage,
     //   navigationOptions: {
     //     tabBarLabel: 'Info',
@@ -75,7 +93,8 @@ const StackNavigator = createStackNavigator({
     FAQSAA: { screen: FAQSAAPage },
     FAQNavigation: { screen: FAQNavigationPage },
     FAQMisc: { screen: FAQMiscPage },
-    Contacts: { screen: ContactsPage }
+    Contacts: { screen: ContactsPage },
+    ScheduleDetail: { screen: ScheduleDetailPage }
 }, {
     headerMode: 'none',
     initialRouteName: "TabNavigator"

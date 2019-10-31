@@ -1,121 +1,176 @@
 import React, { Component } from 'react';
-import { Text, View, SectionList, StyleSheet } from 'react-native';
+import { Text, View, FlatList, Picker, StyleSheet, TouchableOpacity,
+        SafeAreaView, Platform } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Res from '@resources';
+import { AsyncStorage } from 'react-native';
 
 export default class SchedulePage extends Component {
-    scheduleData = [
-        { title: "Date 1", data: [
-            { name: "Speech Speech", location: "Ballroom A", startTime: "9:00am", endTime: "10:00am" }, 
-            { name: "Play Time", location: "Ballroom B", startTime: "10:00am", endTime: "11:00am" }
-        ]},
-        { title: "Date 2", data: [
-            { name: "Breaks Galore", location: "Courtyard C", startTime: "12:00pm", endTime: "1:00pm" }, 
-            { name: "Demo Demo", location: "Courtyard D", startTime: "1:00pm", endTime: "2:00pm" }
-        ]},
-        { title: "Date 3", data: [
-            { name: "Talk Time", location: "Alley E", startTime: "3:00pm", endTime: "4:00pm" }, 
-            { name: "Go Home", location: "Alley F", startTime: "4:00pm", endTime: "5:00pm" }
-        ]},
-        { title: "Date 1", data: [
-            { name: "Speech Speech", location: "Ballroom A", startTime: "9:00am", endTime: "10:00am" }, 
-            { name: "Play Time", location: "Ballroom B", startTime: "10:00am", endTime: "11:00am" }
-        ]},
-        { title: "Date 2", data: [
-            { name: "Breaks Galore", location: "Courtyard C", startTime: "12:00pm", endTime: "1:00pm" }, 
-            { name: "Demo Demo", location: "Courtyard D", startTime: "1:00pm", endTime: "2:00pm" }
-        ]},
-        { title: "Date 3", data: [
-            { name: "Talk Time", location: "Alley E", startTime: "3:00pm", endTime: "4:00pm" }, 
-            { name: "Go Home", location: "Alley F", startTime: "4:00pm", endTime: "5:00pm" }
-        ]}
-    ];
+    state = {
+        scheduleDay: Res.scheduleDays[0].value,
+        scheduleData: Res.schedule.filter(event => event.day === Res.scheduleDays[0].value)
+    }
 
-    getEventRender(item, index) {
+    async componentWillMount() {
+        try {
+            const day = await AsyncStorage.getItem('Schedule_Day');
+            if (day !== null) {
+                this.updateDay(day);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    updateDay(day) {
+        this.setState({
+            scheduleDay: day,
+            scheduleData: Res.schedule.filter(event => event.day === day)
+        });
+
+        (async () => {
+            try {
+                await AsyncStorage.setItem('Schedule_Day', day);
+            } catch (error) {
+                console.error(error);
+            }
+        })();
+    }
+
+    getEventRender(item) {
         return (
-            <View style={styles.eventRow} key={index}>
-                <View style={styles.eventTime}>
-                    <Text style={styles.eventTimeText}>{item.startTime}</Text>
-                    <Text style={styles.eventTimeText}>{item.endTime}</Text>
+            <TouchableOpacity style={styles.eventRow} activeOpacity={Res.scheduleDetails[item.id] ? 0.2 : 1} onPress={() => this.handleRowPress(item)}>
+                <View style={styles.eventData}>
+                    <Text style={styles.eventNameText}>{item.title}</Text>
+                    <Text style={styles.eventTimeLocationText}>{item.time + " \u00B7 " + item.location}</Text>
                 </View>
-                <View style={styles.eventNameLocation}>
-                    <Text style={styles.eventNameText}>{item.name}</Text>
-                    <Text style={styles.eventLocationText}>{item.location}</Text>
+                <View style={styles.eventChevron}>
+                    {Res.scheduleDetails[item.id] && <Icon name='ios-arrow-forward' size={24} color={'white'} />}
                 </View>
-            </View>
+            </TouchableOpacity>
         );
     }
 
-    getSectionTitleRender(title) {
-        return (
-            <Text style={styles.sectionTitle}>{title}</Text>
-        );
+    handleRowPress(item) {
+        const scheduleDetails = Res.scheduleDetails[item.id];
+        if (scheduleDetails) {
+            this.props.navigation.navigate('ScheduleDetail', {title: scheduleDetails.title, data: scheduleDetails.data})
+        }
     }
 
     render() {
         return (
-            <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Schedule of Events</Text>
+                    <Text style={styles.headerText}>Schedule</Text>
                 </View>
-                <SectionList
-                    renderItem={({ item, index, section }) => this.getEventRender(item, index)}
-                    renderSectionHeader={({ section: {title} }) => this.getSectionTitleRender(title)}
-                    sections={this.scheduleData}
+                <View style={styles.pickerContainer}>
+                    <RNPickerSelect
+                        value={this.state.scheduleDay}
+                        style={Platform.OS === 'ios' ? pickerStyleiOS : pickerStyleAndroid}
+                        onValueChange={(itemValue) => this.updateDay(itemValue)}
+                        items={Res.scheduleDays.map(day => ({ label: day.title, value: day.value }))}
+                        placeholder={{}}
+
+                        Icon={Platform.OS === 'android' ? undefined : (() => {
+                          return <Icon name='md-arrow-dropdown' size={24} color="gray" />;
+                        })}
+                       >
+                    </RNPickerSelect>
+                </View>
+                <FlatList
+                    data={this.state.scheduleData}
+                    renderItem={({ item }) => this.getEventRender(item)}
+                    keyExtractor={item => item.id}
+                    extraData={this.state}
                 />
-            </View>
+            </SafeAreaView>
         );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: '#1a1d32'
     },
     header: {
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 20,
-        borderColor: '#000000',
-        borderTopWidth: 2,
-        borderBottomWidth: 2
+        margin: 20,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     headerText: {
-        fontSize: 32,
-        fontWeight: 'bold'
+        fontSize: 20,
+        fontFamily: 'Musket-Bold',
+        color: '#ffffff'
     },
     eventRow: {
         flexDirection: 'row',
-        padding: 5,
-        paddingLeft: 10,
-        marginLeft: 10,
-        marginRight: 10,
-        marginBottom: 5,
-        backgroundColor: '#e7e7e7',
-        borderRadius: 10
+        paddingTop: 10,
+        paddingBottom: 10,
+        marginLeft: 15
     },
-    eventTime: {
+    eventIconBox: {
         flex: 1,
-        fontSize: 10,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    eventTimeText: {
-        fontSize: 10,
-        color: '#4c4c4c'
+    eventIcon: {
+        color: "#ffffff"
     },
-    eventNameLocation: {
-        flex: 2,
+    eventData: {
+        flex: 5,
         justifyContent: 'center'
     },
     eventNameText: {
+        fontSize: 16,
+        fontFamily: 'Cabin-Bold',
+        color: "#ffffff",
+        marginBottom: 5
+    },
+    eventTimeLocationText: {
         fontSize: 12,
-        fontWeight: 'bold'
+        fontFamily: 'Cabin-Regular',
+        color: '#fefefe',
+        opacity: 0.7
     },
-    eventLocationText: {
-        fontSize: 10
+    eventChevron: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
-    sectionTitle: {
-        margin: 5,
-        marginLeft: 10,
-        marginTop: 10,
-        fontWeight: 'bold'
+    pickerContainer: {
+        backgroundColor: "#ffffff",
+        marginLeft: 15,
+        marginRight: 15
     }
+});
+
+const pickerStyleiOS = StyleSheet.create({
+  inputIOS: {
+    fontSize: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    color: '#000000',
+    paddingRight: 30,
+    fontFamily: 'Cabin-Regular',
+
+  },
+  iconContainer: {
+  top: 10,
+  right: 20,
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  },
+});
+
+const pickerStyleAndroid = StyleSheet.create({
+  inputAndroid: {
+    color: '#000000',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontFamily: 'Cabin-Regular'
+  },
 });
