@@ -16,7 +16,7 @@ export default class SchedulePage extends Component {
         try {
             const day = await AsyncStorage.getItem('Schedule_Day');
             if (day !== null) {
-                this.setState({ scheduleDay: day })
+                this.updateDay(day);
             }
         } catch (error) {
             console.error(error);
@@ -40,25 +40,22 @@ export default class SchedulePage extends Component {
 
     getEventRender(item) {
         return (
-            <TouchableOpacity style={styles.eventRow} activeOpacity={Res.workshopDetails[item.id] ? 0.2 : 1} onPress={() => this.handleRowPress(item)}>
-                <View style={styles.eventIconBox}>
-                    <Icon style={styles.eventIcon} name='md-information-circle' size={24} color={'black'} />
-                </View>
+            <TouchableOpacity style={styles.eventRow} activeOpacity={Res.scheduleDetails[item.id] ? 0.2 : 1} onPress={() => this.handleRowPress(item)}>
                 <View style={styles.eventData}>
                     <Text style={styles.eventNameText}>{item.title}</Text>
                     <Text style={styles.eventTimeLocationText}>{item.time + " \u00B7 " + item.location}</Text>
                 </View>
                 <View style={styles.eventChevron}>
-                    {Res.workshopDetails[item.id] && <Icon name='ios-arrow-forward' size={24} color={'white'} />}
+                    {Res.scheduleDetails[item.id] && <Icon name='ios-arrow-forward' size={24} color={'white'} />}
                 </View>
             </TouchableOpacity>
         );
     }
 
     handleRowPress(item) {
-        const workshopDetails = Res.workshopDetails[item.id];
-        if (workshopDetails) {
-            this.props.navigation.navigate('WorkshopsDetail', {title: workshopDetails.title, data: workshopDetails.data})
+        const scheduleDetails = Res.scheduleDetails[item.id];
+        if (scheduleDetails) {
+            this.props.navigation.navigate('ScheduleDetail', {title: scheduleDetails.title, data: scheduleDetails.data})
         }
     }
 
@@ -70,14 +67,9 @@ export default class SchedulePage extends Component {
                 </View>
                 <View style={styles.pickerContainer}>
                     <RNPickerSelect
-                        selectedValue={this.state.scheduleDay}
+                        value={this.state.scheduleDay}
                         style={Platform.OS === 'ios' ? pickerStyleiOS : pickerStyleAndroid}
-                        onValueChange={(itemValue) => {
-                            this.setState({
-                                scheduleDay: itemValue,
-                                scheduleData: Res.schedule.filter(event => event.day === itemValue)
-                            });
-                        }}
+                        onValueChange={(itemValue) => this.updateDay(itemValue)}
                         items={Res.scheduleDays.map(day => ({ label: day.title, value: day.value }))}
                         placeholder={{}}
 
@@ -116,7 +108,8 @@ const styles = StyleSheet.create({
     eventRow: {
         flexDirection: 'row',
         paddingTop: 10,
-        paddingBottom: 10
+        paddingBottom: 10,
+        marginLeft: 15
     },
     eventIconBox: {
         flex: 1,
