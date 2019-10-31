@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     eventRow: {
         flexDirection: 'row',
         padding: 10,
-        marginLeft: 10
+        marginLeft: 20
     },
     eventData: {
         flex: 4,

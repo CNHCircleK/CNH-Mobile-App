@@ -8,7 +8,8 @@ export default class MapPage extends Component {
     render() {
         return (
           <SafeAreaView style={styles.area}>
-            <ScrollView>
+            <ScrollView style={{height: 1200}}>
+              <ScrollView horizontal style={{width: 1850}}>
                 <ImageZoom cropWidth={Dimensions.get('window').width}
                                    cropHeight={Dimensions.get('window').height}
                                    imageWidth={1800}
@@ -18,6 +19,7 @@ export default class MapPage extends Component {
                   <Image style={{width: 1700, height: 1300}}
                          source={require('../resources/images/HomePage/map.png')} />
                 </ImageZoom>
+              </ScrollView>
             </ScrollView>
           </SafeAreaView>
 
