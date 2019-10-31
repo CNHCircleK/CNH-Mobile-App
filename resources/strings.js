@@ -379,7 +379,7 @@ const scheduleDays = [
 
 const schedule = [
   {id: "districtBoardMeeting", title: "District Board Meeting", day: "1", time: "1:30pm", location: ""},
-  {id: "memberMixer", title: "Member Mixer", day: "1", time: "5:00pm - 8:45pm", location: "tbd"},
+  {id: "memberMixer", title: "Member Mixer", day: "1", time: "5:00pm - 8:45pm", location: "FC 200"},
   {id: "registrationOpens", title: "Registration Opens", day: "1", time: "5:30pm", location: "Lobby"},
   {id: "awardsSubmissions", title: "Awards Submissions", day: "1", time: "5:30pm - 8:00pm", location: "Lobby"},
   {id: "saaBriefingDay1", title: "SAA Briefing", day: "1", time: "8:00pm - 8:30pm", location: "Duncan Rec Rooms"},
@@ -391,7 +391,7 @@ const schedule = [
   {id: "crypticChaosIIBreakfast", title: "Cryptic Chaos II", day: "2", time: "7:10am - 7:55am", location: "Fields"},
   {id: "breakfastII", title: "Breakfast II", day: "2", time: "8:00am - 8:45am", location: "Dining Hall"},
   {id: "crypticChaosIBreakfast", title: "Cryptic Chaos I", day: "2", time: "8:00am - 8:45am", location: "Fields"},
-  {id: "saaBriefingDay2", title: "SAA Briefing", day: "2", time: "8:45am - 9:00am", location: "FC200"},
+  {id: "saaBriefingDay2", title: "SAA Briefing", day: "2", time: "8:45am - 9:00am", location: "FC 200"},
   {id: "generalSessionI", title: "General Session I", day: "2", time: "9:00am - 10:00am", location: "Main Auditorium"},
   {id: "workshopSessionIDay2", title: "Workshop Session I", day: "2", time: "10:10am - 11:00am", location: "Various Locations"},
   {id: "workshopSessionIIDay2", title: "Workshop Session II", day: "2", time: "11:10am - 12:00pm", location: "Various Locations"},
@@ -409,17 +409,15 @@ const schedule = [
   {id: "generalSessionII", title: "General Session II", day: "2", time: "6:45pm - 8:30pm", location: "Main Auditorium"},
   {id: "campfireSkitsAndTalentActs", title: "Campfire Skits & Talent Acts", day: "2", time: "8:45pm - 10:00pm", location: "Amphitheather"},
   {id: "advisorSocial", title: "Advisor Social", day: "2", time: "10:00pm - 11:00pm", location: "Duncan Lounge"},
-  {id: "divisionalBonding", title: "Divisional Bonding", day: "2", time: "10:00pm - 10:45pm", location: ""},
-  {id: "nightActivitiesAndTShirtSpotlight", title: "Night Activities/T-Shirt Spotlight", day: "2", time: "10:45pm - 1:00am", location: ""},
-  {id: "campsiteRetirement", title: "Campfire Retirement", day: "2", time: "2:00am", location: ""},
+  {id: "divisionalBonding", title: "Divisional Bonding", day: "2", time: "10:00pm - 10:45pm", location: "Various Locations"},
+  {id: "nightActivitiesAndTShirtSpotlight", title: "Night Activities/T-Shirt Spotlight", day: "2", time: "10:45pm - 1:00am", location: "Various Locations"},
+  {id: "campsiteRetirement", title: "Campfire Retirement", day: "2", time: "2:00am", location: "Dorms"},
   {id: "breakfast", title: "Breakfast", day: "3", time: "7:10am - 8:45am", location: "Dining Hall"},
   {id: "closingSession", title: "Closing Session", day: "3", time: "9:00am - 10:15am", location: "Main Auditorium"},
-  {id: "departCampgroundsAndCleanUp", title: "Depart Campground & Clean Up", day: "3", time: "10:30am", location: ""}
+  {id: "departCampgroundsAndCleanUp", title: "Depart Campground & Clean Up", day: "3", time: "10:30am", location: "Depart by 11"}
 ]
 
-// SchedulePage logic opens up a WorkshopsDetailPage (is actually more generic than Workshops)
-// if the row id exists in here
-const workshopDetails = {
+const scheduleDetails = {
   workshopSessionIDay1: {
     title: "Workshop Session I (Friday)",
     data: [
@@ -650,6 +648,43 @@ const workshopDetails = {
     }
     ]
   },
+  nightActivitiesAndTShirtSpotlight: {
+    title: "Night Activities/T-Shirt Spotlight",
+    data: [
+    {
+      title: "Dance Floor",
+      location: "Main Auditorium"
+    },
+    {
+      title: "Video Game Station",
+      location: "FC 100",
+    },
+    {
+      title: "Kandi Bracelet Station",
+      location: "FC 100",
+    },
+    {
+      title: "Tattoo Station",
+      location: "FC 100",
+    },
+    {
+      title: "Photobooth",
+      location: "FC 200",
+    },
+    {
+      title: "Karaoke",
+      location: "FC 200",
+    },
+    {
+      title: "Carnival Style Games",
+      location: "FC 200",
+    },
+    {
+      title: "Campfires",
+      location: "Outdoors",
+    }
+    ]
+  },
 }
 
-export { strings, schedule, scheduleDays, workshopDetails };
+export { strings, schedule, scheduleDays, scheduleDetails };
