@@ -41,9 +41,6 @@ export default class SchedulePage extends Component {
     getEventRender(item) {
         return (
             <TouchableOpacity style={styles.eventRow} activeOpacity={Res.scheduleDetails[item.id] ? 0.2 : 1} onPress={() => this.handleRowPress(item)}>
-                <View style={styles.eventIconBox}>
-                    <Icon style={styles.eventIcon} name='md-information-circle' size={24} color={'black'} />
-                </View>
                 <View style={styles.eventData}>
                     <Text style={styles.eventNameText}>{item.title}</Text>
                     <Text style={styles.eventTimeLocationText}>{item.time + " \u00B7 " + item.location}</Text>
@@ -111,7 +108,8 @@ const styles = StyleSheet.create({
     eventRow: {
         flexDirection: 'row',
         paddingTop: 10,
-        paddingBottom: 10
+        paddingBottom: 10,
+        marginLeft: 15
     },
     eventIconBox: {
         flex: 1,
