@@ -17,7 +17,7 @@ export default class MapPage extends Component {
                                    enableCenterFocus = {false}
                                    minScale = {.25}>
                   <Image style={{width: 1700, height: 1300}}
-                         source={require('../resources/images/HomePage/map.png')} />
+                         source={require(Res.MapPage.image)} />
                 </ImageZoom>
               </ScrollView>
             </ScrollView>

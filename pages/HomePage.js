@@ -45,7 +45,7 @@ export default class HomePage extends Component {
                 data={item}
                 renderItem={({ item }) =>
                 <TouchableOpacity onPress={() => section.screens !== undefined && (section.screens[item].includes("http") ? Linking.openURL(section.screens[item]) : navigate(section.screens[item]))}>
-                    <ImageBackground source={require('../resources/images/HomePage/hint_papers.png')} style={styles.navButton}>
+                    <ImageBackground source={require(Res.strings.images.image)} style={styles.navButton}>
                         <View style={styles.navButtonTextContainer}>
                             <Text style={styles.navButtonText}>{item}</Text>
                         </View>
@@ -75,15 +75,15 @@ export default class HomePage extends Component {
                   >
                   <View style={styles.eggContainer}>
                       <TouchableWithoutFeedback onPress={()=>this.setModalVisible(false)}>
-                          <Image style={styles.egg} resizeMode="contain" source={require('../resources/images/HomePage/detective.png')} />
+                          <Image style={styles.egg} resizeMode="contain" source={require(Res.images.image1)} />
                       </TouchableWithoutFeedback>
                   </View>
                 </Modal>
                 <TouchableOpacity style={styles.logo} onPress={()=>{this.setModalVisible(true)}}>
-                    <Image source={require('../resources/images/HomePage/ftc_logo.png')} style={styles.logo} />
+                    <Image source={require('Res.strings.images.image2')} style={styles.logo} />
                     </TouchableOpacity>
                 <Video
-                  source={require('../resources/videos/Homepage-Call-to-FTC.mp4')}
+                  source={require('Res.strings.images.image3')}
                   rate={1.0}
                   isMuted={true}
                   resizeMode="cover"

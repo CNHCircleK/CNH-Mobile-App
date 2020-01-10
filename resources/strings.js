@@ -8,6 +8,13 @@ const strings = {
       "Office Hours": "OfficeHours",
       "Videos 🔗": "https://www.youtube.com/watch?v=MY6FFBYpTjM&list=PLYfMJoKpmeRoH4o16UT01bsQ-vs4r6k8s"
     },
+    //images on homepage.js but not sure if this is the right section 
+    images: { 
+      image: '../resources/images/HomePage/hint_papers.png',
+      image1: '../resources/images/HomePage/detective.png',
+      image2: '../resources/images/HomePage/ftc_logo.png',
+      image3: '../resources/videos/Homepage-Call-to-FTC.mp4',
+    },
     cateKnow: {
       "Registration": "FAQRegistration",
       "Start/End Time": "FAQTime",
@@ -685,6 +692,11 @@ const scheduleDetails = {
     }
     ]
   },
+}
+
+//Map Page Strings
+const mapPage ={
+  image: '../resources/images/HomePage/map.png',
 }
 
 export { strings, schedule, scheduleDays, scheduleDetails };
