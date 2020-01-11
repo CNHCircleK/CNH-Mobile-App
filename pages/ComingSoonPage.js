@@ -8,9 +8,9 @@ export default class ComingSoonPage extends Component {
 
         return (
             <View style={styles.container}>
-                <ImageBackground source={require('../resources/images/ComingSoonPage/sign.png')} style={styles.sign}>
+                <ImageBackground source={require(Res.strings.comingSoonPage.image)} style={styles.sign}>
                     <Text style={styles.comingSoonText}>{Res.strings.comingSoon.comingSoon}</Text>
-                </ImageBackground> 
+                </ImageBackground>
             </View>
         );
     }

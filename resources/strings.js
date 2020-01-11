@@ -699,4 +699,10 @@ const mapPage ={
   image: '../resources/images/HomePage/map.png',
 }
 
-export { strings, schedule, scheduleDays, scheduleDetails };
+
+
+const comingSoonPage = {
+  image: "../resources/images/ComingSoonPage/sign.png"
+}
+
+export { strings, schedule, scheduleDays, scheduleDetails, mapPage, comingSoonPage };
