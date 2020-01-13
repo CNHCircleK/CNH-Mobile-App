@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
+/* Standard title for info pages */
 export default class InfoTitle extends Component {
     render() {
         return (

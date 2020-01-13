@@ -7,16 +7,19 @@ import PlainText from '@components/PlainText';
 import Res from '@resources';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+/* First page in app
+   Shows FAQ, Leadership Opportunites, Find out more, and link to FTC Website
+   Has navbar to Schedule and Map */
 export default class HomePage extends Component {
     state = {
         modalVisible: false
     };
-
-    setModalVisible(visible) {
+    
+    setModalVisible(visible) {                              // Sets FTC icon easter egg modal visible
       this.setState({ modalVisible: visible });
     }
 
-    homeData = [
+    homeData = [                                            // Contains data for navigation and info buttons
         {
             title: Res.strings.home.titleKnow,
             data: [Object.keys(Res.strings.home.cateKnow)],
@@ -34,8 +37,8 @@ export default class HomePage extends Component {
         }
     ]
 
-    getItemRender(item, index, section) {
-        const {navigate} = this.props.navigation;
+    getItemRender(item, index, section) {                   // Renders each row of buttons and links them to their respective info pages
+        const {navigate} = this.props.navigation;           // If a button's section.screens[item] has 'http' in it, link it to a URL instead
         return (
             <FlatList
                 style={styles.navRow}
@@ -56,7 +59,7 @@ export default class HomePage extends Component {
         );
     }
 
-    getSectionTitleRender(title) {
+    getSectionTitleRender(title) {                          
         return (
             <PlainText style={styles.navTitle}>{title}</PlainText>
         );

@@ -4,6 +4,8 @@ import TemplateInfoPage from '@components/TemplateInfoPage';
 import ImageZoom from 'react-native-image-pan-zoom';
 import Res from '@resources';
 
+/* Displays map of FTC venue 
+   Uses ImageZoom to display map image */
 export default class MapPage extends Component {
     render() {
         return (

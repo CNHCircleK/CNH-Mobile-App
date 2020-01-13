@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, ImageBackground, TouchableOpacity, StyleSheet } from 'react-native';
 import PlainText from './PlainText';
 
+/* Basic button */
 export default class PlainButton extends Component {
     render() {
         return (

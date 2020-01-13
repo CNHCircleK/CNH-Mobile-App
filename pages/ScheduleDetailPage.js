@@ -5,8 +5,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Res from '@resources';
 import { HeaderBackButton } from 'react-navigation';
 
+/* Schedule item info page */
 export default class ScheduleDetailPage extends Component {
-    state = {
+    state = {                                       
         title: this.props.navigation.getParam('title', "404"),
         data: this.props.navigation.getParam('data', [])
     }

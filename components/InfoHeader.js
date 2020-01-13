@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
+/* Standard header for info pages */
 export default class InfoHeader extends Component {
     render() {
         return (

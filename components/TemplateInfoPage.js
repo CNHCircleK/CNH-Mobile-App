@@ -8,6 +8,7 @@ import InfoTitle from './InfoTitle';
 import Res from '@resources';
 import { HeaderBackButton } from 'react-navigation';
 
+/* Standard info page */
 export default class TemplateInfoPage extends Component {
     constructor(props){
       super(props);
