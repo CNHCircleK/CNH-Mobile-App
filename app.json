@@ -29,7 +29,7 @@
       }
     },
     "android": {
-      "versionCode": 2,
+      "versionCode": 3,
       "package": "com.cnhcki.solstice",
       "splash": {
         "resizeMode": "native",
