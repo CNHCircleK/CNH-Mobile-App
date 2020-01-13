@@ -12,7 +12,7 @@ ScheduleDetailPage } from './pages';
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const TabNavigatorPages = createBottomTabNavigator({
+const TabNavigatorPages = createBottomTabNavigator({        // Set up navbar navigation info
     Home: { screen: HomePage,
       navigationOptions: {
         tabBarLabel: 'Home',
@@ -75,7 +75,7 @@ const TabNavigatorPages = createBottomTabNavigator({
   }
 })
 
-const StackNavigator = createStackNavigator({
+const StackNavigator = createStackNavigator({         // Set up how pages are stacked for navigation
     Onboarding: { screen: OnboardingPage },
     TabNavigator: { screen: TabNavigatorPages },
     OfficeHours: { screen: OfficeHoursPage },
@@ -96,28 +96,28 @@ const StackNavigator = createStackNavigator({
     Contacts: { screen: ContactsPage },
     ScheduleDetail: { screen: ScheduleDetailPage }
 }, {
-    headerMode: 'none',
-    initialRouteName: "TabNavigator"
+    headerMode: 'none',                               // Make action bar invisible
+    initialRouteName: "TabNavigator"                  // Initial page when app starts is TabNavigator
 })
 
 const AppContainer = createAppContainer(StackNavigator);
 
-async function cacheResources(resources) {
-  return resources.map(res => {
-    return typeof res === 'string' ? Image.prefetch(res) :
-    Asset.fromModule(res).downloadAsync();
+async function cacheResources(resources) {            // Cache resources and return an array of promises
+  return resources.map(res => {                       
+    return typeof res === 'string' ? Image.prefetch(res) :    
+    Asset.fromModule(res).downloadAsync();            
   });
 }
 
 export default class App extends Component {
   state = {};
 
-  preloadSplash = async () => {
+  preloadSplash = async () => {                       // Cache splash image
     await cacheResources([require('./resources/images/splash.gif')]);
   }
-  preloadRes = async () => {
+  preloadRes = async () => {                          // Preload all resources
     SplashScreen.hide();
-    const fontRes = Font.loadAsync({
+    const fontRes = Font.loadAsync({                  // Load font resources
       'Cabin-Bold': require('./resources/fonts/Cabin-Bold.ttf'),
       'Cabin-BoldItalic': require('./resources/fonts/Cabin-BoldItalic.ttf'),
       'Cabin-Medium': require('./resources/fonts/Cabin-Medium.ttf'),
@@ -132,7 +132,7 @@ export default class App extends Component {
     });
     // TODO: images and colors need to be abstracted and stored in their own res
     // files, much like strings
-    const imageRes =  cacheResources([
+    const imageRes =  cacheResources([                // Cache image resources
       require('./resources/images/HomePage/hint_papers.png'),
       require('./resources/images/HomePage/detective.png'),
       require('./resources/images/HomePage/ftc_logo.png'),
@@ -146,17 +146,17 @@ export default class App extends Component {
       require("./resources/images/LeadershipOpportunities/tech.png"),
       require("./resources/images/LeadershipOpportunities/workshops.png")
     ]);
-    await Promise.all([fontRes, imageRes]);
-    this.setState({resLoaded: true});
+    await Promise.all([fontRes, imageRes]);           // Wait for all fonts and images to be cached
+    this.setState({resLoaded: true});                 // Indicate all resources have been cached
   }
 
   render() {
-    if (!this.state.splashLoaded) {
+    if (!this.state.splashLoaded) {                   // App starts by caching splashscreen image
           return <AppLoading
           startAsync={this.preloadSplash}
-          onFinish={() => this.setState({ splashLoaded: true })}/>;
+          onFinish={() => this.setState({ splashLoaded: true })}/>;     // Indicate splashscreen image has loaded
       }
-    if (!this.state.resLoaded) {
+    if (!this.state.resLoaded) {                      // Display splashscreen until resources are loaded
       const {width, height} = Dimensions.get("window");
       return (
         <View style={{flex: 1, backgroundColor: "#252525", justifyContent: "center", alignItems: "center"}}>
@@ -167,7 +167,7 @@ export default class App extends Component {
         </View>
       );
     }
-  return (
+  return (                                            // Proceeds to home page when all resources are loaded
     <View style={styles.container}>
       <StatusBar hidden />
       <AppContainer />
