@@ -21,6 +21,7 @@
     ],
     "ios": {
       "bundleIdentifier": "com.cnhcki.solstice",
+      "buildNumber": "1.1.2",
       "splash": {
         "image": "./resources/images/splash_still.png",
         "resizeMode": "contain",
