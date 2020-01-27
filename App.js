@@ -27,23 +27,6 @@ const TabNavigatorPages = createBottomTabNavigator({
           <Icon name='md-list-box' size={20} color={tintColor} />
         )
       } },
-    // Map: { screen: ComingSoonPage,
-    // Schedule: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Map',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-map' size={20} color={tintColor} />
-    //     )
-    //   } },
-
-    // Schedule: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Schedule',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-list-box' size={20} color={tintColor} />
-    //     )
-    //   } },
-
     Map: { screen: MapPage,
     navigationOptions: {
     tabBarLabel: 'Map',
@@ -51,13 +34,6 @@ const TabNavigatorPages = createBottomTabNavigator({
     <Icon name='md-map' size={20} color={tintColor} />
     )
     } }
-    // Info: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Info',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-information-circle' size={20} color={tintColor} />
-    //     )
-    //   } }
 }, {
   tabBarOptions: {
     activeTintColor: '#ffffff',
@@ -101,6 +77,19 @@ const StackNavigator = createStackNavigator({
 })
 
 const AppContainer = createAppContainer(StackNavigator);
+
+async function fetchUpdates() {
+  try {
+    const update = await Updates.checkForUpdateAsync();
+    if (update.isAvailable) {
+      await Updates.fetchUpdateAsync();
+      Updates.reloadFromCache();
+    }
+    this.setState({fetchedUpdate: true});
+  } catch (e) {
+  }
+}
+fetchUpdates();
 
 async function cacheResources(resources) {
   return resources.map(res => {
