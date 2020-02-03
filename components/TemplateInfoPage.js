@@ -10,63 +10,59 @@ import { HeaderBackButton } from 'react-navigation';
 
 /* Standard info page */
 export default class TemplateInfoPage extends Component {
-    constructor(props){
-      super(props);
-      this.state = {
-        title: props.title,  //Res.strings.templateinfo.title,
-        header: props.header,  //Res.strings.templateinfo.header,
-        image:  props.image, //require('../resources/images/HomePage/FTC2019_LOGO.png'),
-        body :props.body,  //Res.strings.templateinfo.body
-      };
-    }
 
-    render() {
-        const navigation = this.props.navigation;
+  // Res.strings.templateinfo passed into props
+  constructor(props){
+    super(props);
+    this.state = {
+      title: props.title,
+      header: props.header,
+      image:  props.image,
+      body :props.body,
+    };
+  }
 
-        return (
-          <SafeAreaView style={styles.safeContainer}>
-            <ScrollView style={styles.height}>
-              <HeaderBackButton tintColor='#fefefe' onPress={() => navigation.goBack(null)} />
-              <View style={styles.container}>
-                {this.state.title !== undefined &&
-                  <InfoTitle>
-                  {this.state.title}{'\n'}
-                  </InfoTitle>
-                }
-                {this.state.image !== undefined &&
-                <Image style={{width: 200, height: 200}}
-                resizeMode="contain"
-                source={this.state.image}/>
-                }
-                {this.state.header !== undefined &&
-                <InfoHeader>{'\n'}{this.state.header}{'\n'}</InfoHeader>
-                }
-                {this.state.body !== undefined &&
-                <InfoParagraph >
-                {this.state.body}
-                </InfoParagraph>
-                }
-              </View>
-            </ScrollView>
-            </SafeAreaView>
-        );
-    }
+  render() {
+    const navigation = this.props.navigation;
+
+    return (
+      <SafeAreaView style={styles.safeContainer}>
+        <ScrollView style={styles.height}>
+          <HeaderBackButton tintColor='#fefefe' onPress={() => navigation.goBack(null)} />
+          <View style={styles.container}>
+            {this.state.title !== undefined &&
+              <InfoTitle>{this.state.title}{'\n'}</InfoTitle>
+            }
+            {this.state.image !== undefined &&
+              <Image style={{width: 200, height: 200}} resizeMode="contain" source={this.state.image}/>
+            }
+            {this.state.header !== undefined &&
+              <InfoHeader>{'\n'}{this.state.header}{'\n'}</InfoHeader>
+            }
+            {this.state.body !== undefined &&
+              <InfoParagraph>{this.state.body}</InfoParagraph>
+            }
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+      );
+  }
 }
 
 const styles = StyleSheet.create({
-    safeContainer: {
-      flex: 1,
-      backgroundColor: '#1a1d32'
-    },
-    container: {
-        flex: 1,
-        padding: 20,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    height: {
-      flex: 1,
-      backgroundColor: "#1a1d32",
-    },
+  safeContainer: {
+    flex: 1,
+    backgroundColor: '#1a1d32'
+  },
+  container: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  height: {
+    flex: 1,
+    backgroundColor: "#1a1d32",
+  },
 
 });

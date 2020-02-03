@@ -7,6 +7,11 @@ import { HeaderBackButton } from 'react-navigation';
 
 /* Schedule item info page */
 export default class ScheduleDetailPage extends Component {
+
+    /**
+     * The information rendered is passed in while navigating from SchedulePage.
+     * If the page is loaded without the navigation parameter, default to showing title 404.
+     */
     state = {                                       
         title: this.props.navigation.getParam('title', "404"),
         data: this.props.navigation.getParam('data', [])
@@ -15,9 +20,6 @@ export default class ScheduleDetailPage extends Component {
     getEventRender(item) {
         return (
             <View style={styles.eventRow}>
-                {/*<View style={styles.eventIconBox}>
-                    <Icon style={styles.eventIcon} name='md-information-circle' size={24} color={'black'} />
-                </View>*/}
                 <View style={styles.eventData}>
                     <Text style={styles.eventNameText}>{item.title}</Text>
                     <Text style={styles.eventLocationText}>{item.location}</Text>

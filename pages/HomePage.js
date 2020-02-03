@@ -8,18 +8,24 @@ import Res from '@resources';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 /* First page in app
-   Shows FAQ, Leadership Opportunites, Find out more, and link to FTC Website
+   Shows FAQ, Leadership Opportunites, Find out more, and link to Event Page Website
    Has navbar to Schedule and Map */
 export default class HomePage extends Component {
     state = {
         modalVisible: false
     };
     
-    setModalVisible(visible) {                              // Sets FTC icon easter egg modal visible
+    /**
+     * Modal toggle used for FTC easter egg. Can be used to display stuff on the home page if needed
+     */
+    setModalVisible(visible) {
       this.setState({ modalVisible: visible });
     }
 
-    homeData = [                                            // Contains data for navigation and info buttons
+    /**
+     * Load resources from res/strings to layout as tiles on the homescreen
+     */
+    homeData = [
         {
             title: Res.strings.home.titleKnow,
             data: [Object.keys(Res.strings.home.cateKnow)],
@@ -37,8 +43,15 @@ export default class HomePage extends Component {
         }
     ]
 
-    getItemRender(item, index, section) {                   // Renders each row of buttons and links them to their respective info pages
-        const {navigate} = this.props.navigation;           // If a button's section.screens[item] has 'http' in it, link it to a URL instead
+    /**
+     * Control tile render here (e.g. If a button's section.screens[item] has 'http' in it, link it to a URL instead)
+     *
+     * @param item - an array of (object) names of tiles, i.e. refers to object names in res/strings::section.screens
+     * @param index - row index used by SectionList for unique key purposes
+     * @param section - homepage data
+     */
+    getItemRender(item, index, section) {
+        const {navigate} = this.props.navigation;
         return (
             <FlatList
                 style={styles.navRow}
@@ -59,6 +72,9 @@ export default class HomePage extends Component {
         );
     }
 
+    /**
+     * Control section header render here (the name of the section on top of each row of tiles)
+     */
     getSectionTitleRender(title) {                          
         return (
             <PlainText style={styles.navTitle}>{title}</PlainText>

@@ -12,52 +12,35 @@ ScheduleDetailPage } from './pages';
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const TabNavigatorPages = createBottomTabNavigator({        // Set up navbar navigation info
-    Home: { screen: HomePage,
+// Bottom Nav
+const TabNavigatorPages = createBottomTabNavigator({
+    Home: {
+      screen: HomePage,
       navigationOptions: {
         tabBarLabel: 'Home',
         tabBarIcon: ({ tintColor }) => (
           <Icon name='md-home' size={20} color={tintColor} />
         )
-      } },
-    Schedule: { screen: SchedulePage,
+      }
+    },
+    Schedule: {
+      screen: SchedulePage,
       navigationOptions: {
         tabBarLabel: 'Schedule',
         tabBarIcon: ({ tintColor }) => (
           <Icon name='md-list-box' size={20} color={tintColor} />
         )
-      } },
-    // Map: { screen: ComingSoonPage,
-    // Schedule: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Map',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-map' size={20} color={tintColor} />
-    //     )
-    //   } },
-
-    // Schedule: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Schedule',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-list-box' size={20} color={tintColor} />
-    //     )
-    //   } },
-
-    Map: { screen: MapPage,
-    navigationOptions: {
-    tabBarLabel: 'Map',
-    tabBarIcon: ({ tintColor }) => (
-    <Icon name='md-map' size={20} color={tintColor} />
-    )
-    } }
-    // Info: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Info',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-information-circle' size={20} color={tintColor} />
-    //     )
-    //   } }
+      }
+    },
+    Map: { 
+      screen: MapPage,
+      navigationOptions: {
+        tabBarLabel: 'Map',
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name='md-map' size={20} color={tintColor} />
+        )
+      }
+    }
 }, {
   tabBarOptions: {
     activeTintColor: '#ffffff',
@@ -75,7 +58,8 @@ const TabNavigatorPages = createBottomTabNavigator({        // Set up navbar nav
   }
 })
 
-const StackNavigator = createStackNavigator({         // Set up how pages are stacked for navigation
+// Stack Navigator for pages that are pushed on top. Includes properties such as hiding the phone header.
+const StackNavigator = createStackNavigator({
     Onboarding: { screen: OnboardingPage },
     TabNavigator: { screen: TabNavigatorPages },
     OfficeHours: { screen: OfficeHoursPage },
@@ -96,13 +80,16 @@ const StackNavigator = createStackNavigator({         // Set up how pages are st
     Contacts: { screen: ContactsPage },
     ScheduleDetail: { screen: ScheduleDetailPage }
 }, {
-    headerMode: 'none',                               // Make action bar invisible
-    initialRouteName: "TabNavigator"                  // Initial page when app starts is TabNavigator
+    headerMode: 'none',
+    initialRouteName: "TabNavigator"
 })
 
 const AppContainer = createAppContainer(StackNavigator);
 
-async function cacheResources(resources) {            // Cache resources and return an array of promises
+/**
+ * Load resources from cache
+ */
+async function cacheResources(resources) {
   return resources.map(res => {                       
     return typeof res === 'string' ? Image.prefetch(res) :    
     Asset.fromModule(res).downloadAsync();            
@@ -112,12 +99,12 @@ async function cacheResources(resources) {            // Cache resources and ret
 export default class App extends Component {
   state = {};
 
-  preloadSplash = async () => {                       // Cache splash image
+  preloadSplash = async () => {
     await cacheResources([require('./resources/images/splash.gif')]);
   }
-  preloadRes = async () => {                          // Preload all resources
+  preloadRes = async () => {
     SplashScreen.hide();
-    const fontRes = Font.loadAsync({                  // Load font resources
+    const fontRes = Font.loadAsync({
       'Cabin-Bold': require('./resources/fonts/Cabin-Bold.ttf'),
       'Cabin-BoldItalic': require('./resources/fonts/Cabin-BoldItalic.ttf'),
       'Cabin-Medium': require('./resources/fonts/Cabin-Medium.ttf'),
@@ -130,9 +117,8 @@ export default class App extends Component {
       'Musket-Regular': require('./resources/fonts/Musket-regular.ttf'),
 
     });
-    // TODO: images and colors need to be abstracted and stored in their own res
-    // files, much like strings
-    const imageRes =  cacheResources([                // Cache image resources
+
+    const imageRes =  cacheResources([
       require('./resources/images/HomePage/hint_papers.png'),
       require('./resources/images/HomePage/detective.png'),
       require('./resources/images/HomePage/ftc_logo.png'),
@@ -146,17 +132,17 @@ export default class App extends Component {
       require("./resources/images/LeadershipOpportunities/tech.png"),
       require("./resources/images/LeadershipOpportunities/workshops.png")
     ]);
-    await Promise.all([fontRes, imageRes]);           // Wait for all fonts and images to be cached
-    this.setState({resLoaded: true});                 // Indicate all resources have been cached
+    await Promise.all([fontRes, imageRes]);           // Wait for all fonts and images to be cached, display a loading screen meanwhile
+    this.setState({resLoaded: true}); 
   }
 
   render() {
-    if (!this.state.splashLoaded) {                   // App starts by caching splashscreen image
+    if (!this.state.splashLoaded) {
           return <AppLoading
           startAsync={this.preloadSplash}
-          onFinish={() => this.setState({ splashLoaded: true })}/>;     // Indicate splashscreen image has loaded
-      }
-    if (!this.state.resLoaded) {                      // Display splashscreen until resources are loaded
+          onFinish={() => this.setState({ splashLoaded: true })}/>;
+    }
+    if (!this.state.resLoaded) {
       const {width, height} = Dimensions.get("window");
       return (
         <View style={{flex: 1, backgroundColor: "#252525", justifyContent: "center", alignItems: "center"}}>
@@ -167,12 +153,12 @@ export default class App extends Component {
         </View>
       );
     }
-  return (                                            // Proceeds to home page when all resources are loaded
-    <View style={styles.container}>
-      <StatusBar hidden />
-      <AppContainer />
-    </View>
-  );
+    return (
+      <View style={styles.container}>
+        <StatusBar hidden />
+        <AppContainer />
+      </View>
+    );
   }
 }
 

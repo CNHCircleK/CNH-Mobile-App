@@ -8,23 +8,32 @@ import { AsyncStorage } from 'react-native';
 
 /* Displays schedule of events */
 export default class SchedulePage extends Component {
-    state = {                                       // Initially displays Friday events
+
+    state = {
         scheduleDay: Res.scheduleDays[0].value,
         scheduleData: Res.schedule.filter(event => event.day === Res.scheduleDays[0].value)
     }
 
+    /**
+     * Initially show events based on "current day" (Event Day 1, 2, or 3) tracked in AsyncStorage,
+     * defaulting to Day 1
+     */
     async componentWillMount() {
         try {
-            const day = await AsyncStorage.getItem('Schedule_Day');       // Update events shown based on current day in AsyncStorage
-            if (day !== null) {                                           // If app is restarted, events based on Schedule_Day in AsyncStorage
-                this.updateDay(day);                                      // is shown instead of defaulting to Friday events
+            const day = await AsyncStorage.getItem('Schedule_Day');
+            if (day !== null) {
+                this.updateDay(day);
             }
         } catch (error) {
             console.error(error);
         }
     }
 
-    updateDay(day) {                // Updates events shown when day-picker is updated
+    /**
+     * Update the day and events shown when the day-picker is updated,
+     * asynchronously attempt to push this update to AsyncStorage too
+     */
+    updateDay(day) {
         this.setState({
             scheduleDay: day,
             scheduleData: Res.schedule.filter(event => event.day === day)
@@ -32,14 +41,18 @@ export default class SchedulePage extends Component {
 
         (async () => {      
             try {
-                await AsyncStorage.setItem('Schedule_Day', day);        // Store current displayed day in AsyncStorage
+                await AsyncStorage.setItem('Schedule_Day', day);
             } catch (error) {
                 console.error(error);
             }
         })();
     }
 
-    getEventRender(item) {      // Opacity change and chevron is shown if event info page exists
+    /**
+     * Customize FlatList row rendering here
+     * (e.g. control opacity and chevron display if a sub-detail page exists for the event)
+     */
+    getEventRender(item) {
         return (
             <TouchableOpacity style={styles.eventRow} activeOpacity={Res.scheduleDetails[item.id] ? 0.2 : 1} onPress={() => this.handleRowPress(item)}>
                 <View style={styles.eventData}>
@@ -53,7 +66,10 @@ export default class SchedulePage extends Component {
         );
     }
 
-    handleRowPress(item) {              // Navigates to event info page if info page exists for a particular event
+    /**
+     * On press, navigate to event info page (if it exists for the item clicked)
+     */
+    handleRowPress(item) {
         const scheduleDetails = Res.scheduleDetails[item.id];
         if (scheduleDetails) {
             this.props.navigation.navigate('ScheduleDetail', {title: scheduleDetails.title, data: scheduleDetails.data})
@@ -70,7 +86,7 @@ export default class SchedulePage extends Component {
                     <RNPickerSelect
                         value={this.state.scheduleDay}
                         style={Platform.OS === 'ios' ? pickerStyleiOS : pickerStyleAndroid}
-                        onValueChange={(itemValue) => this.updateDay(itemValue)}            // Updates events shown when day-picker is updated
+                        onValueChange={(itemValue) => this.updateDay(itemValue)}
                         items={Res.scheduleDays.map(day => ({ label: day.title, value: day.value }))}
                         placeholder={{}}
 
