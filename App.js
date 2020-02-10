@@ -1,13 +1,14 @@
 import React, { Component, PureComponent } from 'react';
-import { AppLoading, SplashScreen } from 'expo';
+import { AppLoading, SplashScreen, Updates } from 'expo';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
-import { View, StyleSheet, StatusBar, Image, Dimensions } from 'react-native';
+import { View, StyleSheet, StatusBar, Image, Dimensions, TouchableOpacity, Text, Modal } from 'react-native';
 import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePage,
 OfficeHoursPage,
 CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage, TechPage,
 FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage, ContactsPage,
 ScheduleDetailPage } from './pages';
+import Res from '@resources';
 
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -27,23 +28,6 @@ const TabNavigatorPages = createBottomTabNavigator({
           <Icon name='md-list-box' size={20} color={tintColor} />
         )
       } },
-    // Map: { screen: ComingSoonPage,
-    // Schedule: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Map',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-map' size={20} color={tintColor} />
-    //     )
-    //   } },
-
-    // Schedule: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Schedule',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-list-box' size={20} color={tintColor} />
-    //     )
-    //   } },
-
     Map: { screen: MapPage,
     navigationOptions: {
     tabBarLabel: 'Map',
@@ -51,13 +35,6 @@ const TabNavigatorPages = createBottomTabNavigator({
     <Icon name='md-map' size={20} color={tintColor} />
     )
     } }
-    // Info: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Info',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-information-circle' size={20} color={tintColor} />
-    //     )
-    //   } }
 }, {
   tabBarOptions: {
     activeTintColor: '#ffffff',
@@ -110,7 +87,29 @@ async function cacheResources(resources) {
 }
 
 export default class App extends Component {
-  state = {};
+  state = {
+    modalVisible: false
+  };
+
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
+  }
+
+  async fetchUpdates() {
+    try {
+      const update = await Updates.checkForUpdateAsync();
+      if (update.isAvailable) {
+        await Updates.fetchUpdateAsync((event) => {
+          if (event.type == Updates.EventType.DOWNLOAD_FINISHED) {
+            this.setModalVisible(true);
+          }
+        });
+        return true;
+      } 
+      return false;
+    } catch (e) {
+    }
+  }
 
   preloadSplash = async () => {
     await cacheResources([require('./resources/images/splash.gif')]);
@@ -154,8 +153,11 @@ export default class App extends Component {
     if (!this.state.splashLoaded) {
           return <AppLoading
           startAsync={this.preloadSplash}
-          onFinish={() => this.setState({ splashLoaded: true })}/>;
-      }
+          onFinish={() => {
+            this.fetchUpdates();
+            this.setState({ splashLoaded: true });
+          }}/>;
+    }
     if (!this.state.resLoaded) {
       const {width, height} = Dimensions.get("window");
       return (
@@ -167,17 +169,83 @@ export default class App extends Component {
         </View>
       );
     }
-  return (
-    <View style={styles.container}>
-      <StatusBar hidden />
-      <AppContainer />
-    </View>
-  );
+    return (
+      <View style={styles.container}>
+        <StatusBar hidden />
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={this.state.modalVisible}
+        >
+          <View style={styles.updateContainer}>
+            <View style={styles.updateQuestion}>
+              <Text style={styles.updateText}>{Res.strings.update.question}</Text>
+            </View>
+            <View style={styles.updateResponses}>
+              <TouchableOpacity onPress={()=>{
+                Updates.reloadFromCache();
+                this.setModalVisible(false);
+              }}>
+                <View style={styles.updateResponseBox}>
+                  <Text style={styles.updateText}>{Res.strings.update.yes}</Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>{
+                this.setModalVisible(false);
+              }}>
+                <View style={styles.updateResponseBox}>
+                  <Text style={styles.updateText}>{Res.strings.update.no}</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+        <AppContainer>
+        </AppContainer>
+      </View>
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+  },
+  updateContainer: {
+    marginTop: 200,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10,
+    height: 150,
+    width: 250,
+    borderRadius: 15,
+    opacity: 0.8,
+    backgroundColor: 'white',
+    flexDirection: 'column'
+  },
+  updateQuestion: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  updateResponses: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
+  updateResponseBox: {
+    width: 100,
+    height: 50,
+    backgroundColor: 'grey',
+    margin: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  updateText: {
+    fontFamily: 'Musket-Regular',
+    textAlign: 'center'
   }
 });
