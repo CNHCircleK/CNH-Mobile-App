@@ -1,8 +1,8 @@
 import React, { Component, PureComponent } from 'react';
-import { AppLoading, SplashScreen } from 'expo';
+import { AppLoading, SplashScreen, Updates } from 'expo';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
-import { View, StyleSheet, StatusBar, Image, Dimensions } from 'react-native';
+import { View, StyleSheet, StatusBar, Image, Dimensions, TouchableOpacity, Text, Modal } from 'react-native';
 import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePage,
 OfficeHoursPage,
 CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage, TechPage,
@@ -82,14 +82,18 @@ async function fetchUpdates() {
   try {
     const update = await Updates.checkForUpdateAsync();
     if (update.isAvailable) {
-      await Updates.fetchUpdateAsync();
-      Updates.reloadFromCache();
+      await Updates.fetchUpdateAsync((event) => {
+        if (event.type == Updates.EventType.DOWNLOAD_FINISHED) {
+          return true;
+        }
+      });
+      return false;
+    } else {
+      return false;
     }
-    this.setState({fetchedUpdate: true});
   } catch (e) {
   }
 }
-fetchUpdates();
 
 async function cacheResources(resources) {
   return resources.map(res => {
@@ -99,7 +103,22 @@ async function cacheResources(resources) {
 }
 
 export default class App extends Component {
-  state = {};
+  state = {
+    modalVisible: false
+  };
+
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
+  }
+
+  async fetchAndUpdateApp() {
+    let isDownloaded = await fetchUpdates();
+    if (isDownloaded) {
+      this.setModalVisible(true);
+      return true;
+    }
+    return false;
+  }
 
   preloadSplash = async () => {
     await cacheResources([require('./resources/images/splash.gif')]);
@@ -143,7 +162,10 @@ export default class App extends Component {
     if (!this.state.splashLoaded) {
           return <AppLoading
           startAsync={this.preloadSplash}
-          onFinish={() => this.setState({ splashLoaded: true })}/>;
+          onFinish={() => {
+            this.fetchAndUpdateApp();
+            this.setState({ splashLoaded: true });}
+          }/>;
       }
     if (!this.state.resLoaded) {
       const {width, height} = Dimensions.get("window");
@@ -156,17 +178,83 @@ export default class App extends Component {
         </View>
       );
     }
-  return (
-    <View style={styles.container}>
-      <StatusBar hidden />
-      <AppContainer />
-    </View>
-  );
+    return (
+      <View style={styles.container}>
+        <StatusBar hidden />
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={this.state.modalVisible}
+        >
+          <View style={styles.updateContainer}>
+            <View style={styles.updateQuestion}>
+              <Text style={styles.updateText}>A new update has been downloaded. Would you like to restart the app?</Text>
+            </View>
+            <View style={styles.updateResponses}>
+              <TouchableOpacity onPress={()=>{
+                Updates.reloadFromCache();
+                this.setModalVisible(false);
+              }}>
+                <View style={styles.updateResponseBox}>
+                  <Text style={styles.updateText}>Yes</Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>{
+                this.setModalVisible(false);
+              }}>
+                <View style={styles.updateResponseBox}>
+                  <Text style={styles.updateText}>No</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+        <AppContainer>
+        </AppContainer>
+      </View>
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+  },
+  updateContainer: {
+    marginTop: 200,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10,
+    height: 150,
+    width: 250,
+    borderRadius: 15,
+    opacity: 0.8,
+    backgroundColor: 'white',
+    flexDirection: 'column'
+  },
+  updateQuestion: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  updateResponses: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
+  updateResponseBox: {
+    width: 100,
+    height: 50,
+    backgroundColor: 'grey',
+    margin: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  updateText: {
+    fontFamily: 'Musket-Regular',
+    textAlign: 'center'
   }
 });
