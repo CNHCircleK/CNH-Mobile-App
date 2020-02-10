@@ -8,6 +8,7 @@ OfficeHoursPage,
 CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage, TechPage,
 FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage, ContactsPage,
 ScheduleDetailPage } from './pages';
+import Res from '@resources';
 
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -178,7 +179,7 @@ export default class App extends Component {
         >
           <View style={styles.updateContainer}>
             <View style={styles.updateQuestion}>
-              <Text style={styles.updateText}>A new update is available. Would you like to restart the app?</Text>
+              <Text style={styles.updateText}>{Res.strings.update.question}</Text>
             </View>
             <View style={styles.updateResponses}>
               <TouchableOpacity onPress={()=>{
@@ -186,14 +187,14 @@ export default class App extends Component {
                 this.setModalVisible(false);
               }}>
                 <View style={styles.updateResponseBox}>
-                  <Text style={styles.updateText}>Yes</Text>
+                  <Text style={styles.updateText}>{Res.strings.update.yes}</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>{
                 this.setModalVisible(false);
               }}>
                 <View style={styles.updateResponseBox}>
-                  <Text style={styles.updateText}>No</Text>
+                  <Text style={styles.updateText}>{Res.strings.update.no}</Text>
                 </View>
               </TouchableOpacity>
             </View>
