@@ -78,23 +78,6 @@ const StackNavigator = createStackNavigator({
 
 const AppContainer = createAppContainer(StackNavigator);
 
-async function fetchUpdates() {
-  try {
-    const update = await Updates.checkForUpdateAsync();
-    if (update.isAvailable) {
-      await Updates.fetchUpdateAsync((event) => {
-        if (event.type == Updates.EventType.DOWNLOAD_FINISHED) {
-          return true;
-        }
-      });
-      return false;
-    } else {
-      return false;
-    }
-  } catch (e) {
-  }
-}
-
 async function cacheResources(resources) {
   return resources.map(res => {
     return typeof res === 'string' ? Image.prefetch(res) :
@@ -111,13 +94,20 @@ export default class App extends Component {
     this.setState({ modalVisible: visible });
   }
 
-  async fetchAndUpdateApp() {
-    let isDownloaded = await fetchUpdates();
-    if (isDownloaded) {
-      this.setModalVisible(true);
-      return true;
+  async fetchUpdates() {
+    try {
+      const update = await Updates.checkForUpdateAsync();
+      if (update.isAvailable) {
+        await Updates.fetchUpdateAsync((event) => {
+          if (event.type == Updates.EventType.DOWNLOAD_FINISHED) {
+            this.setModalVisible(true);
+          }
+        });
+        return true;
+      } 
+      return false;
+    } catch (e) {
     }
-    return false;
   }
 
   preloadSplash = async () => {
@@ -163,10 +153,10 @@ export default class App extends Component {
           return <AppLoading
           startAsync={this.preloadSplash}
           onFinish={() => {
-            this.fetchAndUpdateApp();
-            this.setState({ splashLoaded: true });}
-          }/>;
-      }
+            this.fetchUpdates();
+            this.setState({ splashLoaded: true });
+          }}/>;
+    }
     if (!this.state.resLoaded) {
       const {width, height} = Dimensions.get("window");
       return (
@@ -188,7 +178,7 @@ export default class App extends Component {
         >
           <View style={styles.updateContainer}>
             <View style={styles.updateQuestion}>
-              <Text style={styles.updateText}>A new update has been downloaded. Would you like to restart the app?</Text>
+              <Text style={styles.updateText}>A new update is available. Would you like to restart the app?</Text>
             </View>
             <View style={styles.updateResponses}>
               <TouchableOpacity onPress={()=>{
