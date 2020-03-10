@@ -12,6 +12,32 @@ import Res from '@resources';
 
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Notifications } from 'expo';
+import * as Permissions from 'expo-permissions';
+import { Vibration } from "react-native";  
+import Constants from "expo-constants";
+
+const PUSH_ENDPOINT = 'https://your-server.com/users/push-token';
+
+
+
+
+
+
+sendMessage = async () => {
+  fetch(MESSAGE_ENPOINT, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      message: this.state.messageText,
+    }),
+  });
+  this.setState({ messageText: '' });
+}
+
 
 const TabNavigatorPages = createBottomTabNavigator({
     Home: { screen: HomePage,
@@ -87,6 +113,7 @@ async function cacheResources(resources) {
 }
 
 export default class App extends Component {
+
   state = {
     modalVisible: false
   };
@@ -110,10 +137,75 @@ export default class App extends Component {
     } catch (e) {
     }
   }
+  state = {};
+  handleNotification = (notification) => {
+    this.setState({ notification },() => {console.log(notification)});
+  }
+  
+  handleChangeText = (text) => {
+    this.setState({ messageText: text });
+  }
+  registerForPushNotificationsAsync = async  () => {
+  const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+  // only asks if permissions have not already been determined, because
+  // iOS won't necessarily prompt the user a second time.
+  // On Android, permissions are granted on app installation, so
+  // `askAsync` will never prompt the user
+
+  // Stop here if the user did not grant permissions
+  if (status !== 'granted') {
+    alert('No notification permissions!');
+    return;
+
+  }
+
+  // Get the token that identifies this device
+  let token = await Notifications.getExpoPushTokenAsync();
+  console.log(token);
+  this.notificationSubscription = Notifications.addListener(this.handleNotification);
+
+
+
+  // POST the token to your backend server from where you can retrieve it to send push notifications.
+  return fetch(PUSH_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      token: {
+        value: token,
+      },
+      user: {
+        username: 'Brent',
+      },
+    }),
+  });
+}
 
   preloadSplash = async () => {
     await cacheResources([require('./resources/images/splash.gif')]);
   }
+  async componentDidMount() {
+    this.registerForPushNotificationsAsync();                                             
+  this._notificationSubscription = Notifications.addListener(              
+    this._handleNotification                                               
+  );                                                                       
+}
+
+_handleNotification = async notification => {                                                                                    
+  if (notification.remote) {
+    Vibration.vibrate();                                                  
+    const notificationId = Notifications.presentLocalNotificationAsync({      
+      title: "HI",  
+      body: "HI",                                             
+      ios: { _displayInForeground: true } // <-- HERE'S WHERE THE MAGIC HAPPENS                                
+    });                                                                       
+  }                                                   
+};         
+
+  
   preloadRes = async () => {
     SplashScreen.hide();
     const fontRes = Font.loadAsync({
@@ -249,3 +341,5 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   }
 });
+
+
