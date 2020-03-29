@@ -1,4 +1,9 @@
 const strings = {
+  update: {
+    question: "A new update is available. Would you like to restart the app?",
+    yes: "Yes",
+    no: "No"
+  },
   home: {
     titleNews: "Find out more",
     titleKnow: "FAQ",
