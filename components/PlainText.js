@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, ImageBackground, TouchableOpacity, StyleSheet } from 'react-native';
 
+/* Basic text box */
 export default class PlainText extends Component {
     render() {
         return (

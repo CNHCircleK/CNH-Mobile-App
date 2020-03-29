@@ -6,12 +6,18 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Res from '@resources';
 import { AsyncStorage } from 'react-native';
 
+/* Displays schedule of events */
 export default class SchedulePage extends Component {
+
     state = {
         scheduleDay: Res.scheduleDays[0].value,
         scheduleData: Res.schedule.filter(event => event.day === Res.scheduleDays[0].value)
     }
 
+    /**
+     * Initially show events based on "current day" (Event Day 1, 2, or 3) tracked in AsyncStorage,
+     * defaulting to Day 1
+     */
     async componentWillMount() {
         try {
             const day = await AsyncStorage.getItem('Schedule_Day');
@@ -23,13 +29,17 @@ export default class SchedulePage extends Component {
         }
     }
 
+    /**
+     * Update the day and events shown when the day-picker is updated,
+     * asynchronously attempt to push this update to AsyncStorage too
+     */
     updateDay(day) {
         this.setState({
             scheduleDay: day,
             scheduleData: Res.schedule.filter(event => event.day === day)
         });
 
-        (async () => {
+        (async () => {      
             try {
                 await AsyncStorage.setItem('Schedule_Day', day);
             } catch (error) {
@@ -38,25 +48,32 @@ export default class SchedulePage extends Component {
         })();
     }
 
+    /**
+     * Customize FlatList row rendering here
+     * (e.g. control opacity and chevron display if a sub-detail page exists for the event)
+     */
     getEventRender(item) {
         return (
             <TouchableOpacity style={styles.eventRow} activeOpacity={Res.scheduleDetails[item.id] ? 0.2 : 1} onPress={() => this.handleRowPress(item)}>
                 <View style={styles.eventData}>
                     <Text style={styles.eventNameText}>{item.title}</Text>
                     <Text style={styles.eventTimeLocationText}>{item.time + " \u00B7 " + item.location}</Text>
-                </View>
-                <View style={styles.eventChevron}>
+                </View> 
+                <View style={styles.eventChevron}>          
                     {Res.scheduleDetails[item.id] && <Icon name='ios-arrow-forward' size={24} color={'white'} />}
                 </View>
             </TouchableOpacity>
         );
     }
 
+    /**
+     * On press, navigate to event info page (if it exists for the item clicked)
+     */
     handleRowPress(item) {
         const scheduleDetails = Res.scheduleDetails[item.id];
         if (scheduleDetails) {
             this.props.navigation.navigate('ScheduleDetail', {title: scheduleDetails.title, data: scheduleDetails.data})
-        }
+        } 
     }
 
     render() {

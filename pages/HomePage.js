@@ -7,15 +7,24 @@ import PlainText from '@components/PlainText';
 import Res from '@resources';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+/* First page in app
+   Shows FAQ, Leadership Opportunites, Find out more, and link to Event Page Website
+   Has navbar to Schedule and Map */
 export default class HomePage extends Component {
     state = {
         modalVisible: false
     };
-
+    
+    /**
+     * Modal toggle used for FTC easter egg. Can be used to display stuff on the home page if needed
+     */
     setModalVisible(visible) {
       this.setState({ modalVisible: visible });
     }
 
+    /**
+     * Load resources from res/strings to layout as tiles on the homescreen
+     */
     homeData = [
         {
             title: Res.strings.home.titleKnow,
@@ -34,6 +43,13 @@ export default class HomePage extends Component {
         }
     ]
 
+    /**
+     * Control tile render here (e.g. If a button's section.screens[item] has 'http' in it, link it to a URL instead)
+     *
+     * @param item - an array of (object) names of tiles, i.e. refers to object names in res/strings::section.screens
+     * @param index - row index used by SectionList for unique key purposes
+     * @param section - homepage data
+     */
     getItemRender(item, index, section) {
         const {navigate} = this.props.navigation;
         return (
@@ -56,7 +72,10 @@ export default class HomePage extends Component {
         );
     }
 
-    getSectionTitleRender(title) {
+    /**
+     * Control section header render here (the name of the section on top of each row of tiles)
+     */
+    getSectionTitleRender(title) {                          
         return (
             <PlainText style={styles.navTitle}>{title}</PlainText>
         );
