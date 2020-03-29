@@ -5,9 +5,22 @@ import RNPickerSelect from 'react-native-picker-select';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Res from '@resources';
 import { AsyncStorage } from 'react-native';
+import * as firebase from 'firebase';
 
 /* Displays schedule of events */
 export default class SchedulePage extends Component {
+
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "",
+      databaseURL: "https://cnh-mobile-app-57295.firebaseio.com/",
+      projectID: "cnh-mobile-app-57295"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.database();
+
+    var scheduleRef = db.collection('SchedulePage');
 
     state = {
         scheduleDay: Res.scheduleDays[0].value,
@@ -27,6 +40,14 @@ export default class SchedulePage extends Component {
         } catch (error) {
             console.error(error);
         }
+        try {
+            const snapshot  = awaiy scheduleRef.getDocuments().get();
+            const collection = {};
+            snapshot.forEach(doc => {
+              collection[doc.id] = doc.data();
+            });
+            return collection;
+         }
     }
 
     /**
@@ -39,7 +60,7 @@ export default class SchedulePage extends Component {
             scheduleData: Res.schedule.filter(event => event.day === day)
         });
 
-        (async () => {      
+        (async () => {
             try {
                 await AsyncStorage.setItem('Schedule_Day', day);
             } catch (error) {
