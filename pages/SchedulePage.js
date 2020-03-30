@@ -6,22 +6,28 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Res from '@resources';
 import { AsyncStorage } from 'react-native';
 import * as firebase from 'firebase';
+import 'firebase/firestore'
+
+import { decode, encode } from 'base-64'
+global.crypto = require("@firebase/firestore");
+global.crypto.getRandomValues = byteArray => { for (let i = 0; i < byteArray.length; i++) { byteArray[i] = Math.floor(256 * Math.random()); } }
+
+if (!global.btoa) { global.btoa = encode; }
+
+if (!global.atob) { global.atob = decode; }
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "",
+  databaseURL: "https://cnh-mobile-app-57295.firebaseio.com/",
+  projectId: "cnh-mobile-app-57295"
+};
+
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
 
 /* Displays schedule of events */
 export default class SchedulePage extends Component {
-
-    // Initialize Firebase
-    const firebaseConfig = {
-      apiKey: "",
-      databaseURL: "https://cnh-mobile-app-57295.firebaseio.com/",
-      projectID: "cnh-mobile-app-57295"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    var db = firebase.database();
-
-    var scheduleRef = db.collection('SchedulePage');
-
     state = {
         scheduleDay: Res.scheduleDays[0].value,
         scheduleData: Res.schedule.filter(event => event.day === Res.scheduleDays[0].value)
@@ -41,12 +47,15 @@ export default class SchedulePage extends Component {
             console.error(error);
         }
         try {
-            const snapshot  = awaiy scheduleRef.getDocuments().get();
-            const collection = {};
+            const snapshot  = await db.collection('SchedulePage').get();
+            const collection = [];
             snapshot.forEach(doc => {
-              collection[doc.id] = doc.data();
+              var data = doc.data();
+              collection.push(data);
             });
             return collection;
+         } catch (error) {
+           console.error(error);
          }
     }
 
@@ -79,8 +88,8 @@ export default class SchedulePage extends Component {
                 <View style={styles.eventData}>
                     <Text style={styles.eventNameText}>{item.title}</Text>
                     <Text style={styles.eventTimeLocationText}>{item.time + " \u00B7 " + item.location}</Text>
-                </View> 
-                <View style={styles.eventChevron}>          
+                </View>
+                <View style={styles.eventChevron}>
                     {Res.scheduleDetails[item.id] && <Icon name='ios-arrow-forward' size={24} color={'white'} />}
                 </View>
             </TouchableOpacity>
@@ -94,7 +103,7 @@ export default class SchedulePage extends Component {
         const scheduleDetails = Res.scheduleDetails[item.id];
         if (scheduleDetails) {
             this.props.navigation.navigate('ScheduleDetail', {title: scheduleDetails.title, data: scheduleDetails.data})
-        } 
+        }
     }
 
     render() {
