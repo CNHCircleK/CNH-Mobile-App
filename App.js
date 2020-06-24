@@ -13,7 +13,7 @@ import Res from '@resources';
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-// Bottom Nav
+// Bottom Nav TEST TEST TEST 
 const TabNavigatorPages = createBottomTabNavigator({
     Home: {
       screen: HomePage,
