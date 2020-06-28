@@ -35,7 +35,7 @@ jobs:
         - npx expo publish --non-interactive --release-channel development
       after_success:
         - sudo bash travis-ci.sh success $SLACK_WEBHOOK
-        - sudo bash slack_script.sh $SLACK_WEBHOOK dev "$TRAVIS_COMMIT_MESSAGE"
+        - sudo bash slack_script.sh $SLACK_WEBHOOK dev
       after_failure:
         - sudo bash travis-ci.sh failure $SLACK_WEBHOOK
     - stage: publish-master
@@ -50,7 +50,7 @@ jobs:
         - npx expo publish --non-interactive
       after_success:
         - sudo bash travis-ci.sh success $SLACK_WEBHOOK
-        - sudo bash slack_script.sh $SLACK_WEBHOOK master "$TRAVIS_COMMIT_MESSAGE"
+        - sudo bash slack_script.sh $SLACK_WEBHOOK master 
       after_failure:
         - sudo bash travis-ci.sh failure $SLACK_WEBHOOK
     - stage: check-pr
