@@ -22,6 +22,14 @@ fi
 
 color=1942002
 
+COMMIT_SUBJECT="$(git log -1 "$TRAVIS_COMMIT" --pretty="%s")"
+COMMIT_MESSAGE="$(git log -1 "$TRAVIS_COMMIT" --pretty="%b")" | sed -E ':a;N;$!ba;s/\r{0,1}\n/\\n/g'
+
+if [ ${#COMMIT_SUBJECT} -gt 256 ]; then
+  COMMIT_SUBJECT="$(echo "$COMMIT_SUBJECT" | cut -c 1-253)"
+  COMMIT_SUBJECT+="..."
+fi
+
 WEBHOOK_DATA='{
   "embeds": [ {
     "color": '$color',
@@ -31,9 +39,8 @@ WEBHOOK_DATA='{
     },
     "title": "'"$COMMIT_SUBJECT"'",
     "url": "'"$expo_url"'",
-    "description": "Open up the app in Expo for testing and usage.",
+    "description": "Open up the app in Expo for testing and usage."
   } ]
 }'
 
-
-curl -X POST -H 'Content-type: application/json' --data "$WEBHOOK_DATA" "$url"
+curl -v -X POST -H 'Content-type: application/json' --data "${WEBHOOK_DATA//	/ }" "$url"
