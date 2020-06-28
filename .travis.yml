@@ -34,7 +34,10 @@ jobs:
         - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
         - npx expo publish --non-interactive --release-channel development
       after_success:
+        - sudo bash travis-ci.sh success $SLACK_WEBHOOK
         - sudo bash slack_script.sh $SLACK_WEBHOOK dev "$TRAVIS_COMMIT_MESSAGE"
+      after_failure:
+        - sudo bash travis-ci.sh failure $SLACK_WEBHOOK
     - stage: publish-master
       if: branch = master AND type = push
       script:
@@ -46,7 +49,10 @@ jobs:
         - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
         - npx expo publish --non-interactive
       after_success:
+        - sudo bash travis-ci.sh success $SLACK_WEBHOOK
         - sudo bash slack_script.sh $SLACK_WEBHOOK master "$TRAVIS_COMMIT_MESSAGE"
+      after_failure:
+        - sudo bash travis-ci.sh failure $SLACK_WEBHOOK
     - stage: check-pr
       if: branch != master AND type = pull_request
       script:
@@ -56,3 +62,7 @@ jobs:
         - npm install --save-dev expo-cli
         - npx expo login --non-interactive -u $EXPO_USERNAME -p $EXPO_PASSWORD
         - npx expo publish --non-interactive --release-channel $TRAVIS_BUILD_NUMBER
+      after_success:
+        - sudo bash travis-ci.sh success $SLACK_WEBHOOK
+      after_failure:
+        - sudo bash travis-ci.sh failure $SLACK_WEBHOOK
