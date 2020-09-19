@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomePage from "./pages/HomePage";
 import DistrictLeadershipPage from "./pages/DistrictLeadershipPage";
 import AboutPage from "./pages/AboutPage";
+import DFIPage from "./pages/DFIPage";
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ export default class App extends Component {
             component={DistrictLeadershipPage}
           />
           <Stack.Screen name="About Us" component={AboutPage} />
+          <Stack.Screen name="Fundraising Initiatives" component={DFIPage} />
         </Stack.Navigator>
       </NavigationContainer>
     );

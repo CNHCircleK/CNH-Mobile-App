@@ -5,7 +5,6 @@ import {
   Text,
   View,
   Image,
-  Button,
   ScrollView,
   SafeAreaView,
 } from "react-native";
