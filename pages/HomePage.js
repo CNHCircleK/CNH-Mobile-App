@@ -34,7 +34,7 @@ export default class HomePage extends Component {
                 onPress={() => {
                     navigate(item.screen);
                 }}
-                style={styles.homeItem}
+                style={styles.item}
             >
                 <Text style={styles.itemText}>{item.title}</Text>
             </TouchableOpacity>
@@ -49,6 +49,7 @@ export default class HomePage extends Component {
                     renderItem={({item}) => this.getItemRender(item)}
                     horizontal={false}
                     numColumns={2}
+                    contentContainerStyle={styles.itemList}
                 />
            </View>
        );
@@ -62,14 +63,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-    homeItem: {
+    itemList: {
+        flex: 1,
+        justifyContent: 'center'
+    },
+    item: {
         width: 150,
         height: 150,
         margin: 5,
         backgroundColor: '#ffffff',
         borderRadius: 10,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
+        elevation: 8
     },
     itemText: {
         fontWeight: 'bold',
