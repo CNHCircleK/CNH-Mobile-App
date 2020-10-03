@@ -321,7 +321,11 @@ const styles = StyleSheet.create({
 
   titleView: {
     backgroundColor: "rgba(0, 0, 128, 0.8)",
-    padding: 100,
+    justifyContent: "center",
+    alignItems: "flex-start",
+    paddingTop: 100,
+    paddingBottom: 100,
+    paddingLeft: 10,
   },
 
   endView: {

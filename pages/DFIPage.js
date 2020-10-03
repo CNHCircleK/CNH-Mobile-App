@@ -65,7 +65,7 @@ class DFIPage extends Component {
               providing education materials, and assisting partner hospitals.
               The funds raised will go towards the end goal of preventing
               unintentional injury and death as well as providing safety items
-              for children.
+              for children. {"\n"}
             </Text>
           </View>
           <View style={styles.endView}>
