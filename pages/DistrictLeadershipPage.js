@@ -333,15 +333,17 @@ export default class DistrictLeadershipPage extends Component {
                 horizontal={false}
                 numColumns={2}
                 data={item}
-                renderItem={({item}) =>
-                    <View style={styles.item}>
-                        <Image source={item.uri} style={styles.itemImage} />
-                        <Text style={{...styles.itemText, fontWeight: 'bold'}}>{item.title}</Text>
-                        <Text style={styles.itemText}>{item.name}</Text>
-                        {'school' in item ? <Text style={styles.itemText}>{item.school}</Text> : <View></View>}
-                        <Text style={styles.itemText}>{item.email}</Text>
-                    </View>
+                renderItem={
+                    ({item}) =>
+                        <View style={styles.item}>
+                            <Image source={item.uri} style={styles.itemImage} />
+                            <Text style={{...styles.itemText, fontWeight: 'bold'}}>{item.title}</Text>
+                            <Text style={styles.itemText}>{item.name}</Text>
+                            {'school' in item ? <Text style={styles.itemText}>{item.school}</Text> : null}
+                            <Text style={styles.itemText}>{item.email}</Text>
+                        </View>
                 }
+                keyExtractor={ (item, index) => index.toString() }
                 columnWrapperStyle={styles.itemList}
             />
         );
@@ -353,9 +355,10 @@ export default class DistrictLeadershipPage extends Component {
                 <SectionList
                     stickySectionHeadersEnabled={false}
                     showsVerticalScrollIndicator={false}
-                    renderItem={({item}) => this.getItemRender(item)}
+                    renderItem={ ({item}) => this.getItemRender(item) }
                     renderSectionHeader={({section: {title}}) => this.getSectionTitleRender(title)}
                     sections={this.leadershipData}
+                    keyExtractor={ (item, index) => index.toString() }
                 />            
             </View>
        );

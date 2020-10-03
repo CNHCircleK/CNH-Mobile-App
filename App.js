@@ -11,9 +11,7 @@ export default class App extends Component {
     render() {
         return (
             <NavigationContainer>
-                <Stack.Navigator
-                    headerMode='none'
-                >
+                <Stack.Navigator headerMode='none'>
                     <Stack.Screen name="Home" component={HomePage} />
                     <Stack.Screen name="District Leadership" component={DistrictLeadershipPage} />
                 </Stack.Navigator>

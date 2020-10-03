@@ -30,12 +30,7 @@ export default class HomePage extends Component {
     getItemRender(item) {
         const {navigate} = this.props.navigation;
         return (
-            <TouchableOpacity 
-                onPress={() => {
-                    navigate(item.screen);
-                }}
-                style={styles.item}
-            >
+            <TouchableOpacity onPress={ () => navigate(item.screen) } style={styles.item}>
                 <Text style={styles.itemText}>{item.title}</Text>
             </TouchableOpacity>
         );
@@ -50,6 +45,7 @@ export default class HomePage extends Component {
                     horizontal={false}
                     numColumns={2}
                     contentContainerStyle={styles.itemList}
+                    keyExtractor={ (item, index) => index.toString() }
                 />
            </View>
        );
