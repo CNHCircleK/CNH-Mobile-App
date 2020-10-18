@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import DistrictLeadershipPage from "./pages/DistrictLeadershipPage";
 import AboutPage from "./pages/AboutPage";
 import DFIPage from "./pages/DFIPage";
+import MRPPage from "./pages/MRPPage";
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ export default class App extends Component {
                     <Stack.Screen name="District Leadership" component={DistrictLeadershipPage} />
                     <Stack.Screen name="About Us" component={AboutPage} />
                     <Stack.Screen name="Fundraising Initiatives" component={DFIPage} />
+                    <Stack.Screen name="MRF" component={MRPPage} />
                 </Stack.Navigator>
             </NavigationContainer>
         );

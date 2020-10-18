@@ -9,7 +9,7 @@
     "platforms": ["ios", "android", "web"],
     "version": "2.0.0",
     "orientation": "portrait",
-    "icon": "../resources/images/AboutUsIcon/solstice_icon.png",
+    "icon": "./assets/solstice_icon.png",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
