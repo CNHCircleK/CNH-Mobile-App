@@ -1,52 +1,43 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default class HomePage extends Component {
-
-    homeData = [
-        {
-            title: "About Us",
-            screen: "About Us"
-        },
-        {
-            title: "Fundraising Initiatives",
-            screen: "Fundraising Initiatives"
-        },
-        {
-            title: "Resources",
-            screen: "Resources"
-        },
-        {
-            title: "MRF",
-            screen: "MRF"
-        },
-        {
-            title: "District Leadership",
-            screen: "District Leadership"
-        }
-    ];
-
-    getItemRender(item) {
+    render() {
         const {navigate} = this.props.navigation;
         return (
-            <TouchableOpacity onPress={ () => navigate(item.screen) } style={styles.item}>
-                <Text style={styles.itemText}>{item.title}</Text>
-            </TouchableOpacity>
-        );
-    }
-
-    render() {
-       return (
            <View style={styles.container}>
-                <FlatList
-                    data={this.homeData}
-                    renderItem={({item}) => this.getItemRender(item)}
-                    horizontal={false}
-                    numColumns={2}
-                    contentContainerStyle={styles.itemList}
-                    keyExtractor={ (item, index) => index.toString() }
-                />
+                <ScrollView 
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={styles.scrollView}
+                >
+                    <View style={styles.itemcontainer}>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("About Us") }>
+                            <Text style={styles.itemText}>Fall Training Conference</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.itemcontainer}>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("About Us") }>
+                            <Text style={styles.itemText}>About Us</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.itemcontainer}>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Fundraising Initiatives") }>
+                            <Text style={styles.itemText}>Fundraising Initiatives</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Resources") }>
+                            <Text style={styles.itemText}>Resources</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.itemcontainer}> 
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("MRP") }>
+                            <Text style={styles.itemText}>MRP</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("District Leadership") }>
+                            <Text style={styles.itemText}>District Leadership</Text>
+                        </TouchableOpacity>
+                    </View>
+                </ScrollView>
            </View>
        );
     }
@@ -54,24 +45,23 @@ export default class HomePage extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        paddingTop: 30,
-        justifyContent: 'center',
-        alignItems: 'center'
+        flex: 1
     },
-    itemList: {
-        flex: 1,
-        justifyContent: 'center'
+    scrollView: {
+        padding: 10
+    },  
+    itemcontainer: {
+        flexDirection: 'row'
     },
     item: {
-        width: 150,
+        flex: 1,
         height: 150,
-        margin: 5,
+        margin: 10,
         backgroundColor: '#ffffff',
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        shadowColor: "#000",
+        shadowColor: "#000000",
         shadowOffset: {
             width: 0,
             height: 4,

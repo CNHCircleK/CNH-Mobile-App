@@ -353,6 +353,7 @@ export default class DistrictLeadershipPage extends Component {
        return (
             <View style={styles.container}>
                 <SectionList
+                    contentContainerStyle={styles.scrollView}
                     stickySectionHeadersEnabled={false}
                     showsVerticalScrollIndicator={false}
                     renderItem={ ({item}) => this.getItemRender(item) }
@@ -367,11 +368,12 @@ export default class DistrictLeadershipPage extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        paddingTop: 20,
-        paddingBottom: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
+        flex: 1
+    },
+    scrollView: {
+        paddingLeft: 15,
+        paddingRight: 15,
+        paddingBottom: 15
     },
     title: {
         justifyContent: 'center',
