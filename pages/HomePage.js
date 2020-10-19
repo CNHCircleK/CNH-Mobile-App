@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
 export default class HomePage extends Component {
     render() {

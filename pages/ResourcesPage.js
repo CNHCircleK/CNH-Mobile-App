@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, Platform, StatusBar } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { View, StyleSheet, Text, ScrollView } from 'react-native';
 
 export default class ResourcesPage extends Component {
     render() {
