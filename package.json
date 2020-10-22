@@ -26,7 +26,10 @@
     "react-native-screens": "~2.9.0",
     "react-native-table-component": "^1.2.1",
     "react-native-web": "^0.13.18",
-    "shelljs": "^0.8.4"
+    "shelljs": "^0.8.4",
+    "expo-constants": "~9.1.1",
+    "expo-notifications": "~0.3.3",
+    "expo-permissions": "~9.0.1"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^4.0.0",
