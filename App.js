@@ -7,6 +7,9 @@ import AboutPage from "./pages/AboutPage";
 import DFIPage from "./pages/DFIPage";
 import MRPPage from "./pages/MRPPage";
 import ResourcesPage from "./pages/ResourcesPage";
+import setupNotifications from "./utils/Notifications";
+
+setupNotifications();
 
 const Stack = createStackNavigator();
 
