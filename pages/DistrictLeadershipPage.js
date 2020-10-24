@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, SectionList, FlatList, Text, Image } from 'react-native';
+import { View, StyleSheet, SectionList, FlatList, Text, Image, StatusBar, Platform } from 'react-native';
 
 export default class DistrictLeadershipPage extends Component {
 
@@ -371,9 +371,10 @@ const styles = StyleSheet.create({
         flex: 1
     },
     scrollView: {
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+        paddingBottom: 15,
         paddingLeft: 15,
-        paddingRight: 15,
-        paddingBottom: 15
+        paddingRight: 15
     },
     title: {
         justifyContent: 'center',
