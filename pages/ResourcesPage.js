@@ -804,7 +804,7 @@ export default class ResourcesPage extends Component {
         );
     };
 
-    renderContent(section) {
+    renderContent = (section) => {
         return (
             <View>
                 {section.links.map(function(link) { 
@@ -844,7 +844,7 @@ export default class ResourcesPage extends Component {
                 }, this)}              
             </View>
         );
-    }
+    };
 
     render() {
         return (
