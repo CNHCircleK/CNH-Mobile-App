@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar, Switch } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
-import { scheduleNotification, cancelScheduledNotification, sendPushNotification } from '../../utils/Notifications'
-import * as Notifications from 'expo-notifications';
+import { scheduleNotification, cancelScheduledNotification } from '../../utils/Notifications'
 
 days = ['Friday', 'Saturday', 'Sunday'];
 
@@ -12,42 +11,192 @@ scheduleData = [
         time: '1:00PM - 2:30PM',
         location: 'Zoom',
         day: 'Friday',
+        date: new Date('November 6, 2020 13:00:00'),
         id: 0
     },
     {
-        title: 'Committee & District Board Debrief',
-        time: '1:00PM - 2:30PM',
+        title: 'MD&E Social: Countdown to FTC',
+        time: '2:30PM - 3:30PM',
         location: 'Zoom',
-        day: 'Saturday',
+        day: 'Friday',
+        date: new Date('November 6, 2020 14:30:00'),
         id: 1
     },
     {
-        title: 'Committee & District Board Debrief',
-        time: '1:00PM - 2:30PM',
-        location: 'Zoom',
-        day: 'Sunday',
+        title: 'Opening Session',
+        time: '3:30PM - 4:30PM',
+        location: 'Youtube Live',
+        day: 'Friday',
+        date: new Date('November 6, 2020 15:30:00'),
         id: 2
     },
     {
-        title: 'Committee & District Board Debrief',
-        time: '1:00PM - 2:30PM',
+        title: 'Memory Making Session I',
+        time: '4:35PM - 5:25PM',
         location: 'Zoom',
         day: 'Friday',
+        date: new Date('November 6, 2020 16:35:00'),
         id: 3
     },
     {
-        title: 'Committee & District Board Debrief',
-        time: '1:00PM - 2:30PM',
+        title: 'Service Project',
+        time: '5:30PM - 7:00PM',
         location: 'Zoom',
-        day: 'Saturday',
+        day: 'Friday',
+        date: new Date('November 6, 2020 17:30:00'),
         id: 4
     },
     {
-        title: 'Committee & District Board Debrief',
-        time: '1:00PM - 2:30PM',
-        location: 'Zoom',
-        day: 'Sunday',
+        title: 'Intermission',
+        time: '7:00PM - 8:00PM',
+        location: '',
+        day: 'Friday',
+        date: new Date('November 6, 2020 19:00:00'),
         id: 5
+    },
+    {
+        title: 'Workshop Session I',
+        time: '8:00PM - 8:45PM',
+        location: 'Zoom',
+        day: 'Friday',
+        date: new Date('November 6, 2020 20:00:00'),
+        id: 6
+    },
+    {
+        title: 'DJ Introduction',
+        time: '8:45PM - 8:55PM',
+        location: 'Youtube Live',
+        day: 'Friday',
+        date: new Date('November 6, 2020 20:45:00'),
+        id: 7
+    },
+    {
+        title: 'Workshop Session II',
+        time: '8:55PM - 9:40PM',
+        location: 'Zoom',
+        day: 'Friday',
+        date: new Date('November 6, 2020 20:55:00'),
+        id: 8
+    },
+    {
+        title: 'DJ Intermission',
+        time: '9:40PM - 9:50PM',
+        location: 'Youtube Live',
+        day: 'Friday',
+        date: new Date('November 6, 2020 21:40:00'),
+        id: 9
+    },
+    {
+        title: 'Workshop Session III',
+        time: '9:50PM - 10:35PM',
+        location: 'Zoom',
+        day: 'Friday',
+        date: new Date('November 6, 2020 21:50:00'),
+        id: 10
+    },
+    {
+        title: 'General Session I',
+        time: '12:00PM - 1:00PM',
+        location: 'Youtube Live',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 12:00:00'),
+        id: 11
+    },
+    {
+        title: 'Memory Making Session II',
+        time: '1:05PM - 1:55PM',
+        location: 'Zoom',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 13:05:00'),
+        id: 12
+    },
+    {
+        title: 'DJ Intermission',
+        time: '1:55PM - 2:05PM',
+        location: 'Youtube Live',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 13:55:00'),
+        id: 13
+    },
+    {
+        title: 'Workshop Session I',
+        time: '2:05PM - 2:50PM',
+        location: 'Zoom',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 14:05:00'),
+        id: 14
+    },
+    {
+        title: 'DJ Intermission',
+        time: '2:50PM - 3:00PM',
+        location: 'Youtube Live',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 14:50:00'),
+        id: 15
+    },
+    {
+        title: 'Workshop Session II',
+        time: '3:00PM - 3:45PM',
+        location: 'Zoom',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 15:00:00'),
+        id: 16
+    },
+    {
+        title: 'Intermission (DJ Intermission)',
+        time: '3:45PM - 4:45PM',
+        location: 'Youtube Live',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 15:45:00'),
+        id: 17
+    },
+    {
+        title: 'Message from LTGs to Returning Members',
+        time: '4:45PM - 5:15PM',
+        location: 'Youtube Live',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 16:45:00'),
+        id: 18
+    },
+    {
+        title: 'General Session II',
+        time: '5:15PM - 7:15PM',
+        location: 'Youtube Live',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 17:15:00'),
+        id: 19
+    },
+    {
+        title: 'Campfire Skits & Talent Acts',
+        time: '7:15PM - 8:30PM',
+        location: 'Youtube Live',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 19:15:00'),
+        id: 20
+    },
+    {
+        title: 'Divisional Bonding',
+        time: '8:30PM - 9:30PM',
+        location: 'Zoom',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 20:30:00'),
+        id: 21
+    },
+    {
+        title: 'Night Activities',
+        time: '9:30PM - 12:00AM',
+        location: 'Zoom',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 21:30:00'),
+        id: 22
+    },
+    {
+        title: 'Closing Session ',
+        time: '12:00PM',
+        location: 'Youtube Live',
+        day: 'Sunday',
+        date: new Date('November 8, 2020 12:00:00'),
+        id: 23
     }
 ];
 
@@ -87,24 +236,12 @@ export default class FTCSchedulePage extends Component {
                 this.state.scheduledEvents.splice(scheduledItemIndex, 1);
                 this.setState(this.state);
             } else {
-                // let scheduledItemIdentifier = scheduleNotification({
-                //     title: `${item.title} is happening now!`,
-                //     body: `${item.time} on ${item.location}`
-                // }, {
-                //     seconds: 10
-                // });
-                let scheduledItemIdentifier = await Notifications.scheduleNotificationAsync({
-                    content: {
-                        title: `${item.title} is happening now!`,
-                        body: `${item.time} on ${item.location}`
-                    },
-                    trigger: {
-                        seconds: 1
-                    }
-                });
+                let scheduledItemIdentifier = await scheduleNotification({
+                    title: `${item.title} is happening now!`,
+                    body: `${item.time} on ${item.location}`
+                }, new Date('October 24, 2020 21:50:30'));
+
                 this.setState((prevState) => ({ scheduledEvents: [...prevState.scheduledEvents, { identifier: scheduledItemIdentifier, id: item.id }] }));
-                console.log(scheduledItemIdentifier);
-                console.log(this.state.scheduledEvents);
             }
         }
     }
