@@ -45,7 +45,6 @@ export async function setupNotifications() {
     
     let expoToken = await registerForPushNotificationsAsync();
     // Push token to Firebase
-    console.log(expoToken);
 }
 
 export async function sendPushNotification(expoPushToken) {

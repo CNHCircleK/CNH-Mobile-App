@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, ScrollView, StatusBar, Platform } from 'react-native';
 import { Table, Rows, Col, Row } from 'react-native-table-component';
 
 export default class MRPPage extends Component {
@@ -91,7 +91,7 @@ export default class MRPPage extends Component {
                     </View>
                 </ScrollView>
             </View>
-        )
+        );
     }
 }
 
@@ -100,7 +100,10 @@ const styles = StyleSheet.create({
         flex: 1
     },
     scrollView: {
-        padding: 15
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 15 : 15,
+        paddingBottom: 15,
+        paddingLeft: 15,
+        paddingRight: 15
     },
     title: {
         textAlign: 'center',
