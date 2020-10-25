@@ -68,8 +68,13 @@ export async function sendPushNotification(expoPushToken) {
 }
 
 export async function scheduleNotification(nContent, nTrigger) {
-    Notifications.scheduleNotificationAsync({
+    console.log("here");
+    return await Notifications.scheduleNotificationAsync({
         content: nContent,
         trigger: nTrigger
     });
+}
+
+export async function cancelScheduledNotification(identifier) {
+    await Notifications.cancelScheduledNotificationAsync(identifier);
 }
