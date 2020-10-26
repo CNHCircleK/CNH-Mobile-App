@@ -128,7 +128,7 @@ class AboutPage extends Component {
               recognition of the organization.
             </Text>
             <Text style={styles.subText}>{"\n"}Our Tenets</Text>
-            <StatusBar style="auto" />
+            {/* <StatusBar style="auto" /> */}
             <Text style={styles.descText}>
               As the largest collegiate community service organization
               worldwide, Circle K International embraces three tenets that

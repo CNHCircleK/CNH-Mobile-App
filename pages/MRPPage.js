@@ -1,45 +1,45 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, ScrollView, StatusBar, Platform } from 'react-native';
 import { Table, Rows, Col, Row } from 'react-native-table-component';
 
+const mrpTableTitle = [
+    'MRP Level', 'Service Hours', 'Dues Paid', 'Additional Requirements',
+    'Socials (SE)', 'MD&E Events (MD)', 'Fundraisers (FR)', 'Alumni (AL)',
+    'Kiwanis Family (KF)', 'Interclub (IN)', 'Divisional Events (DV)', 'District Events',
+    'International Events (INT)', 'Articles Submitted', 'Webinars Attended (WB)', 'Chaired Events', 
+    'Host Workshop or Webinar', 'Committee Member'
+];
+
+const mrpTableData = [
+    ['Bronze', 'Silver', 'Gold', 'Platinum'],
+    ['50', '80', '130', '200'],
+    ['Yes', 'Yes', 'Yes', 'Yes'],
+    ['5', '6', '8', '11'],
+    ['3', '4', '6', '9'],
+    ['2', '3', '4', '5'],
+    ['1', '2', '3', '4'],
+    ['1', '1', '2', '2'],
+    ['2', '3', '4', '5'],
+    ['1', '2', '3', '4'],
+    ['2', '3', '4', '5'],
+    ['1', '2', '2', '3'],
+    ['1', '1', '1', '1'],
+    ['1', '2', '3', '4'],
+    ['4', '5', '6', '7'],
+    ['1', '2', '3', '4'],
+    ['Yes', 'Yes', 'Yes', 'Yes'],
+    ['Yes', 'Yes', 'Yes', 'Yes']
+];
+
+const interclubTitle = ['Club Member Count', 'How many attending members needed from your club', 'How many attending members needed from another Kiwanis Family club'];
+
+const interclubData = [
+    ['50 members or less', '2 members', '2 members'],
+    ['51-90 members', '3 members', '2 members'],
+    ['91+ members', '4 members', '2 members']
+]
+
 export default class MRPPage extends Component {
-
-    mrpTableTitle = [
-        'MRP Level', 'Service Hours', 'Dues Paid', 'Additional Requirements',
-        'Socials (SE)', 'MD&E Events (MD)', 'Fundraisers (FR)', 'Alumni (AL)',
-        'Kiwanis Family (KF)', 'Interclub (IN)', 'Divisional Events (DV)', 'District Events',
-        'International Events (INT)', 'Articles Submitted', 'Webinars Attended (WB)', 'Chaired Events', 
-        'Host Workshop or Webinar', 'Committee Member'
-    ];
-    mrpTableData = [
-        ['Bronze', 'Silver', 'Gold', 'Platinum'],
-        ['50', '80', '130', '200'],
-        ['Yes', 'Yes', 'Yes', 'Yes'],
-        ['5', '6', '8', '11'],
-        ['3', '4', '6', '9'],
-        ['2', '3', '4', '5'],
-        ['1', '2', '3', '4'],
-        ['1', '1', '2', '2'],
-        ['2', '3', '4', '5'],
-        ['1', '2', '3', '4'],
-        ['2', '3', '4', '5'],
-        ['1', '2', '2', '3'],
-        ['1', '1', '1', '1'],
-        ['1', '2', '3', '4'],
-        ['4', '5', '6', '7'],
-        ['1', '2', '3', '4'],
-        ['Yes', 'Yes', 'Yes', 'Yes'],
-        ['Yes', 'Yes', 'Yes', 'Yes']
-    ];
-
-    interclubTitle = ['Club Member Count', 'How many attending members needed from your club', 'How many attending members needed from another Kiwanis Family club'];
-
-    interclubData = [
-        ['50 members or less', '2 members', '2 members'],
-        ['51-90 members', '3 members', '2 members'],
-        ['91+ members', '4 members', '2 members']
-    ]
-
     render() {
         return (
             <View style={styles.container}>
@@ -57,8 +57,8 @@ export default class MRPPage extends Component {
                         a specific number of tags.
                     </Text>
                     <Table style={{flexDirection: 'row'}}>
-                        <Col data={this.mrpTableTitle} textBreakStrategy={'simple'} heightArr={[60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60]} style={{flex: 1.6, marginRight: 10}} textStyle={{fontWeight: 'bold'}} />
-                        <Rows data={this.mrpTableData} flexArr={[1, 1, 1, 1]} style={{height: 60}} />
+                        <Col data={mrpTableTitle} textBreakStrategy={'simple'} heightArr={[60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60]} style={{flex: 1.6, marginRight: 10}} textStyle={{fontWeight: 'bold'}} />
+                        <Rows data={mrpTableData} flexArr={[1, 1, 1, 1]} style={{height: 60}} />
                     </Table>
                     <Text style={styles.tagTitle}>Tag Definitions</Text>
                     <View>
@@ -72,8 +72,8 @@ export default class MRPPage extends Component {
                         <Text style={styles.text}><Text style={styles.numbers}>8. Interclub (IN)</Text> – An interclub is any event hosted by another Kiwanis Family club, including Circle K. The following table will illustrate on how to achieve this tag:</Text>
                     </View>
                     <Table>
-                        <Row data={this.interclubTitle} textBreakStrategy={'simple'} textStyle={{fontWeight: 'bold', textAlign: 'center', margin: 5}} />
-                        <Rows data={this.interclubData} flexArr={[1, 1, 1]} style={{height: 30}} textStyle={{textAlign: 'center'}} />
+                        <Row data={interclubTitle} textBreakStrategy={'simple'} textStyle={{fontWeight: 'bold', textAlign: 'center', margin: 5}} />
+                        <Rows data={interclubData} flexArr={[1, 1, 1]} style={{height: 30}} textStyle={{textAlign: 'center'}} />
                     </Table>
                     <Text style={styles.subtitleText}>
                         The host club may mark the interclub (IN) tag if the hosted event is a community service project. 
@@ -91,7 +91,7 @@ export default class MRPPage extends Component {
                     </View>
                 </ScrollView>
             </View>
-        )
+        );
     }
 }
 
@@ -100,7 +100,10 @@ const styles = StyleSheet.create({
         flex: 1
     },
     scrollView: {
-        padding: 15
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 15 : 15,
+        paddingBottom: 15,
+        paddingLeft: 15,
+        paddingRight: 15
     },
     title: {
         textAlign: 'center',
