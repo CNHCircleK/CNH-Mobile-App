@@ -7,6 +7,7 @@ import DistrictLeadershipPage from "./pages/DistrictLeadershipPage";
 import AboutPage from "./pages/AboutPage";
 import DFIPage from "./pages/DFIPage";
 import MRPPage from "./pages/MRPPage";
+import InputTest from "./pages/InputTest";
 import ResourcesPage from "./pages/ResourcesPage";
 import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
 import FTCAdminPage from "./pages/FTC/FTCAdminPage";
@@ -77,6 +78,9 @@ export default class App extends Component {
                     <Stack.Screen name="MRP" component={MRPPage} />
                     <Stack.Screen name="District Leadership" component={DistrictLeadershipPage} />
                     <Stack.Screen name="Resources" component={ResourcesPage} />
+                    <Stack.Screen name="Firebase" component={InputTest} />
+
+
                 </Stack.Navigator>
             </NavigationContainer>
         );
