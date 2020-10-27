@@ -11,7 +11,7 @@ export default class HomePage extends Component {
                     contentContainerStyle={styles.scrollView}
                 >
                     <View style={styles.itemcontainer}>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("FTC Schedule") }>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("FTC Tabs") }>
                             <Text style={styles.itemText}>Fall Training Conference</Text>
                         </TouchableOpacity>
                     </View>
