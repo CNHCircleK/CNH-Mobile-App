@@ -36,3 +36,13 @@ export async function getData(collection) {
     return data;
 }
 
+export async function getOrderedData(collection, criteria, direction) {
+    data = [];
+
+    let db = firebase.firestore();
+    let querySnapshot = await db.collection(collection).orderBy(criteria, direction).get();
+    querySnapshot.forEach(doc => data.push(doc.data()));
+
+    return data;
+}
+

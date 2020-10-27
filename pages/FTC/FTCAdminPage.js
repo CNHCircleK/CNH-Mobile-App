@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, TextInput, Platform, StatusBar } from 'react-native';
 import { sendPushNotification } from '../../utils/Notifications'
-import { sendData, getData } from '../../utils/Firebase';
-import * as firebase from 'firebase';
-import 'firebase/firestore';
+import { sendData, getData, getOrderedData } from '../../utils/Firebase';
 
 export default class FTCAdminPage extends Component {
     state = {
