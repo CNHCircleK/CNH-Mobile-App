@@ -9,7 +9,9 @@ import MRPPage from "./pages/MRPPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
 import { setupNotifications } from "./utils/Notifications";
+import { setupFirebase } from "./utils/Firebase";
 
+setupFirebase();
 setupNotifications();
 
 const Stack = createStackNavigator();

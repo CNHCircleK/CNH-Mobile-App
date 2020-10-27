@@ -30,7 +30,8 @@
     "react-native-screens": "~2.10.1",
     "react-native-table-component": "^1.2.1",
     "react-native-web": "~0.13.7",
-    "shelljs": "^0.8.4"
+    "shelljs": "^0.8.4",
+    "firebase": "7.9.0"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^4.0.0",
