@@ -14,8 +14,8 @@ import { setupNotifications } from "./utils/Notifications";
 import { setupFirebase } from "./utils/Firebase";
 import { Ionicons } from '@expo/vector-icons';
 
-//setupFirebase();
-//setupNotifications();
+setupFirebase();
+setupNotifications();
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

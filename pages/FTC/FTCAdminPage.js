@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, TextInput, Platform, StatusBar } from 'react-native';
 import { sendPushNotification } from '../../utils/Notifications'
 import { sendData, getData } from '../../utils/Firebase';
+import * as firebase from 'firebase';
+import 'firebase/firestore';
 
 export default class FTCAdminPage extends Component {
     state = {
@@ -12,6 +14,18 @@ export default class FTCAdminPage extends Component {
     onChangeTitle = (nTitle) => this.setState({ title: nTitle });
 
     onChangeBody = (nBody) => this.setState({ body: nBody });
+
+    sendAnnouncement = async () => {
+        await sendData('ftc-announcements', { title: this.state.title, body: this.state.body, timestamp: new Date() });
+        let tokens = await getData('expo-tokens');
+        tokens.forEach(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body));
+    };
+
+    sendShoutout = async () => {
+        await sendData('ftc-shoutouts', { title: this.state.title, body: this.state.body, timestamp: new Date() });
+        let tokens = await getData('expo-tokens');
+        tokens.forEach(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body));
+    };
 
     render() {
         return (
@@ -36,10 +50,10 @@ export default class FTCAdminPage extends Component {
                     />
                 </View>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={this.sendAnnouncement}>
                         <Text style={styles.buttonText}>Send Announcement</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={this.sendShoutout}>
                         <Text style={styles.buttonText}>Send Shoutout</Text>
                     </TouchableOpacity>
                 </View>
