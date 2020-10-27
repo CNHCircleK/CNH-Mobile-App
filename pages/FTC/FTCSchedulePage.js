@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar
 import RNPickerSelect from 'react-native-picker-select';
 import { scheduleNotification, cancelScheduledNotification } from '../../utils/Notifications'
 
-days = ['Friday', 'Saturday', 'Sunday'];
+days = ['Friday', 'Saturday', 'Sunday', 'Your Events'];
 
 scheduleData = [
     {
@@ -211,7 +211,7 @@ export default class FTCSchedulePage extends Component {
     updateDay = (value) => {
         this.setState({
             curDay: value,
-            curScheduleData: scheduleData.filter(event => event.day === value)
+            curScheduleData: value === days[3] ? scheduleData.filter(event => this.state.scheduledEvents.some(value => value.id === event.id)) : scheduleData.filter(event => event.day === value)
         });
     };
 
