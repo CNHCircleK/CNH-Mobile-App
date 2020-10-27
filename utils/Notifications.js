@@ -2,6 +2,7 @@ import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
 import { Platform } from 'react-native';
+import { sendData, getData } from './Firebase';
 
 async function registerForPushNotificationsAsync() {
     let token;
@@ -44,16 +45,18 @@ export async function setupNotifications() {
     });
     
     let expoToken = await registerForPushNotificationsAsync();
-    // Push token to Firebase
+    let listTokens = await getData('expo-tokens');
+    if(!listTokens.some(value => value.token === expoToken))
+        await sendData('expo-tokens', { token: expoToken });
 }
 
-export async function sendPushNotification(expoPushToken) {
+export async function sendPushNotification(expoPushToken, nTitle, nBody, nData) {
     const message = {
         to: expoPushToken,
         sound: 'default',
-        title: 'Original Title',
-        body: 'And here is the body!',
-        data: { data: 'goes here' },
+        title: nTitle,
+        body: nBody,
+        data: { data: nData || '' },
     };
   
     await fetch('https://exp.host/--/api/v2/push/send', {
