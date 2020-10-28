@@ -3,27 +3,27 @@ import { Text, View, FlatList, StyleSheet, TouchableOpacity,
         SafeAreaView,} from 'react-native';
 import { getData } from '../../utils/Firebase';
 
-class FTCAnnouncePage extends Component {
+class FTCShoutoutPage extends Component {
   constructor(props){
     super(props);
     this.state = {
       fireData : null,
-      announcements : null,
+      shoutouts : null,
     };
   }
-  async getAnnouncements() {
-    var fireData = await getData('ftc-announcements',"timestamp","desc",);
+  async getShoutouts() {
+    var fireData = await getData('ftc-shoutouts',"timestamp","desc",);
     this.setState({
-      announcements : fireData,
+      shoutouts : fireData,
     })
 }
   async componentDidMount() {
-    await this.getAnnouncements();
+    await this.getShoutouts();
   }
   renderItem = ({item}) => {
     return (
         <TouchableOpacity style={styles.item}>
-            <Text style={styles.announceTitle}>{item.title}</Text>
+            <Text style={styles.shoutoutTitle}>{item.title}</Text>
             <Text style={styles.body}>{item.body}</Text>
             <Text style={styles.timeText}>{item.timestamp.toDate().toLocaleString()}</Text>
         </TouchableOpacity>
@@ -31,17 +31,17 @@ class FTCAnnouncePage extends Component {
 };
 
   render(){
-    if (!this.state.announcements) {
+    if (!this.state.shoutouts) {
       return <View></View>
     }
     return(
       <SafeAreaView style={styles.container}>
         <View style={styles.title}>
-          <Text style = {styles.titleText}>Announcements</Text>
+          <Text style = {styles.titleText}>Shoutouts</Text>
         </View>
         <View>
           <FlatList
-            data={this.state.announcements}
+            data={this.state.shoutouts}
             renderItem={this.renderItem}
             keyExtractor={item => item.title}
           />
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
       marginHorizontal: 16,
     },
 
-    announceTitle: {
+    shoutoutTitle: {
       color: "black",  
       fontSize: 20,
       fontWeight: "bold",
@@ -93,4 +93,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default FTCAnnouncePage;
+export default FTCShoutoutPage;
