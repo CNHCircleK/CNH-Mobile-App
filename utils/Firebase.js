@@ -41,7 +41,7 @@ export async function getData(collection, criteria, direction, limit, query) {
     let db = firebase.firestore();
 
     let dbData = db.collection(collection);
-    query.forEach(filter => {
+    query?.forEach(filter => {
         dbData = dbData.where(filter.field, filter.op, filter.value);
     });
     dbData = criteria ? dbData.orderBy(criteria, direction || 'asc') : dbData;

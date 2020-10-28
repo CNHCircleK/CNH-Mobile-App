@@ -10,6 +10,7 @@ import MRPPage from "./pages/MRPPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
 import FTCAdminPage from "./pages/FTC/FTCAdminPage";
+import FTCAnnouncementPage from "./pages/FTC/FTCAnnouncePage";
 import { setupNotifications } from "./utils/Notifications";
 import { setupFirebase } from "./utils/Firebase";
 import { Ionicons } from '@expo/vector-icons';
@@ -30,8 +31,9 @@ function FTCTabScreen() {
                         iconName = 'md-list-box';
                     } else if (route.name === 'Admin') {
                         iconName = 'md-bonfire';
+                    } else if (route.name === 'Announcements') {
+                        iconName = 'md-megaphone';
                     }
-        
                     return <Ionicons name={iconName} size={size} color={color} />;
                 }
             })}
@@ -49,6 +51,7 @@ function FTCTabScreen() {
                 }
             }}
         >
+            <Tab.Screen name="Announcements" component={FTCAnnouncementPage} />
             <Tab.Screen name="Schedule" component={FTCSchedulePage} />
             <Tab.Screen name="Admin" component={FTCAdminPage} />
         </Tab.Navigator>

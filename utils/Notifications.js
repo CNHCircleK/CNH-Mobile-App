@@ -4,6 +4,7 @@ import * as Permissions from 'expo-permissions';
 import { Platform } from 'react-native';
 import { sendData, getData } from './Firebase';
 
+
 async function registerForPushNotificationsAsync() {
     let token;
     if (Constants.isDevice) {
