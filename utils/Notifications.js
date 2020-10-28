@@ -3,6 +3,7 @@ import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
 import { Platform } from 'react-native';
 
+
 async function registerForPushNotificationsAsync() {
     let token;
     if (Constants.isDevice) {

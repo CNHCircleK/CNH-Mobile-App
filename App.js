@@ -8,7 +8,9 @@ import DFIPage from "./pages/DFIPage";
 import MRPPage from "./pages/MRPPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
+import FTCAnnouncementPage from "./pages/FTC/FTCAnnouncePage";
 import { setupNotifications } from "./utils/Notifications";
+
 
 setupNotifications();
 
@@ -21,6 +23,7 @@ export default class App extends Component {
                 <Stack.Navigator headerMode="none">
                     <Stack.Screen name="Home" component={HomePage} />
                     <Stack.Screen name="FTC Schedule" component={FTCSchedulePage} />
+                    <Stack.Screen name="FTC Announcements" component={FTCAnnouncementPage} />
                     <Stack.Screen name="About Us" component={AboutPage} />
                     <Stack.Screen name="Fundraising Initiatives" component={DFIPage} />
                     <Stack.Screen name="MRP" component={MRPPage} />
