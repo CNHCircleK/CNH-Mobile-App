@@ -16,11 +16,6 @@ export default class HomePage extends Component {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.itemcontainer}>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("FTC Announcements") }>
-                            <Text style={styles.itemText}>FTC Announcements</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.itemcontainer}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("About Us") }>
                             <Text style={styles.itemText}>About Us</Text>
                         </TouchableOpacity>

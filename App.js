@@ -31,8 +31,9 @@ function FTCTabScreen() {
                         iconName = 'md-list-box';
                     } else if (route.name === 'Admin') {
                         iconName = 'md-bonfire';
+                    } else if (route.name === 'Announcements') {
+                        iconName = 'md-megaphone';
                     }
-        
                     return <Ionicons name={iconName} size={size} color={color} />;
                 }
             })}
@@ -50,6 +51,7 @@ function FTCTabScreen() {
                 }
             }}
         >
+            <Tab.Screen name="Announcements" component={FTCAnnouncementPage} />
             <Tab.Screen name="Schedule" component={FTCSchedulePage} />
             <Tab.Screen name="Admin" component={FTCAdminPage} />
         </Tab.Navigator>

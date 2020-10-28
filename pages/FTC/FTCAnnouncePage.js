@@ -2,26 +2,40 @@ import { getNativeSourceAndFullInitialStatusForLoadAsync } from 'expo-av/build/A
 import React, { Component } from 'react';
 import { Text, View, FlatList, Picker, StyleSheet, TouchableOpacity,
         SafeAreaView,ScrollView,TouchableHighlight, Platform } from 'react-native';
-
-const data = [
-  {id: "announcement", title: "Hello everyone, welcome to FTC!!!", date: "Friday", time: "10:00 AM",},
-  {id: "announcement1", title: "Workshop: How to be an ABG is canceled!", date: "Saturday", time: "10:00 AM",},
-];
-
-const announcements = data.reverse();
+import { sendData, getData } from '../../utils/Firebase';
 
 class FTCAnnouncePage extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      fireData : null,
+      announcements : null,
+    };
+  }
+  async getAnnouncements() {
+    var fireData = await getData('ftc-announcements',"timestamp","desc",);
+    this.setState({
+      announcements : fireData,
+    })
+    console.log(this.state.announcements);
+}
+  async componentDidMount() {
+    await this.getAnnouncements();
+  }
   renderItem = ({item}) => {
     return (
         <TouchableOpacity style={styles.item}>
-            <Text style={styles.announce}>{item.title}</Text>
-            <Text style={styles.timeText}>{item.date + " \u00B7 " + item.time}</Text>
+            <Text style={styles.announceTitle}>{item.title}</Text>
+            <Text style={styles.body}>{item.body}</Text>
+            <Text style={styles.timeText}>{item.timestamp.toDate().toLocaleString()}</Text>
         </TouchableOpacity>
     );
 };
 
-
   render(){
+    if (!this.state.announcements) {
+      return <View></View>
+    }
     return(
       <SafeAreaView style={styles.container}>
         <View style={styles.title}>
@@ -29,9 +43,9 @@ class FTCAnnouncePage extends Component {
         </View>
         <View>
           <FlatList
-            data={announcements}
+            data={this.state.announcements}
             renderItem={this.renderItem}
-            keyExtractor={item => item.id}
+            keyExtractor={item => item.title}
           />
         </View>
       </SafeAreaView>
@@ -69,9 +83,15 @@ const styles = StyleSheet.create({
       marginHorizontal: 16,
     },
 
-    announce: {
+    announceTitle: {
       color: "black",  
       fontSize: 20,
+      fontWeight: "bold",
+    },
+
+    body: {
+      color: "black",
+      fontSize: 15,
     },
 })
 
