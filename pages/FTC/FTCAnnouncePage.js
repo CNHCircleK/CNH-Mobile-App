@@ -16,7 +16,6 @@ class FTCAnnouncePage extends Component {
     this.setState({
       announcements : fireData,
     })
-    console.log(this.state.announcements);
 }
   async componentDidMount() {
     await this.getAnnouncements();
