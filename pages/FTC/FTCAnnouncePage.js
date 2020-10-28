@@ -1,8 +1,7 @@
-import { getNativeSourceAndFullInitialStatusForLoadAsync } from 'expo-av/build/AV';
 import React, { Component } from 'react';
-import { Text, View, FlatList, Picker, StyleSheet, TouchableOpacity,
-        SafeAreaView,ScrollView,TouchableHighlight, Platform } from 'react-native';
-import { sendData, getData } from '../../utils/Firebase';
+import { Text, View, FlatList, StyleSheet, TouchableOpacity,
+        SafeAreaView,} from 'react-native';
+import { getData } from '../../utils/Firebase';
 
 class FTCAnnouncePage extends Component {
   constructor(props){
