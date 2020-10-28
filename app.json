@@ -32,8 +32,7 @@
       "splash": {
         "backgroundColor": "#252525"
       },
-      "useNextNotificationsApi": true,
-      "googleServicesFile": "./google-services.json"
+      "useNextNotificationsApi": true
     }
   }
 }

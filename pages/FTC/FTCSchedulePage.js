@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar
 import RNPickerSelect from 'react-native-picker-select';
 import { scheduleNotification, cancelScheduledNotification } from '../../utils/Notifications'
 
-days = ['Friday', 'Saturday', 'Sunday'];
+days = ['Friday', 'Saturday', 'Sunday', 'Your Events'];
 
 scheduleData = [
     {
@@ -211,7 +211,7 @@ export default class FTCSchedulePage extends Component {
     updateDay = (value) => {
         this.setState({
             curDay: value,
-            curScheduleData: scheduleData.filter(event => event.day === value)
+            curScheduleData: value === days[3] ? scheduleData.filter(event => this.state.scheduledEvents.some(value => value.id === event.id)) : scheduleData.filter(event => event.day === value)
         });
     };
 
@@ -273,6 +273,7 @@ export default class FTCSchedulePage extends Component {
                 <FlatList
                     data={this.state.curScheduleData}
                     renderItem={this.renderItem}
+                    showsVerticalScrollIndicator={false}
                     keyExtractor={ (item, index) => index.toString() }
                 />
             </View>
@@ -284,7 +285,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 15: 15,
-        paddingBottom: 15,
         paddingLeft: 15,
         paddingRight: 15,
         backgroundColor: '#757D84'
@@ -300,8 +300,7 @@ const styles = StyleSheet.create({
         color: '#E9C99C'
     },
     optionsContainer: {
-        flexDirection: 'row',
-        marginBottom: 5
+        flexDirection: 'row'
     },
     pickerContainer: {
         flex: 4,
