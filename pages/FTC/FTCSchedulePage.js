@@ -222,7 +222,7 @@ export default class FTCSchedulePage extends Component {
                 onPress={ () => this.eventPress(item) }
             >
                 <Text style={styles.eventTitle}>{item.title}</Text>
-                <Text style={styles.eventTimeLocation}>{item.time + " \u00B7 " + item.location}</Text>
+                <Text style={styles.eventTimeLocation}>{item.day.substring(0, 3) + " \u00B7 " + item.time + " \u00B7 " + item.location}</Text>
             </TouchableOpacity>
         );
     };
