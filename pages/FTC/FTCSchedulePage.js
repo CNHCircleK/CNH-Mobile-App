@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar, Switch } from 'react-native';
+import { View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar, Switch, SafeAreaView } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { scheduleNotification, cancelScheduledNotification } from '../../utils/Notifications'
 
@@ -248,7 +248,7 @@ export default class FTCSchedulePage extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <View style={styles.title}>
                     <Text style={styles.titleText}>Schedule</Text>
                 </View>
@@ -276,7 +276,7 @@ export default class FTCSchedulePage extends Component {
                     showsVerticalScrollIndicator={false}
                     keyExtractor={ (item, index) => index.toString() }
                 />
-            </View>
+            </SafeAreaView>
         );
     }
 }
@@ -284,15 +284,15 @@ export default class FTCSchedulePage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 15: 15,
-        paddingLeft: 15,
-        paddingRight: 15,
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
         backgroundColor: '#757D84'
     },
     title: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        padding: 20,
+        backgroundColor: "#704346"
     },
     titleText: {
         fontWeight: 'bold',
@@ -300,7 +300,8 @@ const styles = StyleSheet.create({
         color: '#E9C99C'
     },
     optionsContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        paddingHorizontal: 15
     },
     pickerContainer: {
         flex: 4,
@@ -324,13 +325,15 @@ const styles = StyleSheet.create({
     },
     event: {
         paddingVertical: 10,
-        paddingLeft: 10,
+        marginHorizontal: 15,
+        paddingHorizontal: 10,
         marginVertical: 5,
         borderRadius: 10
     },
     eventScheduled: {
         paddingVertical: 10,
-        paddingLeft: 10,
+        paddingHorizontal: 10,
+        marginHorizontal: 15,
         marginVertical: 5,
         borderRadius: 10,
         borderColor: '#E3AEA8',

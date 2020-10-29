@@ -10,6 +10,7 @@ export default class FTCAdminPage extends Component {
         body: '',
         event: '',
         question: '',
+        notifResult: '[notification status displayed here]',
         winner: '[winner displayed here]'
     }
 
@@ -24,13 +25,30 @@ export default class FTCAdminPage extends Component {
     sendAnnouncement = async () => {
         await sendData('ftc-announcements', { title: this.state.title, body: this.state.body, timestamp: new Date() });
         let tokens = await getData('expo-tokens');
-        tokens.forEach(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body));
+        let sendResults = await Promise.all(tokens.map(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body)));
+        
+        if(sendResults.some(value => !value)) {
+            this.setState({ notifResult: 'Some announcements not sent successfully :(' });
+            console.log("Some announcements not sent successfully :(");
+        } else {
+            this.setState({ notifResult: 'All announcements sent successfully!' });
+            console.log("All announcements sent successfully!");
+        }
     };
 
     sendShoutout = async () => {
         await sendData('ftc-shoutouts', { title: this.state.title, body: this.state.body, timestamp: new Date() });
         let tokens = await getData('expo-tokens');
         tokens.forEach(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body));
+        let sendResults = await Promise.all(tokens.map(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body)));
+        
+        if(sendResults.some(value => !value)) {
+            this.setState({ notifResult: 'Some shoutouts not sent successfully :(' });
+            console.log("Some shoutouts not sent successfully :(");
+        } else {
+            this.setState({ notifResult: 'All shoutouts sent successfully!' });
+            console.log("All shoutouts sent successfully!");
+        }
     };
 
     getWinner = async () => {
@@ -59,13 +77,13 @@ export default class FTCAdminPage extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <View style={styles.title}>
+                        <Text style={styles.titleText}>Admin Station</Text>
+                </View>
                 <ScrollView 
                     contentContainerStyle={styles.scrollView}
                     showsVerticalScrollIndicator={false}
-                >
-                    <View style={styles.title}>
-                        <Text style={styles.titleText}>Admin Station</Text>
-                    </View>
+                >   
                     <View style={styles.messageContainer}>
                         <Text style={styles.messageText}>Title:</Text>
                         <TextInput
@@ -90,6 +108,7 @@ export default class FTCAdminPage extends Component {
                             <Text style={styles.buttonText}>Send Shoutout</Text>
                         </TouchableOpacity>
                     </View>
+                    <Text style={styles.resultText}>{this.state.notifResult}</Text>
                     <View style={styles.messageContainer}>
                         <Text style={styles.messageText}>Event:</Text>
                         <TextInput
@@ -111,7 +130,7 @@ export default class FTCAdminPage extends Component {
                             <Text style={styles.buttonText}>Get Winner</Text>
                         </TouchableOpacity>
                     </View>
-                    <Text style={styles.winnerText}>{this.state.winner}</Text>
+                    <Text style={styles.resultText}>{this.state.winner}</Text>
                 </ScrollView>
             </View>
         );
@@ -121,18 +140,17 @@ export default class FTCAdminPage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
         backgroundColor: '#757D84'
     },
     scrollView: {
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 15: 15,
-        paddingBottom: 15,
-        paddingLeft: 15,
-        paddingRight: 15,
+        padding: 16
     },
     title: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 40
+        padding: 20,
+        backgroundColor: "#704346"
     },
     titleText: {
         fontWeight: 'bold',
@@ -158,7 +176,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 10,
-        marginBottom: 30
+        marginBottom: 10
     },
     button: {
         justifyContent: 'center',
@@ -173,10 +191,10 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: '#704346'
     },
-    winnerText: {
+    resultText: {
         textAlign: 'center',
         fontWeight: 'bold',
         color: '#E9C99C',
-        marginBottom: 20
+        marginBottom: 40
     }
 });

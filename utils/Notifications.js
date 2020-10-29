@@ -60,7 +60,7 @@ export async function sendPushNotification(expoPushToken, nTitle, nBody, nData) 
         data: { data: nData || '' },
     };
   
-    await fetch('https://exp.host/--/api/v2/push/send', {
+    let response = await fetch('https://exp.host/--/api/v2/push/send', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -69,6 +69,8 @@ export async function sendPushNotification(expoPushToken, nTitle, nBody, nData) 
         },
         body: JSON.stringify(message),
     });
+
+    return response.ok;
 }
 
 export async function scheduleNotification(nContent, nTrigger) {

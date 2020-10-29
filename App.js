@@ -16,9 +16,6 @@ import { setupNotifications } from "./utils/Notifications";
 import { setupFirebase } from "./utils/Firebase";
 import { Ionicons } from '@expo/vector-icons';
 
-setupFirebase();
-setupNotifications();
-
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -63,12 +60,18 @@ function FTCTabScreen() {
 }
 
 export default class App extends Component {
+    constructor(props) {
+        super(props);
+        setupFirebase();
+        setupNotifications();
+    }
+
     render() {
         return (
             <NavigationContainer>
                 <Stack.Navigator headerMode="none">
-                    <Stack.Screen name="Home" component={HomePage} />
                     <Stack.Screen name="FTC Tabs" component={FTCTabScreen} />
+                    <Stack.Screen name="Home" component={HomePage} />
                     <Stack.Screen name="About Us" component={AboutPage} />
                     <Stack.Screen name="Fundraising Initiatives" component={DFIPage} />
                     <Stack.Screen name="MRP" component={MRPPage} />
