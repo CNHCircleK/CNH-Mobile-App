@@ -64,7 +64,6 @@ export default class FTCAdminPage extends Component {
                 value: this.state.question
             }
         ];
-        console.log(query);
         let winnerArr = await getData('ftc-responses', 'timestamp', 'asc', 1, query);
         if(winnerArr[0]) {
             let winner = winnerArr[0];

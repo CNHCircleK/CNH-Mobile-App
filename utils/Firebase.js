@@ -37,7 +37,7 @@ query:array<object> - Array of query restrictions. Restrictions are objects in t
 return - Array of document objects
 ******/
 export async function getData(collection, criteria, direction, limit, query) {
-    data = [];
+    let data = [];
     let db = firebase.firestore();
 
     let dbData = db.collection(collection);
@@ -48,7 +48,9 @@ export async function getData(collection, criteria, direction, limit, query) {
     dbData = limit ? dbData.limit(limit) : dbData;
 
     let querySnapshot = await dbData.get();
-    querySnapshot.forEach(doc => data.push(doc.data()));
+    querySnapshot.forEach(doc => {
+        data.push(doc.data())
+    });
 
     return data;
 }

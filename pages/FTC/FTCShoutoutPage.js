@@ -7,14 +7,13 @@ export default function FTCShoutoutPage() {
     const [shoutouts, setShoutouts] = useState([]);
 
     getShoutouts = async () => {
-        let fireData = await getData('ftc-shoutouts',"timestamp","desc");
+        let fireData = await getData('ftc-shoutouts', "timestamp", "desc");
         setShoutouts(fireData);
     };
 
     useFocusEffect(
         useCallback(() => {
             getShoutouts();
-            return () => {};
         }, [])
     );
 

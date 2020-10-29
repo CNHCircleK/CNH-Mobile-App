@@ -4,7 +4,6 @@ import * as Permissions from 'expo-permissions';
 import { Platform } from 'react-native';
 import { sendData, getData } from './Firebase';
 
-
 async function registerForPushNotificationsAsync() {
     let token;
     if (Constants.isDevice) {
@@ -19,7 +18,6 @@ async function registerForPushNotificationsAsync() {
             return;
         }
         token = (await Notifications.getExpoPushTokenAsync()).data;
-        console.log(token);
     } else {
         alert('Must use physical device for Push Notifications');
     }

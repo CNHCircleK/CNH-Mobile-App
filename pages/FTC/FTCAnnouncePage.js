@@ -4,17 +4,16 @@ import { getData } from '../../utils/Firebase';
 import { useFocusEffect } from '@react-navigation/native';
 
 export default function FTCAnnouncePage() {
-    const [announcements, setAnnouncements] = useState();
+    const [announcements, setAnnouncements] = useState([]);
 
     getAnnouncements = async () => {
-        let fireData = await getData('ftc-announcements',"timestamp","desc");
+        let fireData = await getData('ftc-announcements', "timestamp", "desc");
         setAnnouncements(fireData);
     };
 
     useFocusEffect(
         useCallback(() => {
             getAnnouncements();
-            return () => {};
         }, [])
     );
 
@@ -37,7 +36,6 @@ export default function FTCAnnouncePage() {
                 contentContainerStyle={styles.scrollView}
                 data={announcements}
                 renderItem={renderItem}
-                ListEmptyComponent={<Text>Hi</Text>}
                 keyExtractor={ (item, index) => index.toString() }
             />
         </SafeAreaView>
