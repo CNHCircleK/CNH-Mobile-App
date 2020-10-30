@@ -21,12 +21,21 @@ class InputTest extends Component {
                         <Text style={styles.titleText}>Input Test</Text>
                 </View>
           <View style={styles.userView}>
-            <Text style={styles.subText}>
-              What is a District Fundraising Initiative (DFI)?
-            </Text>
             <TextInput
         style={{height: 40}}
-        placeholder="Type here to type!"
+        placeholder="Event:"
+      />
+        <TextInput
+        style={{height: 40}}
+        placeholder="Name:"
+      />
+        <TextInput
+        style={{height: 40}}
+        placeholder="Question:"
+      />
+        <TextInput
+        style={{height: 40}}
+        placeholder="School:"
       />
             <Button
           title="Press me"
