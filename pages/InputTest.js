@@ -12,7 +12,28 @@ import {
   Button
 } from "react-native";
 
-class InputTest extends Component {
+export default class InputTest extends Component {
+  state = {
+      event: '',
+      name: '',
+      question: '',
+      school: ''
+     
+  }
+
+  onChangeEvent = (nEvent) => this.setState({ event: nEvent });
+
+  onChangeName = (nName) => this.setState({ name: nName });
+
+  onChangeSchool = (nSchool) => this.setState({ school: nSchool });
+
+  onChangeQuestion = (nQuestion) => this.setState({ question: nQuestion });
+
+
+  sendInput = async () => {
+    await sendData('ftc-responses', { event: this.state.event, name: this.state.name, question: this.state.question, school: this.state.school, timestamp: new Date() });
+   
+};
   render() {
     return (
       <SafeAreaView>
@@ -24,21 +45,30 @@ class InputTest extends Component {
             <TextInput
         style={{height: 40}}
         placeholder="Event:"
+        onChangeText={this.onChangeEvent}
+
       />
         <TextInput
         style={{height: 40}}
         placeholder="Name:"
+        onChangeText={this.onChangeName}
+
       />
         <TextInput
         style={{height: 40}}
         placeholder="Question:"
+        onChangeText={this.onChangeQuestion}
+
       />
         <TextInput
         style={{height: 40}}
         placeholder="School:"
+        onChangeText={this.onChangeSchool}
+
       />
             <Button
           title="Press me"
+          onPress = {() => this.sendInput}
           />
           </View>
         </ScrollView>
@@ -108,4 +138,3 @@ const styles = StyleSheet.create({
       marginBottom: 40
   }
 });
-export default InputTest;
