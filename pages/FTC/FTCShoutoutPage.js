@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#704346"
     },
     titleText: {
-        fontWeight: 'bold',
-        fontSize: 24,
+        fontFamily: "Gilberto",
+        fontSize: 70,
         color: '#E9C99C'
     },
     scrollView: {
@@ -75,13 +75,13 @@ const styles = StyleSheet.create({
         borderRadius: 20
     },
     shoutoutTitle: {
-        color: "black",  
-        fontSize: 20,
-        fontWeight: "bold"
+        color: "black",
+        fontSize: 30,
+        fontFamily: "Arbutus-Slab"
     },
     body: {
         color: "black",
-        fontSize: 15
+        fontSize: 15,
+        fontFamily: "Arbutus-Slab"
     }
 });
-
