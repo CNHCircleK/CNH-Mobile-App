@@ -12,8 +12,10 @@ export function setupFirebase() {
         appId: "1:963990693354:web:b6a729fc40d38e29ae7e93",
         measurementId: "G-1P16JDQ8TE"
     };
-      
-    firebase.initializeApp(firebaseConfig);
+
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
 }
 
 export async function sendData(collection, data) {
@@ -22,7 +24,7 @@ export async function sendData(collection, data) {
         let docRef = await db.collection(collection).add(data);
         console.log("Document written with ID: ", docRef.id);
     } catch(error) {
-        console.error("Error adding document: ", error);    
+        console.error("Error adding document: ", error);
     }
 }
 
