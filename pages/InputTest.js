@@ -9,6 +9,7 @@ import {
   Image,
   ScrollView,
   SafeAreaView,
+  TouchableOpacity,
   Button
 } from "react-native";
 
@@ -32,47 +33,65 @@ export default class InputTest extends Component {
 
   sendInput = async () => {
     await sendData('ftc-responses', { event: this.state.event, name: this.state.name, question: this.state.question, school: this.state.school, timestamp: new Date() });
+
    
 };
   render() {
     return (
-      <SafeAreaView>
-        <ScrollView>
+      <View style={styles.container}>
         <View style={styles.title}>
-                        <Text style={styles.titleText}>Input Test</Text>
-                </View>
-          <View style={styles.userView}>
+          <Text style={styles.titleText}>Input Test</Text>
+        </View>
+        <ScrollView 
+                    contentContainerStyle={styles.scrollView}
+                    showsVerticalScrollIndicator={false}
+                >   
+
+          <View style={styles.messageContainer}>
+            <Text style={styles.messageText}>Event:</Text>
             <TextInput
-        style={{height: 40}}
-        placeholder="Event:"
+        style={styles.textInput}
         onChangeText={this.onChangeEvent}
+        value = {this.state.event}
 
       />
+      <Text style={styles.messageText}>Name:</Text>
+
         <TextInput
-        style={{height: 40}}
-        placeholder="Name:"
+        style={styles.textInput}
         onChangeText={this.onChangeName}
+        value = {this.state.name}
+
 
       />
+        <Text style={styles.messageText}>Question:</Text>
+
         <TextInput
-        style={{height: 40}}
-        placeholder="Question:"
+        style={styles.textInput}
         onChangeText={this.onChangeQuestion}
+        value = {this.state.question}
+
 
       />
+        <Text style={styles.messageText}>School:</Text>
+
         <TextInput
-        style={{height: 40}}
-        placeholder="School:"
+        style={styles.textInput}
         onChangeText={this.onChangeSchool}
+        value = {this.state.school}
+
 
       />
-            <Button
-          title="Press me"
-          onPress = {() => this.sendInput}
-          />
+      <View style = {styles.buttonContainer}>
+      <TouchableOpacity style={styles.button} onPress={() => this.sendInput}>
+                            <Text style={styles.buttonText}>Send Input</Text>
+       </TouchableOpacity>
           </View>
-        </ScrollView>
-      </SafeAreaView>
+          
+          </View>
+          </ScrollView>
+          </View>
+
     );
   }
 }
