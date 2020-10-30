@@ -5,7 +5,9 @@ const FTCColors = {
   "EtonBlue": "#94C9A9",
   "TeaGreen": "#D2E0BF",
   "PersianOrange": "#E59661",
-  "SpanishPink": "#F1B1B4"
+  "SpanishPink": "#F1B1B4",
+  "BlueLightsBackground": "#43636d",
+  "ScheduleText": "#E9C99C"
 }
 
 export default FTCColors;
