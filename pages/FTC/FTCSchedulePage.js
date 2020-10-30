@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar, Switch, SafeAreaView } from 'react-native';
+import { Image, View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar, Switch, SafeAreaView } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { scheduleNotification, cancelScheduledNotification } from '../../utils/Notifications'
+import Res from '@resources';
 
 days = ['Friday', 'Saturday', 'Sunday', 'Your Events'];
 
@@ -250,6 +251,9 @@ export default class FTCSchedulePage extends Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.title}>
+                    <Image style={{width: 125, height: 125}}
+                    resizeMode="contain"
+                    source={require('../../resources/ftc2020/images/clipboard.png')}/>
                     <Text style={styles.titleText}>Schedule</Text>
                 </View>
                 <View style={styles.optionsContainer}>
@@ -285,19 +289,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: '#757D84'
+        backgroundColor: Res.FTCColors.Catawba
     },
     title: {
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 20,
         padding: 20,
-        backgroundColor: "#704346"
+        backgroundColor: Res.FTCColors.PersianOrange
     },
     titleText: {
         fontFamily: "Gilberto",
-        fontSize: 70,
-        color: '#E9C99C'
+        fontSize: 100,
+        color: Res.FTCColors.Catawba
     },
     optionsContainer: {
         flexDirection: 'row',

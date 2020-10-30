@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react';
-import { Text, View, FlatList, StyleSheet, TouchableOpacity, SafeAreaView, Platform, StatusBar } from 'react-native';
+import { Image, Text, View, FlatList, StyleSheet, TouchableOpacity, SafeAreaView, Platform, StatusBar } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import { useFocusEffect } from '@react-navigation/native';
+import Res from '@resources';
 
 export default function FTCShoutoutPage() {
     const [shoutouts, setShoutouts] = useState([]);
@@ -30,6 +31,9 @@ export default function FTCShoutoutPage() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.title}>
+                <Image style={{width: 125, height: 125}}
+                resizeMode="contain"
+                source={require('../../resources/ftc2020/images/sign.png')}/>
                 <Text style = {styles.titleText}>Shoutouts</Text>
             </View>
             <FlatList
@@ -46,18 +50,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: '#757D84'
+        backgroundColor: Res.FTCColors.TealBlue
     },
     title: {
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        backgroundColor: "#704346"
+        backgroundColor: Res.FTCColors.TealBlue
     },
     titleText: {
         fontFamily: "Gilberto",
-        fontSize: 70,
-        color: '#E9C99C'
+        fontSize: 100,
+        color: Res.FTCColors.MellowApricot
     },
     scrollView: {
         padding: 8
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
         marginTop: 5
     },
     item: {
-        backgroundColor: '#E3AEA8',
+        backgroundColor: Res.FTCColors.TeaGreen,
         padding: 20,
         marginVertical: 8,
         marginHorizontal: 8,

@@ -86,7 +86,7 @@ export default class App extends Component {
         };
         const fontRes = await Font.loadAsync(customFonts);
     }
-
+   //Todo: preload all image resources
     async cacheResources(resources) {
       return resources.map(res => {
         return typeof res === 'string' ? Image.prefetch(res) :
