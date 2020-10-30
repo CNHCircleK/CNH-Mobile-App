@@ -43,7 +43,7 @@ function FTCTabScreen() {
                 }
             })}
             tabBarOptions={{
-                activeTintColor: Res.FTCColors.SpanishPink,
+                activeTintColor: 'white',
                 inactiveTintColor: 'gray',
                 style: {
                     backgroundColor: '#704346'
