@@ -6,6 +6,10 @@
     "owner": "cnhtechsoftware",
     "privacy": "public",
     "sdkVersion": "39.0.0",
+    "splash": {
+      "image": "./resources/ftc2020/images/logo.png",
+      "backgroundColor": "#4D7C8A"
+    },
     "platforms": [
       "ios",
       "android",

@@ -33,7 +33,7 @@ export default function FTCAnnouncePage() {
             <View style={styles.title}>
             <Image style={{width: 125, height: 125}}
             resizeMode="contain"
-            source={require('../../resources/ftc2020/images/pin.png')}/>
+            source={require('../../resources/ftc2020/images/stickynote.png')}/>
             <Text style = {styles.titleText}>Announcements</Text>
             </View>
             <FlatList
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
       fontFamily: "Arbutus-Slab"
     },
     item: {
-      backgroundColor: '#D2E0BF',
+      backgroundColor: Res.FTCColors.TeaGreen,
       padding: 20,
       marginVertical: 8,
       marginHorizontal: 8,
