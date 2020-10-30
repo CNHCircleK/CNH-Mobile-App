@@ -18,6 +18,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
+import Res from '@resources';
 
 
 const Stack = createStackNavigator();
@@ -42,7 +43,7 @@ function FTCTabScreen() {
                 }
             })}
             tabBarOptions={{
-                activeTintColor: '#E3AEA8',
+                activeTintColor: Res.FTCColors.SpanishPink,
                 inactiveTintColor: 'gray',
                 style: {
                     backgroundColor: '#704346'
@@ -54,6 +55,7 @@ function FTCTabScreen() {
                     marginTop: 4
                 }
             }}
+            backBehavior={'none'}
         >
             <Tab.Screen name="Announcements" component={FTCAnnouncementPage} />
             <Tab.Screen name="Schedule" component={FTCSchedulePage} />
@@ -81,22 +83,30 @@ export default class App extends Component {
         };
         const fontRes = await Font.loadAsync(customFonts);
     }
-   //Todo: preload all image resources
-    async cacheResources(resources) {
-      return resources.map(res => {
+
+    async loadResourcesAsync() {
+      let resources = [
+        require('./resources/ftc2020/images/pin.png'),
+        require('./resources/ftc2020/images/logo.png'),
+        require('./resources/ftc2020/images/clipboard.png'),
+        require('./resources/ftc2020/images/redlightsbackground.gif'),
+        require('./resources/ftc2020/images/sign.png'),
+        require('./resources/ftc2020/images/stickynote.png'),
+        require('./resources/ftc2020/images/string1.png'),
+        require('./resources/ftc2020/images/string2.png'),
+        require('./resources/ftc2020/images/string3.png'),
+        require('./resources/ftc2020/images/bluelightsbackground.gif'),
+      ];
+      const loadedResources = resources.map(res => {
         return typeof res === 'string' ? Image.prefetch(res) :
         Asset.fromModule(res).downloadAsync();
       });
-    }
-
-    async assetsLoadAsync(){
-      let images = [require('./resources/ftc2020/images/pin.png')];
-      await cacheResources(images);
+      return Promise.all(loadedResources);
     }
 
     async componentDidMount() {
         await this.loadFontsAsync();
-        //await this.assetsLoadAsync();
+        await this.loadResourcesAsync();
         this.setState({ loaded: true });
     }
 
