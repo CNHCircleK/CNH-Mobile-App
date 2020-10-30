@@ -217,8 +217,8 @@ export default class FTCSchedulePage extends Component {
 
     renderItem = ({item}) => {
         return (
-            <TouchableOpacity 
-                style={this.state.scheduledEvents.some(value => value.id === item.id) ? styles.eventScheduled : styles.event} 
+            <TouchableOpacity
+                style={this.state.scheduledEvents.some(value => value.id === item.id) ? styles.eventScheduled : styles.event}
                 onPress={ () => this.eventPress(item) }
             >
                 <Text style={styles.eventTitle}>{item.title}</Text>
@@ -266,7 +266,7 @@ export default class FTCSchedulePage extends Component {
                         <Switch
                             style={styles.switch}
                             value={this.state.scheduleMode}
-                            onValueChange={mode => this.setState({ scheduleMode: mode })}   
+                            onValueChange={mode => this.setState({ scheduleMode: mode })}
                         />
                     </View>
                 </View>
@@ -295,8 +295,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#704346"
     },
     titleText: {
-        fontWeight: 'bold',
-        fontSize: 24,
+        fontFamily: "Gilberto",
+        fontSize: 70,
         color: '#E9C99C'
     },
     optionsContainer: {
@@ -318,7 +318,7 @@ const styles = StyleSheet.create({
     },
     switchText: {
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontFamily: "Arbutus-Slab"
     },
     switch: {
         marginTop: 5
@@ -342,10 +342,12 @@ const styles = StyleSheet.create({
     eventTitle: {
         fontWeight: 'bold',
         fontSize: 15,
-        color: '#E9C99C'
+        color: '#E9C99C',
+        fontFamily: "Arbutus-Slab"
     },
     eventTimeLocation: {
         fontSize: 12,
-        color: '#E9C99C'
+        color: '#E9C99C',
+        fontFamily: "Arbutus-Slab"
     }
 });

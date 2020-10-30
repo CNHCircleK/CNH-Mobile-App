@@ -15,6 +15,10 @@ import FTCShoutoutPage from "./pages/FTC/FTCShoutoutPage";
 import { setupNotifications } from "./utils/Notifications";
 import { setupFirebase } from "./utils/Firebase";
 import { Ionicons } from '@expo/vector-icons';
+import { AppLoading } from 'expo';
+import * as Font from 'expo-font';
+import { Asset } from 'expo-asset';
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -59,14 +63,48 @@ function FTCTabScreen() {
     );
 }
 
+
+
 export default class App extends Component {
     constructor(props) {
         super(props);
         setupFirebase();
         setupNotifications();
+        this.state = {}
+    }
+
+    async loadFontsAsync() {
+        let customFonts = {
+            'Arbutus-Slab': require('./resources/ftc2020/fonts/arbutus-slab.ttf'),
+            'French-Press': require('./resources/ftc2020/fonts/frenchpress.otf'),
+            'Gilberto': require('./resources/ftc2020/fonts/gilberto.ttf')
+        };
+        const fontRes = await Font.loadAsync(customFonts);
+    }
+
+    async cacheResources(resources) {
+      return resources.map(res => {
+        return typeof res === 'string' ? Image.prefetch(res) :
+        Asset.fromModule(res).downloadAsync();
+      });
+    }
+
+    async assetsLoadAsync(){
+      let images = [require('./resources/ftc2020/images/pin.png')];
+      await cacheResources(images);
+    }
+
+    async componentDidMount() {
+        await this.loadFontsAsync();
+        //await this.assetsLoadAsync();
+        this.setState({ loaded: true });
     }
 
     render() {
+      if (!this.state.loaded){
+        return <AppLoading/>;
+      }
+      else {
         return (
             <NavigationContainer>
                 <Stack.Navigator headerMode="none">
@@ -80,5 +118,6 @@ export default class App extends Component {
                 </Stack.Navigator>
             </NavigationContainer>
         );
+      }
     }
 }
