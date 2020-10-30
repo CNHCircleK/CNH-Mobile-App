@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
+import { sendData, getData } from '../utils/Firebase';
 import {
   StyleSheet,
   Text,
@@ -16,14 +17,10 @@ class InputTest extends Component {
     return (
       <SafeAreaView>
         <ScrollView>
-          <View style={styles.titleView}>
-            <Text style={styles.logoText}>INPUT</Text>
-          </View>
+        <View style={styles.title}>
+                        <Text style={styles.titleText}>Input Test</Text>
+                </View>
           <View style={styles.userView}>
-            <Image
-              style={styles.image}
-              source={require("../resources/images/AboutUsIcon/icon_lightbulb_Color.png")}
-            />
             <Text style={styles.subText}>
               What is a District Fundraising Initiative (DFI)?
             </Text>
@@ -43,82 +40,63 @@ class InputTest extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "white",
-    alignItems: "center",
-    justifyContent: "center",
+      flex: 1,
+      paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+      backgroundColor: '#757D84'
   },
-
-  logoText: {
-    fontSize: 40,
-    fontWeight: "bold",
-    color: "white",
-    textAlign: "left",
+  scrollView: {
+      padding: 16
   },
-
-  descText: {
-    fontSize: 15,
-    color: "black",
-    textAlign: "left",
+  title: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 20,
+      backgroundColor: "#704346"
   },
-
-  bulText: {
-    fontSize: 15,
-    color: "black",
-    textAlign: "left",
+  titleText: {
+      fontWeight: 'bold',
+      fontSize: 24,
+      color: '#E9C99C'
   },
-
-  subText: {
-    fontSize: 25,
-    color: "black",
-    textAlign: "center",
-    fontWeight: "bold",
+  messageContainer: {
+      marginBottom: 5
   },
-
-  endText: {
-    fontSize: 15,
-    color: "white",
-    textAlign: "center",
-    position: "relative",
-    top: "65%",
+  messageText: {
+      fontWeight: 'bold',
+      fontSize: 14,
+      color: '#E9C99C'
   },
-
-  boldText: {
-    fontWeight: "bold",
+  textInput: {
+      height: 24,
+      borderBottomColor: '#E3AEA8',
+      borderBottomWidth: 1,
+      color: '#E9C99C',
+      marginBottom: 5
   },
-
-  image: {
-    position: "relative",
-    width: 150,
-    height: 150,
+  buttonContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 10,
+      marginBottom: 10
   },
-
-  kiwanis: {
-    position: "relative",
-    width: 350,
-    height: 80,
-    right: 5,
-    margin: -40,
+  button: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#E3AEA8',
+      marginVertical: 10,
+      padding: 20,
+      borderRadius: 10
   },
-
-  userView: {
-    marginHorizontal: 20,
-    justifyContent: "center",
-    alignItems: "center",
+  buttonText: {
+      fontWeight: 'bold',
+      fontSize: 14,
+      color: '#704346'
   },
-
-  titleView: {
-    backgroundColor: "rgba(0, 0, 128, 0.8)",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    paddingTop: 50,
-    paddingBottom: 50,
-    paddingLeft: 10,
-  },
-
-  endView: {
-    backgroundColor: "rgba(0, 0, 128, 0.8)",
-    padding: 75,
-  },
+  resultText: {
+      textAlign: 'center',
+      fontWeight: 'bold',
+      color: '#E9C99C',
+      marginBottom: 40
+  }
 });
 export default InputTest;

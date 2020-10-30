@@ -56,6 +56,7 @@ function FTCTabScreen() {
             <Tab.Screen name="Schedule" component={FTCSchedulePage} />
             <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
             <Tab.Screen name="Admin" component={FTCAdminPage} />
+            <Tab.Screen name="Firebase" component={InputTest} />
         </Tab.Navigator>
     );
 }
