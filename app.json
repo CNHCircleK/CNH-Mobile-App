@@ -5,6 +5,7 @@
     "slug": "solstice",
     "owner": "cnhtechsoftware",
     "privacy": "public",
+    "sdkVersion": "39.0.0",
     "platforms": [
       "ios",
       "android",
