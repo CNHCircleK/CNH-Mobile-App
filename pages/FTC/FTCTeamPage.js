@@ -1,5 +1,6 @@
-import React, { useState, useCallback, Component } from 'react';
-import { Text, View, SectionList, StyleSheet, TouchableOpacity, SafeAreaView, Platform, StatusBar } from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, SectionList, StyleSheet, TouchableOpacity, SafeAreaView, Platform, StatusBar, Image } from 'react-native';
+import Res from '@resources'
 
 const DATA = [
     {
@@ -132,14 +133,14 @@ export default class FTCTeamPage extends Component {
         }
         return (
             <TouchableOpacity style={styles.teamItem}>
-                <Text style={styles.teamText}>{item}</Text>
+                <Text style={styles.teammateText}>{item}</Text>
             </TouchableOpacity>
         );
     };
 
     renderSectionHeader = ({section: { title }}) => {
         return (
-        <Text style={styles.titleText}>{title}</Text>
+        <Text style={styles.teamTitle}>{title}</Text>
         );
     };
 
@@ -147,6 +148,8 @@ export default class FTCTeamPage extends Component {
         return(
         <SafeAreaView style={styles.container}>
             <View style={styles.titleShape}>
+                <Image style={styles.titleImage}
+                source={require('../../resources/ftc2020/images/camera.png')}/>
                 <Text style = {styles.titleText}>FTC Teams</Text>
             </View>
             <SectionList
@@ -164,46 +167,57 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: '#757D84'
+        backgroundColor: Res.FTCColors.TealBlue
     },
     titleText: {
-        fontWeight: 'bold',
-        fontSize: 24,
-        color: '#E9C99C'
+        fontFamily: "Gilberto",
+        fontSize: 100,
+        color: Res.FTCColors.MellowApricot,
+        left: 60,
     },
     titleShape: {
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20,
-        backgroundColor: "#704346"
+        padding: 35,
+        backgroundColor: Res.FTCColors.TealBlue,
+    },
+    titleImage: {
+        height: 150,
+        width: 150,
+        justifyContent: "flex-end",
+        position: "absolute",
+        left: 0,
+        bottom: 5,
     },
     teamTitle: {
-        fontWeight: 'bold',
-        fontSize: 24,
-        color: '#E9C99C'
+        fontFamily:"Arbutus-Slab",
+        fontSize: 25,
+        color: "white",
     },
-    teamText: {
-        fontSize: 20,
+    teammateText: {
+        fontFamily: "Arbutus-Slab",
+        fontSize: 17,
         color: 'black',
         marginTop: 5
     },
     capText: {
-        fontSize: 20,
+        fontFamily: "Arbutus-Slab",
+        fontSize: 17,
         color: 'black',
         marginTop: 5
     },
     teamItem: {
-        backgroundColor: '#E3AEA8',
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 8,
-        borderRadius: 20
+        backgroundColor: Res.FTCColors.TeaGreen,
+        padding: 5,
+        marginVertical: 5,
+        marginHorizontal: 10,
+        borderRadius: 5
     },
     capItem: {
-        backgroundColor: '#94C9A9',
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 8,
-        borderRadius: 20
+        backgroundColor: Res.FTCColors.MellowApricot,
+        padding: 5,
+        marginVertical: 5,
+        marginHorizontal: 10,
+        borderRadius: 5
     },
 })
