@@ -33,7 +33,8 @@ export default class InputTest extends Component {
 
   sendInput = async () => {
     await sendData('ftc-responses', { event: this.state.event, name: this.state.name, question: this.state.question, school: this.state.school, timestamp: new Date() });
-
+    this.setState = ({question: ''});
+    console.log("Button pushed");
    
 };
   render() {
