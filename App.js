@@ -7,6 +7,7 @@ import DistrictLeadershipPage from "./pages/DistrictLeadershipPage";
 import AboutPage from "./pages/AboutPage";
 import DFIPage from "./pages/DFIPage";
 import MRPPage from "./pages/MRPPage";
+import InputTest from "./pages/InputTest";
 import ResourcesPage from "./pages/ResourcesPage";
 import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
 import FTCAdminPage from "./pages/FTC/FTCAdminPage";
@@ -64,6 +65,7 @@ function FTCTabScreen() {
             <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
             <Tab.Screen name="Teams" component={FTCTeamPage} />
             <Tab.Screen name="Admin" component={FTCAdminPage} />
+            <Tab.Screen name="Firebase" component={InputTest} />
         </Tab.Navigator>
     );
 }
@@ -120,6 +122,9 @@ export default class App extends Component {
                     <Stack.Screen name="MRP" component={MRPPage} />
                     <Stack.Screen name="District Leadership" component={DistrictLeadershipPage} />
                     <Stack.Screen name="Resources" component={ResourcesPage} />
+                    <Stack.Screen name="Firebase" component={InputTest} />
+
+
                 </Stack.Navigator>
             </NavigationContainer>
         );
