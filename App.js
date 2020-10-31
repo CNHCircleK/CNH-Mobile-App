@@ -122,7 +122,6 @@ export default class App extends Component {
                     <Stack.Screen name="MRP" component={MRPPage} />
                     <Stack.Screen name="District Leadership" component={DistrictLeadershipPage} />
                     <Stack.Screen name="Resources" component={ResourcesPage} />
-                    <Stack.Screen name="Firebase" component={InputTest} />
 
 
                 </Stack.Navigator>

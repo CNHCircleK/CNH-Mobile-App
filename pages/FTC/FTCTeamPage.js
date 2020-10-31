@@ -190,9 +190,10 @@ const styles = StyleSheet.create({
         bottom: 5,
     },
     teamTitle: {
-        fontFamily:"Arbutus-Slab",
-        fontSize: 25,
+        fontFamily:"French-Press",
+        fontSize: 40,
         color: "white",
+        marginHorizontal: 10,
     },
     teammateText: {
         fontFamily: "Arbutus-Slab",
