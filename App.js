@@ -12,12 +12,27 @@ import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
 import FTCAdminPage from "./pages/FTC/FTCAdminPage";
 import FTCAnnouncementPage from "./pages/FTC/FTCAnnouncePage";
 import FTCShoutoutPage from "./pages/FTC/FTCShoutoutPage";
+import FTCWorkshopPage from "./pages/FTC/FTCWorkshopPage";
 import { setupNotifications } from "./utils/Notifications";
 import { setupFirebase } from "./utils/Firebase";
 import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+const FTCSchedule = createStackNavigator();
+
+function ScheduleStacksScreen() {
+    return (
+        <FTCSchedule.Navigator
+            screenOptions={{
+                headerShown: false
+            }}
+        >
+            <FTCSchedule.Screen name="Schedule" component={FTCSchedulePage} />
+            <FTCSchedule.Screen name="Workshop" component={FTCWorkshopPage} />
+        </FTCSchedule.Navigator>
+    )
+}
 
 function FTCTabScreen() {
     return(
@@ -52,7 +67,7 @@ function FTCTabScreen() {
             }}
         >
             <Tab.Screen name="Announcements" component={FTCAnnouncementPage} />
-            <Tab.Screen name="Schedule" component={FTCSchedulePage} />
+            <Tab.Screen name="Schedule" component={ScheduleStacksScreen} />
             <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
             <Tab.Screen name="Admin" component={FTCAdminPage} />
         </Tab.Navigator>

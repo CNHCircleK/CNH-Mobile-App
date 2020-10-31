@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar, Switch, SafeAreaView } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
-import { scheduleNotification, cancelScheduledNotification } from '../../utils/Notifications'
+import { scheduleNotification, cancelScheduledNotification } from '../../utils/Notifications';
+import { Ionicons } from '@expo/vector-icons';
 
 days = ['Friday', 'Saturday', 'Sunday', 'Your Events'];
 
@@ -60,7 +61,8 @@ scheduleData = [
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 20:00:00'),
-        id: 6
+        id: 6,
+        isWorkshop: true
     },
     {
         title: 'DJ Introduction',
@@ -76,7 +78,8 @@ scheduleData = [
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 20:55:00'),
-        id: 8
+        id: 8,
+        isWorkshop: true
     },
     {
         title: 'DJ Intermission',
@@ -92,7 +95,8 @@ scheduleData = [
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 21:50:00'),
-        id: 10
+        id: 10,
+        isWorkshop: true
     },
     {
         title: 'General Session I',
@@ -124,7 +128,8 @@ scheduleData = [
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 14:05:00'),
-        id: 14
+        id: 14,
+        isWorkshop: true
     },
     {
         title: 'DJ Intermission',
@@ -140,7 +145,8 @@ scheduleData = [
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 15:00:00'),
-        id: 16
+        id: 16,
+        isWorkshop: true
     },
     {
         title: 'Intermission (DJ Intermission)',
@@ -216,13 +222,21 @@ export default class FTCSchedulePage extends Component {
     };
 
     renderItem = ({item}) => {
+        const { navigate } = this.props.navigation;
         return (
             <TouchableOpacity 
                 style={this.state.scheduledEvents.some(value => value.id === item.id) ? styles.eventScheduled : styles.event} 
                 onPress={ () => this.eventPress(item) }
             >
-                <Text style={styles.eventTitle}>{item.title}</Text>
-                <Text style={styles.eventTimeLocation}>{item.day.substring(0, 3) + " \u00B7 " + item.time + " \u00B7 " + item.location}</Text>
+                <View style={styles.eventRow}>
+                    <View>
+                        <Text style={styles.eventTitle}>{item.title}</Text>
+                        <Text style={styles.eventTimeLocation}>{item.day.substring(0, 3) + " \u00B7 " + item.time + " \u00B7 " + item.location}</Text>
+                    </View>
+                    { item.isWorkshop &&
+                        <Ionicons name="ios-arrow-dropright" size={24} color="black" onPress={ () => navigate("Workshop", { id: item.id } ) } />
+                    }
+                </View>
             </TouchableOpacity>
         );
     };
@@ -347,5 +361,9 @@ const styles = StyleSheet.create({
     eventTimeLocation: {
         fontSize: 12,
         color: '#E9C99C'
-    }
+    },
+    eventRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
 });
