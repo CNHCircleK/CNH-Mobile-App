@@ -27,16 +27,10 @@
     "ios": {
       "bundleIdentifier": "com.cnhcki.solstice",
       "buildNumber": "2.0.0",
-      "splash": {
-        "backgroundColor": "#252525"
-      }
     },
     "android": {
       "versionCode": 6,
       "package": "com.cnhcki.solstice",
-      "splash": {
-        "backgroundColor": "#252525"
-      },
       "useNextNotificationsApi": true
     }
   }
