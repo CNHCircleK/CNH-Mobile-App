@@ -107,7 +107,7 @@ export default class ResponsesPage extends Component {
       />
       <View style = {styles.buttonContainer}>
       <TouchableOpacity style={styles.button} onPress={this.submitAndClear}>
-                            <Text style={styles.buttonText} >Send Input</Text>
+                            <Text style={styles.buttonText} >Send Response</Text>
        </TouchableOpacity>
           </View>
           
