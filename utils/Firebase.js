@@ -23,8 +23,10 @@ export async function sendData(collection, data) {
     try {
         let docRef = await db.collection(collection).add(data);
         console.log("Document written with ID: ", docRef.id);
+        return true;
     } catch(error) {
         console.error("Error adding document: ", error);
+        return false;
     }
 }
 

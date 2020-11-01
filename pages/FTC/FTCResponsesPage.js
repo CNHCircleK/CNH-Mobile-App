@@ -1,7 +1,7 @@
-import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
+import { StyleSheet, Text, TextInput, View, StatusBar, ScrollView, SafeAreaView, TouchableOpacity, ImageBackground } from "react-native";
 import { sendData } from '../../utils/Firebase';
-import { StyleSheet, Text, TextInput, View, Image, ScrollView, SafeAreaView, TouchableOpacity, Button } from "react-native";
+import Res from '@resources';
 
 export default class FTCResponsesPage extends Component {
     state = {
@@ -9,7 +9,8 @@ export default class FTCResponsesPage extends Component {
         school: '',
         event: '',
         question: '',
-        anwser: ''
+        anwser: '',
+        responseResult: '[response status displayed here]'
     };
 
     onChangeName = (nName) => this.setState({ name: nName });
@@ -23,58 +24,64 @@ export default class FTCResponsesPage extends Component {
     onChangeAnswer = (nAnswer) => this.setState({ answer: nAnswer });
 
     sendInput = async () => {
-        await sendData('ftc-responses', { name: this.state.name, school: this.state.school, event: this.state.event, question: this.state.question, answer: this.state.answer, timestamp: new Date() });
+        let success = await sendData('ftc-responses', { name: this.state.name, school: this.state.school, event: this.state.event, question: this.state.question, answer: this.state.answer, timestamp: new Date() });
+        if(success) {
+            this.setState({ answer: '', responseResult: 'Response sent successfully!' });
+        }
     };
 
     render() {
         return (
-            <View style={styles.container}>
-                <View style={styles.title}>
-                    <Text style={styles.titleText}>Responses</Text>
-                </View>
-                <ScrollView 
-                    contentContainerStyle={styles.scrollView}
-                    showsVerticalScrollIndicator={false}
-                >   
-                    <View style={styles.messageContainer}>
-                        <Text style={styles.messageText}>Name:</Text>
-                        <TextInput
-                            style={styles.textInput}
-                            onChangeText={this.onChangeName}
-                            value={this.state.name}
-                        />
-                        <Text style={styles.messageText}>School:</Text>
-                        <TextInput
-                            style={styles.textInput}
-                            onChangeText={this.onChangeSchool}
-                            value={this.state.school}
-                        />
-                        <Text style={styles.messageText}>Event:</Text>
-                        <TextInput
-                            style={styles.textInput}
-                            onChangeText={this.onChangeEvent}
-                            value={this.state.event}
-                        />
-                        <Text style={styles.messageText}>Question:</Text>
-                        <TextInput
-                            style={styles.textInput}
-                            onChangeText={this.onChangeQuestion}
-                            value={this.state.question}
-                        />
-                        <Text style={styles.messageText}>Answer:</Text>
-                        <TextInput
-                            style={styles.textInput}
-                            onChangeText={this.onChangeAnswer}
-                            value={this.state.answer}
-                        />
-                        <View style={styles.buttonContainer}>
-                            <TouchableOpacity style={styles.button} onPress={() => this.sendInput}>
-                                <Text style={styles.buttonText}>Send Response</Text>
-                            </TouchableOpacity>
-                        </View>
+            <SafeAreaView style={styles.container}>
+                <ImageBackground source={require('../../resources/ftc2020/images/bluelightsbackground.gif')} style={styles.image}>
+                    <View style={styles.title}>
+                        <Text style={styles.titleText}>Responses</Text>
                     </View>
-                </ScrollView>
-            </View>
+                    <ScrollView 
+                        contentContainerStyle={styles.scrollView}
+                        showsVerticalScrollIndicator={false}
+                    >   
+                        <View style={styles.messageContainer}>
+                            <Text style={styles.messageText}>Name:</Text>
+                            <TextInput
+                                style={styles.textInput}
+                                onChangeText={this.onChangeName}
+                                value={this.state.name}
+                            />
+                            <Text style={styles.messageText}>School:</Text>
+                            <TextInput
+                                style={styles.textInput}
+                                onChangeText={this.onChangeSchool}
+                                value={this.state.school}
+                            />
+                            <Text style={styles.messageText}>Event:</Text>
+                            <TextInput
+                                style={styles.textInput}
+                                onChangeText={this.onChangeEvent}
+                                value={this.state.event}
+                            />
+                            <Text style={styles.messageText}>Question:</Text>
+                            <TextInput
+                                style={styles.textInput}
+                                onChangeText={this.onChangeQuestion}
+                                value={this.state.question}
+                            />
+                            <Text style={styles.messageText}>Answer:</Text>
+                            <TextInput
+                                style={styles.textInput}
+                                onChangeText={this.onChangeAnswer}
+                                value={this.state.answer}
+                            />
+                            <View style={styles.buttonContainer}>
+                                <TouchableOpacity style={styles.button} onPress={this.sendInput}>
+                                    <Text style={styles.buttonText}>Send Response</Text>
+                                </TouchableOpacity>
+                            </View>
+                            <Text style={styles.resultText}>{this.state.responseResult}</Text>
+                        </View>
+                    </ScrollView>
+                </ImageBackground>
+            </SafeAreaView>
         );
     }
 }
@@ -85,25 +92,32 @@ const styles = StyleSheet.create({
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
         backgroundColor: '#757D84'
     },
+    image: {
+        flex: 1,
+        resizeMode: "contain",
+        justifyContent: "center",
+        height: "140%"
+    },
     scrollView: {
         padding: 16
     },
     title: {
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20,
-        backgroundColor: "#704346"
+        padding: 20
     },
     titleText: {
-        fontWeight: 'bold',
-        fontSize: 24,
-        color: '#E9C99C'
+        fontFamily: 'Gilberto',
+        fontSize: 100,
+        color: '#E9C99C',
+        backgroundColor: Res.FTCColors.BlueLightsBackground
     },
     messageContainer: {
-        marginBottom: 5
+        marginBottom: 5,
+        backgroundColor: Res.FTCColors.BlueLightsBackground
     },
     messageText: {
-        fontWeight: 'bold',
+        fontFamily: 'Arbutus-Slab',
         fontSize: 14,
         color: '#E9C99C'
     },
@@ -112,30 +126,31 @@ const styles = StyleSheet.create({
         borderBottomColor: '#E3AEA8',
         borderBottomWidth: 1,
         color: '#E9C99C',
-        marginBottom: 5
+        marginBottom: 5,
+        fontFamily: 'Arbutus-Slab'
     },
     buttonContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 10,
-        marginBottom: 10
+        marginBottom: 10,
     },
     button: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#E3AEA8',
+        backgroundColor: Res.FTCColors.TeaGreen,
         marginVertical: 10,
         padding: 20,
         borderRadius: 10
     },
     buttonText: {
-        fontWeight: 'bold',
-        fontSize: 14,
+        fontFamily: 'French-Press',
+        fontSize: 20,
         color: '#704346'
     },
     resultText: {
         textAlign: 'center',
-        fontWeight: 'bold',
+        fontFamily: 'Arbutus-Slab',
         color: '#E9C99C',
         marginBottom: 40
     }

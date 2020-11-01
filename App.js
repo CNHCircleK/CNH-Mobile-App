@@ -7,7 +7,6 @@ import DistrictLeadershipPage from "./pages/DistrictLeadershipPage";
 import AboutPage from "./pages/AboutPage";
 import DFIPage from "./pages/DFIPage";
 import MRPPage from "./pages/MRPPage";
-import ResponsesPage from "./pages/ResponsesPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
 import FTCAdminPage from "./pages/FTC/FTCAdminPage";

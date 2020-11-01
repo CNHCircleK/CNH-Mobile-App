@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { Image, ImageBackground, Text, View, FlatList, StyleSheet, TouchableOpacity, SafeAreaView, Platform, StatusBar } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import { useFocusEffect } from '@react-navigation/native';
+import * as Notifications from 'expo-notifications';
 import Res from '@resources';
 
 export default function FTCShoutoutPage() {
@@ -15,6 +16,10 @@ export default function FTCShoutoutPage() {
     useFocusEffect(
         useCallback(() => {
             getShoutouts();
+            const subscription = Notifications.addNotificationReceivedListener(notification => {
+                getShoutouts();
+            });
+            return () => subscription.remove();
         }, [])
     );
 

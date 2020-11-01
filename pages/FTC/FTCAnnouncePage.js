@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { Image, ImageBackground, Text, View, FlatList, TextInput, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, SafeAreaView, Platform, StatusBar, Modal } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import { useFocusEffect } from '@react-navigation/native';
+import * as Notifications from 'expo-notifications';
 import Res from '@resources'
 
 export default function FTCAnnouncePage(props) {
@@ -17,6 +18,10 @@ export default function FTCAnnouncePage(props) {
     useFocusEffect(
         useCallback(() => {
             getAnnouncements();
+            const subscription = Notifications.addNotificationReceivedListener(notification => {
+                getAnnouncements();
+            });
+            return () => subscription.remove();
         }, [])
     );
 

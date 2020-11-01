@@ -49,7 +49,7 @@ export default class FTCAdminPage extends Component {
             <SafeAreaView style={styles.container}>
                 <ImageBackground source={require('../../resources/ftc2020/images/bluelightsbackground.gif')} style={styles.image}>
                     <View style={styles.title}>
-                            <Text style={styles.titleText}>Admin Station</Text>
+                        <Text style={styles.titleText}>Admin Station</Text>
                     </View>
                     <ScrollView 
                         contentContainerStyle={styles.scrollView}
@@ -127,7 +127,8 @@ const styles = StyleSheet.create({
         borderBottomColor: '#E3AEA8',
         borderBottomWidth: 1,
         color: '#E9C99C',
-        marginBottom: 5
+        marginBottom: 5,
+        fontFamily: 'Arbutus-Slab'
     },
     buttonContainer: {
         justifyContent: 'center',

@@ -50,7 +50,7 @@ export default class FTCWorkshopAdminPage extends Component {
             <SafeAreaView style={styles.container}>
                 <ImageBackground source={require('../../resources/ftc2020/images/bluelightsbackground.gif')} style={styles.image}>
                     <View style={styles.title}>
-                            <Text style={styles.titleText}>Workshop Admin Station</Text>
+                        <Text style={styles.titleText}>Workshop Admin Station</Text>
                     </View>
                     <ScrollView 
                         contentContainerStyle={styles.scrollView}
