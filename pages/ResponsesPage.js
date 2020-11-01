@@ -13,7 +13,7 @@ import {
   Button
 } from "react-native";
 
-export default class InputTest extends Component {
+export default class ResponsesPage extends Component {
   state = {
       event: '',
       name: '',
@@ -32,8 +32,10 @@ export default class InputTest extends Component {
 
 
   sendInput = async () => {
+    console.log("Button pushed");
     await sendData('ftc-responses', { event: this.state.event, name: this.state.name, question: this.state.question, school: this.state.school, timestamp: new Date() });
     this.setState = ({question: ''});
+    this.question.clear();
     console.log("Button pushed");
    
 };

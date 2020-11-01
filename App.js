@@ -7,7 +7,7 @@ import DistrictLeadershipPage from "./pages/DistrictLeadershipPage";
 import AboutPage from "./pages/AboutPage";
 import DFIPage from "./pages/DFIPage";
 import MRPPage from "./pages/MRPPage";
-import InputTest from "./pages/InputTest";
+import ResponsesPage from "./pages/ResponsesPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
 import FTCAdminPage from "./pages/FTC/FTCAdminPage";
@@ -35,6 +35,10 @@ function FTCTabScreen() {
                     } else if (route.name === 'Shoutouts') {
                         iconName = 'md-megaphone';
                     }
+                    else if(route.name === "Responses"){
+                        iconName = 'md-paper-plane';
+                    }
+                    
                     return <Ionicons name={iconName} size={size} color={color} />;
                 }
             })}
@@ -56,7 +60,7 @@ function FTCTabScreen() {
             <Tab.Screen name="Schedule" component={FTCSchedulePage} />
             <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
             <Tab.Screen name="Admin" component={FTCAdminPage} />
-            <Tab.Screen name="Firebase" component={InputTest} />
+            <Tab.Screen name="Responses" component={ResponsesPage} />
         </Tab.Navigator>
     );
 }
@@ -79,7 +83,7 @@ export default class App extends Component {
                     <Stack.Screen name="MRP" component={MRPPage} />
                     <Stack.Screen name="District Leadership" component={DistrictLeadershipPage} />
                     <Stack.Screen name="Resources" component={ResourcesPage} />
-                    <Stack.Screen name="Firebase" component={InputTest} />
+                    <Stack.Screen name="Firebase" component={ResponsesPage} />
 
 
                 </Stack.Navigator>
