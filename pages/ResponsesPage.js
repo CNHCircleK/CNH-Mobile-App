@@ -10,6 +10,7 @@ import {
   ScrollView,
   SafeAreaView,
   TouchableOpacity,
+  Alert,
   Button
 } from "react-native";
 
@@ -27,7 +28,13 @@ export default class ResponsesPage extends Component {
     this.setState({
       text: ''
     })
+    this.responseAlertHandler();
   }
+
+  responseAlertHandler = async () => {
+    //function to make simple alert
+    alert('Your response has been sent :)');
+  };
 
   state = {
       event: '',
