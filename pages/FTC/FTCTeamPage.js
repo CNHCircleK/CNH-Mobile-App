@@ -4,20 +4,20 @@ import Res from '@resources'
 
 const DATA = [
     {
-      title: "Photobombers",
-      data: ["Chio Saeyang","Placeholder Teammate"]
+        title: "Photobombers",
+        data: ["Chio Saeyang", "Placeholder Teammate"]
     },
     {
-      title: "Rapid Blinkers",
-      data: ["Jenny Savin",]
+        title: "Rapid Blinkers",
+        data: ["Jenny Savin",]
     },
     {
-      title: "Vintage Vixens",
-      data: ["Chloe O’Connor",]
+        title: "Vintage Vixens",
+        data: ["Chloe O’Connor",]
     },
     {
-      title: "Blurry Beauties",
-      data: ["Kristina Matsumoto",]
+        title: "Blurry Beauties",
+        data: ["Kristina Matsumoto",]
     },
     {
         title: "Red Eyes",
@@ -146,19 +146,19 @@ export default class FTCTeamPage extends Component {
 
     render() {
         return(
-        <SafeAreaView style={styles.container}>
-            <View style={styles.titleShape}>
-                <Image style={styles.titleImage}
-                source={require('../../resources/ftc2020/images/camera.png')}/>
-                <Text style = {styles.titleText}>FTC Teams</Text>
-            </View>
-            <SectionList
-                sections={DATA}
-                keyExtractor={(item, index) => item + index}
-                renderItem={this.renderItem}
-                renderSectionHeader={this.renderSectionHeader}
-            />
-        </SafeAreaView>
+            <SafeAreaView style={styles.container}>
+                <View style={styles.titleShape}>
+                    <Image style={styles.titleImage}
+                    source={require('../../resources/ftc2020/images/camera.png')}/>
+                    <Text style = {styles.titleText}>FTC Teams</Text>
+                </View>
+                <SectionList
+                    sections={DATA}
+                    keyExtractor={(item, index) => item + index}
+                    renderItem={this.renderItem}
+                    renderSectionHeader={this.renderSectionHeader}
+                />
+            </SafeAreaView>
         );
     }
 }
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: Res.FTCColors.TealBlue
+        backgroundColor: Res.FTCColors.Catawba
     },
     titleText: {
         fontFamily: "Gilberto",
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 35,
-        backgroundColor: Res.FTCColors.TealBlue,
+        backgroundColor: Res.FTCColors.Catawba,
     },
     titleImage: {
         height: 150,
@@ -199,24 +199,24 @@ const styles = StyleSheet.create({
         fontFamily: "Arbutus-Slab",
         fontSize: 17,
         color: 'black',
-        marginTop: 5
+        opacity: 0.7
     },
     capText: {
         fontFamily: "Arbutus-Slab",
         fontSize: 17,
         color: 'black',
-        marginTop: 5
+        opacity: 0.7
     },
     teamItem: {
         backgroundColor: Res.FTCColors.TeaGreen,
-        padding: 5,
+        padding: 7,
         marginVertical: 5,
         marginHorizontal: 10,
         borderRadius: 5
     },
     capItem: {
         backgroundColor: Res.FTCColors.MellowApricot,
-        padding: 5,
+        padding: 7,
         marginVertical: 5,
         marginHorizontal: 10,
         borderRadius: 5

@@ -23,7 +23,7 @@ export default function FTCShoutoutPage() {
             <TouchableOpacity style={styles.item}>
                 <Text style={styles.shoutoutTitle}>{item.title}</Text>
                 <Text style={styles.body}>{item.body}</Text>
-                <Text style={styles.timeText}>{item.timestamp ? item.timestamp.toDate().toLocaleString() : ''}</Text>
+                <Text style={styles.timeText}>{item.timestamp.toDate().toLocaleString()}</Text>
             </TouchableOpacity>
         );
     };
@@ -83,8 +83,8 @@ const styles = StyleSheet.create({
     },
     shoutoutTitle: {
         color: "black",
-        fontSize: 30,
-        fontFamily: "Arbutus-Slab",
+        fontSize: 40,
+        fontFamily: "French-Press",
         opacity: 0.87
     },
     body: {

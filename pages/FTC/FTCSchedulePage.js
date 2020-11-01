@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: 15,
         backgroundColor: Res.FTCColors.Catawba,
-        paddingTop: 32
+        paddingTop: 28
     },
     pickerContainer: {
         flex: 4,
@@ -356,7 +356,6 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     eventTitle: {
-        fontWeight: 'bold',
         fontSize: 15,
         color: Res.FTCColors.ScheduleText,
         fontFamily: "Arbutus-Slab",

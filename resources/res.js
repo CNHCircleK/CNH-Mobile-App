@@ -1,7 +1,7 @@
 import FTCColors from './ftc2020/colors';
 
 const Res = {
-  FTCColors
+    FTCColors
 }
 
 export default Res;
