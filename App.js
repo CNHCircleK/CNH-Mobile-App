@@ -7,11 +7,13 @@ import DistrictLeadershipPage from "./pages/DistrictLeadershipPage";
 import AboutPage from "./pages/AboutPage";
 import DFIPage from "./pages/DFIPage";
 import MRPPage from "./pages/MRPPage";
+import InputTest from "./pages/InputTest";
 import ResourcesPage from "./pages/ResourcesPage";
 import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
 import FTCAdminPage from "./pages/FTC/FTCAdminPage";
 import FTCAnnouncementPage from "./pages/FTC/FTCAnnouncePage";
 import FTCShoutoutPage from "./pages/FTC/FTCShoutoutPage";
+import FTCTeamPage from "./pages/FTC/FTCTeamPage";
 import { setupNotifications } from "./utils/Notifications";
 import { setupFirebase } from "./utils/Firebase";
 import { Ionicons } from '@expo/vector-icons';
@@ -19,7 +21,6 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import Res from '@resources';
-
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -38,6 +39,8 @@ function FTCTabScreen() {
                         iconName = 'md-notifications';
                     } else if (route.name === 'Shoutouts') {
                         iconName = 'md-megaphone';
+                    } else if (route.name === 'Teams') {
+                        iconName = 'md-people';
                     }
                     return <Ionicons name={iconName} size={size} color={color} />;
                 }
@@ -60,7 +63,9 @@ function FTCTabScreen() {
             <Tab.Screen name="Announcements" component={FTCAnnouncementPage} />
             <Tab.Screen name="Schedule" component={FTCSchedulePage} />
             <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
+            <Tab.Screen name="Teams" component={FTCTeamPage} />
             <Tab.Screen name="Admin" component={FTCAdminPage} />
+            <Tab.Screen name="Firebase" component={InputTest} />
         </Tab.Navigator>
     );
 }
@@ -125,6 +130,8 @@ export default class App extends Component {
                     <Stack.Screen name="MRP" component={MRPPage} />
                     <Stack.Screen name="District Leadership" component={DistrictLeadershipPage} />
                     <Stack.Screen name="Resources" component={ResourcesPage} />
+
+
                 </Stack.Navigator>
             </NavigationContainer>
         );

@@ -36,6 +36,11 @@ export default class HomePage extends Component {
                             <Text style={styles.itemText}>Resources</Text>
                         </TouchableOpacity>
                     </View>
+                    <View style={styles.itemcontainer}> 
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Firebase") }>
+                            <Text style={styles.itemText}>Firebase</Text>
+                        </TouchableOpacity>
+                    </View>
                 </ScrollView>
            </View>
        );
