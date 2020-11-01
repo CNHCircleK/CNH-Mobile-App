@@ -14,6 +14,21 @@ import {
 } from "react-native";
 
 export default class ResponsesPage extends Component {
+
+  constructor (props) {
+    super(props)
+    this.state = { text: '' }
+  }
+
+  submitAndClear = async () => {
+    
+    await sendData('ftc-responses', { event: this.state.event, name: this.state.name, question: this.state.text, school: this.state.school, timestamp: new Date() });
+
+    this.setState({
+      text: ''
+    })
+  }
+
   state = {
       event: '',
       name: '',
@@ -32,18 +47,16 @@ export default class ResponsesPage extends Component {
 
 
   sendInput = async () => {
-    console.log("Button pushed");
     await sendData('ftc-responses', { event: this.state.event, name: this.state.name, question: this.state.question, school: this.state.school, timestamp: new Date() });
-    this.setState = ({question: ''});
-    this.question.clear();
-    console.log("Button pushed");
-   
+    this.setState = ({
+      question: ''
+    });
 };
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.title}>
-          <Text style={styles.titleText}>Input Test</Text>
+          <Text style={styles.titleText}>Responses</Text>
         </View>
         <ScrollView 
                     contentContainerStyle={styles.scrollView}
@@ -71,8 +84,8 @@ export default class ResponsesPage extends Component {
 
         <TextInput
         style={styles.textInput}
-        onChangeText={this.onChangeQuestion}
-        value = {this.state.question}
+        onChangeText={text => this.setState({ text })}
+          value={this.state.text}
 
 
       />
@@ -86,8 +99,8 @@ export default class ResponsesPage extends Component {
 
       />
       <View style = {styles.buttonContainer}>
-      <TouchableOpacity style={styles.button} onPress={() => this.sendInput}>
-                            <Text style={styles.buttonText}>Send Input</Text>
+      <TouchableOpacity style={styles.button} onPress={this.submitAndClear}>
+                            <Text style={styles.buttonText} >Send Input</Text>
        </TouchableOpacity>
           </View>
           
