@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar, Switch, SafeAreaView } from 'react-native';
+import { Image, ImageBackground, View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar, Switch, SafeAreaView } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { scheduleNotification, cancelScheduledNotification } from '../../utils/Notifications'
+import Res from '@resources';
 
 days = ['Friday', 'Saturday', 'Sunday', 'Your Events'];
 
@@ -217,8 +218,8 @@ export default class FTCSchedulePage extends Component {
 
     renderItem = ({item}) => {
         return (
-            <TouchableOpacity 
-                style={this.state.scheduledEvents.some(value => value.id === item.id) ? styles.eventScheduled : styles.event} 
+            <TouchableOpacity
+                style={this.state.scheduledEvents.some(value => value.id === item.id) ? styles.eventScheduled : styles.event}
                 onPress={ () => this.eventPress(item) }
             >
                 <Text style={styles.eventTitle}>{item.title}</Text>
@@ -250,7 +251,10 @@ export default class FTCSchedulePage extends Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.title}>
-                    <Text style={styles.titleText}>Schedule</Text>
+                    <Image style={{width: 125, height: 125}}
+                    resizeMode="contain"
+                    source={require('../../resources/ftc2020/images/clipboard.png')}/>
+                    <Text style={styles.titleText}> Schedule </Text>
                 </View>
                 <View style={styles.optionsContainer}>
                     <View style={styles.pickerContainer}>
@@ -264,13 +268,17 @@ export default class FTCSchedulePage extends Component {
                     <View style={styles.switchContainer}>
                         <Text style={styles.switchText}>Schedule Toggle</Text>
                         <Switch
+                            trackColor={{true: Res.FTCColors.SpanishPink,
+                              false: 'grey'}}
+                            thumbColor={this.state.scheduleMode ? "white" : "white"}
                             style={styles.switch}
                             value={this.state.scheduleMode}
-                            onValueChange={mode => this.setState({ scheduleMode: mode })}   
+                            onValueChange={mode => this.setState({ scheduleMode: mode })}
                         />
                     </View>
                 </View>
                 <FlatList
+                    style={styles.schedule}
                     data={this.state.curScheduleData}
                     renderItem={this.renderItem}
                     showsVerticalScrollIndicator={false}
@@ -285,23 +293,25 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: '#757D84'
+        backgroundColor: Res.FTCColors.PersianOrange
     },
     title: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20,
         padding: 20,
-        backgroundColor: "#704346"
+        backgroundColor: Res.FTCColors.PersianOrange
     },
     titleText: {
-        fontWeight: 'bold',
-        fontSize: 24,
-        color: '#E9C99C'
+        fontFamily: "Gilberto",
+        fontSize: 100,
+        color: Res.FTCColors.Catawba,
+        marginTop: -10
     },
     optionsContainer: {
         flexDirection: 'row',
-        paddingHorizontal: 15
+        paddingHorizontal: 15,
+        backgroundColor: Res.FTCColors.Catawba,
+        paddingTop: 28
     },
     pickerContainer: {
         flex: 4,
@@ -314,14 +324,20 @@ const styles = StyleSheet.create({
         flex: 1,
         marginLeft: 10,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: Res.FTCColors.Catawba
     },
     switchText: {
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontFamily: "Arbutus-Slab",
+        color: Res.FTCColors.ScheduleText,
+        opacity: 0.87
     },
     switch: {
-        marginTop: 5
+        marginTop: 5,
+    },
+    schedule:{
+        backgroundColor: Res.FTCColors.Catawba
     },
     event: {
         paddingVertical: 10,
@@ -340,12 +356,20 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     eventTitle: {
-        fontWeight: 'bold',
         fontSize: 15,
-        color: '#E9C99C'
+        color: Res.FTCColors.ScheduleText,
+        fontFamily: "Arbutus-Slab",
+        opacity: 0.87
     },
     eventTimeLocation: {
         fontSize: 12,
-        color: '#E9C99C'
-    }
+        color: Res.FTCColors.ScheduleText,
+        fontFamily: "Arbutus-Slab",
+        opacity: 0.60
+    },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"
+    },
 });

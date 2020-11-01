@@ -4,43 +4,44 @@ import { sendPushNotification } from '../../utils/Notifications'
 import { sendData, getData } from '../../utils/Firebase';
 import Res from '@resources';
 
-export default class FTCAdminPage extends Component {
+export default class FTCWorkshopAdminPage extends Component {
     state = {
-        title: '',
-        body: '',
-        notifResult: '[notification status displayed here]'
+        event: '',
+        question: '',
+        answer: '',
+        winner: '[winner displayed here]'
     };
 
-    onChangeTitle = (nTitle) => this.setState({ title: nTitle });
+    onChangeEvent = (nEvent) => this.setState({ event: nEvent });
 
-    onChangeBody = (nBody) => this.setState({ body: nBody });
+    onChangeQuestion = (nQuestion) => this.setState({ question: nQuestion });
 
-    sendAnnouncement = async () => {
-        await sendData('ftc-announcements', { title: this.state.title, body: this.state.body, timestamp: new Date() });
-        let tokens = await getData('expo-tokens');
-        let sendResults = await Promise.all(tokens.map(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body)));
-        
-        if(sendResults.some(value => !value)) {
-            this.setState({ notifResult: 'Some announcements not sent successfully :(' });
-            console.log("Some announcements not sent successfully :(");
+    onChangeAnswer = (nAnswer) => this.setState({ answer: nAnswer });
+
+    getWinner = async () => {
+        let query = [
+            {
+                field: 'event',
+                op: '==',
+                value: this.state.event
+            },
+            {
+                field: 'question',
+                op: '==',
+                value: this.state.question
+            },
+            {
+                field: 'answer',
+                op: '==',
+                value: this.state.answer
+            }
+        ];
+        let winnerArr = await getData('ftc-responses', 'timestamp', 'asc', 1, query);
+        if(winnerArr[0]) {
+            let winner = winnerArr[0];
+            this.setState({ winner: `${winner.event}\'s winner for question ${winner.question} is ${winner.name} from ${winner.school}!` });
         } else {
-            this.setState({ notifResult: 'All announcements sent successfully!' });
-            console.log("All announcements sent successfully!");
-        }
-    };
-
-    sendShoutout = async () => {
-        await sendData('ftc-shoutouts', { title: this.state.title, body: this.state.body, timestamp: new Date() });
-        let tokens = await getData('expo-tokens');
-        tokens.forEach(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body));
-        let sendResults = await Promise.all(tokens.map(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body)));
-        
-        if(sendResults.some(value => !value)) {
-            this.setState({ notifResult: 'Some shoutouts not sent successfully :(' });
-            console.log("Some shoutouts not sent successfully :(");
-        } else {
-            this.setState({ notifResult: 'All shoutouts sent successfully!' });
-            console.log("All shoutouts sent successfully!");
+            this.setState({ winner: 'The specified Event or Question does not exist or nobody answered this Question correctly.' });
         }
     };
 
@@ -49,37 +50,42 @@ export default class FTCAdminPage extends Component {
             <SafeAreaView style={styles.container}>
                 <ImageBackground source={require('../../resources/ftc2020/images/bluelightsbackground.gif')} style={styles.image}>
                     <View style={styles.title}>
-                            <Text style={styles.titleText}>Admin Station</Text>
+                            <Text style={styles.titleText}>Workshop Admin Station</Text>
                     </View>
                     <ScrollView 
                         contentContainerStyle={styles.scrollView}
                         showsVerticalScrollIndicator={false}
                     >   
                         <View style={styles.messageContainer}>
-                            <Text style={styles.messageText}>Title:</Text>
+                            <Text style={styles.messageText}>Event:</Text>
                             <TextInput
                                 style={styles.textInput}
-                                onChangeText={this.onChangeTitle}
-                                value={this.state.title}
+                                onChangeText={this.onChangeEvent}
+                                value={this.state.event}
                             />
                         </View>
                         <View style={styles.messageContainer}>
-                            <Text style={styles.messageText}>Body:</Text>
+                            <Text style={styles.messageText}>Question:</Text>
                             <TextInput
                                 style={styles.textInput}
-                                onChangeText={this.onChangeBody}
-                                value={this.state.body}
+                                onChangeText={this.onChangeQuestion}
+                                value={this.state.question}
+                            />
+                        </View>
+                        <View style={styles.messageContainer}>
+                            <Text style={styles.messageText}>Answer:</Text>
+                            <TextInput
+                                style={styles.textInput}
+                                onChangeText={this.onChangeAnswer}
+                                value={this.state.answer}
                             />
                         </View>
                         <View style={styles.buttonContainer}>
-                            <TouchableOpacity style={styles.button} onPress={this.sendAnnouncement}>
-                                <Text style={styles.buttonText}>Send Announcement</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.button} onPress={this.sendShoutout}>
-                                <Text style={styles.buttonText}>Send Shoutout</Text>
+                            <TouchableOpacity style={styles.button} onPress={this.getWinner}>
+                                <Text style={styles.buttonText}>Get Winner</Text>
                             </TouchableOpacity>
                         </View>
-                        <Text style={styles.resultText}>{this.state.notifResult}</Text>
+                        <Text style={styles.resultText}>{this.state.winner}</Text>
                     </ScrollView>
                 </ImageBackground>
             </SafeAreaView>
@@ -110,6 +116,7 @@ const styles = StyleSheet.create({
     titleText: {
         fontFamily: 'Gilberto',
         fontSize: 100,
+        textAlign: 'center',
         color: '#E9C99C',
         backgroundColor: Res.FTCColors.BlueLightsBackground
     },

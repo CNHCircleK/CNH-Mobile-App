@@ -1,38 +1,37 @@
 {
-  "expo": {
-    "name": "Solstice",
-    "description": "Keep posted on the latest district events and news with the official CNH Circle K mobile app!",
-    "slug": "solstice",
-    "owner": "cnhtechsoftware",
-    "privacy": "public",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "version": "2.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/solstice_icon.png",
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "bundleIdentifier": "com.cnhcki.solstice",
-      "buildNumber": "2.0.0",
-      "splash": {
-        "backgroundColor": "#252525"
-      }
-    },
-    "android": {
-      "versionCode": 6,
-      "package": "com.cnhcki.solstice",
-      "splash": {
-        "backgroundColor": "#252525"
-      },
-      "useNextNotificationsApi": true
+    "expo": {
+        "name": "Solstice",
+        "description": "Keep posted on the latest district events and news with the official CNH Circle K mobile app!",
+        "slug": "solstice",
+        "owner": "cnhtechsoftware",
+        "privacy": "public",
+        "sdkVersion": "39.0.0",
+        "splash": {
+            "image": "./resources/ftc2020/images/logo.png",
+            "backgroundColor": "#4D7C8A"
+        },
+        "platforms": [
+            "ios",
+            "android",
+            "web"
+        ],
+        "version": "2.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/solstice_icon.png",
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "bundleIdentifier": "com.cnhcki.solstice",
+            "buildNumber": "2.0.0"
+        },
+            "android": {
+            "versionCode": 6,
+            "package": "com.cnhcki.solstice",
+            "useNextNotificationsApi": true
+        }
     }
-  }
 }

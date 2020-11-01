@@ -6,7 +6,7 @@ export default class HomePage extends Component {
         const {navigate} = this.props.navigation;
         return (
            <View style={styles.container}>
-                <ScrollView 
+                <ScrollView
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.scrollView}
                 >
@@ -26,9 +26,9 @@ export default class HomePage extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("MRP") }>
                             <Text style={styles.itemText}>MRP</Text>
-                        </TouchableOpacity>                       
+                        </TouchableOpacity>
                     </View>
-                    <View style={styles.itemcontainer}> 
+                    <View style={styles.itemcontainer}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("District Leadership") }>
                             <Text style={styles.itemText}>District Leadership</Text>
                         </TouchableOpacity>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         paddingLeft: 10,
         paddingRight: 10
-    },  
+    },
     itemcontainer: {
         flexDirection: 'row'
     },
@@ -83,5 +83,3 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     }
 });
-
-

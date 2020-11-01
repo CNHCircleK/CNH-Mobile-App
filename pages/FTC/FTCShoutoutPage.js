@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react';
-import { Text, View, FlatList, StyleSheet, TouchableOpacity, SafeAreaView, Platform, StatusBar } from 'react-native';
+import { Image, ImageBackground, Text, View, FlatList, StyleSheet, TouchableOpacity, SafeAreaView, Platform, StatusBar } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import { useFocusEffect } from '@react-navigation/native';
+import Res from '@resources';
 
 export default function FTCShoutoutPage() {
     const [shoutouts, setShoutouts] = useState([]);
@@ -22,22 +23,26 @@ export default function FTCShoutoutPage() {
             <TouchableOpacity style={styles.item}>
                 <Text style={styles.shoutoutTitle}>{item.title}</Text>
                 <Text style={styles.body}>{item.body}</Text>
-                <Text style={styles.timeText}>{item.timestamp ? item.timestamp.toDate().toLocaleString() : ''}</Text>
+                <Text style={styles.timeText}>{item.timestamp.toDate().toLocaleString()}</Text>
             </TouchableOpacity>
         );
     };
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.title}>
-                <Text style = {styles.titleText}>Shoutouts</Text>
-            </View>
-            <FlatList
-                contentContainerStyle={styles.scrollView}
-                data={shoutouts}
-                renderItem={renderItem}
-                keyExtractor={ (item, index) => index.toString() }
-            />
+            <ImageBackground source={require('../../resources/ftc2020/images/bluelightsbackground.gif')} style={styles.image}>
+                <View style={styles.title}>
+                    <Image style={{width: 125, height: 125}}
+                    resizeMode="contain"
+                    source={require('../../resources/ftc2020/images/sign.png')}/>
+                    <Text style = {styles.titleText}> Shoutouts </Text>
+                </View>
+                <FlatList
+                    contentContainerStyle={styles.scrollView}
+                    data={shoutouts}
+                    renderItem={renderItem}
+                    keyExtractor={ (item, index) => index.toString() }/>
+            </ImageBackground>
         </SafeAreaView>
     );
 }
@@ -46,18 +51,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: '#757D84'
+        backgroundColor: Res.FTCColors.BlueLightsBackground
     },
     title: {
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        backgroundColor: "#704346"
     },
     titleText: {
-        fontWeight: 'bold',
-        fontSize: 24,
-        color: '#E9C99C'
+        fontFamily: "Gilberto",
+        fontSize: 100,
+        color: Res.FTCColors.MellowApricot,
+        backgroundColor: Res.FTCColors.BlueLightsBackground,
+        marginTop: -20
     },
     scrollView: {
         padding: 8
@@ -65,23 +71,33 @@ const styles = StyleSheet.create({
     timeText: {
         fontSize: 12,
         color: 'grey',
-        marginTop: 5
+        marginTop: 5,
+        opacity: 0.6
     },
     item: {
-        backgroundColor: '#E3AEA8',
+        backgroundColor: Res.FTCColors.TeaGreen,
         padding: 20,
         marginVertical: 8,
         marginHorizontal: 8,
         borderRadius: 20
     },
     shoutoutTitle: {
-        color: "black",  
-        fontSize: 20,
-        fontWeight: "bold"
+        color: "black",
+        fontSize: 40,
+        fontFamily: "French-Press",
+        opacity: 0.87
     },
     body: {
         color: "black",
-        fontSize: 15
+        fontSize: 15,
+        fontFamily: "Arbutus-Slab",
+        opacity: 0.87
+
+    },
+    image: {
+        flex: 1,
+        resizeMode: "contain",
+        justifyContent: "center",
+        height: "140%"
     }
 });
-
