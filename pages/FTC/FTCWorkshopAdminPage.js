@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput, Platform, StatusBar, SafeAreaView, ImageBackground } from 'react-native';
-import { sendPushNotification } from '../../utils/Notifications'
-import { sendData, getData } from '../../utils/Firebase';
+import { getData } from '../../utils/Firebase';
 import Res from '@resources';
 
 export default class FTCWorkshopAdminPage extends Component {
@@ -23,17 +22,17 @@ export default class FTCWorkshopAdminPage extends Component {
             {
                 field: 'event',
                 op: '==',
-                value: this.state.event
+                value: this.state.event.toLowerCase()
             },
             {
                 field: 'question',
                 op: '==',
-                value: this.state.question
+                value: this.state.question.toLowerCase()
             },
             {
                 field: 'answer',
                 op: '==',
-                value: this.state.answer
+                value: this.state.answer.toLowerCase()
             }
         ];
         let winnerArr = await getData('ftc-responses', 'timestamp', 'asc', 1, query);

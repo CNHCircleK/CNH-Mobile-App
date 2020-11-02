@@ -24,7 +24,7 @@ export default class FTCResponsesPage extends Component {
     onChangeAnswer = (nAnswer) => this.setState({ answer: nAnswer });
 
     sendInput = async () => {
-        let success = await sendData('ftc-responses', { name: this.state.name, school: this.state.school, event: this.state.event, question: this.state.question, answer: this.state.answer, timestamp: new Date() });
+        let success = await sendData('ftc-responses', { name: this.state.name, school: this.state.school, event: this.state.event.toLowerCase(), question: this.state.question.toLowerCase(), answer: this.state.answer.toLowerCase(), timestamp: new Date() });
         if(success) {
             this.setState({ answer: '', responseResult: 'Response sent successfully!' });
         }

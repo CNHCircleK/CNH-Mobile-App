@@ -278,7 +278,6 @@ export default class FTCSchedulePage extends Component {
                     </View>
                 </View>
                 <FlatList
-                    style={styles.schedule}
                     data={this.state.curScheduleData}
                     renderItem={this.renderItem}
                     showsVerticalScrollIndicator={false}
@@ -293,25 +292,23 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: Res.FTCColors.PersianOrange
+        backgroundColor: Res.FTCColors.TealBlue
     },
     title: {
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        backgroundColor: Res.FTCColors.PersianOrange
     },
     titleText: {
         fontFamily: "Gilberto",
         fontSize: 100,
-        color: Res.FTCColors.Catawba,
+        color: Res.FTCColors.MellowApricot,
         marginTop: -10
     },
     optionsContainer: {
         flexDirection: 'row',
         paddingHorizontal: 15,
-        backgroundColor: Res.FTCColors.Catawba,
-        paddingTop: 28
+        paddingTop: 16
     },
     pickerContainer: {
         flex: 4,
@@ -325,7 +322,6 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: Res.FTCColors.Catawba
     },
     switchText: {
         textAlign: 'center',
@@ -335,9 +331,6 @@ const styles = StyleSheet.create({
     },
     switch: {
         marginTop: 5,
-    },
-    schedule:{
-        backgroundColor: Res.FTCColors.Catawba
     },
     event: {
         paddingVertical: 10,
