@@ -17,7 +17,6 @@ const CONTENT = [
             "Sydney Lytton", 
             "Ngoc Nguyen", 
             "Shania Relucio", 
-            "Vanessa Meza-Perez", 
             "Ping Tram", 
             "Sharon Hu", 
             "Pearl Netrayana", 
@@ -33,13 +32,10 @@ const CONTENT = [
             "Jose Torres", 
             "Phoebe Fagoaga", 
             "Lizbeth Fernandez", 
-            "Nathan Dang", 
             "Sarah Groff", 
             "Alvin Nguyen", 
             "Hillary Ngo", 
-            "Aaron Lee", 
             "Jenny Chau", 
-            "Matthew Kim", 
             "Briana Rodriguez", 
             "Edlynne Harrell-Sanchez"
         ]
@@ -109,7 +105,6 @@ const CONTENT = [
             "Riya Thomas", 
             "Nathan Lin", 
             "Wasay Noor", 
-            "Kim Nguyen", 
             "Richie Vu", 
             "Shelly Ye", 
             "Sopheak Suy", 
@@ -124,7 +119,6 @@ const CONTENT = [
         title: 'Forever Filmers',
         content: [
             "Jamie Ly", 
-            "Ricardo Aficial", 
             "Tiffany Chen", 
             "Caitleen Navarro", 
             "Logan Neumann", 
@@ -132,7 +126,6 @@ const CONTENT = [
             "Jane Lee", 
             "Kaitlyn Nieva", 
             "Cristian Torres", 
-            "Emily Reale", 
             "Sarah Guo", 
             "Hannah Macaranas", 
             "Celeste Vides", 
@@ -149,7 +142,6 @@ const CONTENT = [
             "Andrew Fukui", 
             "Trevor McBrayer", 
             "Juan Vilchis Palacios", 
-            "Mylan Ross", 
             "Khadija Rashidally", 
             "Joanne Cabanlit", 
             "Rachel Lam", 
@@ -166,14 +158,12 @@ const CONTENT = [
             "Germaine Acacio", 
             "Maira Rojas", 
             "Karch Cabalo", 
-            "Alicia Sieu", 
             "Brian Liu", 
             "Jessica Itliong", 
             "Joey Duong", 
             "Robert Ponce", 
             "Stephanie Hang", 
-            "Alexander Caceros", 
-            "Miyu Nakajima"
+            "Alexander Caceros" 
         ]
     },
     {
@@ -183,7 +173,6 @@ const CONTENT = [
             "Henry Nguyen", 
             "Janelle Yang", 
             "Vincent Lee", 
-            "Hyun Jin Kim", 
             "Jaslynn Diep", 
             "Anna Le", 
             "Tiffany Nguyen", 
@@ -200,7 +189,6 @@ const CONTENT = [
         content: [
             "Jonathan Guan", 
             "Kevin Ngo", 
-            "Darienne Viloria", 
             "Ashley Cabral", 
             "Jessica Gibbons", 
             "Hannah Romey", 
@@ -210,7 +198,6 @@ const CONTENT = [
             "Simmy Chana", 
             "Ajay Ascano", 
             "Alan Vu", 
-            "Justina Voong", 
             "Jonash Poyaoan"
         ]
     },
@@ -256,7 +243,6 @@ const CONTENT = [
         content: [
             "Aerrow Cruz", 
             "Marcel Rodriguez", 
-            "Emily Yu", 
             "Andrea Lee", 
             "Ashley Beltran", 
             "Sabrina Zavala", 
@@ -277,9 +263,7 @@ const CONTENT = [
             "Lila Masson", 
             "Lilian Xie", 
             "Pawnit Kaur", 
-            "Garrett Moore", 
             "Ami Suzui", 
-            "Kyle San Jose", 
             "Jessica Estrada", 
             "Chuc Nguyen", 
             "Bidane Martinez Huerta", 
@@ -313,12 +297,10 @@ const CONTENT = [
             "Chio Saeyang", 
             "Brandon Chavez Garcia", 
             "Akash Singh", 
-            "Amy Bryant", 
             "Antonio Sanchez Ortiz", 
             "Sandra Cheng", 
             "Yousif Alfaddagh", 
             "Kit Ma", 
-            "Amy Kobayashi", 
             "Anahi Gomez", 
             "Vijya Raj", 
             "Jonathan Ichino", 
@@ -341,7 +323,6 @@ const CONTENT = [
             "Jenny Kim", 
             "Kristina Sevcik", 
             "Janette Juarez", 
-            "Matthew Ujemov", 
             "Kylie Tran"
         ]
     },
@@ -373,7 +354,6 @@ const CONTENT = [
             "Qingjun Hu", 
             "Karina Hernandez", 
             "Celine Diep", 
-            "Kim Hinojos", 
             "Kathy Nguyen", 
             "Rachel Nguyen", 
             "Jolie Liu", 
@@ -389,7 +369,6 @@ const CONTENT = [
             "Anne Le", 
             "Lauren Acosta", 
             "Ryan Yee", 
-            "Jason Liu", 
             "Kaitlin Calleros", 
             "Ben Distor", 
             "Anne Le", 
@@ -412,12 +391,10 @@ const CONTENT = [
             "Ethan Kwong", 
             "Minh Nghiem", 
             "Brian Tran", 
-            "David Su", 
             "Ethan Godfrey", 
             "Alexandria Handaja", 
             "Shirley Chan", 
             "Ricardo Porras", 
-            "Miyu Noguchi", 
             "Jeevan Bhullar"
         ]
     },
@@ -429,7 +406,6 @@ const CONTENT = [
             "Qianyi Wang", 
             "Sarah Dueltgen", 
             "Allie Sondak", 
-            "Ryan Tan", 
             "Kate Darios", 
             "Albert Dang", 
             "Christine Nguyen", 
@@ -445,7 +421,6 @@ const CONTENT = [
         content: [
             "Jack Chen", 
             "Brandon Capulong", 
-            "Brandon Dimapasoc", 
             "Gary Nguyen", 
             "Juan Perez", 
             "Samuel Lee", 
@@ -464,7 +439,6 @@ const CONTENT = [
         content: [
             "Heyley Pavon", 
             "Mbugua Munyutu", 
-            "Sandra Vang", 
             "Cassie Beckman", 
             "Emily Zomoroudi", 
             "Kimberlee Pham", 
@@ -474,8 +448,7 @@ const CONTENT = [
             "Melina Chamorro", 
             "Kyla Anderson", 
             "Sophia Villarreal", 
-            "Pinky Ho", 
-            "Jonnie Nguyen"
+            "Pinky Ho" 
         ]
     },
     {
@@ -503,12 +476,10 @@ const CONTENT = [
             "Vanessa Vidas", 
             "Alyssa Chavez", 
             "Nora Lovell", 
-            "Jackie Vallo", 
             "Jennifer Hernandez", 
             "Angelina Moonswami", 
             "Cathy Pham", 
             "Kristi Ryono", 
-            "Sergio Barrios", 
             "Jian Ting Tan", 
             "Austen Liao", 
             "Steven Ong", 
@@ -521,14 +492,10 @@ const CONTENT = [
         content: [
             "Alfred Aung", 
             "Tiffany Poedyasmara", 
-            "Shirley Wong", 
             "Jasmin Rodriguez", 
             "Isabelle Barajas", 
-            "Caden Tran", 
-            "Katherine Hoang", 
             "Kylie French", 
             "Ryan Chau", 
-            "Dennis Lim", 
             "Lenore Fabiyi", 
             "Jonathan Ngo", 
             "Danielle Lee "
@@ -539,7 +506,6 @@ const CONTENT = [
         content: [
             "Chloe O'Connor", 
             "Jarod Mica", 
-            "Jimmy Tang", 
             "Marcus Dugenia", 
             "Daeton Dennert", 
             "Britney Chow", 
