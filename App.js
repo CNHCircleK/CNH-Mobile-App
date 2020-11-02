@@ -9,6 +9,7 @@ import DFIPage from "./pages/DFIPage";
 import MRPPage from "./pages/MRPPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
+import FTCScheduleDetailsPage from "./pages/FTC/FTCScheduleDetailsPage";
 import FTCAdminPage from "./pages/FTC/FTCAdminPage";
 import FTCWorkshopAdminPage from "./pages/FTC/FTCWorkshopAdminPage";
 import FTCAnnouncementPage from "./pages/FTC/FTCAnnouncePage";
@@ -25,6 +26,7 @@ import { Asset } from 'expo-asset';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const AdminStack = createStackNavigator();
+const ScheduleStack = createStackNavigator();
 
 function AdminStackScreen() {
     return (
@@ -33,6 +35,15 @@ function AdminStackScreen() {
             <AdminStack.Screen name="Admin" component={FTCAdminPage} />
             <AdminStack.Screen name="WorkshopAdmin" component={FTCWorkshopAdminPage} />
         </AdminStack.Navigator>
+    );
+}
+
+function ScheduleStackScreen() {
+    return (
+        <ScheduleStack.Navigator headerMode='none'>
+            <ScheduleStack.Screen name='Schedule' component={FTCSchedulePage} />
+            <ScheduleStack.Screen name='Schedule Details' component={FTCScheduleDetailsPage} />
+        </ScheduleStack.Navigator>
     );
 }
 
@@ -72,7 +83,7 @@ function FTCTabScreen() {
             backBehavior={'none'}
         >
             <Tab.Screen name="Announcements" component={AdminStackScreen} />
-            <Tab.Screen name="Schedule" component={FTCSchedulePage} />
+            <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
             <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
             <Tab.Screen name="Teams" component={FTCTeamPage} />
             <Tab.Screen name="Responses" component={FTCResponsesPage} />

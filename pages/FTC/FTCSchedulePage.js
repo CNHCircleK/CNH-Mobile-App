@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Image, ImageBackground, View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar, Switch, SafeAreaView } from 'react-native';
+import { Image, View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar, Switch, SafeAreaView } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { scheduleNotification, cancelScheduledNotification } from '../../utils/Notifications'
+import { Ionicons } from '@expo/vector-icons';
 import Res from '@resources';
 
-days = ['Friday', 'Saturday', 'Sunday', 'Your Events'];
+const days = ['Friday', 'Saturday', 'Sunday', 'Your Events'];
 
-scheduleData = [
+const scheduleData = [
     {
         title: 'Committee & District Board Debrief',
         time: '1:00PM - 2:30PM',
@@ -61,6 +62,7 @@ scheduleData = [
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 20:00:00'),
+        workshop: 0,
         id: 6
     },
     {
@@ -77,6 +79,7 @@ scheduleData = [
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 20:55:00'),
+        workshop: 1,
         id: 8
     },
     {
@@ -93,6 +96,7 @@ scheduleData = [
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 21:50:00'),
+        workshop: 2,
         id: 10
     },
     {
@@ -125,6 +129,7 @@ scheduleData = [
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 14:05:00'),
+        workshop: 3,
         id: 14
     },
     {
@@ -141,6 +146,7 @@ scheduleData = [
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 15:00:00'),
+        workshop: 4,
         id: 16
     },
     {
@@ -222,8 +228,11 @@ export default class FTCSchedulePage extends Component {
                 style={this.state.scheduledEvents.some(value => value.id === item.id) ? styles.eventScheduled : styles.event}
                 onPress={ () => this.eventPress(item) }
             >
-                <Text style={styles.eventTitle}>{item.title}</Text>
-                <Text style={styles.eventTimeLocation}>{item.day.substring(0, 3) + " \u00B7 " + item.time + " \u00B7 " + item.location}</Text>
+                <View>
+                    <Text style={styles.eventTitle}>{item.title}</Text>
+                    <Text style={styles.eventTimeLocation}>{item.day.substring(0, 3) + " \u00B7 " + item.time + " \u00B7 " + item.location}</Text>
+                </View>
+                {item.hasOwnProperty('workshop') && <Ionicons name={'ios-arrow-forward'} size={24} color={Res.FTCColors.MellowApricot} />}
             </TouchableOpacity>
         );
     };
@@ -244,6 +253,10 @@ export default class FTCSchedulePage extends Component {
 
                 this.setState((prevState) => ({ scheduledEvents: [...prevState.scheduledEvents, { identifier: scheduledItemIdentifier, id: item.id }] }));
             }
+        } else {
+            if(item.hasOwnProperty('workshop')) {
+                this.props.navigation.navigate('Schedule Details', { session: item.workshop });
+            }
         }
     }
 
@@ -252,8 +265,9 @@ export default class FTCSchedulePage extends Component {
             <SafeAreaView style={styles.container}>
                 <View style={styles.title}>
                     <Image style={{width: 125, height: 125}}
-                    resizeMode="contain"
-                    source={require('../../resources/ftc2020/images/clipboard.png')}/>
+                        resizeMode="contain"
+                        source={require('../../resources/ftc2020/images/clipboard.png')}
+                    />
                     <Text style={styles.titleText}> Schedule </Text>
                 </View>
                 <View style={styles.optionsContainer}>
@@ -333,6 +347,9 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
     event: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         paddingVertical: 10,
         marginHorizontal: 15,
         paddingHorizontal: 10,
@@ -340,6 +357,9 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     eventScheduled: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         paddingVertical: 10,
         paddingHorizontal: 10,
         marginHorizontal: 15,
