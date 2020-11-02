@@ -38,6 +38,7 @@ const scheduleData = [
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 16:35:00'),
+        memory: 0,
         id: 3
     },
     {
@@ -113,6 +114,7 @@ const scheduleData = [
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 13:05:00'),
+        memory: 1,
         id: 12
     },
     {
@@ -232,7 +234,7 @@ export default class FTCSchedulePage extends Component {
                     <Text style={styles.eventTitle}>{item.title}</Text>
                     <Text style={styles.eventTimeLocation}>{item.day.substring(0, 3) + " \u00B7 " + item.time + " \u00B7 " + item.location}</Text>
                 </View>
-                {item.hasOwnProperty('workshop') && <Ionicons name={'ios-arrow-forward'} size={24} color={Res.FTCColors.MellowApricot} />}
+                {(item.hasOwnProperty('workshop') || item.hasOwnProperty('memory')) && <Ionicons name={'ios-arrow-forward'} size={24} color={Res.FTCColors.MellowApricot} />}
             </TouchableOpacity>
         );
     };
@@ -256,6 +258,8 @@ export default class FTCSchedulePage extends Component {
         } else {
             if(item.hasOwnProperty('workshop')) {
                 this.props.navigation.navigate('Schedule Details', { session: item.workshop });
+            } else if(item.hasOwnProperty('memory')) {
+                this.props.navigation.navigate('Team Activities', { session: item.memory });
             }
         }
     }

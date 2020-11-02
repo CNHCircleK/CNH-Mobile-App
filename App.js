@@ -10,6 +10,7 @@ import MRPPage from "./pages/MRPPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
 import FTCScheduleDetailsPage from "./pages/FTC/FTCScheduleDetailsPage";
+import FTCTeamActivitiesPage from "./pages/FTC/FTCTeamActivitiesPage";
 import FTCAdminPage from "./pages/FTC/FTCAdminPage";
 import FTCWorkshopAdminPage from "./pages/FTC/FTCWorkshopAdminPage";
 import FTCAnnouncementPage from "./pages/FTC/FTCAnnouncePage";
@@ -43,6 +44,7 @@ function ScheduleStackScreen() {
         <ScheduleStack.Navigator headerMode='none'>
             <ScheduleStack.Screen name='Schedule' component={FTCSchedulePage} />
             <ScheduleStack.Screen name='Schedule Details' component={FTCScheduleDetailsPage} />
+            <ScheduleStack.Screen name='Team Activities' component={FTCTeamActivitiesPage} />
         </ScheduleStack.Navigator>
     );
 }

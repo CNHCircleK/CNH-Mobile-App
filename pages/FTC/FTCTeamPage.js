@@ -31,7 +31,7 @@ const CONTENT = [
             "Kristina Matsumoto", 
             "Allela Ortin", 
             "Jose Torres", 
-            "Phoebe  Fagoaga", 
+            "Phoebe Fagoaga", 
             "Lizbeth Fernandez", 
             "Nathan Dang", 
             "Sarah Groff", 
