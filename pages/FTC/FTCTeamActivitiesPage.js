@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, ScrollView, FlatList, TouchableOpacity, Platform, StatusBar, SafeAreaView } from 'react-native';
 import Res from '@resources';
+import { HeaderBackButton } from '@react-navigation/stack';
+
 
 const activitiesData = [
     {
@@ -25,7 +27,7 @@ const activitiesData = [
                 'ONE Childhood Photo',
                 'ONE High School Photo',
                 'ONE CKI/College Photo or ONE Influential Person/Group Photo if you are a first year new member',
-                'After everyone has chosen their photos, they will each have a chance to share their photos and explain the meaning behind them. There are no points for this activity; this is simply a time for team members to bond and share their experiences with each other.'             
+                'After everyone has chosen their photos, they will each have a chance to share their photos and explain the meaning behind them. There are no points for this activity; this is simply a time for team members to bond and share their experiences with each other.'
             ]
         }
     }
@@ -39,6 +41,7 @@ export default class FTCTeamActivitiesPage extends Component {
     render() {
         return(
             <SafeAreaView style={styles.container}>
+                <HeaderBackButton tintColor='#fefefe' onPress={() => this.props.navigation.goBack(null)} />
                 <View style={styles.titleContainer}>
                     <Text style={styles.titleText}>{this.state.data.title}</Text>
                 </View>
@@ -54,7 +57,7 @@ export default class FTCTeamActivitiesPage extends Component {
                                 <Text style={styles.activityTitle}>{this.state.data.data[1].name}</Text>
                                 <Text style={styles.activityText}>{this.state.data.data[1].desc}</Text>
                             </View>
-                        </View> 
+                        </View>
                         :
                         <View style={styles.activityContainer}>
                             <Text style={styles.activityTitle}>{this.state.data.data.name}</Text>
