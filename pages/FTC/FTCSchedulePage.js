@@ -8,14 +8,14 @@ import Res from '@resources';
 const days = ['Friday', 'Saturday', 'Sunday', 'Your Events'];
 
 const scheduleData = [
-    {
-        title: 'Committee & District Board Debrief',
-        time: '1:00PM - 2:30PM',
-        location: 'Zoom',
-        day: 'Friday',
-        date: new Date('November 6, 2020 13:00:00'),
-        id: 0
-    },
+    // {
+    //     title: 'Committee & District Board Debrief',
+    //     time: '1:00PM - 2:30PM',
+    //     location: 'Zoom',
+    //     day: 'Friday',
+    //     date: new Date('November 6, 2020 13:00:00'),
+    //     id: 0
+    // },
     {
         title: 'MD&E Social: Countdown to FTC',
         time: '2:30PM - 3:30PM',
