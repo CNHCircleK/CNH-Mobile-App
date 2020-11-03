@@ -10,14 +10,6 @@ const days = ['Friday', 'Saturday', 'Sunday', 'My Events'];
 
 const scheduleData = [
     {
-        title: 'Committee & District Board Debrief',
-        time: '1:00PM - 2:30PM',
-        location: 'Zoom',
-        day: 'Friday',
-        date: new Date('November 6, 2020 13:00:00'),
-        id: 0
-    },
-    {
         title: 'MD&E Social: Countdown to FTC',
         time: '2:30PM - 3:30PM',
         location: 'Zoom',
@@ -103,7 +95,7 @@ const scheduleData = [
     },
     {
         title: 'General Session I',
-        time: '12:00PM - 1:00PM',
+        time: '12:30PM - 1:00PM',
         location: 'Youtube Live',
         day: 'Saturday',
         date: new Date('November 7, 2020 12:00:00'),
@@ -161,16 +153,8 @@ const scheduleData = [
         id: 17
     },
     {
-        title: 'Message from LTGs to Returning Members',
-        time: '4:45PM - 5:15PM',
-        location: 'Youtube Live',
-        day: 'Saturday',
-        date: new Date('November 7, 2020 16:45:00'),
-        id: 18
-    },
-    {
         title: 'General Session II',
-        time: '5:15PM - 7:15PM',
+        time: '4:45PM - 5:45PM',
         location: 'Youtube Live',
         day: 'Saturday',
         date: new Date('November 7, 2020 17:15:00'),
@@ -178,7 +162,7 @@ const scheduleData = [
     },
     {
         title: 'Campfire Skits & Talent Acts',
-        time: '7:15PM - 8:30PM',
+        time: '5:45PM - 6:30PM',
         location: 'Youtube Live',
         day: 'Saturday',
         date: new Date('November 7, 2020 19:15:00'),
@@ -186,7 +170,7 @@ const scheduleData = [
     },
     {
         title: 'Divisional Bonding',
-        time: '8:30PM - 9:30PM',
+        time: '6:30PM - 7:30PM',
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 20:30:00'),
@@ -194,7 +178,7 @@ const scheduleData = [
     },
     {
         title: 'Night Activities',
-        time: '9:30PM - 12:00AM',
+        time: '7:30PM - 10:00PM',
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 21:30:00'),
@@ -202,7 +186,7 @@ const scheduleData = [
     },
     {
         title: 'Closing Session ',
-        time: '12:00PM',
+        time: '2:00PM',
         location: 'Youtube Live',
         day: 'Sunday',
         date: new Date('November 8, 2020 12:00:00'),
@@ -229,11 +213,11 @@ export default class FTCSchedulePage extends Component {
         this.setState({ scheduleMode: mode });
         if (mode == true){
             let toast = Toast.show('Tap an event to add it to your schedule', {
-              duration: Toast.durations.SHORT,
-              position: 50,
-              shadow: true,
-              animation: true,
-              hideOnPress: true
+                duration: Toast.durations.SHORT,
+                position: 50,
+                shadow: true,
+                animation: true,
+                hideOnPress: true
             });
         }
     }
