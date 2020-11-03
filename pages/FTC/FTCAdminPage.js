@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput, Platform, StatusBar, SafeAreaView, ImageBackground } from 'react-native';
+import { View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput, Platform, StatusBar, SafeAreaView, ImageBackground, Alert } from 'react-native';
 import { sendPushNotification } from '../../utils/Notifications'
 import { sendData, getData } from '../../utils/Firebase';
 import Res from '@resources';
@@ -8,8 +8,7 @@ import { HeaderBackButton } from '@react-navigation/stack';
 export default class FTCAdminPage extends Component {
     state = {
         title: '',
-        body: '',
-        notifResult: '[notification status displayed here]'
+        body: ''
     };
 
     onChangeTitle = (nTitle) => this.setState({ title: nTitle });
@@ -22,11 +21,21 @@ export default class FTCAdminPage extends Component {
         let sendResults = await Promise.all(tokens.map(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body)));
 
         if(sendResults.some(value => !value)) {
-            this.setState({ notifResult: 'Some announcements not sent successfully :(' });
-            console.log("Some announcements not sent successfully :(");
+            Alert.alert(
+                "Failure!",
+                "Some announcements not sent successfully :(",
+                [
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                ]
+            );
         } else {
-            this.setState({ notifResult: 'All announcements sent successfully!' });
-            console.log("All announcements sent successfully!");
+            Alert.alert(
+                "Success!",
+                "All announcements sent successfully!",
+                [
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                ]
+            );
         }
     };
 
@@ -37,11 +46,23 @@ export default class FTCAdminPage extends Component {
         let sendResults = await Promise.all(tokens.map(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body)));
 
         if(sendResults.some(value => !value)) {
+            Alert.alert(
+                "Failure!",
+                "Some shoutouts not sent successfully :(",
+                [
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                ]
+            );
             this.setState({ notifResult: 'Some shoutouts not sent successfully :(' });
             console.log("Some shoutouts not sent successfully :(");
         } else {
-            this.setState({ notifResult: 'All shoutouts sent successfully!' });
-            console.log("All shoutouts sent successfully!");
+            Alert.alert(
+                "Success!",
+                "All shoutouts sent successfully!",
+                [
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                ]
+            );
         }
     };
 
@@ -81,7 +102,6 @@ export default class FTCAdminPage extends Component {
                                 <Text style={styles.buttonText}>Send Shoutout</Text>
                             </TouchableOpacity>
                         </View>
-                        <Text style={styles.resultText}>{this.state.notifResult}</Text>
                     </ScrollView>
                 </ImageBackground>
             </SafeAreaView>

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { StatusBar, ScrollView, StyleSheet, Text, View, TouchableOpacity, FlatList, Image, SafeAreaView, TextInput } from 'react-native';
+import { StatusBar, ScrollView, StyleSheet, Text, View, TouchableOpacity, FlatList, Image, SafeAreaView, TextInput, Alert } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import Accordion from 'react-native-collapsible/Accordion';
 import Res from '@resources';
-import { RECORDING_OPTIONS_PRESET_HIGH_QUALITY } from 'expo-av/build/Audio';
 
 const CONTENT = [
     {
@@ -526,8 +525,7 @@ export default class FTCTeamPage extends Component {
         activeSections: [],
         collapsed: true,
         multipleSelect: false,
-        search: '',
-        searchTeam: '[team name displayed here]'
+        search: ''
     };
 
     onChangeSearch = (nSearch) => {
@@ -537,7 +535,23 @@ export default class FTCTeamPage extends Component {
     findTeam = () => {
         console.log("hi");
         let team = CONTENT.find(element => element.content.map(s => s.toLowerCase()).includes(this.state.search.toLowerCase()));
-        team ? this.setState({ searchTeam: team.title }) :  this.setState({ searchTeam: 'This name is not found in any team :(' });
+        if(team) {
+            Alert.alert(
+                "Found!",
+                team.title,
+                [
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                ]
+            );
+        } else {
+            Alert.alert(
+                "Not Found!",
+                'This name is not found in any team :(',
+                [
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                ]
+            );
+        }
     };
 
     toggleExpanded = () => {
@@ -615,9 +629,6 @@ export default class FTCTeamPage extends Component {
                             onChangeText={this.onChangeSearch}
                             value={this.state.search}
                         />
-                        <View style={{ justifyContent: 'center' , alignItems: 'center'}}>
-                            <Text style={styles.searchText}>{this.state.searchTeam}</Text>
-                        </View>
                         <View style={{ justifyContent: 'center' , alignItems: 'center', paddingTop: 10}}>
                             <TouchableOpacity style={styles.searchButton} onPress={this.findTeam}>
                                 <Text style={styles.searchButtonText}>Search</Text>
@@ -698,7 +709,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         color: '#E9C99C',
         fontFamily: 'Arbutus-Slab',
-        marginBottom: 20,
         marginTop: 20
     },
     teamSection: {

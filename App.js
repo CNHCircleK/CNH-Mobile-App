@@ -23,6 +23,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
+import Res from '@resources';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -73,10 +74,11 @@ function FTCTabScreen() {
                 activeTintColor: 'white',
                 inactiveTintColor: 'gray',
                 style: {
-                    backgroundColor: '#704346'
+                    backgroundColor: Res.FTCColors.Catawba
                 },
                 labelStyle: {
-                    marginBottom: 4
+                    marginBottom: 4,
+                    fontFamily: 'Arbutus-Slab'
                 },
                 iconStyle: {
                     marginTop: 4

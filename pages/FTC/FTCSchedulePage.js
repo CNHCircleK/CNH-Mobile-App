@@ -327,14 +327,14 @@ const styles = StyleSheet.create({
         paddingTop: 16
     },
     pickerContainer: {
-        flex: 4,
+        flex: 4.5,
         backgroundColor: '#ffffff',
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center'
     },
     switchContainer: {
-        flex: 1,
+        flex: 1.5,
         marginLeft: 10,
         justifyContent: 'center',
         alignItems: 'center',

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput, Platform, StatusBar, SafeAreaView, ImageBackground } from 'react-native';
+import { View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput, Platform, StatusBar, SafeAreaView, ImageBackground, Alert } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import Res from '@resources';
 import { HeaderBackButton } from '@react-navigation/stack';
@@ -8,8 +8,7 @@ export default class FTCWorkshopAdminPage extends Component {
     state = {
         event: '',
         question: '',
-        answer: '',
-        winner: '[winner displayed here]'
+        answer: ''
     };
 
     onChangeEvent = (nEvent) => this.setState({ event: nEvent });
@@ -39,9 +38,21 @@ export default class FTCWorkshopAdminPage extends Component {
         let winnerArr = await getData('ftc-responses', 'timestamp', 'asc', 1, query);
         if(winnerArr[0]) {
             let winner = winnerArr[0];
-            this.setState({ winner: `${winner.event}\'s winner for question ${winner.question} is ${winner.name} from ${winner.school}!` });
+            Alert.alert(
+                "Winner!",
+                `${winner.event}\'s winner for question ${winner.question} is ${winner.name} from ${winner.school}!`,
+                [
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                ]
+            );
         } else {
-            this.setState({ winner: 'The specified Event or Question does not exist or nobody answered this Question correctly.' });
+            Alert.alert(
+                "Winner!",
+                'The specified Event or Question does not exist or nobody answered this Question correctly.',
+                [
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                ]
+            );
         }
     };
 
@@ -86,7 +97,6 @@ export default class FTCWorkshopAdminPage extends Component {
                                 <Text style={styles.buttonText}>Get Winner</Text>
                             </TouchableOpacity>
                         </View>
-                        <Text style={styles.resultText}>{this.state.winner}</Text>
                     </ScrollView>
                 </ImageBackground>
             </SafeAreaView>

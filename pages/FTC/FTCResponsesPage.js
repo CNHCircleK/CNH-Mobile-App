@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TextInput, View, StatusBar, ScrollView, SafeAreaView, TouchableOpacity, ImageBackground } from "react-native";
+import { StyleSheet, Text, TextInput, View, StatusBar, ScrollView, SafeAreaView, TouchableOpacity, ImageBackground, Alert } from "react-native";
 import { sendData } from '../../utils/Firebase';
 import Res from '@resources';
 
@@ -10,7 +10,6 @@ export default class FTCResponsesPage extends Component {
         event: '',
         question: '',
         anwser: '',
-        responseResult: '[response status displayed here]'
     };
 
     onChangeName = (nName) => this.setState({ name: nName });
@@ -26,7 +25,13 @@ export default class FTCResponsesPage extends Component {
     sendInput = async () => {
         let success = await sendData('ftc-responses', { name: this.state.name, school: this.state.school, event: this.state.event.toLowerCase(), question: this.state.question.toLowerCase(), answer: this.state.answer.toLowerCase(), timestamp: new Date() });
         if(success) {
-            this.setState({ answer: '', responseResult: 'Response sent successfully!' });
+            Alert.alert(
+                "Success!",
+                "Your response was sent successfully!",
+                [
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                ]
+            );
         }
     };
 
@@ -77,7 +82,6 @@ export default class FTCResponsesPage extends Component {
                                     <Text style={styles.buttonText}>Send Response</Text>
                                 </TouchableOpacity>
                             </View>
-                            <Text style={styles.resultText}>{this.state.responseResult}</Text>
                         </View>
                     </ScrollView>
                 </ImageBackground>
