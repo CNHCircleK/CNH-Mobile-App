@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: '#757D84'
+        backgroundColor: Res.FTCColors.BlueLightsBackground,
     },
     image: {
         flex: 1,
@@ -99,7 +99,9 @@ const styles = StyleSheet.create({
         height: "140%"
     },
     scrollView: {
-        padding: 16
+        padding: 20,
+        backgroundColor: Res.FTCColors.BlueLightsBackground
+
     },
     title: {
         justifyContent: 'center',
@@ -119,7 +121,9 @@ const styles = StyleSheet.create({
     messageText: {
         fontFamily: 'Arbutus-Slab',
         fontSize: 14,
-        color: '#E9C99C'
+        color: '#E9C99C',
+        marginTop: 10,
+        marginBottom: 10
     },
     textInput: {
         height: 24,
@@ -152,6 +156,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'Arbutus-Slab',
         color: '#E9C99C',
-        marginBottom: 40
+        marginBottom: 20
     }
 });

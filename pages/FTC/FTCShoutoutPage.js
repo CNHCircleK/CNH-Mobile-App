@@ -75,8 +75,9 @@ const styles = StyleSheet.create({
     },
     timeText: {
         fontSize: 12,
-        color: 'grey',
+        color: 'black',
         marginTop: 5,
+        fontFamily: "Arbutus-Slab",
         opacity: 0.6
     },
     item: {
