@@ -4,8 +4,9 @@ import RNPickerSelect from 'react-native-picker-select';
 import { scheduleNotification, cancelScheduledNotification } from '../../utils/Notifications'
 import { Ionicons } from '@expo/vector-icons';
 import Res from '@resources';
+import Toast from 'react-native-root-toast';
 
-const days = ['Friday', 'Saturday', 'Sunday', 'Your Events'];
+const days = ['Friday', 'Saturday', 'Sunday', 'My Events'];
 
 const scheduleData = [
     {
@@ -224,6 +225,19 @@ export default class FTCSchedulePage extends Component {
         });
     };
 
+    toggleSwitch = (mode) => {
+        this.setState({ scheduleMode: mode });
+        if (mode == true){
+            let toast = Toast.show('Tap an event to add it to your schedule', {
+              duration: Toast.durations.SHORT,
+              position: 50,
+              shadow: true,
+              animation: true,
+              hideOnPress: true
+            });
+        }
+    }
+
     renderItem = ({item}) => {
         return (
             <TouchableOpacity
@@ -242,7 +256,6 @@ export default class FTCSchedulePage extends Component {
     eventPress = async (item) => {
         if(this.state.scheduleMode) {
             let scheduledItemIndex = this.state.scheduledEvents.findIndex(value => value.id === item.id);
-
             if(scheduledItemIndex != -1) {
                 await cancelScheduledNotification(this.state.scheduledEvents[scheduledItemIndex].identifier);
                 this.state.scheduledEvents.splice(scheduledItemIndex, 1);
@@ -251,8 +264,7 @@ export default class FTCSchedulePage extends Component {
                 let scheduledItemIdentifier = await scheduleNotification({
                     title: `${item.title} is happening now!`,
                     body: `${item.time} on ${item.location}`
-                }, new Date('October 24, 2020 21:50:30'));
-
+                }, item.date);
                 this.setState((prevState) => ({ scheduledEvents: [...prevState.scheduledEvents, { identifier: scheduledItemIdentifier, id: item.id }] }));
             }
         } else {
@@ -278,20 +290,22 @@ export default class FTCSchedulePage extends Component {
                     <View style={styles.pickerContainer}>
                         <RNPickerSelect
                             value={this.state.curDay}
+                            style={pickerStyle}
                             onValueChange={this.updateDay}
                             items={days.map(day => ({ label: day, value: day }))}
                             placeholder={{}}
                         />
                     </View>
                     <View style={styles.switchContainer}>
-                        <Text style={styles.switchText}>Schedule Toggle</Text>
+                        <Text style={styles.switchText}> Edit "My Events"</Text>
                         <Switch
                             trackColor={{true: Res.FTCColors.SpanishPink,
                               false: 'grey'}}
                             thumbColor={this.state.scheduleMode ? "white" : "white"}
+                            ios_backgroundColor='grey'
                             style={styles.switch}
                             value={this.state.scheduleMode}
-                            onValueChange={mode => this.setState({ scheduleMode: mode })}
+                            onValueChange={this.toggleSwitch}
                         />
                     </View>
                 </View>
@@ -389,4 +403,20 @@ const styles = StyleSheet.create({
         resizeMode: "cover",
         justifyContent: "center"
     },
+});
+
+const pickerStyle = StyleSheet.create({
+  inputIOS: {
+    fontSize: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    color: '#000000',
+    paddingRight: 30,
+  },
+  iconContainer: {
+  top: 10,
+  right: 20,
+  alignItems: 'center',
+  justifyContent: 'center',
+  },
 });
