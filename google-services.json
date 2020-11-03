@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "963990693354",
+    "firebase_url": "https://cnh-mobile-app-57295.firebaseio.com",
+    "project_id": "cnh-mobile-app-57295",
+    "storage_bucket": "cnh-mobile-app-57295.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963990693354:android:06b13c35aff5d6f0ae7e93",
+        "android_client_info": {
+          "package_name": "com.cnhcki.solstice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963990693354-3ejrvji01qj2idnviddu4q84itmhe9hg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTM_H_oPMDd9XGZthSs_Kz2OjVZ23eeB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963990693354-3ejrvji01qj2idnviddu4q84itmhe9hg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "963990693354-i98b7thk61tt0n0v20f32vj5s9qfcobh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cnhcki.solstice"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

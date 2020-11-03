@@ -1,41 +1,37 @@
 {
-  "expo": {
-    "name": "Solstice",
-    "slug": "solstice",
-    "owner": "cnhtechsoftware",
-    "privacy": "public",
-    "sdkVersion": "35.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "version": "1.1.2",
-    "orientation": "portrait",
-    "icon": "./assets/solstice_icon.png",
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "bundleIdentifier": "com.cnhcki.solstice",
-      "buildNumber": "1.1.1",
-      "splash": {
-        "image": "./resources/images/splash_still.png",
-        "resizeMode": "contain",
-        "backgroundColor": "#252525"
-      }
-    },
-    "android": {
-      "versionCode": 2,
-      "package": "com.cnhcki.solstice",
-      "splash": {
-        "resizeMode": "native",
-        "backgroundColor": "#252525"
-      }
-    },
-    "description": "Keep posted on the latest district events and news with the official CNH Circle K mobile app!"
-  }
+    "expo": {
+        "name": "Solstice",
+        "description": "Keep posted on the latest district events and news with the official CNH Circle K mobile app!",
+        "slug": "solstice",
+        "owner": "cnhtechsoftware",
+        "privacy": "public",
+        "sdkVersion": "39.0.0",
+        "splash": {
+            "image": "./resources/ftc2020/images/logo.png",
+            "backgroundColor": "#4D7C8A"
+        },
+        "platforms": [
+            "ios",
+            "android",
+            "web"
+        ],
+        "version": "2.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/solstice_icon.png",
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "bundleIdentifier": "com.cnhcki.solstice",
+            "buildNumber": "2.0.0"
+        },
+            "android": {
+            "versionCode": 6,
+            "package": "com.cnhcki.solstice",
+            "useNextNotificationsApi": true
+        }
+    }
 }

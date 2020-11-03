@@ -1,12 +1,7 @@
-import { strings, schedule, scheduleDays, scheduleDetails } from './strings';
-import links from './links';
+import FTCColors from './ftc2020/colors';
 
 const Res = {
-  strings, 
-  schedule,
-  scheduleDays,
-  scheduleDetails,
-  links
+    FTCColors
 }
 
-export default Res
+export default Res;
