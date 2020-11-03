@@ -148,12 +148,12 @@ export default class App extends Component {
                 <NavigationContainer>
                     <Stack.Navigator headerMode="none">
                         <Stack.Screen name="FTC Tabs" component={FTCTabScreen} />
-                        <Stack.Screen name="Home" component={HomePage} />
+                        {/* <Stack.Screen name="Home" component={HomePage} />
                         <Stack.Screen name="About Us" component={AboutPage} />
                         <Stack.Screen name="Fundraising Initiatives" component={DFIPage} />
                         <Stack.Screen name="MRP" component={MRPPage} />
                         <Stack.Screen name="District Leadership" component={DistrictLeadershipPage} />
-                        <Stack.Screen name="Resources" component={ResourcesPage} />
+                        <Stack.Screen name="Resources" component={ResourcesPage} /> */}
                     </Stack.Navigator>
                 </NavigationContainer>
             );
