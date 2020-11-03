@@ -9,513 +9,513 @@ const CONTENT = [
     {
         title: 'Amazing Anecdotes',
         content: [
-            "Brandon Kincaid", 
-            "Michelle Chan", 
-            "Julianna Langinger", 
-            "Philipp Penalber", 
-            "Julian Perez", 
-            "Sydney Lytton", 
-            "Ngoc Nguyen", 
-            "Shania Relucio", 
-            "Ping Tram", 
-            "Sharon Hu", 
-            "Pearl Netrayana", 
-            "Joleen Chiu", 
+            "Brandon Kincaid",
+            "Michelle Chan",
+            "Julianna Langinger",
+            "Philipp Penalber",
+            "Julian Perez",
+            "Sydney Lytton",
+            "Ngoc Nguyen",
+            "Shania Relucio",
+            "Ping Tram",
+            "Sharon Hu",
+            "Pearl Netrayana",
+            "Joleen Chiu",
             "Sean Mendoza"
         ]
     },
     {
         title: 'Blurry Beauties',
         content: [
-            "Kristina Matsumoto", 
-            "Allela Ortin", 
-            "Jose Torres", 
-            "Phoebe Fagoaga", 
-            "Lizbeth Fernandez", 
-            "Sarah Groff", 
-            "Alvin Nguyen", 
-            "Hillary Ngo", 
-            "Jenny Chau", 
-            "Briana Rodriguez", 
+            "Kristina Matsumoto",
+            "Allela Ortin",
+            "Jose Torres",
+            "Phoebe Fagoaga",
+            "Lizbeth Fernandez",
+            "Sarah Groff",
+            "Alvin Nguyen",
+            "Hillary Ngo",
+            "Jenny Chau",
+            "Briana Rodriguez",
             "Edlynne Harrell-Sanchez"
         ]
     },
     {
         title: 'Collage Creators',
         content: [
-            "Aviel Geronimo", 
-            "Callie Kay", 
-            "Alex Tellez", 
-            "Melanya Tiratsuyan", 
-            "Chelsea Linares", 
-            "John Nguyen", 
-            "Vincent Tran", 
-            "Kevin Wong", 
-            "Hannah Rodriguez", 
-            "Lucas O'Neil", 
-            "Frances Eusebio", 
-            "Guy Suankaew", 
-            "Alex Liang", 
+            "Aviel Geronimo",
+            "Callie Kay",
+            "Alex Tellez",
+            "Melanya Tiratsuyan",
+            "Chelsea Linares",
+            "John Nguyen",
+            "Vincent Tran",
+            "Kevin Wong",
+            "Hannah Rodriguez",
+            "Lucas O'Neil",
+            "Frances Eusebio",
+            "Guy Suankaew",
+            "Alex Liang",
             "Anoop George"
         ]
     },
     {
         title: 'Commemorative Captures',
         content: [
-            "Audrey Halim", 
-            "Carolina Paztena", 
-            "Samantha Wang", 
-            "Ramika Govergezy Badelboo", 
-            "Zoe Adriel Amba", 
-            "Sonny Tan", 
-            "Brian Duong", 
-            "Xavier De Anda", 
-            "Maysa Barakat", 
-            "Alexis Lares", 
-            "Cesar Cornejo", 
-            "Michelle De Dios", 
-            "Justin Fong", 
+            "Audrey Halim",
+            "Carolina Paztena",
+            "Samantha Wang",
+            "Ramika Govergezy Badelboo",
+            "Zoe Adriel Amba",
+            "Sonny Tan",
+            "Brian Duong",
+            "Xavier De Anda",
+            "Maysa Barakat",
+            "Alexis Lares",
+            "Cesar Cornejo",
+            "Michelle De Dios",
+            "Justin Fong",
             "Andre Yu"
         ]
     },
     {
         title: 'Crafty Cameras',
         content: [
-            "Daniela Mena", 
-            "Jynl Faustorilla", 
-            "Harshita Rao", 
-            "Joshua Ranario", 
-            "Sophia Kim", 
-            "Mystie Ng", 
-            "Angelina Takada", 
-            "Coby Saykouman", 
-            "Jesse Eyster", 
-            "Josie V Rocha", 
-            "Nina Nguyen", 
-            "Makena Pollon", 
-            "Quynh Nguyen", 
+            "Daniela Mena",
+            "Jynl Faustorilla",
+            "Harshita Rao",
+            "Joshua Ranario",
+            "Sophia Kim",
+            "Mystie Ng",
+            "Angelina Takada",
+            "Coby Saykouman",
+            "Jesse Eyster",
+            "Josie V Rocha",
+            "Nina Nguyen",
+            "Makena Pollon",
+            "Quynh Nguyen",
             "Stanley Truong"
         ]
     },
     {
         title: 'Flashback Frenzies',
         content: [
-            "Joshua De Leon", 
-            "Chris Ke", 
-            "Riya Thomas", 
-            "Nathan Lin", 
-            "Wasay Noor", 
-            "Richie Vu", 
-            "Shelly Ye", 
-            "Sopheak Suy", 
-            "Kellie Stone", 
-            "Rebecca Quach", 
-            "Tommy Thach", 
-            "Kristin Nguyen", 
+            "Joshua De Leon",
+            "Chris Ke",
+            "Riya Thomas",
+            "Nathan Lin",
+            "Wasay Noor",
+            "Richie Vu",
+            "Shelly Ye",
+            "Sopheak Suy",
+            "Kellie Stone",
+            "Rebecca Quach",
+            "Tommy Thach",
+            "Kristin Nguyen",
             "Luis Gonzalez Herrera"
         ]
     },
     {
         title: 'Forever Filmers',
         content: [
-            "Jamie Ly", 
-            "Tiffany Chen", 
-            "Caitleen Navarro", 
-            "Logan Neumann", 
-            "Soren Kim", 
-            "Jane Lee", 
-            "Kaitlyn Nieva", 
-            "Cristian Torres", 
-            "Sarah Guo", 
-            "Hannah Macaranas", 
-            "Celeste Vides", 
+            "Jamie Ly",
+            "Tiffany Chen",
+            "Caitleen Navarro",
+            "Logan Neumann",
+            "Soren Kim",
+            "Jane Lee",
+            "Kaitlyn Nieva",
+            "Cristian Torres",
+            "Sarah Guo",
+            "Hannah Macaranas",
+            "Celeste Vides",
             "Brian Ng"
         ]
     },
     {
         title: 'Forget-Me-Nots',
         content: [
-            "Kathleen Panganiban", 
-            "Victoria Chau", 
-            "Wendy Xiu Ting Lee", 
-            "Aaron Piña", 
-            "Andrew Fukui", 
-            "Trevor McBrayer", 
-            "Juan Vilchis Palacios", 
-            "Khadija Rashidally", 
-            "Joanne Cabanlit", 
-            "Rachel Lam", 
-            "Diane Nguyen", 
-            "Sean Do", 
+            "Kathleen Panganiban",
+            "Victoria Chau",
+            "Wendy Xiu Ting Lee",
+            "Aaron Piña",
+            "Andrew Fukui",
+            "Trevor McBrayer",
+            "Juan Vilchis Palacios",
+            "Khadija Rashidally",
+            "Joanne Cabanlit",
+            "Rachel Lam",
+            "Diane Nguyen",
+            "Sean Do",
             "Evelyn Perez"
         ]
     },
     {
         title: 'Freeze Frames',
         content: [
-            "Audrey Abbott", 
-            "Pablo Servin", 
-            "Germaine Acacio", 
-            "Maira Rojas", 
-            "Karch Cabalo", 
-            "Brian Liu", 
-            "Jessica Itliong", 
-            "Joey Duong", 
-            "Robert Ponce", 
-            "Stephanie Hang", 
-            "Alexander Caceros" 
+            "Audrey Abbott",
+            "Pablo Servin",
+            "Germaine Acacio",
+            "Maira Rojas",
+            "Karch Cabalo",
+            "Brian Liu",
+            "Jessica Itliong",
+            "Joey Duong",
+            "Robert Ponce",
+            "Stephanie Hang",
+            "Alexander Caceros"
         ]
     },
     {
         title: 'Home-Movie Makers',
         content: [
-            "Derek Baylis", 
-            "Henry Nguyen", 
-            "Janelle Yang", 
-            "Vincent Lee", 
-            "Jaslynn Diep", 
-            "Anna Le", 
-            "Tiffany Nguyen", 
-            "Vivian Nguyen", 
-            "Tatiana Milanez", 
-            "Victor Cruz Ramos", 
-            "Jovany Leon", 
-            "John-John Estanislao", 
+            "Derek Baylis",
+            "Henry Nguyen",
+            "Janelle Yang",
+            "Vincent Lee",
+            "Jaslynn Diep",
+            "Anna Le",
+            "Tiffany Nguyen",
+            "Vivian Nguyen",
+            "Tatiana Milanez",
+            "Victor Cruz Ramos",
+            "Jovany Leon",
+            "John-John Estanislao",
             "Alexis Matias"
         ]
     },
     {
         title: 'Loyal Legacies',
         content: [
-            "Jonathan Guan", 
-            "Kevin Ngo", 
-            "Ashley Cabral", 
-            "Jessica Gibbons", 
-            "Hannah Romey", 
-            "James Cortes", 
-            "Brennan Cain", 
-            "Marco Diaz", 
-            "Simmy Chana", 
-            "Ajay Ascano", 
-            "Alan Vu", 
+            "Jonathan Guan",
+            "Kevin Ngo",
+            "Ashley Cabral",
+            "Jessica Gibbons",
+            "Hannah Romey",
+            "James Cortes",
+            "Brennan Cain",
+            "Marco Diaz",
+            "Simmy Chana",
+            "Ajay Ascano",
+            "Alan Vu",
             "Jonash Poyaoan"
         ]
     },
     {
         title: 'Magnificent Memoirs',
         content: [
-            "Olivia Chang", 
-            "Elijah Camtugan", 
-            "Dallas Daynard", 
-            "Darren Ngor", 
-            "Jessica Olivas", 
-            "Ivy Lee", 
-            "Ranny Naing", 
-            "Ana Palo", 
-            "Ethan Hill", 
-            "Ivana Madeline Samson", 
-            "Valerie Haines", 
-            "Yazid Makoon", 
-            "Tabitha Anctil", 
+            "Olivia Chang",
+            "Elijah Camtugan",
+            "Dallas Daynard",
+            "Darren Ngor",
+            "Jessica Olivas",
+            "Ivy Lee",
+            "Ranny Naing",
+            "Ana Palo",
+            "Ethan Hill",
+            "Ivana Madeline Samson",
+            "Valerie Haines",
+            "Yazid Makoon",
+            "Tabitha Anctil",
             "Matthew Holt"
         ]
     },
     {
         title: 'Nostalgics',
         content: [
-            "Johnny Le", 
-            "Chanelle Pineda", 
-            "Zoe Wilf", 
-            "Alexander Lat", 
-            "Elizabeth Barajas", 
-            "Brandon Tran", 
-            "Hayley Hoang", 
-            "Terra Duron", 
-            "Anjolie Betancourt", 
-            "Royce Lee", 
-            "Nathan Cortez", 
-            "Steve Lopez", 
+            "Johnny Le",
+            "Chanelle Pineda",
+            "Zoe Wilf",
+            "Alexander Lat",
+            "Elizabeth Barajas",
+            "Brandon Tran",
+            "Hayley Hoang",
+            "Terra Duron",
+            "Anjolie Betancourt",
+            "Royce Lee",
+            "Nathan Cortez",
+            "Steve Lopez",
             "Hanna Lam"
         ]
     },
     {
         title: 'Passionate Photographers',
         content: [
-            "Aerrow Cruz", 
-            "Marcel Rodriguez", 
-            "Andrea Lee", 
-            "Ashley Beltran", 
-            "Sabrina Zavala", 
-            "Janice Lee", 
-            "Roma Ghanekar", 
-            "Charlize Dizon", 
-            "Diemmy Nguyen", 
-            "Shelbi Felter", 
-            "Angela Peralta", 
+            "Aerrow Cruz",
+            "Marcel Rodriguez",
+            "Andrea Lee",
+            "Ashley Beltran",
+            "Sabrina Zavala",
+            "Janice Lee",
+            "Roma Ghanekar",
+            "Charlize Dizon",
+            "Diemmy Nguyen",
+            "Shelbi Felter",
+            "Angela Peralta",
             "Justin Luc"
         ]
     },
     {
         title: 'Past Polaroids',
         content: [
-            "Nicolas Wright", 
-            "Ana Espinosa", 
-            "Lila Masson", 
-            "Lilian Xie", 
-            "Pawnit Kaur", 
-            "Ami Suzui", 
-            "Jessica Estrada", 
-            "Chuc Nguyen", 
-            "Bidane Martinez Huerta", 
-            "Anthony Phan", 
-            "Phillip Nguyen", 
+            "Nicolas Wright",
+            "Ana Espinosa",
+            "Lila Masson",
+            "Lilian Xie",
+            "Pawnit Kaur",
+            "Ami Suzui",
+            "Jessica Estrada",
+            "Chuc Nguyen",
+            "Bidane Martinez Huerta",
+            "Anthony Phan",
+            "Phillip Nguyen",
             "Kien Truong"
         ]
     },
     {
         title: 'Peace Signers',
         content: [
-            "Joyce Wu", 
-            "Vivian Ha", 
-            "Karishma Sira", 
-            "Alexis Jones", 
-            "Alvin Lim", 
-            "Jason Nguyen", 
-            "Christine Tran", 
-            "Celina Tiqui", 
-            "Jessica Lam", 
-            "Zoe Kirkland", 
-            "Trisha Dang", 
-            "Juliana Reeves", 
-            "Stephanie Ramirez", 
+            "Joyce Wu",
+            "Vivian Ha",
+            "Karishma Sira",
+            "Alexis Jones",
+            "Alvin Lim",
+            "Jason Nguyen",
+            "Christine Tran",
+            "Celina Tiqui",
+            "Jessica Lam",
+            "Zoe Kirkland",
+            "Trisha Dang",
+            "Juliana Reeves",
+            "Stephanie Ramirez",
             "Dylan Burger"
         ]
     },
     {
         title: 'Photobombers',
         content: [
-            "Chio Saeyang", 
-            "Brandon Chavez Garcia", 
-            "Akash Singh", 
-            "Antonio Sanchez Ortiz", 
-            "Sandra Cheng", 
-            "Yousif Alfaddagh", 
-            "Kit Ma", 
-            "Anahi Gomez", 
-            "Vijya Raj", 
-            "Jonathan Ichino", 
-            "Naomi Olpindo", 
+            "Chio Saeyang",
+            "Brandon Chavez Garcia",
+            "Akash Singh",
+            "Antonio Sanchez Ortiz",
+            "Sandra Cheng",
+            "Yousif Alfaddagh",
+            "Kit Ma",
+            "Anahi Gomez",
+            "Vijya Raj",
+            "Jonathan Ichino",
+            "Naomi Olpindo",
             "Steven Ong"
         ]
     },
     {
         title: 'Rapid Blinkers',
         content: [
-            "Jenny Savin", 
-            "Kimly Lewis", 
-            "Ricky Sparrow", 
-            "Vittoria Di Palma", 
-            "Luke Barrella", 
-            "Eric Chiu", 
-            "Devon Burton", 
-            "Hema Merugumala", 
-            "Kaixin Liu", 
-            "Jenny Kim", 
-            "Kristina Sevcik", 
-            "Janette Juarez", 
+            "Jenny Savin",
+            "Kimly Lewis",
+            "Ricky Sparrow",
+            "Vittoria Di Palma",
+            "Luke Barrella",
+            "Eric Chiu",
+            "Devon Burton",
+            "Hema Merugumala",
+            "Kaixin Liu",
+            "Jenny Kim",
+            "Kristina Sevcik",
+            "Janette Juarez",
             "Kylie Tran"
         ]
     },
     {
         title: 'Recollections',
         content: [
-            "Josephine Pham", 
-            "Vanessa Lee", 
-            "Ulysses Tu", 
-            "Brian Nito", 
-            "Betssy Reyes", 
-            "Loren Padolina", 
-            "Erica Wei", 
-            "Andre Yee", 
-            "Alex Trinh", 
-            "Michael Visuthicho", 
-            "Brandon Ramirez", 
-            "Elena Thai", 
-            "Daniel Freeman", 
+            "Josephine Pham",
+            "Vanessa Lee",
+            "Ulysses Tu",
+            "Brian Nito",
+            "Betssy Reyes",
+            "Loren Padolina",
+            "Erica Wei",
+            "Andre Yee",
+            "Alex Trinh",
+            "Michael Visuthicho",
+            "Brandon Ramirez",
+            "Elena Thai",
+            "Daniel Freeman",
             "Athena Kwan"
         ]
     },
     {
         title: 'Red Eyes',
         content: [
-            "Adolfo Alan Garduno", 
-            "Luke Thomas", 
-            "Johnathon Tran", 
-            "Qingjun Hu", 
-            "Karina Hernandez", 
-            "Celine Diep", 
-            "Kathy Nguyen", 
-            "Rachel Nguyen", 
-            "Jolie Liu", 
-            "Kaitlyn Chieh", 
-            "Renz Lane", 
-            "Katie Ross", 
+            "Adolfo Alan Garduno",
+            "Luke Thomas",
+            "Johnathon Tran",
+            "Qingjun Hu",
+            "Karina Hernandez",
+            "Celine Diep",
+            "Kathy Nguyen",
+            "Rachel Nguyen",
+            "Jolie Liu",
+            "Kaitlyn Chieh",
+            "Renz Lane",
+            "Katie Ross",
             "Alana Kahawai"
         ]
     },
     {
         title: 'Scrapbookers',
         content: [
-            "Anne Le", 
-            "Lauren Acosta", 
-            "Ryan Yee", 
-            "Kaitlin Calleros", 
-            "Ben Distor", 
-            "Anne Le", 
-            "Valerie Nguyen", 
-            "Ahtziri Rodriguez", 
-            "Tommy Phang", 
-            "Victor Gonzalez", 
-            "Betty Luengas", 
-            "Stefanie Peddijanto", 
+            "Anne Le",
+            "Lauren Acosta",
+            "Ryan Yee",
+            "Kaitlin Calleros",
+            "Ben Distor",
+            "Anne Le",
+            "Valerie Nguyen",
+            "Ahtziri Rodriguez",
+            "Tommy Phang",
+            "Victor Gonzalez",
+            "Betty Luengas",
+            "Stefanie Peddijanto",
             "Kayla Lee"
         ]
     },
     {
         title: 'Selfie Stars',
         content: [
-            "Sophia Herrera", 
-            "Ralph Gamboa", 
-            "Mia Kirsten Santos", 
-            "Millennia Gamez", 
-            "Ethan Kwong", 
-            "Minh Nghiem", 
-            "Brian Tran", 
-            "Ethan Godfrey", 
-            "Alexandria Handaja", 
-            "Shirley Chan", 
-            "Ricardo Porras", 
+            "Sophia Herrera",
+            "Ralph Gamboa",
+            "Mia Kirsten Santos",
+            "Millennia Gamez",
+            "Ethan Kwong",
+            "Minh Nghiem",
+            "Brian Tran",
+            "Ethan Godfrey",
+            "Alexandria Handaja",
+            "Shirley Chan",
+            "Ricardo Porras",
             "Jeevan Bhullar"
         ]
     },
     {
         title: 'Shimmering Smiles',
         content: [
-            "Elizabeth Mazuca", 
-            "My-Thy Nguyen", 
-            "Qianyi Wang", 
-            "Sarah Dueltgen", 
-            "Allie Sondak", 
-            "Kate Darios", 
-            "Albert Dang", 
-            "Christine Nguyen", 
-            "Chloe Jacobs", 
-            "Adora Mae Bosano", 
-            "Elaine Vuong", 
-            "Ramtin Azarbad", 
+            "Elizabeth Mazuca",
+            "My-Thy Nguyen",
+            "Qianyi Wang",
+            "Sarah Dueltgen",
+            "Allie Sondak",
+            "Kate Darios",
+            "Albert Dang",
+            "Christine Nguyen",
+            "Chloe Jacobs",
+            "Adora Mae Bosano",
+            "Elaine Vuong",
+            "Ramtin Azarbad",
             "Justin Tran"
         ]
     },
     {
         title: 'Simpy Storytellers',
         content: [
-            "Jack Chen", 
-            "Brandon Capulong", 
-            "Gary Nguyen", 
-            "Juan Perez", 
-            "Samuel Lee", 
-            "Khanh Nguyen", 
-            "Chaya Pearl", 
-            "Samia Hufane", 
-            "Trisha Socito", 
-            "Austin Hoang", 
-            "Matthew Maldonado", 
-            "Tina Bui", 
+            "Jack Chen",
+            "Brandon Capulong",
+            "Gary Nguyen",
+            "Juan Perez",
+            "Samuel Lee",
+            "Khanh Nguyen",
+            "Chaya Pearl",
+            "Samia Hufane",
+            "Trisha Socito",
+            "Austin Hoang",
+            "Matthew Maldonado",
+            "Tina Bui",
             "Rebeca Laguna"
         ]
     },
     {
         title: 'Souvenir-Snaps',
         content: [
-            "Heyley Pavon", 
-            "Mbugua Munyutu", 
-            "Cassie Beckman", 
-            "Emily Zomoroudi", 
-            "Kimberlee Pham", 
-            "Alexis Bright", 
-            "Diane Zheng", 
-            "Esmeralda Cruz", 
-            "Melina Chamorro", 
-            "Kyla Anderson", 
-            "Sophia Villarreal", 
-            "Pinky Ho" 
+            "Heyley Pavon",
+            "Mbugua Munyutu",
+            "Cassie Beckman",
+            "Emily Zomoroudi",
+            "Kimberlee Pham",
+            "Alexis Bright",
+            "Diane Zheng",
+            "Esmeralda Cruz",
+            "Melina Chamorro",
+            "Kyla Anderson",
+            "Sophia Villarreal",
+            "Pinky Ho"
         ]
     },
     {
         title: 'Throwback Thursdays',
         content: [
-            "Douglas Shimizu", 
-            "Matthew Leung", 
-            "Danny Valdez", 
-            "Noah Tyler Ratley", 
-            "Jennifer Shimizu", 
-            "Amy Pham", 
-            "Victoria Yib", 
-            "Andrew Yu", 
-            "Celene Yang", 
-            "Daniel Xiang", 
-            "Rachel Ahn", 
-            "Varot Musigdilok", 
-            "Emmy Francis", 
+            "Douglas Shimizu",
+            "Matthew Leung",
+            "Danny Valdez",
+            "Noah Tyler Ratley",
+            "Jennifer Shimizu",
+            "Amy Pham",
+            "Victoria Yib",
+            "Andrew Yu",
+            "Celene Yang",
+            "Daniel Xiang",
+            "Rachel Ahn",
+            "Varot Musigdilok",
+            "Emmy Francis",
             "Ivanna Mendez"
         ]
     },
     {
         title: 'Trippi Tripods',
         content: [
-            "Vanessa Vidas", 
-            "Alyssa Chavez", 
-            "Nora Lovell", 
-            "Jennifer Hernandez", 
-            "Angelina Moonswami", 
-            "Cathy Pham", 
-            "Kristi Ryono", 
-            "Jian Ting Tan", 
-            "Austen Liao", 
-            "Steven Ong", 
-            "Justin Linder", 
+            "Vanessa Vidas",
+            "Alyssa Chavez",
+            "Nora Lovell",
+            "Jennifer Hernandez",
+            "Angelina Moonswami",
+            "Cathy Pham",
+            "Kristi Ryono",
+            "Jian Ting Tan",
+            "Austen Liao",
+            "Steven Ong",
+            "Justin Linder",
             "Randolph Pham"
         ]
     },
     {
         title: 'Unforgettables',
         content: [
-            "Alfred Aung", 
-            "Tiffany Poedyasmara", 
-            "Jasmin Rodriguez", 
-            "Isabelle Barajas", 
-            "Kylie French", 
-            "Ryan Chau", 
-            "Lenore Fabiyi", 
-            "Jonathan Ngo", 
+            "Alfred Aung",
+            "Tiffany Poedyasmara",
+            "Jasmin Rodriguez",
+            "Isabelle Barajas",
+            "Kylie French",
+            "Ryan Chau",
+            "Lenore Fabiyi",
+            "Jonathan Ngo",
             "Danielle Lee "
         ]
     },
     {
         title: 'Vintage Vixens',
         content: [
-            "Chloe O'Connor", 
-            "Jarod Mica", 
-            "Marcus Dugenia", 
-            "Daeton Dennert", 
-            "Britney Chow", 
-            "Allyza Cadiz ", 
-            "Kimhuy Ngo", 
-            "Maggie Ly ", 
-            "Benecia Kwan", 
-            "Caitlin Aladham", 
-            "Jonathan Kim", 
-            "Keeyana Martinelli", 
+            "Chloe O'Connor",
+            "Jarod Mica",
+            "Marcus Dugenia",
+            "Daeton Dennert",
+            "Britney Chow",
+            "Allyza Cadiz ",
+            "Kimhuy Ngo",
+            "Maggie Ly ",
+            "Benecia Kwan",
+            "Caitlin Aladham",
+            "Jonathan Kim",
+            "Keeyana Martinelli",
             "Braelyn Joy Travis"
         ]
     }
@@ -535,7 +535,8 @@ export default class FTCTeamPage extends Component {
     };
 
     findTeam = () => {
-        let team = CONTENT.find(element => element.content.includes(this.state.search));
+        console.log("hi");
+        let team = CONTENT.find(element => element.content.map(s => s.toLowerCase()).includes(this.state.search.toLowerCase()));
         team ? this.setState({ searchTeam: team.title }) :  this.setState({ searchTeam: 'This name is not found in any team :(' });
     };
 
@@ -556,7 +557,7 @@ export default class FTCTeamPage extends Component {
                 style={[styles.teamSection, isActive ? styles.active : styles.inactive]}
                 transition="backgroundColor"
             >
-                <Text style={styles.teamTitle}>{section.title}</Text>
+                <Text style={styles.teamTitle}> {section.title} </Text>
             </Animatable.View>
         );
     };
@@ -596,25 +597,32 @@ export default class FTCTeamPage extends Component {
 
         return (
             <SafeAreaView style={styles.container}>
-                <ScrollView contentContainerStyle={{ paddingTop: 30 }}>
+                <ScrollView keyboardShouldPersistTaps='always'
+                    contentContainerStyle={styles.scrollView}>
                     <View style={styles.titleShape}>
-                        <Image 
+                        <Image
                             style={styles.titleImage}
                             source={require('../../resources/ftc2020/images/camera.png')}
                         />
                         <Text style = {styles.titleText}>FTC Teams</Text>
                     </View>
                     <View style={styles.searchContainer}>
-                        <Text style={styles.searchText}>Find your team! Enter your name:</Text>
+                        <View style={{ justifyContent: 'center' , alignItems: 'center'}}>
+                            <Text style={styles.searchText}>Find your team! Enter your name:</Text>
+                        </View>
                         <TextInput
                             style={styles.textInput}
                             onChangeText={this.onChangeSearch}
                             value={this.state.search}
                         />
-                        <Text style={styles.searchText}>{this.state.searchTeam}</Text>
-                        <TouchableOpacity style={styles.searchButton} onPress={this.findTeam}>
-                            <Text style={styles.searchButtonText}>Search</Text>
-                        </TouchableOpacity>
+                        <View style={{ justifyContent: 'center' , alignItems: 'center'}}>
+                            <Text style={styles.searchText}>{this.state.searchTeam}</Text>
+                        </View>
+                        <View style={{ justifyContent: 'center' , alignItems: 'center', paddingTop: 10}}>
+                            <TouchableOpacity style={styles.searchButton} onPress={this.findTeam}>
+                                <Text style={styles.searchButtonText}>Search</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                     <Accordion
                         activeSections={activeSections}
@@ -636,13 +644,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: Res.FTCColors.TealBlue
+        backgroundColor: Res.FTCColors.TealBlue,
+    },
+    scrollView:{
+      paddingTop: 10,
+      padding: 10
     },
     titleText: {
         fontFamily: "Gilberto",
         fontSize: 100,
         color: Res.FTCColors.MellowApricot,
-        left: 60,
+        left: 50,
     },
     titleShape: {
         justifyContent: 'center',
@@ -659,31 +671,36 @@ const styles = StyleSheet.create({
         bottom: 5,
     },
     searchContainer: {
-        marginHorizontal: 20
+        marginHorizontal: 20,
+        paddingTop: 30,
+        paddingBottom: 30,
     },
     searchText: {
         fontFamily: 'Arbutus-Slab',
-        color: Res.FTCColors.MellowApricot
+        color: Res.FTCColors.MellowApricot,
+        fontSize: 16
     },
     searchButton: {
         backgroundColor: Res.FTCColors.TeaGreen,
         padding: 10,
         borderRadius: 10,
         marginVertical: 10,
-        width: 80
-    }, 
+        width: 80,
+    },
     searchButtonText: {
         fontFamily: 'Arbutus-Slab',
-        textAlign: 'center'
+        textAlign: 'center',
     },
     textInput: {
+        fontSize: 16,
         height: 24,
         borderBottomColor: '#E3AEA8',
         borderBottomWidth: 1,
         color: '#E9C99C',
         fontFamily: 'Arbutus-Slab',
-        marginBottom: 10
-    }, 
+        marginBottom: 20,
+        marginTop: 20
+    },
     teamSection: {
         padding: 0,
         opacity: 0.9,
