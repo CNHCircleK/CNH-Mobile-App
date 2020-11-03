@@ -35,12 +35,12 @@ export default class FTCResponsesPage extends Component {
             <SafeAreaView style={styles.container}>
                 <ImageBackground source={require('../../resources/ftc2020/images/bluelightsbackground.gif')} style={styles.image}>
                     <View style={styles.title}>
-                        <Text style={styles.titleText}>Responses</Text>
+                        <Text style={styles.titleText}> Responses </Text>
                     </View>
-                    <ScrollView 
+                    <ScrollView
                         contentContainerStyle={styles.scrollView}
                         showsVerticalScrollIndicator={false}
-                    >   
+                    >
                         <View style={styles.messageContainer}>
                             <Text style={styles.messageText}>Name:</Text>
                             <TextInput

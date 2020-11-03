@@ -136,7 +136,7 @@ export default class FTCScheduleDetailsPage extends Component {
             <SafeAreaView style={styles.container}>
                 <HeaderBackButton tintColor='#fefefe' onPress={() => this.props.navigation.goBack(null)} />
                 <View style={styles.titleContainer}>
-                    <Text style={styles.titleText}>{this.state.data.title}</Text>
+                    <Text style={styles.titleText}> {this.state.data.title} </Text>
                 </View>
                 <FlatList
                     contentContainerStyle={styles.scrollView}
