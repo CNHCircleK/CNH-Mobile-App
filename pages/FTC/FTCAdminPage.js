@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput, Platfo
 import { sendPushNotification } from '../../utils/Notifications'
 import { sendData, getData } from '../../utils/Firebase';
 import Res from '@resources';
+import { HeaderBackButton } from '@react-navigation/stack';
 
 export default class FTCAdminPage extends Component {
     state = {
@@ -19,7 +20,7 @@ export default class FTCAdminPage extends Component {
         await sendData('ftc-announcements', { title: this.state.title, body: this.state.body, timestamp: new Date() });
         let tokens = await getData('expo-tokens');
         let sendResults = await Promise.all(tokens.map(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body)));
-        
+
         if(sendResults.some(value => !value)) {
             this.setState({ notifResult: 'Some announcements not sent successfully :(' });
             console.log("Some announcements not sent successfully :(");
@@ -34,7 +35,7 @@ export default class FTCAdminPage extends Component {
         let tokens = await getData('expo-tokens');
         tokens.forEach(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body));
         let sendResults = await Promise.all(tokens.map(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body)));
-        
+
         if(sendResults.some(value => !value)) {
             this.setState({ notifResult: 'Some shoutouts not sent successfully :(' });
             console.log("Some shoutouts not sent successfully :(");
@@ -47,14 +48,15 @@ export default class FTCAdminPage extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
+                <HeaderBackButton tintColor='#fefefe' onPress={() => this.props.navigation.goBack(null)} />
                 <ImageBackground source={require('../../resources/ftc2020/images/bluelightsbackground.gif')} style={styles.image}>
                     <View style={styles.title}>
                         <Text style={styles.titleText}>Admin Station</Text>
                     </View>
-                    <ScrollView 
+                    <ScrollView
                         contentContainerStyle={styles.scrollView}
                         showsVerticalScrollIndicator={false}
-                    >   
+                    >
                         <View style={styles.messageContainer}>
                             <Text style={styles.messageText}>Title:</Text>
                             <TextInput

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, StatusBar, SafeAreaView } from 'react-native';
 import Res from '@resources';
+import { HeaderBackButton } from '@react-navigation/stack';
 
 const workshopData = [
     {
@@ -110,7 +111,7 @@ const workshopData = [
                 name: 'Executive Board 101',
                 host: 'Katherine Hoang',
                 desc: 'You\'ve got mail, Executive Board Officers! 💌\n\nJoin us for a chance to meet your fellow counterparts from all across the CNH District. Together, we will simp on the highs, lows, and everything in between. Catch you there!\n\nXOXO, District Board 💋'
-            } 
+            }
         ]
     }
 ];
@@ -133,8 +134,9 @@ export default class FTCScheduleDetailsPage extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
+                <HeaderBackButton tintColor='#fefefe' onPress={() => this.props.navigation.goBack(null)} />
                 <View style={styles.titleContainer}>
-                    <Text style={styles.titleText}>{this.state.data.title}</Text>
+                    <Text style={styles.titleText}> {this.state.data.title} </Text>
                 </View>
                 <FlatList
                     contentContainerStyle={styles.scrollView}
@@ -179,7 +181,7 @@ const styles = StyleSheet.create({
     },
     workshopHost: {
         fontFamily: 'Arbutus-Slab',
-        fontSize: 12,
+        fontSize: 18,
         opacity: 0.6,
         marginBottom: 6
     },

@@ -38,7 +38,7 @@ export default function FTCAnnouncePage(props) {
     renderItem = ({item}) => {
         return (
             <TouchableOpacity style={styles.item}>
-                <Text style={styles.announceTitle}>{item.title}</Text>
+                <Text style={styles.announceTitle}> {item.title} </Text>
                 <Text style={styles.body}>{item.body}</Text>
                 <Text style={styles.timeText}>{item.timestamp.toDate().toLocaleString()}</Text>
             </TouchableOpacity>
@@ -76,7 +76,7 @@ export default function FTCAnnouncePage(props) {
             <ImageBackground source={require('../../resources/ftc2020/images/bluelightsbackground.gif')} style={styles.image}>
                 <View style={styles.title}>
                     <TouchableOpacity onPress={ () => setModalVisible(true) }>
-                        <Image 
+                        <Image
                             style={{width: 125, height: 125}}
                             resizeMode="contain"
                             source={require('../../resources/ftc2020/images/stickynote.png')}

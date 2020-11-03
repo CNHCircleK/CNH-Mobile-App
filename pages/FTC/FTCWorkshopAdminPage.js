@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput, Platform, StatusBar, SafeAreaView, ImageBackground } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import Res from '@resources';
+import { HeaderBackButton } from '@react-navigation/stack';
 
 export default class FTCWorkshopAdminPage extends Component {
     state = {
@@ -47,14 +48,15 @@ export default class FTCWorkshopAdminPage extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
+                <HeaderBackButton tintColor='#fefefe' onPress={() => this.props.navigation.goBack(null)} />
                 <ImageBackground source={require('../../resources/ftc2020/images/bluelightsbackground.gif')} style={styles.image}>
                     <View style={styles.title}>
                         <Text style={styles.titleText}>Workshop Admin Station</Text>
                     </View>
-                    <ScrollView 
+                    <ScrollView
                         contentContainerStyle={styles.scrollView}
                         showsVerticalScrollIndicator={false}
-                    >   
+                    >
                         <View style={styles.messageContainer}>
                             <Text style={styles.messageText}>Event:</Text>
                             <TextInput
