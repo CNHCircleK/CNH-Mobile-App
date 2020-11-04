@@ -1,183 +1,162 @@
-import React, { Component, PureComponent } from 'react';
-import { AppLoading, SplashScreen } from 'expo';
+import React, { Component } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import HomePage from "./pages/HomePage";
+// import DistrictLeadershipPage from "./pages/DistrictLeadershipPage";
+// import AboutPage from "./pages/AboutPage";
+// import DFIPage from "./pages/DFIPage";
+// import MRPPage from "./pages/MRPPage";
+// import ResourcesPage from "./pages/ResourcesPage";
+import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
+import FTCScheduleDetailsPage from "./pages/FTC/FTCScheduleDetailsPage";
+import FTCTeamActivitiesPage from "./pages/FTC/FTCTeamActivitiesPage";
+import FTCAdminPage from "./pages/FTC/FTCAdminPage";
+import FTCWorkshopAdminPage from "./pages/FTC/FTCWorkshopAdminPage";
+import FTCAnnouncementPage from "./pages/FTC/FTCAnnouncePage";
+import FTCShoutoutPage from "./pages/FTC/FTCShoutoutPage";
+import FTCResponsesPage from "./pages/FTC/FTCResponsesPage";
+import FTCTeamPage from "./pages/FTC/FTCTeamPage";
+import { setupNotifications } from "./utils/Notifications";
+import { setupFirebase } from "./utils/Firebase";
+import { Ionicons } from '@expo/vector-icons';
+import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
-import { View, StyleSheet, StatusBar, Image, Dimensions } from 'react-native';
-import { ComingSoonPage, HomePage, InfoPage, MapPage, OnboardingPage, SchedulePage,
-OfficeHoursPage,
-CampfireSkitsPage, DjPage, MediaPage, SAAPage, TeamCaptainPage, WorkshopsPage, TechPage,
-FAQRegistrationPage, FAQTimePage, FAQActivitiesPage, FAQFinancePage, FAQSAAPage, FAQNavigationPage, FAQMiscPage, ContactsPage,
-ScheduleDetailPage } from './pages';
+import Res from '@resources';
 
-import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
-import Icon from 'react-native-vector-icons/Ionicons';
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+const AdminStack = createStackNavigator();
+const ScheduleStack = createStackNavigator();
 
-const TabNavigatorPages = createBottomTabNavigator({
-    Home: { screen: HomePage,
-      navigationOptions: {
-        tabBarLabel: 'Home',
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name='md-home' size={20} color={tintColor} />
-        )
-      } },
-    Schedule: { screen: SchedulePage,
-      navigationOptions: {
-        tabBarLabel: 'Schedule',
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name='md-list-box' size={20} color={tintColor} />
-        )
-      } },
-    // Map: { screen: ComingSoonPage,
-    // Schedule: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Map',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-map' size={20} color={tintColor} />
-    //     )
-    //   } },
-
-    // Schedule: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Schedule',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-list-box' size={20} color={tintColor} />
-    //     )
-    //   } },
-
-    Map: { screen: MapPage,
-    navigationOptions: {
-    tabBarLabel: 'Map',
-    tabBarIcon: ({ tintColor }) => (
-    <Icon name='md-map' size={20} color={tintColor} />
-    )
-    } }
-    // Info: { screen: ComingSoonPage,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Info',
-    //     tabBarIcon: ({ tintColor }) => (
-    //       <Icon name='md-information-circle' size={20} color={tintColor} />
-    //     )
-    //   } }
-}, {
-  tabBarOptions: {
-    activeTintColor: '#ffffff',
-    inactiveTintColor: '#9b9c98',
-    style: {
-      backgroundColor: '#055c75'
-    },
-    labelStyle: {
-      marginBottom: 6,
-      fontFamily: 'Musket-Regular'
-    },
-    iconStyle: {
-      marginTop: 6
-    }
-  }
-})
-
-const StackNavigator = createStackNavigator({
-    Onboarding: { screen: OnboardingPage },
-    TabNavigator: { screen: TabNavigatorPages },
-    OfficeHours: { screen: OfficeHoursPage },
-    Workshops: { screen: WorkshopsPage },
-    TeamCaptain: { screen: TeamCaptainPage },
-    Dj: { screen: DjPage },
-    CampfireSkits: { screen: CampfireSkitsPage },
-    Saa: { screen: SAAPage },
-    Media: { screen: MediaPage },
-    Tech: { screen: TechPage },
-    FAQRegistration: { screen: FAQRegistrationPage },
-    FAQTime: { screen: FAQTimePage },
-    FAQActivities: { screen: FAQActivitiesPage },
-    FAQFinance: { screen: FAQFinancePage },
-    FAQSAA: { screen: FAQSAAPage },
-    FAQNavigation: { screen: FAQNavigationPage },
-    FAQMisc: { screen: FAQMiscPage },
-    Contacts: { screen: ContactsPage },
-    ScheduleDetail: { screen: ScheduleDetailPage }
-}, {
-    headerMode: 'none',
-    initialRouteName: "TabNavigator"
-})
-
-const AppContainer = createAppContainer(StackNavigator);
-
-async function cacheResources(resources) {
-  return resources.map(res => {
-    return typeof res === 'string' ? Image.prefetch(res) :
-    Asset.fromModule(res).downloadAsync();
-  });
+function AdminStackScreen() {
+    return (
+        <AdminStack.Navigator headerMode="none">
+            <AdminStack.Screen name="Announcements" component={FTCAnnouncementPage} />
+            <AdminStack.Screen name="Admin" component={FTCAdminPage} />
+            <AdminStack.Screen name="WorkshopAdmin" component={FTCWorkshopAdminPage} />
+        </AdminStack.Navigator>
+    );
 }
+
+function ScheduleStackScreen() {
+    return (
+        <ScheduleStack.Navigator headerMode='none'>
+            <ScheduleStack.Screen name='Schedule' component={FTCSchedulePage} />
+            <ScheduleStack.Screen name='Schedule Details' component={FTCScheduleDetailsPage} />
+            <ScheduleStack.Screen name='Team Activities' component={FTCTeamActivitiesPage} />
+        </ScheduleStack.Navigator>
+    );
+}
+
+function FTCTabScreen() {
+    return(
+        <Tab.Navigator
+            screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                    let iconName;
+                    if (route.name === 'Schedule') {
+                        iconName = 'md-list-box';
+                    } else if (route.name === 'Announcements') {
+                        iconName = 'md-notifications';
+                    } else if (route.name === 'Shoutouts') {
+                        iconName = 'md-megaphone';
+                    } else if (route.name === 'Teams') {
+                        iconName = 'md-people';
+                    } else if(route.name === "Responses"){
+                        iconName = 'md-paper-plane';
+                    }
+                    return <Ionicons name={iconName} size={size} color={color} />;
+                }
+            })}
+            tabBarOptions={{
+                activeTintColor: 'white',
+                inactiveTintColor: 'gray',
+                style: {
+                    backgroundColor: Res.FTCColors.Catawba
+                },
+                labelStyle: {
+                    marginBottom: 4,
+                    fontFamily: 'Arbutus-Slab'
+                },
+                iconStyle: {
+                    marginTop: 4
+                }
+            }}
+            backBehavior={'none'}
+        >
+            <Tab.Screen name="Announcements" component={AdminStackScreen} />
+            <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
+            <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
+            <Tab.Screen name="Teams" component={FTCTeamPage} />
+            <Tab.Screen name="Responses" component={FTCResponsesPage} />
+        </Tab.Navigator>
+    );
+}
+
+
 
 export default class App extends Component {
-  state = {};
-
-  preloadSplash = async () => {
-    await cacheResources([require('./resources/images/splash.gif')]);
-  }
-  preloadRes = async () => {
-    SplashScreen.hide();
-    const fontRes = Font.loadAsync({
-      'Cabin-Bold': require('./resources/fonts/Cabin-Bold.ttf'),
-      'Cabin-BoldItalic': require('./resources/fonts/Cabin-BoldItalic.ttf'),
-      'Cabin-Medium': require('./resources/fonts/Cabin-Medium.ttf'),
-      'Cabin-MediumItalic': require('./resources/fonts/Cabin-MediumItalic.ttf'),
-      'Cabin-Regular': require('./resources/fonts/Cabin-Regular.ttf'),
-      'Cabin-RegularItalic': require('./resources/fonts/Cabin-RegularItalic.ttf'),
-      'Cabin-SemiBold': require('./resources/fonts/Cabin-SemiBold.ttf'),
-      'Cabin-SemiBoldItalic': require('./resources/fonts/Cabin-SemiBoldItalic.ttf'),
-      'Musket-Bold': require('./resources/fonts/Musket-bold.ttf'),
-      'Musket-Regular': require('./resources/fonts/Musket-regular.ttf'),
-
-    });
-    // TODO: images and colors need to be abstracted and stored in their own res
-    // files, much like strings
-    const imageRes =  cacheResources([
-      require('./resources/images/HomePage/hint_papers.png'),
-      require('./resources/images/HomePage/detective.png'),
-      require('./resources/images/HomePage/ftc_logo.png'),
-      require('./resources/videos/Homepage-Call-to-FTC.mp4'),
-      require('./resources/images/ComingSoonPage/sign.png'),
-      require("./resources/images/LeadershipOpportunities/teamcaptains.png"),
-      require("./resources/images/LeadershipOpportunities/dj.png"),
-      require("./resources/images/LeadershipOpportunities/talent.png"),
-      require("./resources/images/LeadershipOpportunities/saa.png"),
-      require("./resources/images/LeadershipOpportunities/media.png"),
-      require("./resources/images/LeadershipOpportunities/tech.png"),
-      require("./resources/images/LeadershipOpportunities/workshops.png")
-    ]);
-    await Promise.all([fontRes, imageRes]);
-    this.setState({resLoaded: true});
-  }
-
-  render() {
-    if (!this.state.splashLoaded) {
-          return <AppLoading
-          startAsync={this.preloadSplash}
-          onFinish={() => this.setState({ splashLoaded: true })}/>;
-      }
-    if (!this.state.resLoaded) {
-      const {width, height} = Dimensions.get("window");
-      return (
-        <View style={{flex: 1, backgroundColor: "#252525", justifyContent: "center", alignItems: "center"}}>
-          <Image style={{maxWidth: width, maxHeight: height}}
-          source={require('./resources/images/splash.gif')}
-          resizeMode="contain"
-          onLoad={this.preloadRes}/>
-        </View>
-      );
+    constructor(props) {
+        super(props);
+        setupFirebase();
+        setupNotifications();
+        this.state = {}
     }
-  return (
-    <View style={styles.container}>
-      <StatusBar hidden />
-      <AppContainer />
-    </View>
-  );
-  }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});
+    async loadFontsAsync() {
+        let customFonts = {
+            'Arbutus-Slab': require('./resources/ftc2020/fonts/arbutus-slab.ttf'),
+            'French-Press': require('./resources/ftc2020/fonts/frenchpress.otf'),
+            'Gilberto': require('./resources/ftc2020/fonts/gilberto.ttf')
+        };
+        const fontRes = await Font.loadAsync(customFonts);
+    }
+
+    async loadResourcesAsync() {
+        let resources = [
+            require('./resources/ftc2020/images/pin.png'),
+            require('./resources/ftc2020/images/logo.png'),
+            require('./resources/ftc2020/images/clipboard.png'),
+            require('./resources/ftc2020/images/redlightsbackground.gif'),
+            require('./resources/ftc2020/images/sign.png'),
+            require('./resources/ftc2020/images/stickynote.png'),
+            require('./resources/ftc2020/images/string1.png'),
+            require('./resources/ftc2020/images/string2.png'),
+            require('./resources/ftc2020/images/string3.png'),
+            require('./resources/ftc2020/images/bluelightsbackground.gif'),
+        ];
+        const loadedResources = resources.map(res => {
+            return typeof res === 'string' ? Image.prefetch(res) :
+            Asset.fromModule(res).downloadAsync();
+        });
+        return Promise.all(loadedResources);
+    }
+
+    async componentDidMount() {
+        await this.loadFontsAsync();
+        await this.loadResourcesAsync();
+        this.setState({ loaded: true });
+    }
+
+    render() {
+        if (!this.state.loaded){
+            return <AppLoading />;
+        } else {
+            return (
+                <NavigationContainer>
+                    <Stack.Navigator headerMode="none">
+                        <Stack.Screen name="FTC Tabs" component={FTCTabScreen} />
+                        {/* <Stack.Screen name="Home" component={HomePage} />
+                        <Stack.Screen name="About Us" component={AboutPage} />
+                        <Stack.Screen name="Fundraising Initiatives" component={DFIPage} />
+                        <Stack.Screen name="MRP" component={MRPPage} />
+                        <Stack.Screen name="District Leadership" component={DistrictLeadershipPage} />
+                        <Stack.Screen name="Resources" component={ResourcesPage} /> */}
+                    </Stack.Navigator>
+                </NavigationContainer>
+            );
+        }
+    }
+}
