@@ -26,7 +26,7 @@ export default function FTCShoutoutPage() {
     renderItem = ({item}) => {
         return (
             <TouchableOpacity style={styles.item}>
-                <Text style={styles.shoutoutTitle}>{item.title}</Text>
+                <Text style={styles.shoutoutTitle}> {item.title} </Text>
                 <Text style={styles.body}>{item.body}</Text>
                 <Text style={styles.timeText}>{item.timestamp.toDate().toLocaleString()}</Text>
             </TouchableOpacity>

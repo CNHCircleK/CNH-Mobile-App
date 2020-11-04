@@ -655,7 +655,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: Res.FTCColors.TealBlue,
+        backgroundColor: Res.FTCColors.BlueLightsBackground
     },
     scrollView:{
       paddingTop: 10,
@@ -671,7 +671,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 35,
-        backgroundColor: Res.FTCColors.TealBlue,
+        backgroundColor: Res.FTCColors.BlueLightsBackground
     },
     titleImage: {
         height: 150,
@@ -688,7 +688,7 @@ const styles = StyleSheet.create({
     },
     searchText: {
         fontFamily: 'Arbutus-Slab',
-        color: Res.FTCColors.MellowApricot,
+        color: Res.FTCColors.ScheduleText,
         fontSize: 16
     },
     searchButton: {
@@ -729,7 +729,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     active: {
-        backgroundColor: Res.FTCColors.TealBlue,
+        backgroundColor: Res.FTCColors.BlueLightsBackground,
     },
     inactive: {
         backgroundColor: Res.FTCColors.SpanishPink,
