@@ -7,6 +7,7 @@ fi
 
 url=$1
 branch=$2
+commit=$3
 
 if [ $branch = "dev" ]; then
   content="A new DEVELOPMENT build has been published."
