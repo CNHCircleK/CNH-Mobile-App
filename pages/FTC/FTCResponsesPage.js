@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TextInput, View, StatusBar, ScrollView, SafeAreaView, TouchableOpacity, ImageBackground, Alert } from "react-native";
+import { Image, StyleSheet, Text, TextInput, View, StatusBar, ScrollView, SafeAreaView, TouchableOpacity, ImageBackground, Alert } from "react-native";
 import { sendData } from '../../utils/Firebase';
 import Res from '@resources';
 
@@ -40,6 +40,9 @@ export default class FTCResponsesPage extends Component {
             <SafeAreaView style={styles.container}>
                 <ImageBackground source={require('../../resources/ftc2020/images/bluelightsbackground.gif')} style={styles.image}>
                     <View style={styles.title}>
+                        <Image style={{width: 125, height: 125}}
+                        resizeMode="contain"
+                        source={require('../../resources/ftc2020/images/envelope.png')}/>
                         <Text style={styles.titleText}> Responses </Text>
                     </View>
                     <ScrollView
@@ -103,20 +106,23 @@ const styles = StyleSheet.create({
         height: "140%"
     },
     scrollView: {
-        padding: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
         backgroundColor: Res.FTCColors.BlueLightsBackground
 
     },
     title: {
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20
+        paddingTop: 20,
+
     },
     titleText: {
         fontFamily: 'Gilberto',
         fontSize: 100,
-        color: '#E9C99C',
-        backgroundColor: Res.FTCColors.BlueLightsBackground
+        color: Res.FTCColors.MellowApricot,
+        backgroundColor: Res.FTCColors.BlueLightsBackground,
+        marginTop: -20
     },
     messageContainer: {
         marginBottom: 5,
@@ -141,7 +147,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 10,
-        marginBottom: 10,
     },
     button: {
         justifyContent: 'center',
@@ -155,11 +160,5 @@ const styles = StyleSheet.create({
         fontFamily: 'French-Press',
         fontSize: 20,
         color: '#704346'
-    },
-    resultText: {
-        textAlign: 'center',
-        fontFamily: 'Arbutus-Slab',
-        color: '#E9C99C',
-        marginBottom: 20
     }
 });
