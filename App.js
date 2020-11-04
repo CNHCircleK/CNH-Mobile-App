@@ -12,6 +12,7 @@ import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
 import FTCScheduleDetailsPage from "./pages/FTC/FTCScheduleDetailsPage";
 import FTCTeamActivitiesPage from "./pages/FTC/FTCTeamActivitiesPage";
 import FTCAdminPage from "./pages/FTC/FTCAdminPage";
+import FTCProgramPage from "./pages/FTC/FTCProgramPage";
 import FTCWorkshopAdminPage from "./pages/FTC/FTCWorkshopAdminPage";
 import FTCAnnouncementPage from "./pages/FTC/FTCAnnouncePage";
 import FTCShoutoutPage from "./pages/FTC/FTCShoutoutPage";
@@ -88,6 +89,7 @@ function FTCTabScreen() {
         >
             <Tab.Screen name="Announcements" component={AdminStackScreen} />
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
+            <Tab.Screen name="Program" component={FTCProgramPage} />
             <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
             <Tab.Screen name="Teams" component={FTCTeamPage} />
             <Tab.Screen name="Responses" component={FTCResponsesPage} />
