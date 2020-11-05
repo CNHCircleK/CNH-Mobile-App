@@ -67,6 +67,8 @@ function FTCTabScreen() {
                         iconName = 'md-people';
                     } else if(route.name === "Responses"){
                         iconName = 'md-paper-plane';
+                    } else if(route.name === "Program"){
+                        iconName = 'md-map';
                     }
                     return <Ionicons name={iconName} size={size} color={color} />;
                 }
