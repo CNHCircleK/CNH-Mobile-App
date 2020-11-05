@@ -78,7 +78,7 @@ const scheduleData = [
     },
     {
         title: 'DJ Intermission',
-        time: '9:40PM - 9:50PM',
+        time: '9:45PM - 9:55PM',
         location: 'Youtube Live',
         day: 'Friday',
         date: new Date('November 6, 2020 21:40:00'),
@@ -86,7 +86,7 @@ const scheduleData = [
     },
     {
         title: 'Workshop Session III',
-        time: '9:50PM - 10:35PM',
+        time: '9:55PM - 10:40PM',
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 21:50:00'),
@@ -154,7 +154,7 @@ const scheduleData = [
     },
     {
         title: 'General Session II',
-        time: '4:45PM - 5:45PM',
+        time: '5:00PM - 6:00PM',
         location: 'Youtube Live',
         day: 'Saturday',
         date: new Date('November 7, 2020 17:15:00'),
@@ -162,7 +162,7 @@ const scheduleData = [
     },
     {
         title: 'Campfire Skits & Talent Acts',
-        time: '5:45PM - 6:30PM',
+        time: '6:10PM - 6:55PM',
         location: 'Youtube Live',
         day: 'Saturday',
         date: new Date('November 7, 2020 19:15:00'),
@@ -170,7 +170,7 @@ const scheduleData = [
     },
     {
         title: 'Divisional Bonding',
-        time: '6:30PM - 7:30PM',
+        time: '6:55PM - 7:55PM',
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 20:30:00'),
@@ -178,7 +178,7 @@ const scheduleData = [
     },
     {
         title: 'Night Activities',
-        time: '7:30PM - 10:00PM',
+        time: '8:00PM - 10:30PM',
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 21:30:00'),

@@ -434,7 +434,7 @@ const CONTENT = [
         ]
     },
     {
-        title: 'Souvenir-Snaps',
+        title: 'Souvenir-Snapshots',
         content: [
             "Heyley Pavon",
             "Mbugua Munyutu",
@@ -470,7 +470,7 @@ const CONTENT = [
         ]
     },
     {
-        title: 'Trippi Tripods',
+        title: 'Trippy Tripods',
         content: [
             "Vanessa Vidas",
             "Alyssa Chavez",
