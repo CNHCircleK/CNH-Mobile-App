@@ -30,4 +30,4 @@ shell.exec(`git commit --message "[Auto-generated] Release version: ${appData.ex
 shell.exec("git remote rm origin");
 shell.exec(`git remote add origin https://cnhtech-software:${args}@github.com/CNHCircleK/CNH-Mobile-App.git > /dev/null 2>&1`);
 shell.exec(`git tag v${appData.expo.version}`);
-shell.exec("git push origin master --follow-tags");
+shell.exec("git push origin master --follow-tags --tags");
