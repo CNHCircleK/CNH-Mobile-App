@@ -11,23 +11,23 @@ const days = ['Friday', 'Saturday', 'Sunday', 'My Events'];
 const scheduleData = [
     {
         title: 'MD&E Social: Countdown to FTC',
-        time: '2:30PM - 3:30PM',
+        time: '2:30PM - 3:30PM PST | 12:30PM - 1:30PM HST',
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 14:30:00'),
         id: 1
     },
     {
-        title: 'Opening Session I',
-        time: '3:30PM - 4:30PM',
-        location: 'Youtube Live',
+        title: 'Opening Session',
+        time: '3:30PM - 4:30PM PST | 1:30PM - 2:30PM HST',
+        location: 'Youtube',
         day: 'Friday',
         date: new Date('November 6, 2020 15:30:00'),
         id: 2
     },
     {
         title: 'Memory Making Session I',
-        time: '4:35PM - 5:25PM',
+        time: '4:35PM - 5:25PM PST | 2:35PM - 3:25PM HST',
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 16:35:00'),
@@ -36,7 +36,7 @@ const scheduleData = [
     },
     {
         title: 'Service Project',
-        time: '5:30PM - 7:00PM',
+        time: '5:30PM - 7:00PM PST | 3:30PM - 5:00PM HST',
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 17:30:00'),
@@ -44,7 +44,7 @@ const scheduleData = [
     },
     {
         title: 'Intermission',
-        time: '7:00PM - 8:00PM',
+        time: '7:00PM - 8:00PM PST | 5:00PM - 6:00PM HST',
         location: '',
         day: 'Friday',
         date: new Date('November 6, 2020 19:00:00'),
@@ -52,7 +52,7 @@ const scheduleData = [
     },
     {
         title: 'Workshop Session I',
-        time: '8:00PM - 8:45PM',
+        time: '8:00PM - 8:45PM PST | 6:00PM - 6:45PM HST',
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 20:00:00'),
@@ -61,15 +61,15 @@ const scheduleData = [
     },
     {
         title: 'DJ Introduction',
-        time: '8:45PM - 8:55PM',
-        location: 'Youtube Live',
+        time: '8:45PM - 8:55PM PST | 6:45PM - 6:55PM HST',
+        location: 'Youtube',
         day: 'Friday',
         date: new Date('November 6, 2020 20:45:00'),
         id: 7
     },
     {
         title: 'Workshop Session II',
-        time: '8:55PM - 9:40PM',
+        time: '8:55PM - 9:40PM PST | 6:55PM - 7:40PM HST',
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 20:55:00'),
@@ -78,15 +78,15 @@ const scheduleData = [
     },
     {
         title: 'DJ Intermission',
-        time: '9:45PM - 9:55PM',
-        location: 'Youtube Live',
+        time: '9:40PM - 9:50PM PST | 7:40PM - 7:50PM HST',
+        location: 'Youtube',
         day: 'Friday',
         date: new Date('November 6, 2020 21:40:00'),
         id: 9
     },
     {
         title: 'Workshop Session III',
-        time: '9:55PM - 10:40PM',
+        time: '9:50PM - 10:35PM PST | 7:50PM - 8:35PM HST',
         location: 'Zoom',
         day: 'Friday',
         date: new Date('November 6, 2020 21:50:00'),
@@ -94,16 +94,16 @@ const scheduleData = [
         id: 10
     },
     {
-        title: 'General Session II',
-        time: '12:30PM - 1:00PM',
-        location: 'Youtube Live',
+        title: 'General Session I',
+        time: '12:30PM - 1:00PM PST | 10:30AM - 11:00AM HST',
+        location: 'Youtube',
         day: 'Saturday',
         date: new Date('November 7, 2020 12:00:00'),
         id: 11
     },
     {
         title: 'Memory Making Session II',
-        time: '1:05PM - 1:55PM',
+        time: '1:05PM - 1:55PM PST | 11:05AM - 11:55PM HST',
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 13:05:00'),
@@ -112,15 +112,15 @@ const scheduleData = [
     },
     {
         title: 'DJ Intermission',
-        time: '1:55PM - 2:05PM',
-        location: 'Youtube Live',
+        time: '1:55PM - 2:05PM PST | 11:55AM - 12:05PM HST',
+        location: 'Youtube',
         day: 'Saturday',
         date: new Date('November 7, 2020 13:55:00'),
         id: 13
     },
     {
         title: 'Workshop Session I',
-        time: '2:05PM - 2:50PM',
+        time: '2:05PM - 2:50PM PST | 12:05PM - 12:50PM HST',
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 14:05:00'),
@@ -129,15 +129,15 @@ const scheduleData = [
     },
     {
         title: 'DJ Intermission',
-        time: '2:50PM - 3:00PM',
-        location: 'Youtube Live',
+        time: '2:50PM - 3:00PM PST | 12:50PM - 1:00PM HST',
+        location: 'Youtube',
         day: 'Saturday',
         date: new Date('November 7, 2020 14:50:00'),
         id: 15
     },
     {
         title: 'Workshop Session II',
-        time: '3:00PM - 3:45PM',
+        time: '3:00PM - 3:45PM PST | 1:00PM - 1:45PM HST',
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 15:00:00'),
@@ -146,31 +146,31 @@ const scheduleData = [
     },
     {
         title: 'Intermission (DJ Intermission)',
-        time: '3:45PM - 4:45PM',
-        location: 'Youtube Live',
+        time: '3:45PM - 4:45PM PST | 1:45PM - 2:45PM HST',
+        location: 'Youtube',
         day: 'Saturday',
         date: new Date('November 7, 2020 15:45:00'),
         id: 17
     },
     {
-        title: 'General Session III',
-        time: '5:00PM - 6:00PM',
-        location: 'Youtube Live',
+        title: 'General Session II',
+        time: '4:45PM - 5:45PM PST | 2:45PM - 3:45PM HST',
+        location: 'Youtube',
         day: 'Saturday',
         date: new Date('November 7, 2020 17:15:00'),
         id: 19
     },
     {
         title: 'Campfire Skits & Talent Acts',
-        time: '6:10PM - 6:55PM',
-        location: 'Youtube Live',
+        time: '5:45PM - 6:30PM PST | 3:45PM - 4:30PM HST',
+        location: 'Youtube',
         day: 'Saturday',
         date: new Date('November 7, 2020 19:15:00'),
         id: 20
     },
     {
         title: 'Divisional Bonding',
-        time: '6:55PM - 7:55PM',
+        time: '6:30PM - 7:30PM PST | 4:30PM - 5:30PM HST',
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 20:30:00'),
@@ -178,16 +178,16 @@ const scheduleData = [
     },
     {
         title: 'Night Activities',
-        time: '8:00PM - 10:30PM',
+        time: '7:30PM - 10:00PM PST | 5:30PM - 8:00PM HST',
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 21:30:00'),
         id: 22
     },
     {
-        title: 'Closing Session IV ',
-        time: '2:00PM',
-        location: 'Youtube Live',
+        title: 'Closing Session ',
+        time: '2:00PM PST | 12:00PM HST',
+        location: 'Youtube',
         day: 'Sunday',
         date: new Date('November 8, 2020 12:00:00'),
         id: 23
@@ -230,7 +230,7 @@ export default class FTCSchedulePage extends Component {
             >
                 <View>
                     <Text style={styles.eventTitle}>{item.title}</Text>
-                    <Text style={styles.eventTimeLocation}>{item.day.substring(0, 3) + " \u00B7 " + item.time + " \u00B7 " + item.location}</Text>
+                    <Text style={styles.eventTimeLocation}>{item.day.substring(0, 3) + " \u00B7 " + item.time + "\n" + item.location}</Text>
                 </View>
                 {(item.hasOwnProperty('workshop') || item.hasOwnProperty('memory')) && <Ionicons name={'ios-arrow-forward'} size={24} color={Res.FTCColors.MellowApricot} />}
             </TouchableOpacity>
