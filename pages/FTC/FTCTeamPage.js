@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StatusBar, ScrollView, StyleSheet, Text, View, TouchableOpacity, FlatList, Image, SafeAreaView, TextInput, Alert } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import Accordion from 'react-native-collapsible/Accordion';
+import { HeaderBackButton } from '@react-navigation/stack';
 import Res from '@resources';
 
 const CONTENT = [
@@ -611,15 +612,16 @@ export default class FTCTeamPage extends Component {
 
         return (
             <SafeAreaView style={styles.container}>
-                <ScrollView keyboardShouldPersistTaps='always'
-                    contentContainerStyle={styles.scrollView}>
-                    <View style={styles.titleShape}>
+                <HeaderBackButton tintColor= 'white' onPress={() => this.props.navigation.goBack(null)} />
+                <View style={styles.titleShape}>
                         <Image
                             style={styles.titleImage}
                             source={require('../../resources/ftc2020/images/camera.png')}
                         />
                         <Text style = {styles.titleText}>FTC Teams</Text>
                     </View>
+                <ScrollView keyboardShouldPersistTaps='always'
+                    contentContainerStyle={styles.scrollView}>
                     <View style={styles.searchContainer}>
                         <View style={{ justifyContent: 'center' , alignItems: 'center'}}>
                             <Text style={styles.searchText}>Find your team! Enter your name:</Text>
