@@ -18,7 +18,7 @@ const scheduleData = [
         id: 1
     },
     {
-        title: 'Opening Session',
+        title: 'Opening Session I',
         time: '3:30PM - 4:30PM',
         location: 'Youtube Live',
         day: 'Friday',
@@ -94,7 +94,7 @@ const scheduleData = [
         id: 10
     },
     {
-        title: 'General Session I',
+        title: 'General Session II',
         time: '12:30PM - 1:00PM',
         location: 'Youtube Live',
         day: 'Saturday',
@@ -153,7 +153,7 @@ const scheduleData = [
         id: 17
     },
     {
-        title: 'General Session II',
+        title: 'General Session III',
         time: '5:00PM - 6:00PM',
         location: 'Youtube Live',
         day: 'Saturday',
@@ -185,7 +185,7 @@ const scheduleData = [
         id: 22
     },
     {
-        title: 'Closing Session ',
+        title: 'Closing Session IV ',
         time: '2:00PM',
         location: 'Youtube Live',
         day: 'Sunday',
