@@ -75,5 +75,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignContent: 'center',
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+        backgroundColor: Res.FTCColors.BlueLightsBackground
     },
   });
