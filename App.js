@@ -12,11 +12,13 @@ import FTCSchedulePage from "./pages/FTC/FTCSchedulePage";
 import FTCScheduleDetailsPage from "./pages/FTC/FTCScheduleDetailsPage";
 import FTCTeamActivitiesPage from "./pages/FTC/FTCTeamActivitiesPage";
 import FTCAdminPage from "./pages/FTC/FTCAdminPage";
+import FTCProgramPage from "./pages/FTC/FTCProgramPage";
 import FTCWorkshopAdminPage from "./pages/FTC/FTCWorkshopAdminPage";
 import FTCAnnouncementPage from "./pages/FTC/FTCAnnouncePage";
 import FTCShoutoutPage from "./pages/FTC/FTCShoutoutPage";
 import FTCResponsesPage from "./pages/FTC/FTCResponsesPage";
 import FTCTeamPage from "./pages/FTC/FTCTeamPage";
+import FTCResourcesPage from "./pages/FTC/FTCResourcesPage";
 import { setupNotifications } from "./utils/Notifications";
 import { setupFirebase } from "./utils/Firebase";
 import { Ionicons } from '@expo/vector-icons';
@@ -25,10 +27,12 @@ import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import Res from '@resources';
 
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const AdminStack = createStackNavigator();
 const ScheduleStack = createStackNavigator();
+const ResourcesStack = createStackNavigator();
 
 function AdminStackScreen() {
     return (
@@ -50,6 +54,16 @@ function ScheduleStackScreen() {
     );
 }
 
+function ResourcesStackScreen() {
+    return (
+        <ResourcesStack.Navigator headerMode='none'>
+            <ResourcesStack.Screen name='Resources' component={FTCResourcesPage} />
+            <ResourcesStack.Screen name='Teams' component={FTCTeamPage} />
+            <ResourcesStack.Screen name='Program' component={FTCProgramPage} />
+        </ResourcesStack.Navigator>
+    );
+}
+
 function FTCTabScreen() {
     return(
         <Tab.Navigator
@@ -62,8 +76,8 @@ function FTCTabScreen() {
                         iconName = 'md-notifications';
                     } else if (route.name === 'Shoutouts') {
                         iconName = 'md-megaphone';
-                    } else if (route.name === 'Teams') {
-                        iconName = 'md-people';
+                    } else if (route.name === 'Resources') {
+                        iconName = 'md-information-circle';
                     } else if(route.name === "Responses"){
                         iconName = 'md-paper-plane';
                     }
@@ -89,7 +103,7 @@ function FTCTabScreen() {
             <Tab.Screen name="Announcements" component={AdminStackScreen} />
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
             <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
-            <Tab.Screen name="Teams" component={FTCTeamPage} />
+            <Tab.Screen name="Resources" component={ResourcesStackScreen} />
             <Tab.Screen name="Responses" component={FTCResponsesPage} />
         </Tab.Navigator>
     );
