@@ -160,10 +160,11 @@ const CONTENT = [
             "Karch Cabalo",
             "Brian Liu",
             "Jessica Itliong",
-            "Joey Duong",
             "Robert Ponce",
+            "Simmy, Chana",
             "Stephanie Hang",
-            "Alexander Caceros"
+            "Alexander Caceros",
+            "Angela Batoon"
         ]
     },
     {
@@ -175,7 +176,6 @@ const CONTENT = [
             "Vincent Lee",
             "Jaslynn Diep",
             "Anna Le",
-            "Tiffany Nguyen",
             "Vivian Nguyen",
             "Tatiana Milanez",
             "Victor Cruz Ramos",
@@ -195,7 +195,6 @@ const CONTENT = [
             "James Cortes",
             "Brennan Cain",
             "Marco Diaz",
-            "Simmy Chana",
             "Ajay Ascano",
             "Alan Vu",
             "Jonash Poyaoan"
@@ -435,7 +434,7 @@ const CONTENT = [
         ]
     },
     {
-        title: 'Souvenir-Snaps',
+        title: 'Souvenir-Snapshots',
         content: [
             "Heyley Pavon",
             "Mbugua Munyutu",
@@ -471,7 +470,7 @@ const CONTENT = [
         ]
     },
     {
-        title: 'Trippi Tripods',
+        title: 'Trippy Tripods',
         content: [
             "Vanessa Vidas",
             "Alyssa Chavez",
@@ -482,7 +481,7 @@ const CONTENT = [
             "Kristi Ryono",
             "Jian Ting Tan",
             "Austen Liao",
-            "Steven Ong",
+            "Lillian On",
             "Justin Linder",
             "Randolph Pham"
         ]
@@ -494,11 +493,15 @@ const CONTENT = [
             "Tiffany Poedyasmara",
             "Jasmin Rodriguez",
             "Isabelle Barajas",
+            "Tiffany Nguyen",
             "Kylie French",
             "Ryan Chau",
+            "Joey Duong",
             "Lenore Fabiyi",
             "Jonathan Ngo",
-            "Danielle Lee "
+            "Danielle Lee",
+            "Daniel Min",
+            "Maria Landron"
         ]
     },
     {
