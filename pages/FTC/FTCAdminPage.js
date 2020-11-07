@@ -42,7 +42,6 @@ export default class FTCAdminPage extends Component {
     sendShoutout = async () => {
         await sendData('ftc-shoutouts', { title: this.state.title, body: this.state.body, timestamp: new Date() });
         let tokens = await getData('expo-tokens');
-        tokens.forEach(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body));
         let sendResults = await Promise.all(tokens.map(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body)));
 
         if(sendResults.some(value => !value)) {
