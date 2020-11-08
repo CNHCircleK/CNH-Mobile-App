@@ -31,7 +31,8 @@
     "android": {
       "versionCode": 6,
       "package": "com.cnhcki.solstice",
-      "useNextNotificationsApi": true
+      "useNextNotificationsApi": true,
+      "googleServicesFile": "./google-services.json"
     }
   }
 }
