@@ -154,7 +154,7 @@ const scheduleData = [
     },
     {
         title: 'General Session II',
-        time: '4:45PM - 5:45PM PST | 2:45PM - 3:45PM HST',
+        time: '5PM - 6PM PST | 3PM - 5PM HST',
         location: 'Youtube',
         day: 'Saturday',
         date: new Date('November 7, 2020 17:15:00'),
@@ -162,7 +162,7 @@ const scheduleData = [
     },
     {
         title: 'Campfire Skits & Talent Acts',
-        time: '5:45PM - 6:30PM PST | 3:45PM - 4:30PM HST',
+        time: '6:10PM - 6:55PM PST | 4:10PM - 4:55PM HST',
         location: 'Youtube',
         day: 'Saturday',
         date: new Date('November 7, 2020 19:15:00'),
@@ -170,7 +170,7 @@ const scheduleData = [
     },
     {
         title: 'Divisional Bonding',
-        time: '6:30PM - 7:30PM PST | 4:30PM - 5:30PM HST',
+        time: '6:55PM - 7:55PM PST | 4:55PM - 5:55PM HST',
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 20:30:00'),
@@ -178,7 +178,7 @@ const scheduleData = [
     },
     {
         title: 'Night Activities',
-        time: '7:30PM - 10:00PM PST | 5:30PM - 8:00PM HST',
+        time: '8PM - 10:30PM PST | 6PM - 8:30PM HST',
         location: 'Zoom',
         day: 'Saturday',
         date: new Date('November 7, 2020 21:30:00'),
