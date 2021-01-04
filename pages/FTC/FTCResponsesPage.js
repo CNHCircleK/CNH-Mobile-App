@@ -62,7 +62,7 @@ export default class FTCResponsesPage extends Component {
                                 onChangeText={this.onChangeSchool}
                                 value={this.state.school}
                             />
-                            <Text style={styles.messageText}>Event:</Text>
+                            <Text style={styles.messageText}>Workshop:</Text>
                             <TextInput
                                 style={styles.textInput}
                                 onChangeText={this.onChangeEvent}

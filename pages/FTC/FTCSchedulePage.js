@@ -94,7 +94,7 @@ const scheduleData = [
         id: 10
     },
     {
-        title: 'General Session I',
+        title: 'General Session II',
         time: '12:30PM - 1:00PM PST | 10:30AM - 11:00AM HST',
         location: 'Youtube',
         day: 'Saturday',
@@ -145,7 +145,7 @@ const scheduleData = [
         id: 16
     },
     {
-        title: 'Intermission (DJ Intermission)',
+        title: 'DJ Intermission',
         time: '3:45PM - 4:45PM PST | 1:45PM - 2:45PM HST',
         location: 'Youtube',
         day: 'Saturday',
@@ -153,43 +153,51 @@ const scheduleData = [
         id: 17
     },
     {
-        title: 'General Session II',
-        time: '4:45PM - 5:45PM PST | 2:45PM - 3:45PM HST',
+        title: 'Intermission',
+        time: '4:45PM - 5:00PM PST | 2:45PM - 3:00PM HST',
         location: 'Youtube',
         day: 'Saturday',
-        date: new Date('November 7, 2020 17:15:00'),
+        date: new Date('November 7, 2020 16:45:00'),
+        id: 17
+    },
+    {
+        title: 'General Session III',
+        time: '5:00PM - 6:00PM PST | 3:00PM - 4:00PM HST',
+        location: 'Youtube',
+        day: 'Saturday',
+        date: new Date('November 7, 2020 17:00:00'),
         id: 19
     },
     {
         title: 'Campfire Skits & Talent Acts',
-        time: '5:45PM - 6:30PM PST | 3:45PM - 4:30PM HST',
+        time: '6:10PM - 6:55PM PST | 4:10PM - 4:55PM HST',
         location: 'Youtube',
         day: 'Saturday',
-        date: new Date('November 7, 2020 19:15:00'),
+        date: new Date('November 7, 2020 18:10:00'),
         id: 20
     },
     {
         title: 'Divisional Bonding',
-        time: '6:30PM - 7:30PM PST | 4:30PM - 5:30PM HST',
+        time: '6:55PM - 7:55PM PST | 4:55PM - 5:55PM HST',
         location: 'Zoom',
         day: 'Saturday',
-        date: new Date('November 7, 2020 20:30:00'),
+        date: new Date('November 7, 2020 18:55:00'),
         id: 21
     },
     {
         title: 'Night Activities',
-        time: '7:30PM - 10:00PM PST | 5:30PM - 8:00PM HST',
+        time: '8:00PM - 10:30PM PST | 6:00PM - 8:30PM HST',
         location: 'Zoom',
         day: 'Saturday',
-        date: new Date('November 7, 2020 21:30:00'),
+        date: new Date('November 7, 2020 20:00:00'),
         id: 22
     },
     {
-        title: 'Closing Session ',
+        title: 'Closing Session IV',
         time: '2:00PM PST | 12:00PM HST',
         location: 'Youtube',
         day: 'Sunday',
-        date: new Date('November 8, 2020 12:00:00'),
+        date: new Date('November 8, 2020 14:00:00'),
         id: 23
     }
 ];
