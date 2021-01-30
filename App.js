@@ -26,6 +26,7 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import Res from '@resources';
+import DCONResourcesPage from "./pages/DCON/DCONResourcesPage";
 
 
 const Stack = createStackNavigator();
@@ -57,7 +58,7 @@ function ScheduleStackScreen() {
 function ResourcesStackScreen() {
     return (
         <ResourcesStack.Navigator headerMode='none'>
-            <ResourcesStack.Screen name='Resources' component={FTCResourcesPage} />
+            <ResourcesStack.Screen name='Resources' component={DCONResourcesPage} />
             <ResourcesStack.Screen name='Teams' component={FTCTeamPage} />
             <ResourcesStack.Screen name='Program' component={FTCProgramPage} />
         </ResourcesStack.Navigator>
