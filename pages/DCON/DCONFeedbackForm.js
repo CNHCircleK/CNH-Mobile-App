@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TextInput, View, StatusBar, ScrollView, SafeAr
 import { sendData } from '../../utils/Firebase';
 import Res from '@resources';
 
-export default class FTCResponsesPage extends Component {
+export default class DCONFeedbackForm extends Component {
     state = {
         name: '',
         school: '',
@@ -62,17 +62,27 @@ export default class FTCResponsesPage extends Component {
                                 onChangeText={this.onChangeSchool}
                                 value={this.state.school}
                             />
-                            
-                            <Text style={styles.messageText}>Feedback:</Text>
+                            <Text style={styles.messageText}>Workshop:</Text>
+                            <TextInput
+                                style={styles.textInput}
+                                onChangeText={this.onChangeEvent}
+                                value={this.state.event}
+                            />
+                            <Text style={styles.messageText}>Question:</Text>
                             <TextInput
                                 style={styles.textInput}
                                 onChangeText={this.onChangeQuestion}
                                 value={this.state.question}
                             />
-                           
+                            <Text style={styles.messageText}>Answer:</Text>
+                            <TextInput
+                                style={styles.textInput}
+                                onChangeText={this.onChangeAnswer}
+                                value={this.state.answer}
+                            />
                             <View style={styles.buttonContainer}>
                                 <TouchableOpacity style={styles.button} onPress={this.sendInput}>
-                                    <Text style={styles.buttonText}>Send Feddback</Text>
+                                    <Text style={styles.buttonText}>Send Response</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
