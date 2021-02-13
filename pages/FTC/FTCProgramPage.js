@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, FlatList, Image, SafeAreaView, Dimensions, StatusBar } from 'react-native';
+import { StyleSheet, View, FlatList, Image, SafeAreaView, Dimensions, StatusBar, Text } from 'react-native';
 import { HeaderBackButton } from '@react-navigation/stack';
+import ImageZoom from 'react-native-image-pan-zoom';
 import Res from '@resources';
 
 const ITEM_WIDTH = Dimensions.get('window').width;
@@ -12,7 +13,8 @@ export default class FTCProgramPage extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
-                <View> 
+                <Text style = {styles.titleText}>FTC Resources</Text>
+                <View>
                     <HeaderBackButton tintColor= {Res.FTCColors.BlueLightsBackground} onPress={() => this.props.navigation.goBack(null)} />
                     <FlatList
                     data={[
@@ -56,7 +58,21 @@ export default class FTCProgramPage extends Component {
                         require("resources/ftc2020/images/38.jpg"),
                     ]}
                     renderItem={({item}) => {
-                        return <Image resizeMode={'contain'} style={{marginTop: -100, marginBottom: -100, width:ITEM_WIDTH, height:ITEM_HEIGHT}} source={item}/>
+                        return (
+                        <View 
+                            marginBottom = {-300}>
+                            <ImageZoom 
+                            cropWidth={ITEM_WIDTH}
+                            cropHeight={ITEM_HEIGHT}
+                            imageWidth={ITEM_WIDTH}
+                            imageHeight={ITEM_HEIGHT}>
+                            <Image
+                            resizeMode={'contain'}
+                            style={{width:400, height:600}}
+                            source={item}/>
+                            </ImageZoom>
+                        </View>
+                        )
                     }}
                     keyExtractor={
                         (index) => {return index}
@@ -76,5 +92,11 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
         backgroundColor: Res.FTCColors.BlueLightsBackground
+    },
+    titleText: {
+        marginTop: 40,
+        fontFamily: "Gilberto",
+        fontSize: 95,
+        color: Res.FTCColors.MellowApricot,
     },
   });
