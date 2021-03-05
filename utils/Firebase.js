@@ -35,7 +35,7 @@ Retrieve array of documents from Firestore
 If criteria and fields in query are different, an index must be made in Firestore. The error will provide a link to create an index.
 collection:string - Name of collection in Firestore
 criteria:string - Property of document to be ordered by
-direction:string - Direction of document order. Can be asc or desc
+direction:string - Direction of document order. Can be 'asc' or 'desc'
 limit:number - Number of documents needed from beginning of array
 query:array<object> - Array of query restrictions. Restrictions are objects in the format { field: nField, op: nOp, value: nValue }
 return - Array of document objects

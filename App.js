@@ -26,6 +26,7 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import Res from '@resources';
+import DCONSchedulePage from "./pages/DCON/DCONSchedulePage";
 
 
 const Stack = createStackNavigator();
@@ -100,7 +101,8 @@ function FTCTabScreen() {
             }}
             backBehavior={'none'}
         >
-            <Tab.Screen name="Announcements" component={AdminStackScreen} />
+            {/* <Tab.Screen name="Announcements" component={AdminStackScreen} /> */}
+            <Tab.Screen name="Announcements" component={DCONSchedulePage} />
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
             <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
             <Tab.Screen name="Resources" component={ResourcesStackScreen} />

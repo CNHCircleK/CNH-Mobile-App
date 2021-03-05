@@ -5,7 +5,7 @@
     "slug": "solstice",
     "owner": "cnhtechsoftware",
     "privacy": "public",
-    "sdkVersion": "39.0.0",
+    "sdkVersion": "40.0.0",
     "splash": {
       "image": "./resources/ftc2020/images/logo.png",
       "backgroundColor": "#4D7C8A"
@@ -15,7 +15,7 @@
       "android",
       "web"
     ],
-    "version": "2.0..1",
+    "version": "2.0.1",
     "orientation": "portrait",
     "icon": "./assets/solstice_icon.png",
     "updates": {
