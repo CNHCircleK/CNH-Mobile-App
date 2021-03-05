@@ -22,7 +22,7 @@ import FTCResourcesPage from "./pages/FTC/FTCResourcesPage";
 import { setupNotifications } from "./utils/Notifications";
 import { setupFirebase } from "./utils/Firebase";
 import { Ionicons } from '@expo/vector-icons';
-import { AppLoading } from 'expo';
+import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import Res from '@resources';

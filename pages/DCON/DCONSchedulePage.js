@@ -44,7 +44,6 @@ export default class DCONSchedulePage extends Component {
     };
 
     updateDay = (index) => {
-        console.log(index);
         let day;
         switch(index) {
             case 0:
