@@ -2,61 +2,27 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, FlatList, TouchableOpacity, SectionList, Image } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import Swiper from 'react-native-swiper';
-import { greaterOrEq } from 'react-native-reanimated';
-
-const data = [ 
-    {
-        data: [
-            {
-                title: 'Service',
-                startTime: new Date('December 17, 1995 03:00:00'),
-                endTime: new Date('December 17, 1995 04:24:00'),
-                location: 'Zoom',
-            }, 
-            {
-                title: 'Meeting',
-                startTime: new Date('December 17, 1995 03:24:00'),
-                endTime: new Date('December 17, 1995 04:24:00'),
-                location: 'Class'
-            }
-        ]
-    }
-];
 
 export default class DCONSchedulePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             scheduleData: [],
-            curScheduleData: [],
-            curDay: 0
+            curDay: 5
         };
     }
 
     componentDidMount = async () => {
         let updatedSchedule = await getData('dcon-schedule');
         updatedSchedule.forEach((event, index) => {
-            updatedSchedule[index].startTime = new Date(updatedSchedule[index].startTime?.toMillis());
+            updatedSchedule[index].startTime = updatedSchedule[index].startTime?.toDate();
             updatedSchedule[index].endTime = updatedSchedule[index].endTime?.toDate();
         });
 
         this.setState({scheduleData: updatedSchedule});
     };
 
-    updateDay = (index) => {
-        let day;
-        switch(index) {
-            case 0:
-                day = 5;
-                break;
-            case 1:
-                day = 6;
-                break;
-            case 2:
-                day = 7;
-                break;
-        }
-
+    updateDay = (day) => {
         let filteredSchedule = this.state.scheduleData.filter(event => {
             return event.startTime.getDay() === day;
         });
@@ -106,7 +72,7 @@ export default class DCONSchedulePage extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.swiperContainer}>
-                    <Swiper style={styles.swiper} activeDotColor={'#29738B'} onIndexChanged={(index) => this.setState({curDay: index})}>
+                    <Swiper style={styles.swiper} activeDotColor={'#29738B'} onIndexChanged={(index) => this.setState({curDay: (index + 5) % 7})}>
                         <View style={styles.swiperCard}>
                             <Image style={styles.slideImage} source={require('../../resources/DCON_2021/SunClouds.png')}/>
                             <Text style={styles.slideText}>CNH District Convention 2021</Text>
