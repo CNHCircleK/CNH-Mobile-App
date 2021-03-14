@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StatusBar, ScrollView, StyleSheet, Text, View, TouchableOpacity, FlatList, Image, SafeAreaView, TextInput, Alert } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import Accordion from 'react-native-collapsible/Accordion';
+import { HeaderBackButton } from '@react-navigation/stack';
 import Res from '@resources';
 
 const CONTENT = [
@@ -159,10 +160,11 @@ const CONTENT = [
             "Karch Cabalo",
             "Brian Liu",
             "Jessica Itliong",
-            "Joey Duong",
             "Robert Ponce",
+            "Simmy, Chana",
             "Stephanie Hang",
-            "Alexander Caceros"
+            "Alexander Caceros",
+            "Angela Batoon"
         ]
     },
     {
@@ -174,7 +176,6 @@ const CONTENT = [
             "Vincent Lee",
             "Jaslynn Diep",
             "Anna Le",
-            "Tiffany Nguyen",
             "Vivian Nguyen",
             "Tatiana Milanez",
             "Victor Cruz Ramos",
@@ -194,7 +195,6 @@ const CONTENT = [
             "James Cortes",
             "Brennan Cain",
             "Marco Diaz",
-            "Simmy Chana",
             "Ajay Ascano",
             "Alan Vu",
             "Jonash Poyaoan"
@@ -434,7 +434,7 @@ const CONTENT = [
         ]
     },
     {
-        title: 'Souvenir-Snaps',
+        title: 'Souvenir-Snapshots',
         content: [
             "Heyley Pavon",
             "Mbugua Munyutu",
@@ -470,7 +470,7 @@ const CONTENT = [
         ]
     },
     {
-        title: 'Trippi Tripods',
+        title: 'Trippy Tripods',
         content: [
             "Vanessa Vidas",
             "Alyssa Chavez",
@@ -481,7 +481,7 @@ const CONTENT = [
             "Kristi Ryono",
             "Jian Ting Tan",
             "Austen Liao",
-            "Steven Ong",
+            "Lillian On",
             "Justin Linder",
             "Randolph Pham"
         ]
@@ -493,11 +493,15 @@ const CONTENT = [
             "Tiffany Poedyasmara",
             "Jasmin Rodriguez",
             "Isabelle Barajas",
+            "Tiffany Nguyen",
             "Kylie French",
             "Ryan Chau",
+            "Joey Duong",
             "Lenore Fabiyi",
             "Jonathan Ngo",
-            "Danielle Lee "
+            "Danielle Lee",
+            "Daniel Min",
+            "Maria Landron"
         ]
     },
     {
@@ -611,15 +615,16 @@ export default class FTCTeamPage extends Component {
 
         return (
             <SafeAreaView style={styles.container}>
-                <ScrollView keyboardShouldPersistTaps='always'
-                    contentContainerStyle={styles.scrollView}>
-                    <View style={styles.titleShape}>
+                <HeaderBackButton tintColor= 'white' onPress={() => this.props.navigation.goBack(null)} />
+                <View style={styles.titleShape}>
                         <Image
                             style={styles.titleImage}
                             source={require('../../resources/ftc2020/images/camera.png')}
                         />
                         <Text style = {styles.titleText}>FTC Teams</Text>
                     </View>
+                <ScrollView keyboardShouldPersistTaps='always'
+                    contentContainerStyle={styles.scrollView}>
                     <View style={styles.searchContainer}>
                         <View style={{ justifyContent: 'center' , alignItems: 'center'}}>
                             <Text style={styles.searchText}>Find your team! Enter your name:</Text>
