@@ -108,7 +108,6 @@ function FTCTabScreen() {
         >
             <Tab.Screen name="Announcements" component={AdminStackScreen} />
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
-            <Tab.Screen name="Program" component={FTCProgramPage} />
             <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
             <Tab.Screen name="Resources" component={ResourcesStackScreen} />
             <Tab.Screen name="Responses" component={FTCResponsesPage} />
