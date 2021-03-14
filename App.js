@@ -26,10 +26,13 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import Res from '@resources';
+
 import DCONResourcesPage from "./pages/DCON/DCONResourcesPage";
 import DCONConductPage from "./pages/DCON/DCONConductPage";
+import DCONShopPage from "./pages/DCON/DCONShopPage";
 import DCONMerchForm from "./pages/DCON/DCONMerchForm";
 import DCONShoutoutForm from "./pages/DCON/DCONShoutoutForm";
+
 
 
 const Stack = createStackNavigator();
@@ -37,6 +40,8 @@ const Tab = createBottomTabNavigator();
 const AdminStack = createStackNavigator();
 const ScheduleStack = createStackNavigator();
 const ResourcesStack = createStackNavigator();
+const ShopStack = createStackNavigator();
+
 
 function AdminStackScreen() {
     return (
@@ -67,6 +72,14 @@ function ResourcesStackScreen() {
             <ResourcesStack.Screen name='Merch' component={DCONMerchForm} />
             <ResourcesStack.Screen name='Shoutout' component={DCONShoutoutForm} />
         </ResourcesStack.Navigator>
+    );
+}
+
+function ShopStackScreen() {
+    return (
+        <ShopStack.Navigator headerMode='none'>
+            <ShopStack.Screen name='Shop' component={DCONShopPage} />
+        </ShopStack.Navigator>
     );
 }
 
@@ -108,8 +121,7 @@ function FTCTabScreen() {
         >
             <Tab.Screen name="Announcements" component={AdminStackScreen} />
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
-            <Tab.Screen name="Program" component={FTCProgramPage} />
-            <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
+            <Tab.Screen name="Shop" component={ShopStackScreen} />
             <Tab.Screen name="Resources" component={ResourcesStackScreen} />
             <Tab.Screen name="Responses" component={FTCResponsesPage} />
         </Tab.Navigator>
