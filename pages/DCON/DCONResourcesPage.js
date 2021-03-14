@@ -17,7 +17,7 @@ export default class DCONResourcesPage extends Component {
                             style={styles.titleImage}
                             source={require('../../resources/ftc2020/images/clipboard_2.png')}
                         />
-                        <Text style = {styles.titleText}>FTC Resources</Text>
+                        <Text style = {styles.titleText}>DCON Resources</Text>
                     </View>
                     <View style={styles.itemcontainer}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("Teams") }>
@@ -25,8 +25,8 @@ export default class DCONResourcesPage extends Component {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.itemcontainer}>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Program") }>
-                            <Text style={styles.itemText}>FTC Program</Text>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Conduct") }>
+                            <Text style={styles.itemText}>DCON Code of Conduct</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
