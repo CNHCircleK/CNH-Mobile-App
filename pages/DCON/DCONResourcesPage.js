@@ -20,8 +20,13 @@ export default class DCONResourcesPage extends Component {
                         <Text style = {styles.titleText}>DCON Resources</Text>
                     </View>
                     <View style={styles.itemcontainer}>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Teams") }>
-                            <Text style={styles.itemText}>FTC Teams</Text>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Merch") }>
+                            <Text style={styles.itemText}>DCON Merch Form</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.itemcontainer}>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Shoutout") }>
+                            <Text style={styles.itemText}>DCON Shoutout Form</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.itemcontainer}>
