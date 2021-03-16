@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, ScrollView, StatusBar, Platform, ImageBackground, Image } from 'react-native';
 import Res from '@resources';
+import { Row } from 'react-native-table-component';
 
 export default class DCONResourcesPage extends Component {
     render() {
         const {navigate} = this.props.navigation;
         return (
            <View style={styles.container}>
-               <ImageBackground source={require('../../resources/ftc2020/images/bluelightsbackground.gif')} style={styles.image}>
                 <ScrollView
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.scrollView}
@@ -15,27 +15,40 @@ export default class DCONResourcesPage extends Component {
                     <View style={styles.titleShape}>
                         <Image
                             style={styles.titleImage}
-                            source={require('../../resources/ftc2020/images/clipboard_2.png')}
+                            source={require('../../resources/dcon2020/images/WindyWillow.png')}
                         />
-                        <Text style = {styles.titleText}>DCON Resources</Text>
+                        <Text style = {styles.titleText}>District Convention 2021</Text>
+                        <Text style = {styles.resourcesText}>Resources</Text>
                     </View>
-                    <View style={styles.itemcontainer}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("Merch") }>
+                            <View style={styles.imagecontainer}>
+                            <Image
+                                style={styles.buttonImage} 
+                                source={require('../../resources/dcon2020/images/sunny.png')}/>
+                            </View>
                             <Text style={styles.itemText}>DCON Merch Form</Text>
                         </TouchableOpacity>
-                    </View>
                     <View style={styles.itemcontainer}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("Shoutout") }>
+                        <View style={styles.imagecontainer}>
+                            <Image
+                                style={styles.buttonImage} 
+                                source={require('../../resources/dcon2020/images/sunny.png')}/>
+                            </View>
                             <Text style={styles.itemText}>DCON Shoutout Form</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.itemcontainer}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("Conduct") }>
+                        <View style={styles.imagecontainer}>
+                            <Image
+                                style={styles.buttonImage} 
+                                source={require('../../resources/dcon2020/images/sunny.png')}/>
+                            </View>
                             <Text style={styles.itemText}>DCON Code of Conduct</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
-                </ImageBackground>
             </View>
         );
     }
@@ -52,12 +65,16 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
     },
-    itemcontainer: {
-        flexDirection: 'row',
+    imagecontainer: {
+        flex: .1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 10,
     },
     item: {
         flex: 1,
-        height: 150,
+        flexDirection: "row",
+        height: 50,
         margin: 10,
         backgroundColor: Res.FTCColors.TeaGreen,
         borderRadius: 10,
@@ -73,9 +90,9 @@ const styles = StyleSheet.create({
         elevation: 8,
     },
     itemText: {
-        fontSize: 50,
-        textAlign: 'center',
-        fontFamily: "French-Press",
+        fontSize: 25,
+        // fontFamily: "French-Press",
+        flex: .9,
     },
     image: {
         flex: 1,
@@ -83,21 +100,46 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         height: "140%",
     },
-    titleText: {
-        fontFamily: "Gilberto",
-        fontSize: 95,
+    resourcesText: {
+        justifyContent: "center",
+        alignItems: "center",
+        // fontFamily: "Gilberto",
+        fontSize: 50,
         color: Res.FTCColors.MellowApricot,
+        top: 95,
+        right: 135,
+        position: "absolute",
+    },
+    titleText: {
+        justifyContent: "center",
+        alignItems: "center",
+        // fontFamily: "Gilberto",
+        fontSize: 19,
+        color: Res.FTCColors.MellowApricot,
+        flex: .7,
+        right: 20,
+        top: 40,
     },
     titleShape: {
-        justifyContent: 'center',
-        alignItems: 'center',
+        flexDirection: "row",
+        flex: 1,
         padding: 35,
-        backgroundColor: Res.FTCColors.BlueLightsBackground
+        backgroundColor: Res.FTCColors.BlueLightsBackground,
+        marginBottom: 100,
     },
     titleImage: {
-        height: 120,
-        width: 120,
-        justifyContent: "flex-end",
-        position: "relative",
+        flex: .3,
+        width: 150,
+        height: 150,
+        position: "absolute",
+        resizeMode: "contain",
+        right: -10,
+        top: 40,
     },
+    buttonImage: {
+        width: "100%",
+        height: "100%",
+        position: "relative",
+        resizeMode: "contain",
+    }
 });
