@@ -42,7 +42,7 @@ export default class DCONShopPage extends Component {
                             source={require('../../resources/dcon2020/images/DCONpackage.jpg')}
                         />
                         <Text style={styles.shopText}>DCON 2021 Souvenir Package</Text>
-                        <Text style={styles.shopPrice}>20$</Text>
+                        <Text style={styles.shopPrice}>$10</Text>
                         <TouchableOpacity style={styles.orderButton} onPress={ () => navigate("Merch") }>
                             <Text style={styles.shopButtonText}>ORDER FORM</Text>
                         </TouchableOpacity>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     },
     introText: {
         color: "#292847",
-        fontFamily: "Coolvetica",
+        fontFamily: "Arial",
         fontSize: 14,
         textAlign: 'left',
     },
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
         left: 20,
         fontSize: 20,
         fontFamily: "Coolvetica",
-        fontWeight: "bold",
+        letterSpacing: .75,
     },
     shopPrice: {
         position: 'absolute',
@@ -163,21 +163,22 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: "Coolvetica",
         fontWeight: "bold",
+        letterSpacing: 4,
     },
     shopButtonText: {
         color: "#292847",
         fontSize: 10,
     },
     subtitleText : {
-        fontFamily: "Coolvetica",
+        fontFamily: "Arial",
         fontSize: 20,
         textAlign: "left",
         color: "#292847"
     },
     titleImage: {
         position:'absolute',
-        width: 100,
-        height: 100,
+        width: 110,
+        height: 110,
         top: 10,
         right: 10,
     },
