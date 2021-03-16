@@ -32,6 +32,7 @@ import DCONConductPage from "./pages/DCON/DCONConductPage";
 import DCONShopPage from "./pages/DCON/DCONShopPage";
 import DCONMerchForm from "./pages/DCON/DCONMerchForm";
 import DCONShoutoutForm from "./pages/DCON/DCONShoutoutForm";
+import DCONPurchaseForm from "./pages/DCON/DCONPurchaseForm";
 
 
 
@@ -79,6 +80,8 @@ function ShopStackScreen() {
     return (
         <ShopStack.Navigator headerMode='none'>
             <ShopStack.Screen name='Shop' component={DCONShopPage} />
+            <ShopStack.Screen name='Merch' component={DCONMerchForm} />
+            <ShopStack.Screen name='Purchase' component={DCONPurchaseForm} />
         </ShopStack.Navigator>
     );
 }
@@ -142,7 +145,8 @@ export default class App extends Component {
         let customFonts = {
             'Arbutus-Slab': require('./resources/ftc2020/fonts/arbutus-slab.ttf'),
             'French-Press': require('./resources/ftc2020/fonts/frenchpress.otf'),
-            'Gilberto': require('./resources/ftc2020/fonts/gilberto.ttf')
+            'Gilberto': require('./resources/ftc2020/fonts/gilberto.ttf'),
+            'Coolvetica': require('./resources/dcon2020/fonts/coolvetica.ttf')
         };
         const fontRes = await Font.loadAsync(customFonts);
     }

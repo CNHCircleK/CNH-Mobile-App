@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, ScrollView, StatusBar, Platform, ImageBackground, Image } from 'react-native';
+import '../../resources/dcon2020/fonts/coolvetica.ttf';
 import Res from '@resources';
+
 
 export default class DCONShopPage extends Component {
     render() {
@@ -15,9 +17,16 @@ export default class DCONShopPage extends Component {
                         <Text style = {styles.subtitleText}>District Convention 2021</Text>
                         <Text style = {styles.titleText}>OFFICIAL SHOP</Text>
                     </View>
-                    
-                    <View style={styles.itemcontainer}>
+                    <Image
+                            style={styles.titleImage}
+                            source={require('../../resources/dcon2020/images/sun.png')}
+                    />
 
+                    <View style={styles.itemcontainer}>
+                        <Image
+                            style={styles.introImage}
+                            source={require('../../resources/dcon2020/images/fireman.png')}
+                        />
                         <View style={styles.introItem}>
                             <Text style={styles.introText}>Welcome to the District Convention 2021: </Text>
                             <Text style={styles.introText}>Forecasting Meaningful Service merchandise shop!{"\n"}</Text>
@@ -25,10 +34,6 @@ export default class DCONShopPage extends Component {
                                                         to fill out its order form avaliable in 'Resources' 
                                                         and submit a payment via Paypal. Happy shopping!</Text>
                         </View>
-                        <Image
-                            style={styles.introImage}
-                            source={require('../../resources/dcon2020/images/Harley-01.jpg')}
-                        />
                     </View>
                     
                     <View style={styles.shopContainer}>
@@ -38,10 +43,10 @@ export default class DCONShopPage extends Component {
                         />
                         <Text style={styles.shopText}>DCON 2021 Souvenir Package</Text>
                         <Text style={styles.shopPrice}>20$</Text>
-                        <TouchableOpacity style={styles.orderButton} onPress={ () => navigate("Shoutout") }>
+                        <TouchableOpacity style={styles.orderButton} onPress={ () => navigate("Merch") }>
                             <Text style={styles.shopButtonText}>ORDER FORM</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.purchaseButton} onPress={ () => navigate("Shoutout") }>
+                        <TouchableOpacity style={styles.purchaseButton} onPress={ () => navigate("Purchase") }>
                             <Text style={styles.shopButtonText}>PURCHASE ITEM</Text>
                         </TouchableOpacity>
                     </View>
@@ -58,20 +63,17 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     scrollView: {
-        /*
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 10 : 10,
-        paddingBottom: 10,
-        paddingLeft: 10,
-        paddingRight: 10,
-        */
+
     },
     itemcontainer: {
     },
     introImage: {
-        flex: 1,
-        height: "100%", 
-        position: 'absolute',
-        resizeMode: "contain",
+        height: 125,
+        left: 18,
+        position:'absolute',
+        top: 100,
+        width: 64,
+        zIndex: 2,
     },
     introItem: {
         backgroundColor: 'white',
@@ -93,7 +95,8 @@ const styles = StyleSheet.create({
         shadowRadius: 4.65,
     },
     introText: {
-        fontFamily: "Arial",
+        color: "#292847",
+        fontFamily: "Coolvetica",
         fontSize: 14,
         textAlign: 'left',
     },
@@ -121,7 +124,7 @@ const styles = StyleSheet.create({
         height: 30,
         backgroundColor: 'white',
         borderWidth: 2,
-        borderColor: 'yellow',
+        borderColor: '#FFD803',
         justifyContent: 'center',
         bottom: 20,
         left: 20,
@@ -131,7 +134,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: "40%",
         height: 30,
-        backgroundColor: '#FFEFA2',
+        backgroundColor: '#FFD803',
         justifyContent: 'center',
         bottom: 20,
         right: 20,
@@ -144,42 +147,52 @@ const styles = StyleSheet.create({
         width: undefined,
     },
     shopText: {
+        color: "#292847",
         position: 'absolute',
         bottom: 65,
         left: 20,
-        fontSize: 18,
-        fontFamily: "Arial",
+        fontSize: 20,
+        fontFamily: "Coolvetica",
+        fontWeight: "bold",
     },
     shopPrice: {
         position: 'absolute',
         bottom: 65,
         right: 20,
-        fontSize: 18,
-        fontFamily: "Arial",
+        color: "#29738B",
+        fontSize: 20,
+        fontFamily: "Coolvetica",
+        fontWeight: "bold",
     },
     shopButtonText: {
+        color: "#292847",
         fontSize: 10,
-        fontFamily: "Arial",
     },
     subtitleText : {
-        fontFamily: "Arial",
+        fontFamily: "Coolvetica",
         fontSize: 20,
         textAlign: "left",
-        letterSpacing: 1,
-        color: Res.FTCColors.MellowApricot
+        color: "#292847"
+    },
+    titleImage: {
+        position:'absolute',
+        width: 100,
+        height: 100,
+        top: 10,
+        right: 10,
     },
     titleText: {
-        fontFamily: "Arial",
+        fontFamily: "Coolvetica",
         fontSize: 35,
         fontWeight: "bold",
         textAlign: "left",
-        letterSpacing: 2,
-        color: "#85ACB9"
+        letterSpacing: 4,
+        color: "#29738B"
     },
     titleShape: {
         justifyContent: 'center',
         padding: 30,
-        paddingTop: 45,
+        paddingTop: 56,
         paddingBottom: 25,
         backgroundColor: "#DCF0F7",
     },
