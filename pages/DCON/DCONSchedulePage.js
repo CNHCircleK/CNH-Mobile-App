@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, FlatList, TouchableOpacity, SectionList, Image } from 'react-native';
+import { View, StyleSheet, Text, FlatList, TouchableOpacity, Modal, Image } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import Swiper from 'react-native-swiper';
 
@@ -8,7 +8,11 @@ export default class DCONSchedulePage extends Component {
         super(props);
         this.state = {
             scheduleData: [],
-            curDay: 5
+            scheduleDescriptions: [],
+            curDay: 5,
+            modalVisible: false,
+            modalTitle: '',
+            modalDesc: ''
         };
     }
 
@@ -19,10 +23,13 @@ export default class DCONSchedulePage extends Component {
             updatedSchedule[index].endTime = updatedSchedule[index].endTime?.toDate();
         });
 
+        let updatedDescriptions = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "schedule", op: "==", value: true}]);
+
         this.setState({scheduleData: updatedSchedule});
+        this.setState({scheduleDescriptions: updatedDescriptions});
     };
 
-    updateDay = (day) => {
+    getCurSchedule = (day) => {
         let filteredSchedule = this.state.scheduleData.filter(event => {
             return event.startTime.getDay() === day;
         });
@@ -30,17 +37,30 @@ export default class DCONSchedulePage extends Component {
         return filteredSchedule;
     };
 
+    navigateDetails = () => {
+
+    };
+
+    setModal = (title) => {
+        let filteredDescriptions = this.state.scheduleDescriptions.filter(desc => {
+            return desc.title === title;
+        });
+
+        this.setState({modalTitle: filteredDescriptions[0].title, modalDesc: filteredDescriptions[0].description});
+        this.setState({modalVisible: true});
+    };
+
     renderEvent = ({item}) => {
         if (item.break) {
             return (
-                <TouchableOpacity style={{...styles.eventItem, borderRadius: 0}}>
+                <View style={{...styles.eventItem, borderRadius: 0}}>
                     <View style={styles.eventBreakLeft}>
                         <Image style={styles.eventBreakImage} source={require('../../resources/DCON_2021/happy.png')}/>
                     </View>
                     <View style={styles.eventBreakRight}>
                         <Text style={styles.eventBreakText}>{item.title}</Text>
                     </View>
-                </TouchableOpacity>
+                </View>
             );
         }
 
@@ -48,7 +68,7 @@ export default class DCONSchedulePage extends Component {
         let endTime = item.endTime?.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
 
         return (
-            <TouchableOpacity style={styles.eventItem}>
+            <View style={styles.eventItem}>
                 <View style={{...styles.eventLeft, backgroundColor: item.workshop ? '#FFEFA2' : '#F2B965'}}>
                     <Text style={styles.eventTime}>{startTime} {endTime ? '- ' + endTime : ''}</Text>
                 </View>
@@ -57,20 +77,38 @@ export default class DCONSchedulePage extends Component {
                     <Text style={styles.eventLocation}>{item.location}</Text>
                 </View>
                 <View style={styles.eventRight}>
-                    <Image 
-                        style={styles.eventIcon} 
-                        source={item.workshop ? 
+                    {item.workshop || item.description ?
+                        <TouchableOpacity onPress={item.workshop ? this.navigateDetails : () => this.setModal(item.title)}>
+                            <Image 
+                                style={styles.eventIcon} 
+                                source={item.workshop ?
                                     require('../../resources/DCON_2021/Icons/arrow_icon.png') :
                                     require('../../resources/DCON_2021/Icons/info_icon.png')}
-                    />
+                                />
+                        </TouchableOpacity> :
+                        <></>
+                    }
                 </View>
-            </TouchableOpacity>
+            </View>
         );
     };
 
     render() {
         return (
             <View style={styles.container}>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={this.state.modalVisible}
+                >
+                    <View style={styles.modal}>
+                        <TouchableOpacity style={styles.modalCloseContainer} onPress={() => this.setState({modalVisible: false})}>
+                            <Image style={styles.modalClose} source={require('../../resources/DCON_2021/Icons/exit_icon.png')} />
+                        </TouchableOpacity>
+                        <Text style={styles.modalTitle}>{this.state.modalTitle}</Text>
+                        <Text style={styles.modalDesc}>{this.state.modalDesc}</Text>
+                    </View>
+                </Modal>
                 <View style={styles.swiperContainer}>
                     <Swiper style={styles.swiper} activeDotColor={'#29738B'} onIndexChanged={(index) => this.setState({curDay: (index + 5) % 7})}>
                         <View style={styles.swiperCard}>
@@ -94,7 +132,7 @@ export default class DCONSchedulePage extends Component {
                     </Swiper>
                 </View>
                 <FlatList
-                    data={this.updateDay(this.state.curDay)}
+                    data={this.getCurSchedule(this.state.curDay)}
                     renderItem={this.renderEvent}
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.contentContainer}
@@ -108,6 +146,35 @@ export default class DCONSchedulePage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1
+    },
+    modal: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 300,
+        marginHorizontal: 30,
+        paddingTop: 20,
+        paddingBottom: 30,
+        paddingHorizontal: 20,
+        borderRadius: 10,
+        shadowColor: 'black',
+        shadowOffset: {width: 10, height: 10},
+        shadowOpacity: 0.50,
+        backgroundColor: 'white'
+    },
+    modalCloseContainer: {
+        alignSelf: 'flex-end'
+    },
+    modalClose: {
+        width: 14,
+        height: 14
+    },
+    modalTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginBottom: 20
+    },
+    modalDesc: {
+        fontSize: 14
     },
     contentContainer: {
         paddingBottom: 20
