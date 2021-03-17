@@ -27,6 +27,7 @@ import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import Res from '@resources';
 import DCONSchedulePage from "./pages/DCON/DCONSchedulePage";
+import DCONScheduleDetailsPage from "./pages/DCON/DCONScheduleDetailsPage";
 
 
 const Stack = createStackNavigator();
@@ -48,9 +49,8 @@ function AdminStackScreen() {
 function ScheduleStackScreen() {
     return (
         <ScheduleStack.Navigator headerMode='none'>
-            <ScheduleStack.Screen name='Schedule' component={FTCSchedulePage} />
-            <ScheduleStack.Screen name='Schedule Details' component={FTCScheduleDetailsPage} />
-            <ScheduleStack.Screen name='Team Activities' component={FTCTeamActivitiesPage} />
+            <ScheduleStack.Screen name='Schedule' component={DCONSchedulePage} />
+            <ScheduleStack.Screen name='Schedule Details' component={DCONScheduleDetailsPage} />
         </ScheduleStack.Navigator>
     );
 }
@@ -65,7 +65,7 @@ function ResourcesStackScreen() {
     );
 }
 
-function FTCTabScreen() {
+function DCONTabScreen() {
     return(
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -101,8 +101,7 @@ function FTCTabScreen() {
             }}
             backBehavior={'none'}
         >
-            {/* <Tab.Screen name="Announcements" component={AdminStackScreen} /> */}
-            <Tab.Screen name="Announcements" component={DCONSchedulePage} />
+            <Tab.Screen name="Announcements" component={AdminStackScreen} />
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
             <Tab.Screen name="Shoutouts" component={FTCShoutoutPage} />
             <Tab.Screen name="Resources" component={ResourcesStackScreen} />
@@ -163,13 +162,7 @@ export default class App extends Component {
             return (
                 <NavigationContainer>
                     <Stack.Navigator headerMode="none">
-                        <Stack.Screen name="FTC Tabs" component={FTCTabScreen} />
-                        {/* <Stack.Screen name="Home" component={HomePage} />
-                        <Stack.Screen name="About Us" component={AboutPage} />
-                        <Stack.Screen name="Fundraising Initiatives" component={DFIPage} />
-                        <Stack.Screen name="MRP" component={MRPPage} />
-                        <Stack.Screen name="District Leadership" component={DistrictLeadershipPage} />
-                        <Stack.Screen name="Resources" component={ResourcesPage} /> */}
+                        <Stack.Screen name="DCON Tabs" component={DCONTabScreen} />
                     </Stack.Navigator>
                 </NavigationContainer>
             );

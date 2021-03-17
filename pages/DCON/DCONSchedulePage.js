@@ -37,8 +37,8 @@ export default class DCONSchedulePage extends Component {
         return filteredSchedule;
     };
 
-    navigateDetails = () => {
-
+    navigateDetails = (workshop) => {
+        this.props.navigation.navigate('Schedule Details', {session: workshop});
     };
 
     setModal = (title) => {
@@ -78,7 +78,7 @@ export default class DCONSchedulePage extends Component {
                 </View>
                 <View style={styles.eventRight}>
                     {item.workshop || item.description ?
-                        <TouchableOpacity onPress={item.workshop ? this.navigateDetails : () => this.setModal(item.title)}>
+                        <TouchableOpacity onPress={item.workshop ? () => this.navigateDetails(item.workshop) : () => this.setModal(item.title)}>
                             <Image 
                                 style={styles.eventIcon} 
                                 source={item.workshop ?
