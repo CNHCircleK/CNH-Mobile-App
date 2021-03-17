@@ -39,6 +39,16 @@ export default class DCONResourcesPage extends Component {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.itemcontainer}>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Candidate") }>
+                        <View style={styles.imagecontainer}>
+                            <Image
+                                style={styles.buttonImage} 
+                                source={require('../../resources/dcon2020/images/sunny.png')}/>
+                            </View>
+                            <Text style={styles.itemText}>DCON Candidate Literatures</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.itemcontainer}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("Conduct") }>
                         <View style={styles.imagecontainer}>
                             <Image

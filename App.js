@@ -30,6 +30,7 @@ import DCONResourcesPage from "./pages/DCON/DCONResourcesPage";
 import DCONConductPage from "./pages/DCON/DCONConductPage";
 import DCONMerchForm from "./pages/DCON/DCONMerchForm";
 import DCONShoutoutForm from "./pages/DCON/DCONShoutoutForm";
+import DCONCandidatePage from "./pages/DCON/DCONCandidatePage";
 
 
 const Stack = createStackNavigator();
@@ -66,6 +67,7 @@ function ResourcesStackScreen() {
             <ResourcesStack.Screen name='Conduct' component={DCONConductPage} />
             <ResourcesStack.Screen name='Merch' component={DCONMerchForm} />
             <ResourcesStack.Screen name='Shoutout' component={DCONShoutoutForm} />
+            <ResourcesStack.Screen name='Candidate' component={DCONCandidatePage} />
         </ResourcesStack.Navigator>
     );
 }
