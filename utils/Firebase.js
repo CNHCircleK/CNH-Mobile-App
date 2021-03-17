@@ -1,5 +1,9 @@
 import * as firebase from 'firebase'
+import 'firebase/functions';
 import 'firebase/firestore';
+
+
+
 
 export function setupFirebase() {
     let firebaseConfig = {
@@ -28,6 +32,15 @@ export async function sendData(collection, data) {
         console.error("Error adding document: ", error);
         return false;
     }
+}
+
+export async function appendSheet(){
+    var addMessage = firebase.functions().httpsCallable('gsheets-append');
+    addMessage({ })
+      .then((result) => {
+        // Read result of the Cloud Function.
+        var sanitizedMessage = result.data.text;
+      });
 }
 
 /******
