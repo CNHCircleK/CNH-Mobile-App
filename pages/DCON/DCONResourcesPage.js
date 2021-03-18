@@ -5,11 +5,10 @@ import Res from '@resources';
 export default class DCONResourcesPage extends Component {
     render() {
         const {navigate} = this.props.navigation;
+
         return (
            <View style={styles.container}>
-                <ScrollView
-                    showsVerticalScrollIndicator={false}
-                >
+                <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.titleShape}>
                         <Image
                             style={styles.titleImage}
@@ -18,37 +17,53 @@ export default class DCONResourcesPage extends Component {
                         <Text style = {styles.titleText}>District Convention 2021</Text>
                         <Text style = {styles.resourcesText}>RESOURCES</Text>
                     </View>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("Merch") }>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
-                        <Text style={styles.itemText}>DCON Merch Form</Text>
+                        <Text style={styles.itemText}>DCON 2021 Souvenir Package Form</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("Shoutout") }>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
-                        <Text style={styles.itemText}>DCON Shoutout Form</Text>
+                        <Text style={styles.itemText}>DCON 2021 Candidate Literatures</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("Candidate") }>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
-                        <Text style={styles.itemText}>DCON Candidate Literatures</Text>
+                        <Text style={styles.itemText}>DCON 2021 Shoutouts</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("Conduct") }>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Program'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
-                        <Text style={styles.itemText}>DCON Code of Conduct</Text>
+                        <Text style={styles.itemText}>DCON 2021 Program</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Conduct'}) }>
+                        <View style={styles.imagecontainer}>
+                            <Image
+                                style={styles.buttonImage} 
+                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                        </View>
+                        <Text style={styles.itemText}>DCON 2021 Code of Conduct</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Website'}) }>
+                        <View style={styles.imagecontainer}>
+                            <Image
+                                style={styles.buttonImage} 
+                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                        </View>
+                        <Text style={styles.itemText}>DCON 2021 Website</Text>
                     </TouchableOpacity>
                 </ScrollView>
             </View>

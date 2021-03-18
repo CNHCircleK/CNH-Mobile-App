@@ -41,10 +41,10 @@ export default class DCONShopPage extends Component {
                         />
                         <Text style={styles.shopText}>DCON 2021 Souvenir Package</Text>
                         <Text style={styles.shopPrice}>$10</Text>
-                        <TouchableOpacity style={styles.orderButton} onPress={ () => navigate("Merch") }>
+                        <TouchableOpacity style={styles.orderButton} onPress={ () => navigate("ShopWebView", {link: 'Merch'}) }>
                             <Text style={styles.shopButtonText}>ORDER FORM</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.purchaseButton} onPress={ () => navigate("Purchase") }>
+                        <TouchableOpacity style={styles.purchaseButton} onPress={ () => navigate("ShopWebView", {link: 'Shop'}) }>
                             <Text style={styles.shopButtonText}>PURCHASE ITEM</Text>
                         </TouchableOpacity>
                     </View>

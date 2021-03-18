@@ -10,16 +10,12 @@ import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import Res from '@resources';
 
+import DCONHomePage from "./pages/DCON/DCONHomePage";
 import DCONSchedulePage from "./pages/DCON/DCONSchedulePage";
 import DCONScheduleDetailsPage from "./pages/DCON/DCONScheduleDetailsPage";
-import DCONResourcesPage from "./pages/DCON/DCONResourcesPage";
-import DCONConductPage from "./pages/DCON/DCONConductPage";
 import DCONShopPage from "./pages/DCON/DCONShopPage";
-import DCONMerchForm from "./pages/DCON/DCONMerchForm";
-import DCONShoutoutForm from "./pages/DCON/DCONShoutoutForm";
-import DCONPurchaseForm from "./pages/DCON/DCONPurchaseForm";
-import DCONCandidatePage from "./pages/DCON/DCONCandidatePage";
-import DCONHomePage from "./pages/DCON/DCONHomePage";
+import DCONResourcesPage from "./pages/DCON/DCONResourcesPage";
+import DCONWebViewPage from "./pages/DCON/DCONWebViewPage";
 import DCONFeedbackPage from "./pages/DCON/DCONFeedbackPage";
 
 const Stack = createStackNavigator();
@@ -52,8 +48,7 @@ function ShopStackScreen() {
     return (
         <ShopStack.Navigator headerMode='none'>
             <ShopStack.Screen name='Shop' component={DCONShopPage} />
-            <ShopStack.Screen name='Merch' component={DCONMerchForm} />
-            <ShopStack.Screen name='Purchase' component={DCONPurchaseForm} />
+            <ShopStack.Screen name='ShopWebView' component={DCONWebViewPage} />
         </ShopStack.Navigator>
     );
 }
@@ -62,10 +57,7 @@ function ResourcesStackScreen() {
     return (
         <ResourcesStack.Navigator headerMode='none'>
             <ResourcesStack.Screen name='Resources' component={DCONResourcesPage} />
-            <ResourcesStack.Screen name='Conduct' component={DCONConductPage} />
-            <ResourcesStack.Screen name='Merch' component={DCONMerchForm} />
-            <ResourcesStack.Screen name='Shoutout' component={DCONShoutoutForm} />
-            <ResourcesStack.Screen name='Candidate' component={DCONCandidatePage} />
+            <ResourcesStack.Screen name='ResourcesWebView' component={DCONWebViewPage} />
         </ResourcesStack.Navigator>
     );
 }
