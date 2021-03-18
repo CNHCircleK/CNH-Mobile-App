@@ -19,13 +19,13 @@ export default class DCONShopPage extends Component {
                     </View>
                     <Image
                             style={styles.titleImage}
-                            source={require('../../resources/dcon2020/images/sun.png')}
+                            source={require('../../resources/DCON_2021/sun.png')}
                     />
 
                     <View style={styles.itemcontainer}>
                         <Image
                             style={styles.introImage}
-                            source={require('../../resources/dcon2020/images/fireman.png')}
+                            source={require('../../resources/DCON_2021/Harley.png')}
                         />
                         <View style={styles.introItem}>
                             <Text style={styles.introText}>Welcome to the District Convention 2021: </Text>
@@ -39,7 +39,7 @@ export default class DCONShopPage extends Component {
                     <View style={styles.shopContainer}>
                         <Image
                             style={styles.shopImage}
-                            source={require('../../resources/dcon2020/images/DCONpackage.jpg')}
+                            source={require('../../resources/DCON_2021/DCONpackage.jpg')}
                         />
                         <Text style={styles.shopText}>DCON 2021 Souvenir Package</Text>
                         <Text style={styles.shopPrice}>$10</Text>

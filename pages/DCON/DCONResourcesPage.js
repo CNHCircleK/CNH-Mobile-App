@@ -15,7 +15,7 @@ export default class DCONResourcesPage extends Component {
                     <View style={styles.titleShape}>
                         <Image
                             style={styles.titleImage}
-                            source={require('../../resources/dcon2020/images/WindyWillow.png')}
+                            source={require('../../resources/DCON_2021/WindyWillow.png')}
                         />
                         <Text style = {styles.titleText}>District Convention 2021</Text>
                         <Text style = {styles.resourcesText}>Resources</Text>
@@ -24,7 +24,7 @@ export default class DCONResourcesPage extends Component {
                             <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
-                                source={require('../../resources/dcon2020/images/sunny.png')}/>
+                                source={require('../../resources/DCON_2021/sunny.png')}/>
                             </View>
                             <Text style={styles.itemText}>DCON Merch Form</Text>
                         </TouchableOpacity>
@@ -33,7 +33,7 @@ export default class DCONResourcesPage extends Component {
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
-                                source={require('../../resources/dcon2020/images/sunny.png')}/>
+                                source={require('../../resources/DCON_2021/sunny.png')}/>
                             </View>
                             <Text style={styles.itemText}>DCON Shoutout Form</Text>
                         </TouchableOpacity>
@@ -43,7 +43,7 @@ export default class DCONResourcesPage extends Component {
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
-                                source={require('../../resources/dcon2020/images/sunny.png')}/>
+                                source={require('../../resources/DCON_2021/sunny.png')}/>
                             </View>
                             <Text style={styles.itemText}>DCON Candidate Literatures</Text>
                         </TouchableOpacity>
@@ -53,7 +53,7 @@ export default class DCONResourcesPage extends Component {
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
-                                source={require('../../resources/dcon2020/images/sunny.png')}/>
+                                source={require('../../resources/DCON_2021/sunny.png')}/>
                             </View>
                             <Text style={styles.itemText}>DCON Code of Conduct</Text>
                         </TouchableOpacity>

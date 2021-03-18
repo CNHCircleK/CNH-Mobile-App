@@ -2,9 +2,6 @@ import * as firebase from 'firebase'
 import 'firebase/functions';
 import 'firebase/firestore';
 
-
-
-
 export function setupFirebase() {
     let firebaseConfig = {
         apiKey: "AIzaSyCl2Nd0LvQM1U8T88YajRfk1kRYO4iInG8",
@@ -37,10 +34,10 @@ export async function sendData(collection, data) {
 export async function appendSheet(){
     var addMessage = firebase.functions().httpsCallable('gsheets-append');
     addMessage({ })
-      .then((result) => {
-        // Read result of the Cloud Function.
-        var sanitizedMessage = result.data.text;
-      });
+        .then((result) => {
+            // Read result of the Cloud Function.
+            var sanitizedMessage = result.data.text;
+        });
 }
 
 /******
