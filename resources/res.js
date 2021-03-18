@@ -1,7 +1,7 @@
-import FTCColors from './ftc2020/colors';
+import DCONColors from './DCON_2021/colors';
 
 const Res = {
-    FTCColors
+    DCONColors
 }
 
 export default Res;

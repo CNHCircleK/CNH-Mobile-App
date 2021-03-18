@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, FlatList, TouchableOpacity, Modal, Image } from
 import { getData } from '../../utils/Firebase';
 import Swiper from 'react-native-swiper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Res from '@resources';
 
 export default class DCONSchedulePage extends Component {
     constructor(props) {
@@ -94,7 +95,7 @@ export default class DCONSchedulePage extends Component {
             return (
                 <View style={{...styles.eventItem, borderRadius: 0}}>
                     <View style={styles.eventBreakLeft}>
-                        <Image style={styles.eventBreakImage} source={require('../../resources/DCON_2021/happy.png')}/>
+                        <Image style={styles.eventBreakImage} source={require('../../resources/DCON_2021/Images/happy.png')}/>
                     </View>
                     <View style={styles.eventBreakRight}>
                         <Text style={styles.eventBreakText}>{item.title}</Text>
@@ -108,7 +109,7 @@ export default class DCONSchedulePage extends Component {
 
         return (
             <View style={styles.eventItem}>
-                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? '#FFEFA2' : '#F2B965'}}>
+                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.DCONColors.VisVis : Res.DCONColors.Rajah}}>
                     <Text style={styles.eventTime}>{startTime} {endTime ? '- ' + endTime : ''}</Text>
                 </View>
                 <View style={styles.eventMiddle}>
@@ -149,21 +150,21 @@ export default class DCONSchedulePage extends Component {
                     </View>
                 </Modal>
                 <View style={styles.swiperContainer}>
-                    <Swiper style={styles.swiper} activeDotColor={'#29738B'} onIndexChanged={(index) => this.setState({curDay: (index + 5) % 7})}>
+                    <Swiper style={styles.swiper} activeDotColor={Res.DCONColors.JellyBean} onIndexChanged={(index) => this.setState({curDay: (index + 5) % 7})}>
                         <View style={styles.swiperCard}>
-                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/SunClouds.png')}/>
+                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/SunClouds.png')}/>
                             <Text style={styles.slideText}>CNH District Convention 2021</Text>
                             <Text style={styles.slideDayText}>Friday</Text>
                             <Text style={styles.slideText}>March 19, Day 1</Text>
                         </View>
                         <View style={styles.swiperCard}>
-                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Snow_and_Leaves.png')}/>
+                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/Snow_and_Leaves.png')}/>
                             <Text style={styles.slideText}>CNH District Convention 2021</Text>
                             <Text style={styles.slideDayText}>Saturday</Text>
                             <Text style={styles.slideText}>March 20, Day 2</Text>
                         </View>
                         <View style={styles.swiperCard}>
-                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Rain.png')}/>
+                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/Rain.png')}/>
                             <Text style={styles.slideText}>CNH District Convention 2021</Text>
                             <Text style={styles.slideDayText}>Sunday</Text>
                             <Text style={styles.slideText}>March 21, Day 3</Text>
@@ -293,7 +294,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
     }, 
     swiper: {
-        backgroundColor: '#DCF0F7'
+        backgroundColor: Res.DCONColors.Polar
     },
     swiperCard: {
         flex: 1,
@@ -309,7 +310,7 @@ const styles = StyleSheet.create({
     },
     slideDayText: {
         fontSize: 56,
-        color: '#29738B'
+        color: Res.DCONColors.JellyBean
     },
     slideImage: {
         position: 'absolute',

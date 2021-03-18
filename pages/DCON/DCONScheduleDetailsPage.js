@@ -2,6 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { Component } from "react";
 import { View, StyleSheet, Text, FlatList, TouchableOpacity, Modal, Image } from 'react-native';
 import { getData } from "../../utils/Firebase";
+import Res from '@resources';
 
 export default class DCONScheduleDetailsPage extends Component {
     constructor(props) {
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
     },
     workshopButton: {
         alignSelf: 'flex-end',
-        backgroundColor: '#FFD803',
+        backgroundColor: Res.DCONColors.Gold,
         paddingHorizontal: 16,
         paddingVertical: 8
     },

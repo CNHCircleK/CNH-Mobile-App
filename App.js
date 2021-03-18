@@ -96,8 +96,8 @@ function DCONTabScreen() {
                 }
             })}
             tabBarOptions={{
-                activeTintColor: '#F2B965',
-                inactiveTintColor: '#29738B',
+                activeTintColor: Res.DCONColors.Rajah,
+                inactiveTintColor: Res.DCONColors.JellyBean,
                 style: {
                     backgroundColor: 'white'
                 },
@@ -105,7 +105,7 @@ function DCONTabScreen() {
                     marginBottom: 4,
                 },
                 iconStyle: {
-                    marginTop: 4
+                    marginTop: 8
                 }
             }}
             backBehavior={'none'}
@@ -129,7 +129,11 @@ export default class App extends Component {
 
     async loadFontsAsync() {
         let customFonts = {
-            'Coolvetica': require('./resources/dcon2020/fonts/coolvetica.ttf')
+            'Coolvetica': require('./resources/DCON_2021/Fonts/coolvetica.ttf'),
+            'Corpuscare': require('./resources/DCON_2021/Fonts/corpuscare.ttf'),
+            'Malvie': require('./resources/DCON_2021/Fonts/Malvie.otf'),
+            'Plumpfull': require('./resources/DCON_2021/Fonts/Plumpfull.ttf'),
+            'RoundyyRainbows': require('./resources/DCON_2021/Fonts/RoundyRainbows.ttf')
         };
         
         await Font.loadAsync(customFonts);
@@ -137,7 +141,31 @@ export default class App extends Component {
 
     async loadResourcesAsync() {
         let resources = [
-            require('./resources/ftc2020/images/pin.png'),
+            require('./resources/DCON_2021/Images/approvedlogo.png'),
+            require('./resources/DCON_2021/Images/DCONpackage.jpg'),
+            require('./resources/DCON_2021/Images/happy.png'),
+            require('./resources/DCON_2021/Images/Harley.png'),
+            require('./resources/DCON_2021/Images/Rain.png'),
+            require('./resources/DCON_2021/Images/Sammy.png'),
+            require('./resources/DCON_2021/Images/Snow_and_Leaves.png'),
+            require('./resources/DCON_2021/Images/sun.png'),
+            require('./resources/DCON_2021/Images/SunClouds.png'),
+            require('./resources/DCON_2021/Images/sunny.png'),
+            require('./resources/DCON_2021/Images/WindyWillow.png'),
+            require('./resources/DCON_2021/Icons/arrow_icon.png'),
+            require('./resources/DCON_2021/Icons/back_icon.png'),
+            require('./resources/DCON_2021/Icons/edit_icon.png'),
+            require('./resources/DCON_2021/Icons/exit_icon.png'),
+            require('./resources/DCON_2021/Icons/feedback_icon_selected.png'),
+            require('./resources/DCON_2021/Icons/feedback_icon.png'),
+            require('./resources/DCON_2021/Icons/home_icon_selected.png'),
+            require('./resources/DCON_2021/Icons/info_icon.png'),
+            require('./resources/DCON_2021/Icons/resources_icon_selected.png'),
+            require('./resources/DCON_2021/Icons/resources_icon.png'),
+            require('./resources/DCON_2021/Icons/schedule_icon_selected.png'),
+            require('./resources/DCON_2021/Icons/schedule_icon.png'),
+            require('./resources/DCON_2021/Icons/shop_icon_selected.png'),
+            require('./resources/DCON_2021/Icons/shop_icon.png')
         ];
 
         const loadedResources = resources.map(res => {

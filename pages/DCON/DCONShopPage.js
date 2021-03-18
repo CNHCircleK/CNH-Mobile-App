@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, ScrollView, StatusBar, Platform, ImageBackground, Image } from 'react-native';
-import '../../resources/dcon2020/fonts/coolvetica.ttf';
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
 import Res from '@resources';
-
 
 export default class DCONShopPage extends Component {
     render() {
@@ -19,13 +17,13 @@ export default class DCONShopPage extends Component {
                     </View>
                     <Image
                             style={styles.titleImage}
-                            source={require('../../resources/DCON_2021/sun.png')}
+                            source={require('../../resources/DCON_2021/Images/sun.png')}
                     />
 
                     <View style={styles.itemcontainer}>
                         <Image
                             style={styles.introImage}
-                            source={require('../../resources/DCON_2021/Harley.png')}
+                            source={require('../../resources/DCON_2021/Images/Harley.png')}
                         />
                         <View style={styles.introItem}>
                             <Text style={styles.introText}>Welcome to the District Convention 2021: </Text>
@@ -39,7 +37,7 @@ export default class DCONShopPage extends Component {
                     <View style={styles.shopContainer}>
                         <Image
                             style={styles.shopImage}
-                            source={require('../../resources/DCON_2021/DCONpackage.jpg')}
+                            source={require('../../resources/DCON_2021/Images/DCONpackage.jpg')}
                         />
                         <Text style={styles.shopText}>DCON 2021 Souvenir Package</Text>
                         <Text style={styles.shopPrice}>$10</Text>
@@ -95,7 +93,6 @@ const styles = StyleSheet.create({
         shadowRadius: 4.65,
     },
     introText: {
-        color: "#292847",
         fontFamily: "Arial",
         fontSize: 14,
         textAlign: 'left',
@@ -124,7 +121,7 @@ const styles = StyleSheet.create({
         height: 30,
         backgroundColor: 'white',
         borderWidth: 2,
-        borderColor: '#FFD803',
+        borderColor: Res.DCONColors.Gold,
         justifyContent: 'center',
         bottom: 20,
         left: 20,
@@ -134,7 +131,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: "40%",
         height: 30,
-        backgroundColor: '#FFD803',
+        backgroundColor: Res.DCONColors.Gold,
         justifyContent: 'center',
         bottom: 20,
         right: 20,
@@ -147,7 +144,6 @@ const styles = StyleSheet.create({
         width: undefined,
     },
     shopText: {
-        color: "#292847",
         position: 'absolute',
         bottom: 65,
         left: 20,
@@ -159,21 +155,19 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 65,
         right: 20,
-        color: "#29738B",
+        color: Res.DCONColors.JellyBean,
         fontSize: 20,
         fontFamily: "Coolvetica",
         fontWeight: "bold",
         letterSpacing: 4,
     },
     shopButtonText: {
-        color: "#292847",
         fontSize: 10,
     },
     subtitleText : {
         fontFamily: "Arial",
         fontSize: 20,
         textAlign: "left",
-        color: "#292847"
     },
     titleImage: {
         position:'absolute',
@@ -188,13 +182,13 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign: "left",
         letterSpacing: 4,
-        color: "#29738B"
+        color: Res.DCONColors.JellyBean
     },
     titleShape: {
         justifyContent: 'center',
         padding: 30,
         paddingTop: 56,
         paddingBottom: 25,
-        backgroundColor: "#DCF0F7",
+        backgroundColor: Res.DCONColors.Polar,
     },
 });

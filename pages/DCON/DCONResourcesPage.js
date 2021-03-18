@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, ScrollView, StatusBar, Platform, ImageBackground, Image } from 'react-native';
 import Res from '@resources';
-import { Row } from 'react-native-table-component';
 
 export default class DCONResourcesPage extends Component {
     render() {
@@ -15,7 +14,7 @@ export default class DCONResourcesPage extends Component {
                     <View style={styles.titleShape}>
                         <Image
                             style={styles.titleImage}
-                            source={require('../../resources/DCON_2021/WindyWillow.png')}
+                            source={require('../../resources/DCON_2021/Images/WindyWillow.png')}
                         />
                         <Text style = {styles.titleText}>District Convention 2021</Text>
                         <Text style = {styles.resourcesText}>Resources</Text>
@@ -24,7 +23,7 @@ export default class DCONResourcesPage extends Component {
                             <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
-                                source={require('../../resources/DCON_2021/sunny.png')}/>
+                                source={require('../../resources/DCON_2021/Images/sunny.png')}/>
                             </View>
                             <Text style={styles.itemText}>DCON Merch Form</Text>
                         </TouchableOpacity>
@@ -33,7 +32,7 @@ export default class DCONResourcesPage extends Component {
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
-                                source={require('../../resources/DCON_2021/sunny.png')}/>
+                                source={require('../../resources/DCON_2021/Images/sunny.png')}/>
                             </View>
                             <Text style={styles.itemText}>DCON Shoutout Form</Text>
                         </TouchableOpacity>
@@ -43,7 +42,7 @@ export default class DCONResourcesPage extends Component {
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
-                                source={require('../../resources/DCON_2021/sunny.png')}/>
+                                source={require('../../resources/DCON_2021/Images/sunny.png')}/>
                             </View>
                             <Text style={styles.itemText}>DCON Candidate Literatures</Text>
                         </TouchableOpacity>
@@ -53,7 +52,7 @@ export default class DCONResourcesPage extends Component {
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
-                                source={require('../../resources/DCON_2021/sunny.png')}/>
+                                source={require('../../resources/DCON_2021/Images/sunny.png')}/>
                             </View>
                             <Text style={styles.itemText}>DCON Code of Conduct</Text>
                         </TouchableOpacity>
@@ -82,7 +81,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         height: 50,
         margin: 10,
-        backgroundColor: Res.FTCColors.TeaGreen,
+        // backgroundColor: Res.FTCColors.TeaGreen,
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
@@ -97,7 +96,6 @@ const styles = StyleSheet.create({
     },
     itemText: {
         fontSize: 25,
-        // fontFamily: "French-Press",
         flex: .9,
     },
     image: {
@@ -107,14 +105,12 @@ const styles = StyleSheet.create({
         height: "140%",
     },
     resourcesText: {
-        // fontFamily: "Gilberto",
         fontSize: 50,
-        color: Res.FTCColors.MellowApricot,
+        // color: Res.FTCColors.MellowApricot,
     },
     titleText: {
-        // fontFamily: "Gilberto",
         fontSize: 20,
-        color: Res.FTCColors.MellowApricot,
+        // color: Res.FTCColors.MellowApricot,
     },
     titleShape: {
         flexDirection: "column",
@@ -122,7 +118,7 @@ const styles = StyleSheet.create({
         justifyContent: "flex-end",
         height: 190,
         flex: 1,
-        backgroundColor: Res.FTCColors.BlueLightsBackground,
+        // backgroundColor: Res.FTCColors.BlueLightsBackground,
         paddingBottom: 20,
         paddingLeft: 10,
         marginBottom: 10,
