@@ -20,6 +20,7 @@ import DCONShoutoutForm from "./pages/DCON/DCONShoutoutForm";
 import DCONPurchaseForm from "./pages/DCON/DCONPurchaseForm";
 import DCONCandidatePage from "./pages/DCON/DCONCandidatePage";
 import DCONHomePage from "./pages/DCON/DCONHomePage";
+import DCONFeedbackPage from "./pages/DCON/DCONFeedbackPage";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -115,7 +116,7 @@ function DCONTabScreen() {
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
             <Tab.Screen name="Shop" component={ShopStackScreen} />
             <Tab.Screen name="Resources" component={ResourcesStackScreen} />
-            {/* <Tab.Screen name="Feedback" component={DCONFeedbackForm} /> */}
+            <Tab.Screen name="Feedback" component={DCONFeedbackPage} />
         </Tab.Navigator>
     );
 }
