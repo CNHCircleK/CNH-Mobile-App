@@ -19,23 +19,24 @@ import DCONMerchForm from "./pages/DCON/DCONMerchForm";
 import DCONShoutoutForm from "./pages/DCON/DCONShoutoutForm";
 import DCONPurchaseForm from "./pages/DCON/DCONPurchaseForm";
 import DCONCandidatePage from "./pages/DCON/DCONCandidatePage";
+import DCONHomePage from "./pages/DCON/DCONHomePage";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-const AdminStack = createStackNavigator();
+const HomeStack = createStackNavigator();
 const ScheduleStack = createStackNavigator();
 const ResourcesStack = createStackNavigator();
 const ShopStack = createStackNavigator();
 
-// function AdminStackScreen() {
-//     return (
-//         <AdminStack.Navigator headerMode="none">
-//             <AdminStack.Screen name="Announcements" component={FTCAnnouncementPage} />
-//             <AdminStack.Screen name="Admin" component={FTCAdminPage} />
-//             <AdminStack.Screen name="WorkshopAdmin" component={FTCWorkshopAdminPage} />
-//         </AdminStack.Navigator>
-//     );
-// }
+function HomeStackScreen() {
+    return (
+        <HomeStack.Navigator headerMode="none">
+            <HomeStack.Screen name="Home" component={DCONHomePage} />
+            {/* <HomeStack.Screen name="Announcements" component={DCONAnnouncementsPage} />
+            <HomeStack.Screen name="Admin" component={DCONAdminPage} /> */}
+        </HomeStack.Navigator>
+    );
+}
 
 function ScheduleStackScreen() {
     return (
@@ -110,11 +111,11 @@ function DCONTabScreen() {
             }}
             backBehavior={'none'}
         >
-            {/* <Tab.Screen name="Home" component={AdminStackScreen} /> */}
+            <Tab.Screen name="Home" component={HomeStackScreen} />
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
             <Tab.Screen name="Shop" component={ShopStackScreen} />
             <Tab.Screen name="Resources" component={ResourcesStackScreen} />
-            {/* <Tab.Screen name="Feedback" component={FTCResponsesPage} /> */}
+            {/* <Tab.Screen name="Feedback" component={DCONFeedbackForm} /> */}
         </Tab.Navigator>
     );
 }

@@ -1,6 +1,6 @@
 import * as firebase from 'firebase'
-import 'firebase/functions';
 import 'firebase/firestore';
+import 'firebase/functions';
 
 export function setupFirebase() {
     let firebaseConfig = {
