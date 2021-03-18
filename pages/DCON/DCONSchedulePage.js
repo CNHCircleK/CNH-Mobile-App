@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, FlatList, TouchableOpacity, Modal, Image } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import Swiper from 'react-native-swiper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default class DCONSchedulePage extends Component {
     constructor(props) {
@@ -18,18 +19,56 @@ export default class DCONSchedulePage extends Component {
 
     componentDidMount = async () => {
         let updatedSchedule = await getData('dcon-schedule');
+
         updatedSchedule.forEach((event, index) => {
-            updatedSchedule[index].startTime = updatedSchedule[index].startTime?.toDate();
+            updatedSchedule[index].startTime = updatedSchedule[index].startTime.toDate();
             updatedSchedule[index].endTime = updatedSchedule[index].endTime?.toDate();
         });
 
+        updatedSchedule.forEach((event, index) => {
+            if (event.workshop)
+                AsyncStorage.setItem('Workshop ' + event.workshop + ' Index', index.toString());
+        })
+
         let updatedDescriptions = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "schedule", op: "==", value: true}]);
 
-        this.setState({scheduleData: updatedSchedule});
-        this.setState({scheduleDescriptions: updatedDescriptions});
+        this.setState({scheduleData: updatedSchedule, scheduleDescriptions: updatedDescriptions});
+
+        await this.setCachedWorkshops();
+        
+        this.navigationListener = this.props.navigation.addListener('focus', this.setCachedWorkshops);
+    };
+
+    componentWillUnmount = () => {
+        this.navigationListener();
+    };
+
+    setCachedWorkshops = async () => {
+        let schedule = this.state.scheduleData;
+
+        try {
+            for (let i = 1; i <= 6; i++) {
+                let workshopData = await AsyncStorage.getItem('Workshop ' + i);
+                if (workshopData != null) {
+                    workshopData = JSON.parse(workshopData);
+                    let workshopIndex = await AsyncStorage.getItem('Workshop ' + i + ' Index');
+                    workshopIndex = parseInt(workshopIndex);
+                    
+                    schedule[workshopIndex].title = workshopData.title;
+                    schedule[workshopIndex].location = 'Zoom';
+                }
+            }
+        } catch (e) {
+            console.log(e);
+        }
+
+        this.setState({scheduleData: schedule});
     };
 
     getCurSchedule = (day) => {
+        if (this.state.scheduleData.length == 0)
+            return [];
+
         let filteredSchedule = this.state.scheduleData.filter(event => {
             return event.startTime.getDay() === day;
         });

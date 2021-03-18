@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { Component } from "react";
 import { View, StyleSheet, Text, FlatList, TouchableOpacity, Modal, Image } from 'react-native';
 import { getData } from "../../utils/Firebase";
@@ -11,11 +12,21 @@ export default class DCONScheduleDetailsPage extends Component {
         };
     }
 
-    componentDidMount = async() => {
+    componentDidMount = async () => {
         let updatedSession = this.props.route.params.session;
         let updatedWorkshops = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "workshop", op: "==", value: updatedSession}]);
 
         this.setState({session: updatedSession, workshops: updatedWorkshops});
+    };
+
+    updateSelectedWorkshop = async (item) => {
+        try {
+            await AsyncStorage.setItem('Workshop ' + item.workshop, JSON.stringify(item));
+        } catch(e) {
+            console.log(e);
+        }
+
+        this.props.navigation.navigate('Schedule');
     };
 
     renderWorkshop = ({item}) => {
@@ -24,7 +35,7 @@ export default class DCONScheduleDetailsPage extends Component {
                 <Text style={styles.workshopTitle}>{item.title}</Text>
                 <Text style={styles.workshopHosts}>Hosted by {item.hosts}</Text>
                 <Text style={styles.workshopDesc}>{item.description}</Text>
-                <TouchableOpacity style={styles.workshopButton}>
+                <TouchableOpacity style={styles.workshopButton} onPress={() => this.updateSelectedWorkshop(item)}>
                     <Text style={styles.workshopButtonText}>ADD TO SCHEDULE</Text>
                 </TouchableOpacity>
             </View>
@@ -35,11 +46,11 @@ export default class DCONScheduleDetailsPage extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <TouchableOpacity style={styles.backButton}>
+                    <TouchableOpacity style={styles.backButton} onPress={() => this.props.navigation.goBack()}>
                         <Image style={styles.backImage} source={require('../../resources/DCON_2021/Icons/back_icon.png')}/>
                     </TouchableOpacity>
                     <Text style={styles.sessionTitle}>Workshop Session #{this.state.session}</Text>
-                    <View style={{width: 30, backgroundColor: 'white'}}></View>
+                    <View style={{width: 30, marginRight: 30}}></View>
                 </View>
                 <FlatList
                     data={this.state.workshops}
@@ -56,6 +67,9 @@ export default class DCONScheduleDetailsPage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1
+    },
+    contentContainer: {
+        paddingBottom: 15
     },
     header: {
         flexDirection: 'row',
