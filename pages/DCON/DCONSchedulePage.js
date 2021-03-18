@@ -244,7 +244,6 @@ const styles = StyleSheet.create({
     eventBreakImage: {
         width: 50,
         height: 50,
-        resizeMode: 'contain'
     }, 
     eventBreakText: {
         fontWeight: '300'

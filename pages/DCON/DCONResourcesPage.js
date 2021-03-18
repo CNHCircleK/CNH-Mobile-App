@@ -9,7 +9,6 @@ export default class DCONResourcesPage extends Component {
            <View style={styles.container}>
                 <ScrollView
                     showsVerticalScrollIndicator={false}
-                    contentContainerStyle={styles.scrollView}
                 >
                     <View style={styles.titleShape}>
                         <Image
@@ -17,46 +16,40 @@ export default class DCONResourcesPage extends Component {
                             source={require('../../resources/DCON_2021/Images/WindyWillow.png')}
                         />
                         <Text style = {styles.titleText}>District Convention 2021</Text>
-                        <Text style = {styles.resourcesText}>Resources</Text>
+                        <Text style = {styles.resourcesText}>RESOURCES</Text>
                     </View>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Merch") }>
-                            <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage} 
-                                source={require('../../resources/DCON_2021/Images/sunny.png')}/>
-                            </View>
-                            <Text style={styles.itemText}>DCON Merch Form</Text>
-                        </TouchableOpacity>
-                    <View style={styles.itemcontainer}>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Shoutout") }>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("Merch") }>
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
-                                source={require('../../resources/DCON_2021/Images/sunny.png')}/>
-                            </View>
-                            <Text style={styles.itemText}>DCON Shoutout Form</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.itemcontainer}>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Candidate") }>
+                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                        </View>
+                        <Text style={styles.itemText}>DCON Merch Form</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("Shoutout") }>
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
-                                source={require('../../resources/DCON_2021/Images/sunny.png')}/>
-                            </View>
-                            <Text style={styles.itemText}>DCON Candidate Literatures</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.itemcontainer}>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("Conduct") }>
+                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                        </View>
+                        <Text style={styles.itemText}>DCON Shoutout Form</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("Candidate") }>
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage} 
-                                source={require('../../resources/DCON_2021/Images/sunny.png')}/>
-                            </View>
-                            <Text style={styles.itemText}>DCON Code of Conduct</Text>
-                        </TouchableOpacity>
-                    </View>
+                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                        </View>
+                        <Text style={styles.itemText}>DCON Candidate Literatures</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("Conduct") }>
+                        <View style={styles.imagecontainer}>
+                            <Image
+                                style={styles.buttonImage} 
+                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                        </View>
+                        <Text style={styles.itemText}>DCON Code of Conduct</Text>
+                    </TouchableOpacity>
                 </ScrollView>
             </View>
         );
@@ -66,9 +59,6 @@ export default class DCONResourcesPage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "white",
-    },
-    scrollView: {
     },
     imagecontainer: {
         flex: .1,
@@ -77,65 +67,52 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     item: {
-        flex: 1,
         flexDirection: "row",
-        height: 50,
-        margin: 10,
-        // backgroundColor: Res.FTCColors.TeaGreen,
-        borderRadius: 10,
+        marginHorizontal: 20,
+        marginVertical: 10,
+        paddingVertical: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        shadowColor: "#000000",
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
-        shadowOpacity: 0.30,
-        shadowRadius: 4.65,
-        elevation: 8,
+        borderRadius: 10,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 5},
+        shadowOpacity: 0.15,
+        backgroundColor: 'white'
     },
     itemText: {
-        fontSize: 25,
+        fontSize: 16,
         flex: .9,
     },
-    image: {
-        flex: 1,
-        resizeMode: "contain",
-        justifyContent: "center",
-        height: "140%",
-    },
     resourcesText: {
-        fontSize: 50,
-        // color: Res.FTCColors.MellowApricot,
+        fontFamily: "Coolvetica",
+        fontSize: 35,
+        fontWeight: "bold",
+        textAlign: "left",
+        letterSpacing: 4,
+        color: Res.DCONColors.JellyBean
     },
     titleText: {
-        fontSize: 20,
-        // color: Res.FTCColors.MellowApricot,
+        fontWeight: '300'
     },
     titleShape: {
-        flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "flex-end",
-        height: 190,
-        flex: 1,
-        // backgroundColor: Res.FTCColors.BlueLightsBackground,
+        paddingTop: 120,
         paddingBottom: 20,
-        paddingLeft: 10,
+        paddingLeft: 30,
         marginBottom: 10,
+        backgroundColor: Res.DCONColors.Polar
     },
     titleImage: {
-        flex: .3,
         width: 150,
         height: 150,
         position: "absolute",
         resizeMode: "contain",
-        right: -10,
-        top: 40,
+        right: 20,
+        top: 50,
     },
     buttonImage: {
-        width: "100%",
-        height: "100%",
-        position: "relative",
-        resizeMode: "contain",
+        width: 30,
+        height: 30, 
     }
 });

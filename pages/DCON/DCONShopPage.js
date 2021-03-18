@@ -66,10 +66,10 @@ const styles = StyleSheet.create({
     itemcontainer: {
     },
     introImage: {
-        height: 125,
+        height: 160,
         left: 18,
         position:'absolute',
-        top: 100,
+        top: 70,
         width: 64,
         zIndex: 2,
     },
@@ -93,14 +93,13 @@ const styles = StyleSheet.create({
         shadowRadius: 4.65,
     },
     introText: {
-        fontFamily: "Arial",
         fontSize: 14,
+        fontWeight: '300',
         textAlign: 'left',
     },
     shopContainer : {
         backgroundColor: 'white',
         borderRadius: 10,
-        elevation: 8,
         flexDirection: 'row',
         height: 450,
         marginHorizontal: 30,
@@ -140,8 +139,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
         flex: 1,
-        height: "75%",
-        width: undefined,
+        height: "77%",
     },
     shopText: {
         position: 'absolute',
@@ -165,16 +163,15 @@ const styles = StyleSheet.create({
         fontSize: 10,
     },
     subtitleText : {
-        fontFamily: "Arial",
-        fontSize: 20,
+        fontWeight: '300',
         textAlign: "left",
     },
     titleImage: {
         position:'absolute',
-        width: 110,
-        height: 110,
-        top: 10,
-        right: 10,
+        width: 140,
+        height: 140,
+        top: 40,
+        right: 0,
     },
     titleText: {
         fontFamily: "Coolvetica",
@@ -187,8 +184,8 @@ const styles = StyleSheet.create({
     titleShape: {
         justifyContent: 'center',
         padding: 30,
-        paddingTop: 56,
+        paddingTop: 120,
         paddingBottom: 25,
-        backgroundColor: Res.DCONColors.Polar,
+        backgroundColor: Res.DCONColors.Polar
     },
 });
