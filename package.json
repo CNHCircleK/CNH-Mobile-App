@@ -37,7 +37,11 @@
         "react-native-table-component": "^1.2.1",
         "react-native-web": "~0.13.12",
         "shelljs": "^0.8.4",
-        "react-native-webview": "10.7.0"
+        "react-native-webview": "10.7.0",
+        "@react-native-firebase/functions": "^11.1.1",
+        "grpc": "^1.24.4",
+        "node-firestore-import-export": "^1.1.0",
+        "react-native-google-sheet": "0.0.5"
     },
     "devDependencies": {
         "babel-plugin-module-resolver": "^4.0.0",

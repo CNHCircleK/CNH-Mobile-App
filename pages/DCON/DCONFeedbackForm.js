@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Image, StyleSheet, Text, TextInput, View, StatusBar, ScrollView, SafeAreaView, TouchableOpacity, ImageBackground, Alert } from "react-native";
-import { sendData, appendSheet } from '../../utils/Firebase';
+import { sendData } from '../../utils/Firebase';
 import Res from '@resources';
 
-export default class FTCResponsesPage extends Component {
+export default class DCONFeedbackForm extends Component {
     state = {
         name: '',
         school: '',
@@ -23,7 +23,6 @@ export default class FTCResponsesPage extends Component {
     onChangeAnswer = (nAnswer) => this.setState({ answer: nAnswer });
 
     sendInput = async () => {
-    
         let success = await sendData('ftc-responses', { name: this.state.name, school: this.state.school, event: this.state.event.toLowerCase(), question: this.state.question.toLowerCase(), answer: this.state.answer.toLowerCase(), timestamp: new Date() });
         if(success) {
             Alert.alert(
@@ -63,22 +62,27 @@ export default class FTCResponsesPage extends Component {
                                 onChangeText={this.onChangeSchool}
                                 value={this.state.school}
                             />
-                            <Text style={styles.messageText}>Which workshops/professional expos did you attend:</Text>
+                            <Text style={styles.messageText}>Workshop:</Text>
                             <TextInput
                                 style={styles.textInput}
-                                onChangeText={this.onChangeSchool}
-                                value={this.state.school}
+                                onChangeText={this.onChangeEvent}
+                                value={this.state.event}
                             />
-                            <Text style={styles.messageText}>Feedback:</Text>
+                            <Text style={styles.messageText}>Question:</Text>
                             <TextInput
                                 style={styles.textInput}
                                 onChangeText={this.onChangeQuestion}
                                 value={this.state.question}
                             />
-                           
+                            <Text style={styles.messageText}>Answer:</Text>
+                            <TextInput
+                                style={styles.textInput}
+                                onChangeText={this.onChangeAnswer}
+                                value={this.state.answer}
+                            />
                             <View style={styles.buttonContainer}>
-                                <TouchableOpacity style={styles.button} onPress={appendSheet}>
-                                    <Text style={styles.buttonText}>Send Feedback</Text>
+                                <TouchableOpacity style={styles.button} onPress={this.sendInput}>
+                                    <Text style={styles.buttonText}>Send Response</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
