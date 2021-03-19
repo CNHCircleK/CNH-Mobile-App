@@ -21,10 +21,6 @@ export default class DCONShopPage extends Component {
                     />
 
                     <View style={styles.itemcontainer}>
-                        <Image
-                            style={styles.introImage}
-                            source={require('../../resources/DCON_2021/Images/Harley.png')}
-                        />
                         <View style={styles.introItem}>
                             <Text style={styles.introText}>Welcome to the District Convention 2021: </Text>
                             <Text style={styles.introText}>Forecasting Meaningful Service merchandise shop!{"\n"}</Text>
@@ -32,6 +28,10 @@ export default class DCONShopPage extends Component {
                                                         to fill out its order form avaliable in 'Resources' 
                                                         and submit a payment via Paypal. Happy shopping!</Text>
                         </View>
+                        <Image
+                            style={styles.introImage}
+                            source={require('../../resources/DCON_2021/Images/Harley.png')}
+                        />
                     </View>
                     
                     <View style={styles.shopContainer}>
@@ -69,16 +69,17 @@ const styles = StyleSheet.create({
         height: 160,
         left: 18,
         position:'absolute',
-        top: 70,
+        top: 90,
         width: 64,
-        zIndex: 2,
+        zIndex: 9,
+        elevation: 9,
     },
     introItem: {
+        paddingVertical: 20,
         backgroundColor: 'white',
         borderRadius: 10,
         elevation: 8,
         flex: 1,
-        height: 175,
         justifyContent: 'center',
         marginHorizontal: 30,
         marginVertical: 30,
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
     shopText: {
         position: 'absolute',
         bottom: 65,
-        left: 20,
+        left: 15,
         fontSize: 20,
         fontFamily: "Coolvetica",
         letterSpacing: .75,
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
     shopPrice: {
         position: 'absolute',
         bottom: 65,
-        right: 20,
+        right: 15,
         color: Res.DCONColors.JellyBean,
         fontSize: 20,
         fontFamily: "Coolvetica",
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
         position:'absolute',
         width: 140,
         height: 140,
-        top: 40,
+        top: 25,
         right: 0,
     },
     titleText: {

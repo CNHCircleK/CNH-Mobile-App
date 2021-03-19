@@ -118,22 +118,26 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 40,
         right: 5,
-        width: 160,
-        height: 160
+        width: 150,
+        height: 150
     },
     headerIntro: {
         fontWeight: '300',
         fontSize: 18,
-        marginBottom: 10
+        marginBottom: 10,
+        top: 10,
+        right: 5,
     },
     headerTitle: {        
         fontFamily: "Coolvetica",
-        fontSize: 35,
+        fontSize: 33,
         fontWeight: "bold",
         textAlign: "left",
         letterSpacing: 2,
         color: Res.DCONColors.JellyBean,
-        width: 300
+        width: 300,
+        top: 10,
+        right: 5,
     },
     homeContainer: {
         padding: 25
