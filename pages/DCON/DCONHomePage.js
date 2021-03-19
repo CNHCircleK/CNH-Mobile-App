@@ -45,8 +45,6 @@ export default class DCONHomePage extends Component {
             announcements[index].timestamp = announcements[index].timestamp.toDate();
         });
 
-        console.log(announcements);
-
         this.setState({announcements: announcements});
     };
 

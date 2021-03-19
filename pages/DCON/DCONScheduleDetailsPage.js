@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { Component } from "react";
-import { View, StyleSheet, Text, FlatList, TouchableOpacity, Modal, Image } from 'react-native';
+import { View, StyleSheet, Text, FlatList, TouchableOpacity, Linking, Image } from 'react-native';
 import { getData } from "../../utils/Firebase";
 import Res from '@resources';
 
@@ -36,6 +36,9 @@ export default class DCONScheduleDetailsPage extends Component {
                 <Text style={styles.workshopTitle}>{item.title}</Text>
                 <Text style={styles.workshopHosts}>Hosted by {item.hosts}</Text>
                 <Text style={styles.workshopDesc}>{item.description}</Text>
+                <TouchableOpacity style={{...styles.workshopButton, marginBottom: 10}} onPress={async () => await Linking.openURL(item.link)}>
+                    <Text style={styles.workshopButtonText}>GO TO WORKSHOP</Text>
+                </TouchableOpacity>
                 <TouchableOpacity style={styles.workshopButton} onPress={() => this.updateSelectedWorkshop(item)}>
                     <Text style={styles.workshopButtonText}>ADD TO SCHEDULE</Text>
                 </TouchableOpacity>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, FlatList, TouchableOpacity, Modal, Image } from 'react-native';
+import { View, StyleSheet, Text, FlatList, TouchableOpacity, Modal, Image, Linking } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import Swiper from 'react-native-swiper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -19,6 +19,22 @@ export default class DCONSchedulePage extends Component {
     }
 
     componentDidMount = async () => {
+        await this.setSchedule();
+        await this.setDescriptions();
+        await this.setCachedWorkshops();
+        
+        this.navigationListener = this.props.navigation.addListener('focus', async () => {
+            await this.setSchedule();
+            await this.setDescriptions();
+            await this.setCachedWorkshops();
+        });
+    };
+
+    componentWillUnmount = () => {
+        this.navigationListener();
+    };
+
+    setSchedule = async () => {
         let updatedSchedule = await getData('dcon-schedule');
 
         updatedSchedule.forEach((event, index) => {
@@ -31,17 +47,13 @@ export default class DCONSchedulePage extends Component {
                 AsyncStorage.setItem('Workshop ' + event.workshop + ' Index', index.toString());
         })
 
-        let updatedDescriptions = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "schedule", op: "==", value: true}]);
-
-        this.setState({scheduleData: updatedSchedule, scheduleDescriptions: updatedDescriptions});
-
-        await this.setCachedWorkshops();
-        
-        this.navigationListener = this.props.navigation.addListener('focus', this.setCachedWorkshops);
+        this.setState({scheduleData: updatedSchedule});
     };
 
-    componentWillUnmount = () => {
-        this.navigationListener();
+    setDescriptions = async () => {
+        let updatedDescriptions = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "schedule", op: "==", value: true}]);
+        
+        this.setState({scheduleDescriptions: updatedDescriptions});
     };
 
     setCachedWorkshops = async () => {
@@ -56,7 +68,7 @@ export default class DCONSchedulePage extends Component {
                     workshopIndex = parseInt(workshopIndex);
                     
                     schedule[workshopIndex].title = workshopData.title;
-                    schedule[workshopIndex].location = 'Zoom';
+                    schedule[workshopIndex].location = workshopData.link;
                 }
             }
         } catch (e) {
@@ -114,7 +126,13 @@ export default class DCONSchedulePage extends Component {
                 </View>
                 <View style={styles.eventMiddle}>
                     <Text style={styles.eventTitle}>{item.title}</Text>
-                    <Text style={styles.eventLocation}>{item.location}</Text>
+                    {item.workshop ? 
+                        <TouchableOpacity style={{...styles.workshopButton, marginBottom: 10}} onPress={async () => await Linking.openURL(item.location)}>
+                            <Text style={styles.workshopButtonText}>GO TO WORKSHOP</Text>
+                        </TouchableOpacity> :
+                        <Text style={styles.eventLocation}>{item.location}</Text>
+                    }
+                    
                 </View>
                 <TouchableOpacity style={styles.eventRight} onPress={() => {
                     if (item.workshop) this.navigateDetails(item.workshop);
@@ -322,5 +340,15 @@ const styles = StyleSheet.create({
         height: 250,
         right: -10,
         bottom: -20
+    },
+    workshopButton: {
+        backgroundColor: Res.DCONColors.Gold,
+        marginTop: 10,
+        paddingHorizontal: 16,
+        paddingVertical: 8
+    },
+    workshopButtonText: {
+        fontSize: 12,
+        fontWeight: 'bold'
     }
 });

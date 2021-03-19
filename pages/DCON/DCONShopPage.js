@@ -19,7 +19,6 @@ export default class DCONShopPage extends Component {
                             style={styles.titleImage}
                             source={require('../../resources/DCON_2021/Images/sun.png')}
                     />
-
                     <View style={styles.itemcontainer}>
                         <View style={styles.introItem}>
                             <Text style={styles.introText}>Welcome to the District Convention 2021: </Text>
@@ -28,10 +27,12 @@ export default class DCONShopPage extends Component {
                                                         to fill out its order form avaliable in 'Resources' 
                                                         and submit a payment via Paypal. Happy shopping!</Text>
                         </View>
-                        <Image
-                            style={styles.introImage}
-                            source={require('../../resources/DCON_2021/Images/Harley.png')}
-                        />
+                        <View style={styles.introImageContainer}>
+                            <Image
+                                style={styles.introImage}
+                                source={require('../../resources/DCON_2021/Images/Harley.png')}
+                            />
+                        </View>
                     </View>
                     
                     <View style={styles.shopContainer}>
@@ -65,14 +66,16 @@ const styles = StyleSheet.create({
     },
     itemcontainer: {
     },
-    introImage: {
-        height: 160,
-        left: 18,
+    introImageContainer: {
         position:'absolute',
+        left: 18,
         top: 90,
-        width: 64,
         zIndex: 9,
         elevation: 9,
+    },
+    introImage: {
+        height: 160,
+        width: 64,
     },
     introItem: {
         paddingVertical: 20,

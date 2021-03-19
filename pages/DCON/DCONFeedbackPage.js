@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Image, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
-import { sendData } from '../../utils/Firebase';
+import { appendSheet } from '../../utils/Firebase';
 import Res from '@resources';
 
 export default class DCONHomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            name: '',
+            school: '',
+            workshops: '',
+            feedback: ''
         };
     }
 
-    componentDidMount = async () => {
-        
+    sendFeedback = async () => {
+        let success = await appendSheet({name: this.state.name, school: this.state.school, workshops: this.state.workshops, feedback: this.state.feedback});
+
+        if (success) {
+            Alert.alert(
+                "Success!",
+                "Your response was sent successfully!",
+                [{ text: "OK", onPress: () => console.log("OK Pressed") }]
+            );
+        }
     };
 
     render() {
@@ -29,32 +40,32 @@ export default class DCONHomePage extends Component {
                         <TextInput
                             style={styles.formInput}
                             multiline={true}
-                            // onChangeText={this.onChangeName}
-                            // value={this.state.name}
+                            onChangeText={(text) => this.setState({name: text})}
+                            value={this.state.name}
                         />
                         <Text style={styles.formTitle}>School</Text>
                         <TextInput
                             style={styles.formInput}
                             multiline={true}
-                            // onChangeText={this.onChangeName}
-                            // value={this.state.name}
+                            onChangeText={(text) => this.setState({school: text})}
+                            value={this.state.school}
                         />
                         <Text style={styles.formTitle}>Which workshops/professional expos did you attend?</Text>
                         <TextInput
                             style={styles.formInput}
                             multiline={true}
-                            // onChangeText={this.onChangeName}
-                            // value={this.state.name}
+                            onChangeText={(text) => this.setState({workshops: text})}
+                            value={this.state.workshops}
                         />
                         <Text style={styles.formTitle}>Feedback/Comments/Concerns</Text>
                         <TextInput
                             style={{...styles.formInput, height: 150}}
                             multiline={true}
-                            // onChangeText={this.onChangeName}
-                            // value={this.state.name}
+                            onChangeText={(text) => this.setState({feedback: text})}
+                            value={this.state.feedback}
                         />
                     </View>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={this.sendFeedback}>
                         <Text style={styles.buttonText}>SUBMIT</Text>
                     </TouchableOpacity>
                 </ScrollView>
