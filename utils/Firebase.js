@@ -31,13 +31,11 @@ export async function sendData(collection, data) {
     }
 }
 
-export async function appendSheet(){
-    var addMessage = firebase.functions().httpsCallable('gsheets-append');
-    addMessage({ })
-        .then((result) => {
-            // Read result of the Cloud Function.
-            var sanitizedMessage = result.data.text;
-        });
+export async function appendSheet(feedback) {
+    let addMessage = firebase.functions().httpsCallable('gsheets-append');
+    let response = await addMessage(feedback);
+
+    return response.data.text;
 }
 
 /******
