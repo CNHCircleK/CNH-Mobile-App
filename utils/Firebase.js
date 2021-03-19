@@ -35,7 +35,7 @@ export async function appendSheet(feedback) {
     let addMessage = firebase.functions().httpsCallable('gsheets-append');
     let response = await addMessage(feedback);
 
-    return response.data.text;
+    return response.data;
 }
 
 /******

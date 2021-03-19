@@ -15,9 +15,9 @@ export default class DCONHomePage extends Component {
     }
 
     sendFeedback = async () => {
-        let success = await appendSheet({name: this.state.name, school: this.state.school, workshops: this.state.workshops, feedback: this.state.feedback});
+        let response = await appendSheet({name: this.state.name, school: this.state.school, workshops: this.state.workshops, feedback: this.state.feedback});
 
-        if (success) {
+        if (response === "Success") {
             Alert.alert(
                 "Success!",
                 "Your response was sent successfully!",
