@@ -12,6 +12,10 @@ export default class DCONAnnouncementsPage extends Component {
     }
 
     componentDidMount = async () => {
+        await this.getAnnouncements();
+    };
+
+    getAnnouncements = async () => {
         let updatedAnnouncements = await getData('dcon-announcements', 'timestamp', 'desc');
 
         updatedAnnouncements.forEach((item, index) => {

@@ -12,6 +12,7 @@ import Res from '@resources';
 
 import DCONHomePage from "./pages/DCON/DCONHomePage";
 import DCONAnnouncementsPage from "./pages/DCON/DCONAnnouncementsPage"
+import DCONAdminPage from "./pages/DCON/DCONAdminPage"
 import DCONSchedulePage from "./pages/DCON/DCONSchedulePage";
 import DCONScheduleDetailsPage from "./pages/DCON/DCONScheduleDetailsPage";
 import DCONShopPage from "./pages/DCON/DCONShopPage";
@@ -31,7 +32,7 @@ function HomeStackScreen() {
         <HomeStack.Navigator headerMode="none">
             <HomeStack.Screen name="Home" component={DCONHomePage} />
             <HomeStack.Screen name="Announcements" component={DCONAnnouncementsPage} />
-            {/* <HomeStack.Screen name="Admin" component={DCONAdminPage} /> */}
+            <HomeStack.Screen name="Admin" component={DCONAdminPage} />
         </HomeStack.Navigator>
     );
 }
