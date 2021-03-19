@@ -64,11 +64,14 @@ export default class DCONSchedulePage extends Component {
                 let workshopData = await AsyncStorage.getItem('Workshop ' + i);
                 if (workshopData != null) {
                     workshopData = JSON.parse(workshopData);
+
                     let workshopIndex = await AsyncStorage.getItem('Workshop ' + i + ' Index');
                     workshopIndex = parseInt(workshopIndex);
                     
-                    schedule[workshopIndex].title = workshopData.title;
-                    schedule[workshopIndex].location = workshopData.link;
+                    let updatedWorkshopData = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "title", op: "==", value: workshopData.title}]);
+
+                    schedule[workshopIndex].title = updatedWorkshopData[0].title;
+                    schedule[workshopIndex].location = updatedWorkshopData[0].link;
                 }
             }
         } catch (e) {
