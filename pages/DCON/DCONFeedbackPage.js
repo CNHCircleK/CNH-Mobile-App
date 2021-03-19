@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Image, TextInput } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Image, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
 import { sendData } from '../../utils/Firebase';
 import Res from '@resources';
 
@@ -17,7 +17,7 @@ export default class DCONHomePage extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : "height"}>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.header}>
                         <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/Sammy.png')} />
@@ -35,18 +35,21 @@ export default class DCONHomePage extends Component {
                         <Text style={styles.formTitle}>School</Text>
                         <TextInput
                             style={styles.formInput}
+                            multiline={true}
                             // onChangeText={this.onChangeName}
                             // value={this.state.name}
                         />
                         <Text style={styles.formTitle}>Which workshops/professional expos did you attend?</Text>
                         <TextInput
                             style={styles.formInput}
+                            multiline={true}
                             // onChangeText={this.onChangeName}
                             // value={this.state.name}
                         />
                         <Text style={styles.formTitle}>Feedback/Comments/Concerns</Text>
                         <TextInput
                             style={{...styles.formInput, height: 150}}
+                            multiline={true}
                             // onChangeText={this.onChangeName}
                             // value={this.state.name}
                         />
@@ -55,7 +58,7 @@ export default class DCONHomePage extends Component {
                         <Text style={styles.buttonText}>SUBMIT</Text>
                     </TouchableOpacity>
                 </ScrollView>
-            </View>
+            </KeyboardAvoidingView>
         );
     }
 }
@@ -114,6 +117,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         paddingHorizontal: 50,
         paddingVertical: 8,
+        marginBottom: 20,
         backgroundColor: Res.DCONColors.Gold
     },
     buttonText: {

@@ -116,19 +116,21 @@ export default class DCONSchedulePage extends Component {
                     <Text style={styles.eventTitle}>{item.title}</Text>
                     <Text style={styles.eventLocation}>{item.location}</Text>
                 </View>
-                <View style={styles.eventRight}>
+                <TouchableOpacity style={styles.eventRight} onPress={() => {
+                    if (item.workshop) this.navigateDetails(item.workshop);
+                    if (item.description) this.setModal(item.title);
+                }}>
                     {item.workshop || item.description ?
-                        <TouchableOpacity onPress={item.workshop ? () => this.navigateDetails(item.workshop) : () => this.setModal(item.title)}>
-                            <Image 
-                                style={styles.eventIcon} 
-                                source={item.workshop ?
-                                    require('../../resources/DCON_2021/Icons/arrow_icon.png') :
-                                    require('../../resources/DCON_2021/Icons/info_icon.png')}
-                                />
-                        </TouchableOpacity> :
+                        <Image 
+                            style={styles.eventIcon} 
+                            source={item.workshop ?
+                                require('../../resources/DCON_2021/Icons/arrow_icon.png') :
+                                require('../../resources/DCON_2021/Icons/info_icon.png')}
+                        />
+                        :
                         <></>
                     }
-                </View>
+                </TouchableOpacity>
             </View>
         );
     };
