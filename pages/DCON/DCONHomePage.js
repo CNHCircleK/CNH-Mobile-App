@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Image, TextInput, Modal, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import * as firebase from 'firebase'
 import 'firebase/firestore';
@@ -10,11 +10,24 @@ export default class DCONHomePage extends Component {
         super(props);
         this.state = {
             upcomingEvents: [],
-            announcements: []
+            announcements: [],
+            adminPass: '',
+            modalVisible: false
         };
     }
 
     componentDidMount = async () => {
+        await this.getEvents();
+        await this.getAnnouncements();
+
+        this.navigationListener = this.props.navigation.addListener('focus', () => {this.getAnnouncements(); this.getEvents();});
+    };
+
+    componentWillUnmount = async () => {
+        this.navigationListener();
+    };
+
+    getEvents = async () => {
         let events = await getData('dcon-schedule', 'startTime', 'asc', 2, [{field: "startTime", op: ">", value: firebase.firestore.Timestamp.now()}])
         
         events.forEach((event, index) => {
@@ -22,13 +35,19 @@ export default class DCONHomePage extends Component {
             events[index].endTime = events[index].endTime?.toDate();
         });
         
+        this.setState({upcomingEvents: events}); 
+    };
+
+    getAnnouncements = async () => {
         let announcements = await getData('dcon-announcements', 'timestamp', 'desc', 2);
 
         announcements.forEach((item, index) => {
             announcements[index].timestamp = announcements[index].timestamp.toDate();
         });
 
-        this.setState({upcomingEvents: events, announcements: announcements});
+        console.log(announcements);
+
+        this.setState({announcements: announcements});
     };
 
     renderEvent = (item) => {
@@ -80,9 +99,38 @@ export default class DCONHomePage extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={this.state.modalVisible}
+                >
+                    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+                        <View style={styles.modal}>
+                            <TouchableOpacity style={styles.modalCloseContainer} onPress={() => this.setState({modalVisible: false})}>
+                                <Image style={styles.modalClose} source={require('../../resources/DCON_2021/Icons/exit_icon.png')} />
+                            </TouchableOpacity>
+                            <TextInput 
+                                style={styles.formInput} 
+                                onChangeText={(text) => {this.setState({adminPass: text})}}
+                                value={this.state.adminPass}
+                            />
+                            <TouchableOpacity 
+                                style={styles.button} 
+                                onPress={() => { 
+                                    if (this.state.adminPass == 'Forecast') {
+                                        this.setState({modalVisible: false});
+                                        this.props.navigation.navigate('Admin'); 
+                                    }}}>
+                                <Text style={styles.buttonText}>GO</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </TouchableWithoutFeedback>
+                </Modal>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.header}>
-                        <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/approvedlogo.png')} />
+                        <TouchableOpacity style={styles.headerImageContainer} onPress={() => this.setState({modalVisible: true})}>
+                            <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/approvedlogo.png')} />
+                        </TouchableOpacity>
                         <Text style={styles.headerIntro}>Welcome to CNH Circle K's</Text>
                         <Text style={styles.headerTitle}>District Convention 2021</Text>
                     </View>
@@ -94,7 +142,7 @@ export default class DCONHomePage extends Component {
                         </TouchableOpacity>
                         <Text style={styles.subTitle}>Announcements</Text>
                         {this.state.announcements.map((item) => this.renderAnnouncement(item))}
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Announcements')}>
                             <Text style={styles.buttonText}>SEE ALL</Text>
                         </TouchableOpacity>
                     </View>
@@ -108,32 +156,71 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     },
+    modal: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 300,
+        marginHorizontal: 30,
+        paddingTop: 20,
+        paddingHorizontal: 20,
+        borderRadius: 10,
+        shadowColor: 'black',
+        shadowOffset: {width: 10, height: 10},
+        shadowOpacity: 0.50,
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        elevation: 10,
+    },
+    modalCloseContainer: {
+        alignSelf: 'flex-end'
+    },
+    modalClose: {
+        width: 14,
+        height: 14
+    },
+    formInput: {
+        marginBottom: 20,
+        height: 38,
+        width: 250,
+        paddingTop: 2,
+        paddingLeft: 10,
+        borderRadius: 10,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 5},
+        shadowOpacity: 0.10,
+        backgroundColor: 'white'
+    },
     header: {
         paddingTop: 80,
         paddingBottom: 25,
         paddingLeft: 25,
         backgroundColor: Res.DCONColors.Polar
     },
-    headerImage: {
+    headerImageContainer: {
         position: 'absolute',
         top: 40,
-        right: 5,
-        width: 160,
-        height: 160
+        right: 5
+    },
+    headerImage: {
+        width: 150,
+        height: 150
     },
     headerIntro: {
         fontWeight: '300',
         fontSize: 18,
-        marginBottom: 10
+        marginBottom: 10,
+        top: 10,
+        right: 5,
     },
     headerTitle: {        
         fontFamily: "Coolvetica",
-        fontSize: 35,
+        fontSize: 33,
         fontWeight: "bold",
         textAlign: "left",
         letterSpacing: 2,
         color: Res.DCONColors.JellyBean,
-        width: 300
+        width: 300,
+        top: 10,
+        right: 5,
     },
     homeContainer: {
         padding: 25

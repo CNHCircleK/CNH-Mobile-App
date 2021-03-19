@@ -1,61 +1,65 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Image, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
-import { sendData } from '../../utils/Firebase';
+import { sendPushNotification } from '../../utils/Notifications'
+import { sendData, getData } from '../../utils/Firebase';
 import Res from '@resources';
 
-export default class DCONHomePage extends Component {
+export default class DCONAdminPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            title: '',
+            body: ''
         };
     }
 
-    componentDidMount = async () => {
-        
-    };
+    sendAnnouncement = async () => {
+        await sendData('dcon-announcements', { title: this.state.title, body: this.state.body, timestamp: new Date() });
+        let tokens = await getData('expo-tokens');
+        let sendResults = await Promise.all(tokens.map(async (token) => await sendPushNotification(token.token, this.state.title, this.state.body)));
+
+        if(sendResults.some(value => !value)) {
+            Alert.alert(
+                "Failure!",
+                "Some announcements not sent successfully :(",
+                [{ text: "OK", onPress: () => console.log("OK Pressed") }]
+            );
+        } else {
+            Alert.alert(
+                "Success!",
+                "All announcements sent successfully!",
+                [{ text: "OK", onPress: () => console.log("OK Pressed") }]
+            );
+        }
+    }
 
     render() {
         return (
             <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : "height"}>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.header}>
-                        <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/Sammy.png')} />
+                        <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/approvedlogo.png')} />
                         <Text style={styles.headerIntro}>District Convention 2021</Text>
-                        <Text style={styles.headerTitle}>Feedback Form</Text>
+                        <Text style={styles.headerTitle}>Administrator</Text>
                     </View>
                     <View style={styles.formContainer}>
-                        <Text style={styles.formTitle}>Name</Text>
+                        <Text style={styles.formTitle}>Title</Text>
                         <TextInput
                             style={styles.formInput}
                             multiline={true}
-                            // onChangeText={this.onChangeName}
-                            // value={this.state.name}
+                            onChangeText={(text) => this.setState({title: text})}
+                            value={this.state.title}
                         />
-                        <Text style={styles.formTitle}>School</Text>
+                        <Text style={styles.formTitle}>Body</Text>
                         <TextInput
                             style={styles.formInput}
                             multiline={true}
-                            // onChangeText={this.onChangeName}
-                            // value={this.state.name}
-                        />
-                        <Text style={styles.formTitle}>Which workshops/professional expos did you attend?</Text>
-                        <TextInput
-                            style={styles.formInput}
-                            multiline={true}
-                            // onChangeText={this.onChangeName}
-                            // value={this.state.name}
-                        />
-                        <Text style={styles.formTitle}>Feedback/Comments/Concerns</Text>
-                        <TextInput
-                            style={{...styles.formInput, height: 150}}
-                            multiline={true}
-                            // onChangeText={this.onChangeName}
-                            // value={this.state.name}
+                            onChangeText={(text) => this.setState({body: text})}
+                            value={this.state.body}
                         />
                     </View>
-                    <TouchableOpacity style={styles.button}>
-                        <Text style={styles.buttonText}>SUBMIT</Text>
+                    <TouchableOpacity style={styles.button} onPress={this.sendAnnouncement}>
+                        <Text style={styles.buttonText}>SEND</Text>
                     </TouchableOpacity>
                 </ScrollView>
             </KeyboardAvoidingView>
