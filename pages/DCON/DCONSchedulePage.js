@@ -199,7 +199,8 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOffset: {width: 10, height: 10},
         shadowOpacity: 0.50,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        elevation: 10,
     },
     modalCloseContainer: {
         alignSelf: 'flex-end'
@@ -227,7 +228,8 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.15,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        elevation: 10,
     },
     eventBreakLeft: {
         flex: 0.2,
