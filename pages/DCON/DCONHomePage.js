@@ -94,7 +94,7 @@ export default class DCONHomePage extends Component {
                         </TouchableOpacity>
                         <Text style={styles.subTitle}>Announcements</Text>
                         {this.state.announcements.map((item) => this.renderAnnouncement(item))}
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Announcements')}>
                             <Text style={styles.buttonText}>SEE ALL</Text>
                         </TouchableOpacity>
                     </View>
