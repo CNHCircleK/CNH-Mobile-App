@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Image, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Image, TextInput, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { appendSheet } from '../../utils/Firebase';
 import Res from '@resources';
 
