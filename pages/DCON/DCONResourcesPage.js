@@ -65,6 +65,14 @@ export default class DCONResourcesPage extends Component {
                         </View>
                         <Text style={styles.itemText}>DCON 2021 Website</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Meeting'}) }>
+                        <View style={styles.imagecontainer}>
+                            <Image
+                                style={styles.buttonImage} 
+                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                        </View>
+                        <Text style={styles.itemText}>March District Board Meeting Packet</Text>
+                    </TouchableOpacity>
                 </ScrollView>
             </View>
         );

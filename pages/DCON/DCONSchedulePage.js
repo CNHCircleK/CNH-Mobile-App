@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, FlatList, TouchableOpacity, Modal, Image, Linking } from 'react-native';
+import { View, StyleSheet, Text, FlatList, TouchableOpacity, Modal, Image, Linking, Platform } from 'react-native';
 import { getData } from '../../utils/Firebase';
 import Swiper from 'react-native-swiper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getTimeString } from '../../utils/Misc';
 import Res from '@resources';
 
 export default class DCONSchedulePage extends Component {
@@ -119,8 +120,16 @@ export default class DCONSchedulePage extends Component {
             );
         }
 
-        let startTime = item.startTime.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'});
-        let endTime = item.endTime?.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
+        let startTime;
+        let endTime;
+        
+        if (Platform.OS === 'ios') {
+            startTime = item.startTime.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'});
+            endTime = item.endTime?.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
+        } else {
+            startTime = getTimeString(item.startTime);
+            endTime = item.endTime ? getTimeString(item.endTime) : undefined;
+        }
 
         return (
             <View style={styles.eventItem}>

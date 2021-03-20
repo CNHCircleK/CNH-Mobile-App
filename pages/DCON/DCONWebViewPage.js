@@ -26,6 +26,9 @@ export default class DCONWebViewPage extends Component {
             case 'Website':
                 link = 'https://dcon.cnhcirclek.org/';
                 break;
+            case 'Meeting':
+                link = 'https://drive.google.com/file/d/1GfOn0iZAN3u1v0UnZEiLhrHFfHZeqA_j/view?usp=sharing';
+                break;
         }
 
         return <WebView source={{ uri: link }} style={{ marginTop: 20 }} />;

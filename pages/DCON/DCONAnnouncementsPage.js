@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, FlatList, Image } from 'react-native';
 import { getData } from '../../utils/Firebase';
+import { getTimeString } from '../../utils/Misc';
 import Res from '@resources';
 
 export default class DCONAnnouncementsPage extends Component {
@@ -27,7 +28,7 @@ export default class DCONAnnouncementsPage extends Component {
 
     renderAnnouncement = ({item}) => {
         let date = item.timestamp.toLocaleDateString('en-US');
-        let time = item.timestamp.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'});
+        let time = Platform.OS === 'ios' ? item.timestamp.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'}) : getTimeString(item.timestamp);
         let timestamp = date + ' ' + time;
 
         return (
