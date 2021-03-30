@@ -5,6 +5,9 @@ export default class DCONWebViewPage extends Component {
     render() {
         let link;
         switch (this.props.route.params.link) {
+            case 'Techx':
+                link = 'https://docs.google.com/forms/d/e/1FAIpQLScKfiWTNHkfTZKrzHbYKGTCVOVx_iPdTWvcqvBzRxO8E4EQ4g/viewform';
+                break;
             case 'Merch':
                 link = 'https://docs.google.com/forms/d/e/1FAIpQLSd4cTg8TF_7QlRizrA2UMd2syQ5L8ti40ICDH7y6vwVAWnReQ/viewform';
                 break;
@@ -25,6 +28,9 @@ export default class DCONWebViewPage extends Component {
                 break;
             case 'Website':
                 link = 'https://dcon.cnhcirclek.org/';
+                break;
+            case 'Meeting':
+                link = 'https://drive.google.com/file/d/1GfOn0iZAN3u1v0UnZEiLhrHFfHZeqA_j/view?usp=sharing';
                 break;
         }
 

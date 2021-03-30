@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Image, TextInput, Modal, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Image, TextInput, Modal, TouchableWithoutFeedback, Keyboard, Platform } from 'react-native';
 import { getData } from '../../utils/Firebase';
+import { getTimeString } from '../../utils/Misc';
 import * as firebase from 'firebase'
 import 'firebase/firestore';
 import Res from '@resources';
@@ -62,8 +63,16 @@ export default class DCONHomePage extends Component {
             );
         }
 
-        let startTime = item.startTime.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'});
-        let endTime = item.endTime?.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
+        let startTime;
+        let endTime;
+
+        if (Platform.OS === 'ios') {
+            startTime = item.startTime.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'});
+            endTime = item.endTime?.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
+        } else {
+            startTime = getTimeString(item.startTime);
+            endTime = item.endTime ? getTimeString(item.endTime) : undefined;
+        }
 
         return (
             <View style={styles.eventItem}>
@@ -80,7 +89,7 @@ export default class DCONHomePage extends Component {
 
     renderAnnouncement = (item) => {
         let date = item.timestamp.toLocaleDateString('en-US');
-        let time = item.timestamp.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'});
+        let time = Platform.OS === 'ios' ? item.timestamp.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'}) : getTimeString(item.timestamp);
         let timestamp = date + ' ' + time;
 
         return (

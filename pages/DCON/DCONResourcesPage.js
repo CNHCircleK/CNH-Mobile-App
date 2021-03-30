@@ -17,6 +17,14 @@ export default class DCONResourcesPage extends Component {
                         <Text style = {styles.titleText}>District Convention 2021</Text>
                         <Text style = {styles.resourcesText}>RESOURCES</Text>
                     </View>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
+                        <View style={styles.imagecontainer}>
+                            <Image
+                                style={styles.buttonImage} 
+                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                        </View>
+                        <Text style={styles.itemText}>TechX Interest Form</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
@@ -64,6 +72,14 @@ export default class DCONResourcesPage extends Component {
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
                         <Text style={styles.itemText}>DCON 2021 Website</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Meeting'}) }>
+                        <View style={styles.imagecontainer}>
+                            <Image
+                                style={styles.buttonImage} 
+                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                        </View>
+                        <Text style={styles.itemText}>March District Board Meeting Packet</Text>
                     </TouchableOpacity>
                 </ScrollView>
             </View>
