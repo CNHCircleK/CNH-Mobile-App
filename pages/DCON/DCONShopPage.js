@@ -15,7 +15,7 @@ export default class DCONShopPage extends Component {
                 >
                     <View style={styles.titleShape}>
                         <Text style = {styles.subtitleText}>District Convention 2021</Text>
-                        <Text style = {styles.titleText}>OFFICIAL SHOP</Text>
+                        <Text style = {styles.titleText}>OFFICIAL MOBILE APP SHOP</Text>
                     </View>
                     <Image
                             style={styles.titleImage}
