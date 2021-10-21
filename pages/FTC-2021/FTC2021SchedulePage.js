@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getTimeString } from '../../utils/Misc';
 import Res from '@resources';
 
-export default class DCONSchedulePage extends Component {
+export default class FTC2021SchedulePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -185,7 +185,7 @@ export default class DCONSchedulePage extends Component {
                     <Swiper style={styles.swiper} activeDotColor={Res.DCONColors.JellyBean} onIndexChanged={(index) => this.setState({curDay: (index + 5) % 7})}>
                         <View style={styles.swiperCard}>
                             <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/SunClouds.png')}/>
-                            <Text style={styles.slideText}>CNH District Convention 2021</Text>
+                            <Text style={styles.slideText}>FTC 2021</Text>
                             <Text style={styles.slideDayText}>Friday</Text>
                             <Text style={styles.slideText}>March 19, Day 1</Text>
                         </View>

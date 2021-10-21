@@ -139,7 +139,7 @@ export default class FTC21HomePage extends Component {
                             <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/approvedlogo.png')} />
                         </TouchableOpacity>
                         <Text style={styles.headerIntro}>Welcome to CNH Circle K's</Text>
-                        <Text style={styles.headerTitle}>FTC 2021</Text>
+                        <Text style={styles.headerTitle}>FTC 2021!!</Text>
                     </View>
                     <View style={styles.homeContainer}>
                         <Text style={styles.subTitle}>Upcoming Sessions</Text>

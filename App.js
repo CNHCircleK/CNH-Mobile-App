@@ -20,6 +20,9 @@ import DCONResourcesPage from "./pages/DCON/DCONResourcesPage";
 import DCONWebViewPage from "./pages/DCON/DCONWebViewPage";
 import DCONFeedbackPage from "./pages/DCON/DCONFeedbackPage";
 
+import FTC21HomePage from "./pages/FTC-2021/FTC21HomePage";
+import FTC2021SchedulePage from "./pages/FTC-2021/FTC2021SchedulePage";
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -30,7 +33,7 @@ const ShopStack = createStackNavigator();
 function HomeStackScreen() {
     return (
         <HomeStack.Navigator headerMode="none">
-            <HomeStack.Screen name="Home" component={DCONHomePage} />
+            <HomeStack.Screen name="Home" component={FTC21HomePage} />
             <HomeStack.Screen name="Announcements" component={DCONAnnouncementsPage} />
             <HomeStack.Screen name="Admin" component={DCONAdminPage} />
         </HomeStack.Navigator>
@@ -40,7 +43,7 @@ function HomeStackScreen() {
 function ScheduleStackScreen() {
     return (
         <ScheduleStack.Navigator headerMode='none'>
-            <ScheduleStack.Screen name='Schedule' component={DCONSchedulePage} />
+            <ScheduleStack.Screen name='Schedule' component={FTC2021SchedulePage} />
             <ScheduleStack.Screen name='Schedule Details' component={DCONScheduleDetailsPage} />
         </ScheduleStack.Navigator>
     );
@@ -58,7 +61,7 @@ function ShopStackScreen() {
 function ResourcesStackScreen() {
     return (
         <ResourcesStack.Navigator headerMode='none'>
-            <ResourcesStack.Screen name='Resources' component={DCONResourcesPage} />
+            <ResourcesStack.Screen name='Activites' component={DCONResourcesPage} />
             <ResourcesStack.Screen name='ResourcesWebView' component={DCONWebViewPage} />
         </ResourcesStack.Navigator>
     );
@@ -109,8 +112,8 @@ function DCONTabScreen() {
             <Tab.Screen name="Home" component={HomeStackScreen} />
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
             <Tab.Screen name="Shop" component={ShopStackScreen} />
+            <Tab.Screen name="Activites" component={ResourcesStackScreen} />
             <Tab.Screen name="Resources" component={ResourcesStackScreen} />
-            <Tab.Screen name="Feedback" component={DCONFeedbackPage} />
         </Tab.Navigator>
     );
 }
