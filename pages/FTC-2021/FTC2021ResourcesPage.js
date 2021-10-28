@@ -17,7 +17,7 @@ export default class FTC2021ResourcesPage extends Component {
                         <Text style = {styles.titleText}>District Convention 2021</Text>
                         <Text style = {styles.resourcesText}>RESOURCES</Text>
                     </View>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
+                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'https://drive.google.com/file/d/1BTfu5wtYrAKsG0lQ-HTwTG3cQQ3o3M2_/view?usp=sharing'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
                                 style={styles.buttonImage}
@@ -108,6 +108,8 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.15,
+        width: '50%',
+        height: '20%',
         backgroundColor: 'white'
     },
     itemText: {
