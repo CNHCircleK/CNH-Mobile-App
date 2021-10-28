@@ -3,7 +3,6 @@ import { Image, View, StyleSheet, Text, FlatList, TouchableOpacity, Platform, St
 import RNPickerSelect from 'react-native-picker-select';
 import { scheduleNotification, cancelScheduledNotification } from '../../utils/Notifications'
 import { Ionicons } from '@expo/vector-icons';
-import Res from '@resources';
 import Toast from 'react-native-root-toast';
 
 const days = ['Friday', 'Saturday', 'Sunday', 'My Events'];
@@ -291,7 +290,7 @@ export default class FTCSchedulePage extends Component {
                     <View style={styles.switchContainer}>
                         <Text style={styles.switchText}> Edit "My Events"</Text>
                         <Switch
-                            trackColor={{true: Res.FTCColors.SpanishPink,
+                            trackColor={{true: 'pink',
                               false: 'grey'}}
                             thumbColor={this.state.scheduleMode ? "white" : "white"}
                             ios_backgroundColor='grey'
@@ -316,7 +315,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: Res.FTCColors.BlueLightsBackground
+        backgroundColor: 'blue'
     },
     title: {
         justifyContent: 'center',
@@ -326,7 +325,7 @@ const styles = StyleSheet.create({
     titleText: {
         fontFamily: "Gilberto",
         fontSize: 100,
-        color: Res.FTCColors.MellowApricot,
+        color: 'yellow',
         marginTop: -10
     },
     optionsContainer: {
@@ -350,7 +349,7 @@ const styles = StyleSheet.create({
     switchText: {
         textAlign: 'center',
         fontFamily: "Arbutus-Slab",
-        color: Res.FTCColors.ScheduleText,
+        color: 'black',
         opacity: 0.87
     },
     switch: {
@@ -380,13 +379,13 @@ const styles = StyleSheet.create({
     },
     eventTitle: {
         fontSize: 15,
-        color: Res.FTCColors.ScheduleText,
+        color: 'black',
         fontFamily: "Arbutus-Slab",
         opacity: 0.87
     },
     eventTimeLocation: {
         fontSize: 12,
-        color: Res.FTCColors.ScheduleText,
+        color: 'black',
         fontFamily: "Arbutus-Slab",
         opacity: 0.60
     },
