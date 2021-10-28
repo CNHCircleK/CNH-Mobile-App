@@ -8,20 +8,13 @@ import { MaterialIcons } from '@expo/vector-icons';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
-import Res from '@resources';
 
-import DCONHomePage from "./pages/DCON/DCONHomePage";
-import DCONAnnouncementsPage from "./pages/DCON/DCONAnnouncementsPage"
-import DCONAdminPage from "./pages/DCON/DCONAdminPage"
-import DCONSchedulePage from "./pages/DCON/DCONSchedulePage";
-import DCONScheduleDetailsPage from "./pages/DCON/DCONScheduleDetailsPage";
-import DCONShopPage from "./pages/DCON/DCONShopPage";
-import DCONResourcesPage from "./pages/DCON/DCONResourcesPage";
-import DCONWebViewPage from "./pages/DCON/DCONWebViewPage";
-import DCONFeedbackPage from "./pages/DCON/DCONFeedbackPage";
+i
 
 import FTC21HomePage from "./pages/FTC-2021/FTC21HomePage";
 import FTC2021SchedulePage from "./pages/FTC-2021/FTC2021SchedulePage";
+import FTC2021ActivityPage from "./pages/FTC-2021/FTC2021ActivityPage";
+import FTC2021ResourcesPage from "./pages/FTC-2021/FTC2021ResourcesPage";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -53,7 +46,6 @@ function ShopStackScreen() {
     return (
         <ShopStack.Navigator headerMode='none'>
             <ShopStack.Screen name='Shop' component={DCONShopPage} />
-            <ShopStack.Screen name='ShopWebView' component={DCONWebViewPage} />
         </ShopStack.Navigator>
     );
 }
@@ -61,8 +53,8 @@ function ShopStackScreen() {
 function ResourcesStackScreen() {
     return (
         <ResourcesStack.Navigator headerMode='none'>
-            <ResourcesStack.Screen name='Activites' component={DCONResourcesPage} />
-            <ResourcesStack.Screen name='ResourcesWebView' component={DCONWebViewPage} />
+            <ResourcesStack.Screen name='Activites' component={FTC2021ResourcesPage} />
+          
         </ResourcesStack.Navigator>
     );
 }
