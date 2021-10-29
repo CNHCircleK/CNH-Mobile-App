@@ -4,7 +4,7 @@ import { getData } from '../../utils/Firebase';
 import Swiper from 'react-native-swiper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getTimeString } from '../../utils/Misc';
-//import Res from '../../resources/res';
+import Res from '@resources';
 
 export default class FTC2021SchedulePage extends Component {
     constructor(props) {
@@ -132,13 +132,85 @@ export default class FTC2021SchedulePage extends Component {
         }
 
         return (
-            <h2> Test </h2>
+            <View style={styles.eventItem}>
+                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.DCONColors.VisVis : Res.DCONColors.Rajah}}>
+                    <Text style={styles.eventTime}>{startTime} {endTime ? '- ' + endTime : ''}</Text>
+                </View>
+                <View style={styles.eventMiddle}>
+                    <Text style={styles.eventTitle}>{item.title}</Text>
+                    {item.workshop ? 
+                        <TouchableOpacity style={{...styles.workshopButton, marginBottom: 10}} onPress={async () => await Linking.openURL(item.location)}>
+                            <Text style={styles.workshopButtonText}>GO TO WORKSHOP</Text>
+                        </TouchableOpacity> :
+                        <Text style={styles.eventLocation}>{item.location}</Text>
+                    }
+                    
+                </View>
+                <TouchableOpacity style={styles.eventRight} onPress={() => {
+                    if (item.workshop) this.navigateDetails(item.workshop);
+                    if (item.description) this.setModal(item.title);
+                }}>
+                    {item.workshop || item.description ?
+                        <Image 
+                            style={styles.eventIcon} 
+                            source={item.workshop ?
+                                require('../../resources/DCON_2021/Icons/arrow_icon.png') :
+                                require('../../resources/DCON_2021/Icons/info_icon.png')}
+                        />
+                        :
+                        <></>
+                    }
+                </TouchableOpacity>
+            </View>
         );
     };
 
     render() {
         return (
-            <h2> Test </h2>
+            <View style={styles.container}>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={this.state.modalVisible}
+                >
+                    <View style={styles.modal}>
+                        <TouchableOpacity style={styles.modalCloseContainer} onPress={() => this.setState({modalVisible: false})}>
+                            <Image style={styles.modalClose} source={require('../../resources/DCON_2021/Icons/exit_icon.png')} />
+                        </TouchableOpacity>
+                        <Text style={styles.modalTitle}>{this.state.modalTitle}</Text>
+                        <Text style={styles.modalDesc}>{this.state.modalDesc}</Text>
+                    </View>
+                </Modal>
+                <View style={styles.swiperContainer}>
+                    <Swiper style={styles.swiper} activeDotColor={Res.DCONColors.JellyBean} onIndexChanged={(index) => this.setState({curDay: (index + 5) % 7})}>
+                        <View style={styles.swiperCard}>
+                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/SunClouds.png')}/>
+                            <Text style={styles.slideText}>FTC 2021</Text>
+                            <Text style={styles.slideDayText}>Friday</Text>
+                            <Text style={styles.slideText}>March 19, Day 1</Text>
+                        </View>
+                        <View style={styles.swiperCard}>
+                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/Snow_and_Leaves.png')}/>
+                            <Text style={styles.slideText}>CNH District Convention 2021</Text>
+                            <Text style={styles.slideDayText}>Saturday</Text>
+                            <Text style={styles.slideText}>March 20, Day 2</Text>
+                        </View>
+                        <View style={styles.swiperCard}>
+                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/Rain.png')}/>
+                            <Text style={styles.slideText}>CNH District Convention 2021</Text>
+                            <Text style={styles.slideDayText}>Sunday</Text>
+                            <Text style={styles.slideText}>March 21, Day 3</Text>
+                        </View>
+                    </Swiper>
+                </View>
+                <FlatList
+                    data={this.getCurSchedule(this.state.curDay)}
+                    renderItem={this.renderEvent}
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={styles.contentContainer}
+                    keyExtractor={(item, index) => index.toString()}
+                />
+            </View>
         );
     }
 }
