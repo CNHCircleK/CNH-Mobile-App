@@ -8,8 +8,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
-
-i
+import Res from '@resources';
 
 import FTC21HomePage from "./pages/FTC-2021/FTC21HomePage";
 import FTC2021SchedulePage from "./pages/FTC-2021/FTC2021SchedulePage";
@@ -27,8 +26,8 @@ function HomeStackScreen() {
     return (
         <HomeStack.Navigator headerMode="none">
             <HomeStack.Screen name="Home" component={FTC21HomePage} />
-            <HomeStack.Screen name="Announcements" component={DCONAnnouncementsPage} />
-            <HomeStack.Screen name="Admin" component={DCONAdminPage} />
+            {/*<HomeStack.Screen name="Announcements" component={DCONAnnouncementsPage} />*/}
+            {/*}<HomeStack.Screen name="Admin" component={DCONAdminPage} />*/}
         </HomeStack.Navigator>
     );
 }
@@ -54,7 +53,7 @@ function ResourcesStackScreen() {
     return (
         <ResourcesStack.Navigator headerMode='none'>
             <ResourcesStack.Screen name='Activites' component={FTC2021ResourcesPage} />
-          
+
         </ResourcesStack.Navigator>
     );
 }
@@ -126,7 +125,7 @@ export default class App extends Component {
             'Plumpfull': require('./resources/DCON_2021/Fonts/Plumpfull.ttf'),
             'RoundyyRainbows': require('./resources/DCON_2021/Fonts/RoundyRainbows.ttf')
         };
-        
+
         await Font.loadAsync(customFonts);
     }
 

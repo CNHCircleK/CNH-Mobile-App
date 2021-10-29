@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Image, StyleSheet, Text, TextInput, View, StatusBar, ScrollView, SafeAreaView, TouchableOpacity, ImageBackground, Alert } from "react-native";
 import { sendData } from '../../utils/Firebase';
-
+import Res from "@resources";
 
 export default class FTC2021ActivityPage extends Component {
-  
 
     render() {
         return (
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-        backgroundColor: Res.FTCColors.BlueLightsBackground,
+        //backgroundColor: Res.FTCColors.BlueLightsBackground,
     },
     image: {
         flex: 1,
@@ -77,7 +76,7 @@ const styles = StyleSheet.create({
     scrollView: {
         paddingLeft: 20,
         paddingRight: 20,
-        backgroundColor: Res.FTCColors.BlueLightsBackground
+        ///backgroundColor: Res.FTCColors.BlueLightsBackground
 
     },
     title: {
@@ -89,13 +88,13 @@ const styles = StyleSheet.create({
     titleText: {
         fontFamily: 'Gilberto',
         fontSize: 100,
-        color: Res.FTCColors.MellowApricot,
-        backgroundColor: Res.FTCColors.BlueLightsBackground,
+        ////color: Res.FTCColors.MellowApricot,
+      ///  backgroundColor: Res.FTCColors.BlueLightsBackground,
         marginTop: -20
     },
     messageContainer: {
         marginBottom: 5,
-        backgroundColor: Res.FTCColors.BlueLightsBackground
+        //backgroundColor: Res.FTCColors.BlueLightsBackground
     },
     messageText: {
         fontFamily: 'Arbutus-Slab',
@@ -120,7 +119,7 @@ const styles = StyleSheet.create({
     button: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: Res.FTCColors.TeaGreen,
+        /////backgroundColor: Res.FTCColors.TeaGreen,
         marginVertical: 10,
         padding: 20,
         borderRadius: 10

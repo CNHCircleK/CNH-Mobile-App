@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, ScrollView, StatusBar, Platform, ImageBackground, Image } from 'react-native';
+import Res from '@resources';
 
 export default class FTC2021ResourcesPage extends Component {
     render() {
@@ -19,7 +20,7 @@ export default class FTC2021ResourcesPage extends Component {
                     <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
-                                style={styles.buttonImage} 
+                                style={styles.buttonImage}
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
                         <Text style={styles.itemText}>TechX Interest Form</Text>
@@ -27,7 +28,7 @@ export default class FTC2021ResourcesPage extends Component {
                     <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
-                                style={styles.buttonImage} 
+                                style={styles.buttonImage}
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
                         <Text style={styles.itemText}>DCON 2021 Souvenir Package Form</Text>
@@ -35,7 +36,7 @@ export default class FTC2021ResourcesPage extends Component {
                     <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
-                                style={styles.buttonImage} 
+                                style={styles.buttonImage}
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
                         <Text style={styles.itemText}>DCON 2021 Candidate Literatures</Text>
@@ -43,7 +44,7 @@ export default class FTC2021ResourcesPage extends Component {
                     <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
-                                style={styles.buttonImage} 
+                                style={styles.buttonImage}
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
                         <Text style={styles.itemText}>DCON 2021 Shoutouts</Text>
@@ -51,7 +52,7 @@ export default class FTC2021ResourcesPage extends Component {
                     <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Program'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
-                                style={styles.buttonImage} 
+                                style={styles.buttonImage}
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
                         <Text style={styles.itemText}>DCON 2021 Program</Text>
@@ -59,7 +60,7 @@ export default class FTC2021ResourcesPage extends Component {
                     <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Conduct'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
-                                style={styles.buttonImage} 
+                                style={styles.buttonImage}
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
                         <Text style={styles.itemText}>DCON 2021 Code of Conduct</Text>
@@ -67,7 +68,7 @@ export default class FTC2021ResourcesPage extends Component {
                     <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Website'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
-                                style={styles.buttonImage} 
+                                style={styles.buttonImage}
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
                         <Text style={styles.itemText}>DCON 2021 Website</Text>
@@ -75,7 +76,7 @@ export default class FTC2021ResourcesPage extends Component {
                     <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Meeting'}) }>
                         <View style={styles.imagecontainer}>
                             <Image
-                                style={styles.buttonImage} 
+                                style={styles.buttonImage}
                                 source={require('../../resources/DCON_2021/Images/sunny.png')} />
                         </View>
                         <Text style={styles.itemText}>March District Board Meeting Packet</Text>
@@ -143,6 +144,6 @@ const styles = StyleSheet.create({
     },
     buttonImage: {
         width: 30,
-        height: 30, 
+        height: 30,
     }
 });
