@@ -43,7 +43,7 @@ function ScheduleStackScreen() {
 function ActivityStackScreen() {
     return (
         <ResourcesStack.Navigator headerMode='none'>
-            <ResourcesStack.Screen name='Activites' component={FTC2021ActivityPage} />
+            <ResourcesStack.Screen name='Activities' component={FTC2021ActivityPage} />
         </ResourcesStack.Navigator>
     );
 }
@@ -69,9 +69,9 @@ function FTCTabScreen() {
                         case 'Schedule':
                             iconName = 'access-time'
                             break;
-                            case 'Activity':
-                                iconName = 'assignment'
-                                break;
+                        case 'Activities':
+                            iconName = 'assignment'
+                            break;
                         case 'Resources':
                             iconName = 'assignment'
                             break;
@@ -81,10 +81,10 @@ function FTCTabScreen() {
                 }
             })}
             tabBarOptions={{
-                activeTintColor: Res.DCONColors.Rajah,
-                inactiveTintColor: Res.DCONColors.JellyBean,
+                activeTintColor: Res.FTCColors.Liptz,
+                inactiveTintColor: Res.FTCColors.Eggshell,
                 style: {
-                    backgroundColor: 'white'
+                    backgroundColor: Res.FTCColors.Blarp,
                 },
                 labelStyle: {
                     marginBottom: 4,
@@ -97,7 +97,7 @@ function FTCTabScreen() {
         >
             <Tab.Screen name="Home" component={HomeStackScreen} />
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
-            <Tab.Screen name="Activites" component={ResourcesStackScreen} />
+            <Tab.Screen name="Activities" component={ActivityStackScreen} />
             <Tab.Screen name="Resources" component={ResourcesStackScreen} />
         </Tab.Navigator>
     );
