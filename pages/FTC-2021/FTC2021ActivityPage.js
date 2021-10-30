@@ -11,12 +11,16 @@ export default class FTC2021ActivityPage extends Component {
            <View style={styles.container}>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.titleShape}>
+                        <Image
+                            style={styles.titleImage}
+                            source={require('../../resources/DCON_2021/Images/WindyWillow.png')}
+                        />
                         <Text style = {styles.titleText}>Fall Training</Text>
                         <Text style = {styles.titleText}>Conference 2021</Text>
 
                         <Text style = {styles.resourcesText}>Activities</Text>
                     </View>
-                    <View style={{ flexDirection:"row"}}>
+                    <View style={{ flexDirection:"row", justifyContent: 'space-evenly'}}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
                             <Text style={styles.itemText}>Team Activities</Text>
                             <View style={styles.imagecontainer}>
@@ -36,7 +40,7 @@ export default class FTC2021ActivityPage extends Component {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={{ flexDirection:"row", marginTop: 2}}>
+                    <View style={{ flexDirection:"row", marginTop: '-7.5%', justifyContent: 'space-evenly'}}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
                             <Text style={styles.itemText}>Personality Quiz</Text>
                             <View style={styles.imagecontainer}>
@@ -73,18 +77,17 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     item: {
-        marginHorizontal: 20,
         marginVertical: 10,
         paddingVertical: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 3,
+        borderRadius: 5,
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 5},
-        shadowOpacity: 0.15,
+        shadowOpacity: 0.25,
         backgroundColor: Res.FTCColors.Liptz,
         width: "40%",
-        height: "60%"
+        height: "70%"
     },
     itemText: {
         fontSize: 16,
@@ -119,7 +122,6 @@ const styles = StyleSheet.create({
         position: "absolute",
         resizeMode: "contain",
         right: 20,
-        top: 50,
     },
     buttonImage: {
         width: 30,
