@@ -20,7 +20,6 @@ const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
 const ScheduleStack = createStackNavigator();
 const ResourcesStack = createStackNavigator();
-const ShopStack = createStackNavigator();
 
 function HomeStackScreen() {
     return (
@@ -41,24 +40,23 @@ function ScheduleStackScreen() {
     );
 }
 
-function ShopStackScreen() {
+function ActivityStackScreen() {
     return (
-        <ShopStack.Navigator headerMode='none'>
-            <ShopStack.Screen name='Shop' component={DCONShopPage} />
-        </ShopStack.Navigator>
+        <ResourcesStack.Navigator headerMode='none'>
+            <ResourcesStack.Screen name='Activites' component={FTC2021ActivityPage} />
+        </ResourcesStack.Navigator>
     );
 }
 
 function ResourcesStackScreen() {
     return (
         <ResourcesStack.Navigator headerMode='none'>
-            <ResourcesStack.Screen name='Activites' component={FTC2021ResourcesPage} />
-
+            <ResourcesStack.Screen name='Resources' component={FTC2021ResourcesPage} />
         </ResourcesStack.Navigator>
     );
 }
 
-function DCONTabScreen() {
+function FTCTabScreen() {
     return(
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -71,14 +69,11 @@ function DCONTabScreen() {
                         case 'Schedule':
                             iconName = 'access-time'
                             break;
-                        case 'Shop':
-                            iconName = 'shopping-cart'
-                            break;
+                            case 'Activity':
+                                iconName = 'assignment'
+                                break;
                         case 'Resources':
                             iconName = 'assignment'
-                            break;
-                        case 'Feedback':
-                            iconName = 'feedback'
                             break;
                     }
 
@@ -102,7 +97,6 @@ function DCONTabScreen() {
         >
             <Tab.Screen name="Home" component={HomeStackScreen} />
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
-            <Tab.Screen name="Shop" component={ShopStackScreen} />
             <Tab.Screen name="Activites" component={ResourcesStackScreen} />
             <Tab.Screen name="Resources" component={ResourcesStackScreen} />
         </Tab.Navigator>
@@ -178,7 +172,7 @@ export default class App extends Component {
             return (
                 <NavigationContainer>
                     <Stack.Navigator headerMode="none">
-                        <Stack.Screen name="DCON Tabs" component={DCONTabScreen} />
+                        <Stack.Screen name="FTC Tabs" component={FTCTabScreen} />
                     </Stack.Navigator>
                 </NavigationContainer>
             );
