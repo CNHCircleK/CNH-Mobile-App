@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, ScrollView, StatusBar, Platform, ImageBackground, Image } from 'react-native';
 import Res from '@resources';
+import { block } from 'react-native-reanimated';
 
 export default class FTC2021ResourcesPage extends Component {
     render() {
@@ -12,75 +13,51 @@ export default class FTC2021ResourcesPage extends Component {
                     <View style={styles.titleShape}>
                         <Image
                             style={styles.titleImage}
-                            source={require('../../resources/DCON_2021/Images/WindyWillow.png')}
+                            source={require('../../resources/FTC_2021/Images/Crossbow.png')}
                         />
-                        <Text style = {styles.titleText}>District Convention 2021</Text>
-                        <Text style = {styles.resourcesText}>RESOURCES</Text>
+                        <Text style = {styles.titleText}>FALL TRAINING</Text>
+                        <Text style = {styles.titleText}>CONFERENCE 2021</Text>
+
+                        <Text style = {styles.resourcesText}>Resources</Text>
                     </View>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>TechX Interest Form</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Souvenir Package Form</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Candidate Literatures</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Shoutouts</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Program'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Program</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Conduct'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Code of Conduct</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Website'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Website</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Meeting'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>March District Board Meeting Packet</Text>
-                    </TouchableOpacity>
+                    <View style={{ flexDirection:"row", justifyContent: 'space-evenly'}}>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
+                            <Text style={styles.itemText}>Map</Text>
+                            <View style={styles.imagecontainer}>
+                                <Image
+                                    style={styles.buttonImage}
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
+                            </View>
+                        </TouchableOpacity>
+                        
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
+                            <Text style={styles.itemText}>FTC Program</Text>
+                            <View style={styles.imagecontainer}>
+                                <Image
+                                    style={styles.buttonImage}
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={{ flexDirection:"row", marginTop: '-7.5%', justifyContent: 'space-evenly'}}>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
+                            <Text style={styles.itemText}>FAQs</Text>
+                            <View style={styles.imagecontainer}>
+                                <Image
+                                    style={styles.buttonImage}
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
+                            <Text style={styles.itemText}>SAA Shifts</Text>
+                            <View style={styles.imagecontainer}>
+                                <Image
+                                    style={styles.buttonImage}
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                 </ScrollView>
             </View>
         );
@@ -90,6 +67,7 @@ export default class FTC2021ResourcesPage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: Res.FTCColors.Darpz
     },
     imagecontainer: {
         flex: .1,
@@ -98,41 +76,49 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     item: {
-        flexDirection: "row",
-        marginHorizontal: 20,
         marginVertical: 10,
         paddingVertical: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 10,
+        borderRadius: 5,
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 5},
-        shadowOpacity: 0.15,
-        backgroundColor: 'white'
+        shadowOpacity: 0.25,
+        backgroundColor: Res.FTCColors.Liptz,
+        width: "40%",
+        height: "70%"
     },
     itemText: {
         fontSize: 16,
         flex: .9,
+        fontFamily: "Facultad",
     },
     resourcesText: {
-        fontFamily: "Coolvetica",
-        fontSize: 35,
+        fontFamily: "Facultad",
+        fontSize: 42,
         fontWeight: "bold",
         textAlign: "left",
-        letterSpacing: 4,
-        color: Res.DCONColors.JellyBean
+        color: Res.FTCColors.Yellop,
+        paddingTop: 10,
+        marginLeft: -1.5,
+        letterSpacing: -1.5
     },
     titleText: {
-        fontWeight: '300'
+        fontFamily: "SpaceGroteskBold",
+        letterSpacing: 3.55,
+        color: Res.FTCColors.Eggshell
     },
     titleShape: {
         alignItems: "flex-start",
         justifyContent: "flex-end",
-        paddingTop: 120,
+        paddingTop: 50,
         paddingBottom: 20,
         paddingLeft: 30,
         marginBottom: 10,
-        backgroundColor: Res.DCONColors.Polar
+        backgroundColor: Res.FTCColors.Darpz,
+        borderColor: Res.FTCColors.Grabt,
+        borderWidth: 0,
+        borderBottomWidth: 1,
     },
     titleImage: {
         width: 150,
@@ -140,10 +126,11 @@ const styles = StyleSheet.create({
         position: "absolute",
         resizeMode: "contain",
         right: 20,
-        top: 50,
     },
     buttonImage: {
-        width: 30,
-        height: 30,
+        width: 125,
+        height: 125,
+        marginTop: -60,
+        marginBottom: -25
     }
 });

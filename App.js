@@ -117,7 +117,11 @@ export default class App extends Component {
             'Corpuscare': require('./resources/DCON_2021/Fonts/corpuscare.ttf'),
             'Malvie': require('./resources/DCON_2021/Fonts/Malvie.otf'),
             'Plumpfull': require('./resources/DCON_2021/Fonts/Plumpfull.ttf'),
-            'RoundyyRainbows': require('./resources/DCON_2021/Fonts/RoundyRainbows.ttf')
+            'RoundyyRainbows': require('./resources/DCON_2021/Fonts/RoundyRainbows.ttf'),
+
+            'Facultad': require('./resources/FTC_2021/Fonts/Facultad-Regular.otf'),
+            'Metropolis': require('./resources/FTC_2021/Fonts/Metropolis-Medium.otf'),
+            'SpaceGroteskBold': require('./resources/FTC_2021/Fonts/SpaceGrotesk-Bold.otf')
         };
 
         await Font.loadAsync(customFonts);
@@ -149,7 +153,7 @@ export default class App extends Component {
             require('./resources/DCON_2021/Icons/schedule_icon_selected.png'),
             require('./resources/DCON_2021/Icons/schedule_icon.png'),
             require('./resources/DCON_2021/Icons/shop_icon_selected.png'),
-            require('./resources/DCON_2021/Icons/shop_icon.png')
+            require('./resources/DCON_2021/Icons/shop_icon.png'),
         ];
 
         const loadedResources = resources.map(res => {

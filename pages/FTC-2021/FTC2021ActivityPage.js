@@ -13,10 +13,10 @@ export default class FTC2021ActivityPage extends Component {
                     <View style={styles.titleShape}>
                         <Image
                             style={styles.titleImage}
-                            source={require('../../resources/DCON_2021/Images/WindyWillow.png')}
+                            source={require('../../resources/FTC_2021/Images/Crossbow.png')}
                         />
-                        <Text style = {styles.titleText}>Fall Training</Text>
-                        <Text style = {styles.titleText}>Conference 2021</Text>
+                        <Text style = {styles.titleText}>FALL TRAINING</Text>
+                        <Text style = {styles.titleText}>CONFERENCE 2021</Text>
 
                         <Text style = {styles.resourcesText}>Activities</Text>
                     </View>
@@ -26,7 +26,7 @@ export default class FTC2021ActivityPage extends Component {
                             <View style={styles.imagecontainer}>
                                 <Image
                                     style={styles.buttonImage}
-                                    source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
                             </View>
                         </TouchableOpacity>
                         
@@ -35,7 +35,7 @@ export default class FTC2021ActivityPage extends Component {
                             <View style={styles.imagecontainer}>
                                 <Image
                                     style={styles.buttonImage}
-                                    source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -46,7 +46,7 @@ export default class FTC2021ActivityPage extends Component {
                             <View style={styles.imagecontainer}>
                                 <Image
                                     style={styles.buttonImage}
-                                    source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
@@ -54,7 +54,7 @@ export default class FTC2021ActivityPage extends Component {
                             <View style={styles.imagecontainer}>
                                 <Image
                                     style={styles.buttonImage}
-                                    source={require('../../resources/DCON_2021/Images/sunny.png')} />
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -92,17 +92,20 @@ const styles = StyleSheet.create({
     itemText: {
         fontSize: 16,
         flex: .9,
+        fontFamily: "Facultad",
     },
     resourcesText: {
-        fontFamily: "Coolvetica",
-        fontSize: 35,
+        fontFamily: "Facultad",
+        fontSize: 42,
         fontWeight: "bold",
         textAlign: "left",
-        letterSpacing: 4,
-        color: Res.FTCColors.Yellop
+        color: Res.FTCColors.Yellop,
+        paddingTop: 10
     },
     titleText: {
-        fontWeight: '300'
+        fontFamily: "SpaceGroteskBold",
+        letterSpacing: 3.55,
+        color: Res.FTCColors.Eggshell
     },
     titleShape: {
         alignItems: "flex-start",
@@ -124,7 +127,9 @@ const styles = StyleSheet.create({
         right: 20,
     },
     buttonImage: {
-        width: 30,
-        height: 30,
+        width: 125,
+        height: 125,
+        marginTop: -60,
+        marginBottom: -25
     }
 });
