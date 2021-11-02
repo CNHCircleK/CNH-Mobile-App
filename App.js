@@ -16,6 +16,7 @@ import FTC2021ActivityPage from "./pages/FTC-2021/FTC2021ActivityPage";
 import FTC2021ResourcesPage from "./pages/FTC-2021/FTC2021ResourcesPage";
 import FTC2021WebViewPage from "./pages/FTC-2021/FTC2021WebViewPage";
 import DCONScheduleDetailsPage from "./pages/FTC-2021/DCONScheduleDetailsPage";
+import FTC2021DocumentsPage from "./pages/FTC-2021/FTC2021DocumentsPage";
 import FTCAdminPage from "./pages/FTC-2021/FTC2021AdminPage";
 import FTC2021AnnouncementsPage from "./pages/FTC-2021/FTC2021AnnouncementsPage";
 
@@ -59,6 +60,7 @@ function ResourcesStackScreen() {
     return (
         <ResourcesStack.Navigator headerMode='none'>
             <ResourcesStack.Screen name='Resources' component={FTC2021ResourcesPage} />
+            <ResourcesStack.Screen name='Documents' component={FTC2021DocumentsPage} />
             <ResourcesStack.Screen name='ResourcesWebView' component={FTC2021WebViewPage} />
         </ResourcesStack.Navigator>
     );

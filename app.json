@@ -1,38 +1,37 @@
 {
-    "expo": {
-        "name": "Solstice",
-        "description": "Keep posted on the latest district events and news with the official CNH Circle K mobile app!",
-        "slug": "solstice",
-        "owner": "cnhtechsoftware",
-        "privacy": "public",
-        "sdkVersion": "40.0.0",
-        "splash": {
-            "image": "./resources/DCON_2021/Images/approvedlogo.png",
-            "backgroundColor": "#FFFFFF"
-        },
-        "platforms": [
-            "ios",
-            "android",
-            "web"
-        ],
-        "version": "3.0.0",
-        "orientation": "portrait",
-        "icon": "./assets/solstice_icon.png",
-        "updates": {
-            "fallbackToCacheTimeout": 0
-        },
-        "assetBundlePatterns": [
-            "**/*"
-        ],
-        "ios": {
-            "bundleIdentifier": "com.cnhcki.solstice",
-            "buildNumber": "3.0.0"
-        },
-        "android": {
-            "versionCode": 7,
-            "package": "com.cnhcki.solstice",
-            "useNextNotificationsApi": true,
-            "googleServicesFile": "./google-services.json"
-        }
+  "expo": {
+    "name": "Solstice",
+    "description": "Keep posted on the latest district events and news with the official CNH Circle K mobile app!",
+    "slug": "solstice",
+    "owner": "cnhtechsoftware",
+    "privacy": "public",
+    "splash": {
+      "image": "./resources/DCON_2021/Images/approvedlogo.png",
+      "backgroundColor": "#FFFFFF"
+    },
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "3.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/solstice_icon.png",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.cnhcki.solstice",
+      "buildNumber": "3.0.0"
+    },
+    "android": {
+      "versionCode": 7,
+      "package": "com.cnhcki.solstice",
+      "useNextNotificationsApi": true,
+      "googleServicesFile": "./google-services.json"
     }
+  }
 }

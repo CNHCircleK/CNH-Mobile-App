@@ -10,77 +10,36 @@ export default class FTC2021DocumentsPage extends Component {
            <View style={styles.container}>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.titleShape}>
-                        <Image
-                            style={styles.titleImage}
-                            source={require('../../resources/DCON_2021/Images/WindyWillow.png')}
-                        />
-                        <Text style = {styles.titleText}>District Convention 2021</Text>
-                        <Text style = {styles.resourcesText}>RESOURCES</Text>
+                        {/* <Text style = {styles.titleText}>District Convention 2021</Text> */}
+                        <Text style = {styles.resourcesText}>Documents</Text>
                     </View>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>TechX Interest Form</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Souvenir Package Form</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Candidate Literatures</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Shoutouts</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Program'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Program</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Conduct'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Code of Conduct</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Website'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>DCON 2021 Website</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Meeting'}) }>
-                        <View style={styles.imagecontainer}>
-                            <Image
-                                style={styles.buttonImage}
-                                source={require('../../resources/DCON_2021/Images/sunny.png')} />
-                        </View>
-                        <Text style={styles.itemText}>March District Board Meeting Packet</Text>
-                    </TouchableOpacity>
+                    <View style={{ flexDirection:"row", justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
+
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
+                            <Text style={styles.itemText}>Document</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
+                            <Text style={styles.itemText}>Document</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
+                            <Text style={styles.itemText}>Document</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
+                            <Text style={styles.itemText}>Document</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Program'}) }>
+                            <Text style={styles.itemText}>Document</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Conduct'}) }>
+                            <Text style={styles.itemText}>Document</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Website'}) }>
+                            <Text style={styles.itemText}>Document</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Meeting'}) }>
+                            <Text style={styles.itemText}>Document</Text>
+                        </TouchableOpacity>
+                    </View>
                 </ScrollView>
             </View>
         );
@@ -90,6 +49,7 @@ export default class FTC2021DocumentsPage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: Res.FTCColors.Darpz
     },
     imagecontainer: {
         flex: .1,
@@ -99,40 +59,45 @@ const styles = StyleSheet.create({
     },
     item: {
         flexDirection: "row",
-        marginHorizontal: 20,
+        marginHorizontal: 10,
         marginVertical: 10,
         paddingVertical: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 10,
+        borderRadius: 4,
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.15,
-        backgroundColor: 'white'
+        backgroundColor: Res.FTCColors.Liptz,
+        width: 160,
+        height: 70,
     },
     itemText: {
-        fontSize: 16,
+        fontSize: 18,
         flex: .9,
+        fontFamily: "Facultad",
+        textAlign: "center",
     },
     resourcesText: {
-        fontFamily: "Coolvetica",
-        fontSize: 35,
+        fontFamily: "Facultad",
+        fontSize: 42,
         fontWeight: "bold",
-        textAlign: "left",
-        letterSpacing: 4,
-        color: Res.DCONColors.JellyBean
+        textAlign: "center",
+        color: Res.FTCColors.Yellop,
+        letterSpacing: -1.5
     },
     titleText: {
         fontWeight: '300'
     },
     titleShape: {
-        alignItems: "flex-start",
-        justifyContent: "flex-end",
-        paddingTop: 120,
-        paddingBottom: 20,
-        paddingLeft: 30,
+        paddingTop: 60,
+        paddingBottom: 40,
+        textAlign: "center",
         marginBottom: 10,
-        backgroundColor: Res.DCONColors.Polar
+        backgroundColor:  Res.FTCColors.Darpz,
+        borderColor: Res.FTCColors.Grabt,
+        borderWidth: 0,
+        borderBottomWidth: 1,
     },
     titleImage: {
         width: 150,

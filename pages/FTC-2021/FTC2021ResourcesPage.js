@@ -55,7 +55,7 @@ export default class FTC2021ResourcesPage extends Component {
                                     source={require('../../resources/FTC_2021/Images/SAAShiftImage.png')} />
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.wideitem} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
+                        <TouchableOpacity style={styles.wideitem} onPress={() => this.props.navigation.navigate('Documents')}>
                             <Text style={styles.itemText}>Documents</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
