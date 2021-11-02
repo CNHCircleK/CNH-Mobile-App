@@ -14,6 +14,8 @@ import FTC21HomePage from "./pages/FTC-2021/FTC21HomePage";
 import FTC2021SchedulePage from "./pages/FTC-2021/FTC2021SchedulePage";
 import FTC2021ActivityPage from "./pages/FTC-2021/FTC2021ActivityPage";
 import FTC2021ResourcesPage from "./pages/FTC-2021/FTC2021ResourcesPage";
+import DCONScheduleDetailsPage from "./pages/FTC-2021/DCONScheduleDetailsPage";
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

@@ -138,15 +138,23 @@ export default class FTC21HomePage extends Component {
                         <TouchableOpacity style={styles.headerImageContainer} onPress={() => this.setState({modalVisible: true})}>
                             <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/approvedlogo.png')} />
                         </TouchableOpacity>
-                        <Text style={styles.headerIntro}>Welcome to CNH Circle K's</Text>
-                        <Text style={styles.headerTitle}>FTC 2021!!</Text>
+                        <Text style={styles.headerIntro}>WELCOME ADVENTURER!</Text>
+                        <Text style={styles.headerTitle}>Fall Training</Text>
+                        <Text style={styles.headerTitle}>Conference 2021</Text>
+
                     </View>
                     <View style={styles.homeContainer}>
-                        <Text style={styles.subTitle}>Upcoming Sessions</Text>
+                        <Text style={styles.subTitle}>Your Upcoming Sessions</Text>
                         {this.state.upcomingEvents.map((event) => this.renderEvent(event))}
-                        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Schedule')}>
-                            <Text style={styles.buttonText}>VIEW FULL SCHEDULE</Text>
-                        </TouchableOpacity>
+                        
+                        <View style={styles.buttonContainer}>
+                            <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Schedule')}>
+                                <Text style={styles.buttonText}>View Map</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Schedule')}>
+                                <Text style={styles.buttonText}>View Full Schedule</Text>
+                            </TouchableOpacity>
+                        </View>
                         <Text style={styles.subTitle}>Announcements</Text>
                         {this.state.announcements.map((item) => this.renderAnnouncement(item))}
                         <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Announcements')}>
@@ -197,10 +205,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     header: {
-        paddingTop: 80,
-        paddingBottom: 25,
+        paddingTop: 50,
+        paddingBottom: 40,
         paddingLeft: 25,
-        backgroundColor: Res.DCONColors.Polar
+        backgroundColor: Res.FTCColors.Darpz,
+        borderColor: Res.FTCColors.Grabt,
+        borderWidth: 0,
+        borderBottomWidth: 1,
     },
     headerImageContainer: {
         position: 'absolute',
@@ -209,22 +220,22 @@ const styles = StyleSheet.create({
     },
     headerImage: {
         width: 150,
-        height: 150
+        height: 150,
+        position: "absolute",
+        resizeMode: "contain",
+        right: 20,
     },
     headerIntro: {
-        fontWeight: '300',
-        fontSize: 18,
-        marginBottom: 10,
-        top: 10,
-        right: 5,
+        fontFamily: "SpaceGroteskBold",
+        letterSpacing: 3.55,
+        color: Res.FTCColors.Eggshell,
     },
     headerTitle: {        
-        fontFamily: "Coolvetica",
-        fontSize: 33,
+        fontFamily: "Facultad",
+        fontSize: 32,
         fontWeight: "bold",
         textAlign: "left",
-        letterSpacing: 2,
-        color: Res.DCONColors.JellyBean,
+        color: Res.FTCColors.Yellop,
         width: 300,
         top: 10,
         right: 5,
@@ -233,21 +244,30 @@ const styles = StyleSheet.create({
         padding: 25
     },  
     subTitle: {
-        fontFamily: 'Coolvetica',
-        fontSize: 25,
-        letterSpacing: 1,
-        marginBottom: 10
+        fontFamily: 'Facultad',
+        fontSize: 28,
+        fontWeight: "bold",
+        marginBottom: 10,
+        color: Res.FTCColors.Pinky
     },
     button: {
         alignSelf: 'center',
         paddingHorizontal: 16,
         paddingVertical: 8,
         marginTop: 10,
-        marginBottom: 30,
-        backgroundColor: Res.DCONColors.Gold
+        marginBottom: 20,
+        backgroundColor: Res.FTCColors.Yellop,
+        borderRadius: 4
     },
     buttonText: {
-        fontSize: 12
+        fontSize: 12,
+        fontFamily: 'Facultad'
+    },
+    buttonContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        paddingHorizontal: 16
     },
     eventItem: {
         flexDirection: 'row',
