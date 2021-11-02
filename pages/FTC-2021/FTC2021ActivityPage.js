@@ -20,7 +20,7 @@ export default class FTC2021ActivityPage extends Component {
 
                         <Text style = {styles.resourcesText}>Activities</Text>
                     </View>
-                    <View style={{ flexDirection:"row", justifyContent: 'space-evenly', flexWrap: 'wrap', backgroundColor: 'white'}}>
+                    <View style={{ flexDirection:"row", justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
                             <Text style={styles.itemText}>Team Activities</Text>
                             <View style={styles.imagecontainer}>
@@ -51,7 +51,7 @@ export default class FTC2021ActivityPage extends Component {
                             <View style={styles.imagecontainer}>
                                 <Image
                                     style={styles.sideQuestImage}
-                                    source={require('../../resources/FTC_2021/Images/R_Quest_Alert.png')} />
+                                    source={require('../../resources/FTC_2021/Images/L_Quest_Alert.png')} />
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -84,8 +84,8 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.25,
         backgroundColor: Res.FTCColors.Liptz,
-        width: 200,
-        height: 200
+        width: 170,
+        height: 150
     },
     itemText: {
         fontSize: 16,
@@ -127,13 +127,11 @@ const styles = StyleSheet.create({
     buttonImage: {
         width: 125,
         height: 125,
-        marginTop: -60,
-        marginBottom: -25
+        marginTop: -75,
     },
     sideQuestImage: {
         width: 75,
         height: 75,
-        marginTop: -35,
-        marginBottom: 0
+        marginTop: -70,
     }
 });

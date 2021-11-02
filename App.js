@@ -87,6 +87,7 @@ function FTCTabScreen() {
                 inactiveTintColor: Res.FTCColors.Eggshell,
                 style: {
                     backgroundColor: Res.FTCColors.Blarp,
+                    borderTopColor: Res.FTCColors.Blarp,
                 },
                 labelStyle: {
                     marginBottom: 4,

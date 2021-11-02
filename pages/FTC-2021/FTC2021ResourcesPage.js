@@ -20,13 +20,13 @@ export default class FTC2021ResourcesPage extends Component {
 
                         <Text style = {styles.resourcesText}>Resources</Text>
                     </View>
-                    <View style={{ flexDirection:"row", justifyContent: 'space-evenly', flexWrap: 'wrap', backgroundColor: 'white'}}>
+                    <View style={{ flexDirection:"row", justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
                             <Text style={styles.itemText}>Map</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
-                                    style={styles.buttonImage}
-                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
+                                    style={styles.mapImage}
+                                    source={require('../../resources/FTC_2021/Images/Map.png')} />
                             </View>
                         </TouchableOpacity>
 
@@ -34,8 +34,8 @@ export default class FTC2021ResourcesPage extends Component {
                             <Text style={styles.itemText}>FTC Program</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
-                                    style={styles.buttonImage}
-                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
+                                    style={styles.golemImage}
+                                    source={require('../../resources/FTC_2021/Icons/Frog_Golem.png')} />
                             </View>
                         </TouchableOpacity>
 
@@ -44,15 +44,15 @@ export default class FTC2021ResourcesPage extends Component {
                             <View style={styles.imagecontainer}>
                                 <Image
                                     style={styles.buttonImage}
-                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
+                                    source={require('../../resources/FTC_2021/Images/Acorn_Lantern.png')} />
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
                             <Text style={styles.itemText}>SAA Shifts</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
-                                    style={styles.buttonImage}
-                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
+                                    style={styles.ssaImage}
+                                    source={require('../../resources/FTC_2021/Images/SAAShiftImage.png')} />
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.wideitem} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.25,
         backgroundColor: Res.FTCColors.Liptz,
-        width: 200,
-        height: 200,
+        width: 170,
+        height: 150,
     },
     wideitem: {
     marginVertical: 10,
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 5},
     shadowOpacity: 0.25,
     backgroundColor: Res.FTCColors.Liptz,
-    width: 300,
+    width: 365,
     height: 150
 },
     itemText: {
@@ -150,6 +150,24 @@ const styles = StyleSheet.create({
     buttonImage: {
         width: 125,
         height: 125,
+        marginTop: -60,
+        marginBottom: -25
+    },
+    mapImage: {
+        width: 85,
+        height: 85,
+        marginTop: -60,
+        marginBottom: -25
+    },
+    golemImage: {
+        width: 100,
+        height: 100,
+        marginTop: -60,
+        marginBottom: -25
+    },
+    ssaImage : {
+        width: 150,
+        height: 80,
         marginTop: -60,
         marginBottom: -25
     }
