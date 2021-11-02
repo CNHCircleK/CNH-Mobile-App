@@ -123,7 +123,8 @@ export default class App extends Component {
 
             'Facultad': require('./resources/FTC_2021/Fonts/Facultad-Regular.otf'),
             'Metropolis': require('./resources/FTC_2021/Fonts/Metropolis-Medium.otf'),
-            'SpaceGroteskBold': require('./resources/FTC_2021/Fonts/SpaceGrotesk-Bold.otf')
+            'SpaceGroteskBold': require('./resources/FTC_2021/Fonts/SpaceGrotesk-Bold.otf'),
+            'AvenirNext': require('./resources/FTC_2021/Fonts/AvenirNextLTPro-Regular.otf')
         };
 
         await Font.loadAsync(customFonts);

@@ -96,8 +96,8 @@ export default class FTC21HomePage extends Component {
             <View style={styles.announcementContainer}>
                 <View style={styles.announcementHeader}>
                     <Text style={styles.announcementTitle}>{item.title}</Text>
+                    <Text style={styles.announcementTime}>{timestamp}</Text>
                 </View>
-                <Text style={styles.announcementTime}>{timestamp}</Text>
                 <Text style={styles.announcementBody}>{item.body}</Text>
             </View>
         );
@@ -158,7 +158,7 @@ export default class FTC21HomePage extends Component {
                         <Text style={styles.subTitle}>Announcements</Text>
                         {this.state.announcements.map((item) => this.renderAnnouncement(item))}
                         <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Announcements')}>
-                            <Text style={styles.buttonText}>SEE ALL</Text>
+                            <Text style={styles.buttonText}>See All</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
@@ -169,7 +169,8 @@ export default class FTC21HomePage extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: Res.FTCColors.Darpz
     },
     modal: {
         justifyContent: 'center',
@@ -182,8 +183,10 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOffset: {width: 10, height: 10},
         shadowOpacity: 0.50,
-        backgroundColor: 'rgba(0, 0, 0, 0.3)',
         elevation: 10,
+        backgroundColor: Res.FTCColors.Darpz
+
+        
     },
     modalCloseContainer: {
         alignSelf: 'flex-end'
@@ -229,6 +232,7 @@ const styles = StyleSheet.create({
         fontFamily: "SpaceGroteskBold",
         letterSpacing: 3.55,
         color: Res.FTCColors.Eggshell,
+        paddingBottom: 10
     },
     headerTitle: {        
         fontFamily: "Facultad",
@@ -241,7 +245,9 @@ const styles = StyleSheet.create({
         right: 5,
     },
     homeContainer: {
-        padding: 25
+        padding: 25,
+        backgroundColor: Res.FTCColors.Darpz,
+
     },  
     subTitle: {
         fontFamily: 'Facultad',
@@ -252,7 +258,7 @@ const styles = StyleSheet.create({
     },
     button: {
         alignSelf: 'center',
-        paddingHorizontal: 16,
+        paddingHorizontal: 24,
         paddingVertical: 8,
         marginTop: 10,
         marginBottom: 20,
@@ -346,27 +352,34 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     announcementHeader: {
-        backgroundColor: Res.DCONColors.Ziggurat,
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        paddingVertical: 15,
-        paddingLeft: 25
+        backgroundColor: Res.FTCColors.Liptz,
+        borderTopLeftRadius: 4,
+        borderTopRightRadius: 4,
+        borderColor: Res.FTCColors.Liptz,
+        paddingLeft: 25,
+        paddingRight: 25,
+        paddingTop: 10
+
     },
     announcementTitle: {
         fontSize: 18,
-        fontFamily: 'Coolvetica',
-        letterSpacing: 0.5
+        fontFamily: 'Facultad',
     },
     announcementTime: {
-        paddingLeft: 25,
-        fontStyle: 'italic',
+        fontFamily: 'SpaceGrotesk',
         fontWeight: '300',
-        fontSize: 13,
-        marginVertical: 10
+        fontSize: 10,
+        paddingTop: 5,
+        paddingBottom: 10
     },
     announcementBody: {
-        paddingLeft: 25,
-        marginBottom: 20,
-        marginTop: 2
+        fontFamily: 'AvenirNext',
+        backgroundColor: Res.FTCColors.LightPurple,
+        borderBottomRightRadius: 4,
+        borderBottomLeftRadius: 4,
+        paddingTop: 20,
+        paddingHorizontal: 25,
+        paddingBottom: 20,
+        letterSpacing: 1,
     }
 });
