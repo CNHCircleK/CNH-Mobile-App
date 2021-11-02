@@ -21,7 +21,7 @@ export default class FTC2021ActivityPage extends Component {
                         <Text style = {styles.resourcesText}>Activities</Text>
                     </View>
                     <View style={{ flexDirection:"row", justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ActivitiesWebView", {link: 'Techx'}) }>
                             <Text style={styles.itemText}>Team Activities</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
@@ -30,7 +30,7 @@ export default class FTC2021ActivityPage extends Component {
                             </View>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ActivitiesWebView", {link: 'Merch'}) }>
                             <Text style={styles.itemText}>Entertainment</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
@@ -38,7 +38,7 @@ export default class FTC2021ActivityPage extends Component {
                                     source={require('../../resources/FTC_2021/Icons/Sakura_Fish.png')} />
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ActivitiesWebView", {link: 'Candidate'}) }>
                             <Text style={styles.itemText}>Personality Quiz</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
@@ -46,7 +46,7 @@ export default class FTC2021ActivityPage extends Component {
                                     source={require('../../resources/FTC_2021/Images/Stone_Sword.png')} />
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ActivitiesWebView", {link: 'Shoutouts'}) }>
                             <Text style={styles.itemText}>Side Quests</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
