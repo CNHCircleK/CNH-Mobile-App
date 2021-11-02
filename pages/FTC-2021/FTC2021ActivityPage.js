@@ -20,7 +20,7 @@ export default class FTC2021ActivityPage extends Component {
 
                         <Text style = {styles.resourcesText}>Activities</Text>
                     </View>
-                    <View style={{ flexDirection:"row", justifyContent: 'space-evenly'}}>
+                    <View style={{ flexDirection:"row", justifyContent: 'space-evenly', flexWrap: 'wrap', backgroundColor: 'white'}}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
                             <Text style={styles.itemText}>Team Activities</Text>
                             <View style={styles.imagecontainer}>
@@ -29,7 +29,7 @@ export default class FTC2021ActivityPage extends Component {
                                     source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
                             </View>
                         </TouchableOpacity>
-                        
+
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
                             <Text style={styles.itemText}>Entertainment</Text>
                             <View style={styles.imagecontainer}>
@@ -38,9 +38,6 @@ export default class FTC2021ActivityPage extends Component {
                                     source={require('../../resources/FTC_2021/Icons/Sakura_Fish.png')} />
                             </View>
                         </TouchableOpacity>
-                    </View>
-
-                    <View style={{ flexDirection:"row", marginTop: '-7.5%', justifyContent: 'space-evenly'}}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
                             <Text style={styles.itemText}>Personality Quiz</Text>
                             <View style={styles.imagecontainer}>
@@ -59,6 +56,7 @@ export default class FTC2021ActivityPage extends Component {
                         </TouchableOpacity>
                     </View>
 
+
                 </ScrollView>
             </View>
         );
@@ -71,7 +69,7 @@ const styles = StyleSheet.create({
         backgroundColor: Res.FTCColors.Darpz
     },
     imagecontainer: {
-        flex: .1,
+        flex: 1,
         justifyContent: "center",
         alignItems: "center",
         padding: 10,
@@ -86,12 +84,12 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.25,
         backgroundColor: Res.FTCColors.Liptz,
-        width: "40%",
-        height: "70%"
+        width: 200,
+        height: 200
     },
     itemText: {
         fontSize: 16,
-        flex: .9,
+        flex: 9,
         fontFamily: "Facultad",
     },
     resourcesText: {
