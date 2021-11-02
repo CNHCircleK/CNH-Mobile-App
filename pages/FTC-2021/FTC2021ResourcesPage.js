@@ -9,61 +9,63 @@ export default class FTC2021ResourcesPage extends Component {
 
         return (
            <View style={styles.container}>
-                <ScrollView showsVerticalScrollIndicator={true}>
+                <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.titleShape}>
                         <Image
                             style={styles.titleImage}
-                            source={require('../../resources/FTC_2021/Icons/Glow_Mushroom.png')}
+                            source={require('../../resources/FTC_2021/Images/Map.png')}
                         />
                         <Text style = {styles.titleText}>FALL TRAINING</Text>
                         <Text style = {styles.titleText}>CONFERENCE 2021</Text>
 
                         <Text style = {styles.resourcesText}>Resources</Text>
                     </View>
-                    <View style={{ flexDirection:"row", justifyContent: 'space-evenly'}}>
+                    <View style={{ flexDirection:"row", justifyContent: 'space-evenly', flexWrap: 'wrap', backgroundColor: 'white'}}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
                             <Text style={styles.itemText}>Map</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
-                                    style={styles.mapImage}
-                                    source={require('../../resources/FTC_2021/Images/Map.png')} />
+                                    style={styles.buttonImage}
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
                             </View>
                         </TouchableOpacity>
-                        
+
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
                             <Text style={styles.itemText}>FTC Program</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
-                                    style={styles.golemImage}
-                                    source={require('../../resources/FTC_2021/Icons/Frog_Golem.png')} />
+                                    style={styles.buttonImage}
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
                             </View>
                         </TouchableOpacity>
-                    </View>
 
-                    <View style={{ flexDirection:"row", marginTop: '-7.5%', justifyContent: 'space-evenly'}}>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
                             <Text style={styles.itemText}>FAQs</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
                                     style={styles.buttonImage}
-                                    source={require('../../resources/FTC_2021/Images/Acorn_Lantern.png')} />
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
                             <Text style={styles.itemText}>SAA Shifts</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
-                                    style={styles.SAAImage}
-                                    source={require('../../resources/FTC_2021/Images/SAAShiftImage.png')} />
+                                    style={styles.buttonImage}
+                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
                             </View>
                         </TouchableOpacity>
-                        
+                        <TouchableOpacity style={styles.wideitem} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
+                            <Text style={styles.itemText}>Documents</Text>
+                            <View style={styles.imagecontainer}>
+                                <Image
+                                    style={styles.buttonImage}
+                                    source={require('../../resources/FTC_2021/Icons/Frog_Golem_2.png')} />
+                            </View>
+                        </TouchableOpacity>
                     </View>
 
-                    
                 </ScrollView>
-
-                
             </View>
         );
     }
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
         backgroundColor: Res.FTCColors.Darpz
     },
     imagecontainer: {
-        flex: .1,
+        flex: 1,
         justifyContent: "center",
         alignItems: "center",
         padding: 10,
@@ -90,25 +92,25 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.25,
         backgroundColor: Res.FTCColors.Liptz,
-        width: "40%",
-        height: "70%"
+        width: 200,
+        height: 200,
     },
     wideitem: {
-        marginVertical: 10,
-        paddingVertical: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 5,
-        shadowColor: 'black',
-        shadowOffset: {width: 0, height: 5},
-        shadowOpacity: 0.25,
-        backgroundColor: Res.FTCColors.Liptz,
-        width: "86.5%",
-        height: "70%"
-    },
+    marginVertical: 10,
+    paddingVertical: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 5},
+    shadowOpacity: 0.25,
+    backgroundColor: Res.FTCColors.Liptz,
+    width: 300,
+    height: 150
+},
     itemText: {
         fontSize: 16,
-        flex: .9,
+        flex: 1,
         fontFamily: "Facultad",
     },
     resourcesText: {
@@ -124,8 +126,8 @@ const styles = StyleSheet.create({
     titleText: {
         fontFamily: "SpaceGroteskBold",
         letterSpacing: 3.55,
-        color: Res.FTCColors.Eggshell,
-   },
+        color: Res.FTCColors.Eggshell
+    },
     titleShape: {
         alignItems: "flex-start",
         justifyContent: "flex-end",
@@ -150,23 +152,5 @@ const styles = StyleSheet.create({
         height: 125,
         marginTop: -60,
         marginBottom: -25
-    },
-    mapImage: {
-        width: 75,
-        height: 75,
-        marginTop: -110,
-        marginBottom: -25
-    },
-    golemImage: {
-        width: 105,
-        height: 105,
-        marginTop: -50,
-        marginBottom: -15
-    },
-    SAAImage: {
-        width: 150,
-        height: 75,
-        marginTop: -110,
-        marginBottom: -25
-    },
+    }
 });
