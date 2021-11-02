@@ -110,12 +110,7 @@ export default class FTC2021SchedulePage extends Component {
         if (item.break) {
             return (
                 <View style={{...styles.eventItem, borderRadius: 0}}>
-                    <View style={styles.eventBreakLeft}>
-                        <Image style={styles.eventBreakImage} source={require('../../resources/DCON_2021/Images/happy.png')}/>
-                    </View>
-                    <View style={styles.eventBreakRight}>
-                        <Text style={styles.eventBreakText}>{item.title}</Text>
-                    </View>
+                   
                 </View>
             );
         }
@@ -187,19 +182,19 @@ export default class FTC2021SchedulePage extends Component {
                             <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/SunClouds.png')}/>
                             <Text style={styles.slideText}>FTC 2021</Text>
                             <Text style={styles.slideDayText}>Friday</Text>
-                            <Text style={styles.slideText}>March 19, Day 1</Text>
+                            <Text style={styles.slideText}>November 5, Day 1</Text>
                         </View>
                         <View style={styles.swiperCard}>
                             <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/Snow_and_Leaves.png')}/>
-                            <Text style={styles.slideText}>CNH District Convention 2021</Text>
+                            <Text style={styles.slideText}>FTC 2021</Text>
                             <Text style={styles.slideDayText}>Saturday</Text>
-                            <Text style={styles.slideText}>March 20, Day 2</Text>
+                            <Text style={styles.slideText}>November 6, Day 2</Text>
                         </View>
                         <View style={styles.swiperCard}>
                             <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/Rain.png')}/>
-                            <Text style={styles.slideText}>CNH District Convention 2021</Text>
+                            <Text style={styles.slideText}>FTC 2021</Text>
                             <Text style={styles.slideDayText}>Sunday</Text>
-                            <Text style={styles.slideText}>March 21, Day 3</Text>
+                            <Text style={styles.slideText}>November 7, Day 3</Text>
                         </View>
                     </Swiper>
                 </View>
