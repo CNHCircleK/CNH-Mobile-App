@@ -17,7 +17,7 @@ export default class DCONAnnouncementsPage extends Component {
     };
 
     getAnnouncements = async () => {
-        let updatedAnnouncements = await getData('dcon-announcements', 'timestamp', 'desc');
+        let updatedAnnouncements = await getData('ftc21-announcements', 'timestamp', 'desc');
 
         updatedAnnouncements.forEach((item, index) => {
             updatedAnnouncements[index].timestamp = updatedAnnouncements[index].timestamp.toDate();
@@ -29,7 +29,7 @@ export default class DCONAnnouncementsPage extends Component {
     renderAnnouncement = ({item}) => {
         let date = item.timestamp.toLocaleDateString('en-US');
         let time = Platform.OS === 'ios' ? item.timestamp.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'}) : getTimeString(item.timestamp);
-        let timestamp = date + ' ' + time;
+        let timestamp = date + ' | ' + time + ' | ' + item.author;
 
         return (
             <View style={styles.announcementContainer}>
@@ -47,7 +47,7 @@ export default class DCONAnnouncementsPage extends Component {
             <View style={styles.container}>
                 <View style={styles.header}>
                     {/* <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/approvedlogo.png')} /> */}
-                    <Text style={styles.headerIntro}>District Convention 2021</Text>
+                    <Text style={styles.headerIntro}>FALL TRAINING CONFERENCE 2021</Text>
                     <Text style={styles.headerTitle}>Announcements</Text>
                 </View>
                 <FlatList
@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
         height: 150
     },
     headerIntro: {
+        fontFamily: "SpaceGroteskBold",
         fontWeight: '300',
         fontSize: 18,
         marginBottom: 10,

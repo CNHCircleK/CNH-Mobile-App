@@ -40,7 +40,7 @@ export default class FTC21HomePage extends Component {
     };
 
     getAnnouncements = async () => {
-        let announcements = await getData('dcon-announcements', 'timestamp', 'desc', 2);
+        let announcements = await getData('ftc21-announcements', 'timestamp', 'desc', 2);
 
         announcements.forEach((item, index) => {
             announcements[index].timestamp = announcements[index].timestamp.toDate();
@@ -90,7 +90,7 @@ export default class FTC21HomePage extends Component {
     renderAnnouncement = (item) => {
         let date = item.timestamp.toLocaleDateString('en-US');
         let time = Platform.OS === 'ios' ? item.timestamp.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'}) : getTimeString(item.timestamp);
-        let timestamp = date + ' ' + time;
+        let timestamp = date + ' | ' + time + ' | ' + item.author;
 
         return (
             <View style={styles.announcementContainer}>
@@ -124,7 +124,7 @@ export default class FTC21HomePage extends Component {
                             <TouchableOpacity 
                                 style={styles.button} 
                                 onPress={() => { 
-                                    if (this.state.adminPass == 'Forecast') {
+                                    if (this.state.adminPass == 'FrogGolem') {
                                         this.setState({modalVisible: false});
                                         this.props.navigation.navigate('Admin'); 
                                     }}}>
