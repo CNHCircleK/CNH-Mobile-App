@@ -13,7 +13,7 @@ export default class FTC2021ResourcesPage extends Component {
                     <View style={styles.titleShape}>
                         <Image
                             style={styles.titleImage}
-                            source={require('../../resources/FTC_2021/Images/Map.png')}
+                            source={require('../../resources/FTC_2021/Icons/Glow_Mushroom.png')}
                         />
                         <Text style = {styles.titleText}>FALL TRAINING</Text>
                         <Text style = {styles.titleText}>CONFERENCE 2021</Text>
