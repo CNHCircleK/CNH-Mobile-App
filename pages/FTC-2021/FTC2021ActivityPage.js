@@ -13,7 +13,7 @@ export default class FTC2021ActivityPage extends Component {
                     <View style={styles.titleShape}>
                         <Image
                             style={styles.titleImage}
-                            source={require('../../resources/FTC_2021/Images/Crossbow.png')}
+                            source={require('../../resources/FTC_2021/Icons/Frog_Golem_2.png')}
                         />
                         <Text style = {styles.titleText}>FALL TRAINING</Text>
                         <Text style = {styles.titleText}>CONFERENCE 2021</Text>
@@ -35,7 +35,7 @@ export default class FTC2021ActivityPage extends Component {
                             <View style={styles.imagecontainer}>
                                 <Image
                                     style={styles.buttonImage}
-                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
+                                    source={require('../../resources/FTC_2021/Icons/Sakura_Fish.png')} />
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -46,15 +46,15 @@ export default class FTC2021ActivityPage extends Component {
                             <View style={styles.imagecontainer}>
                                 <Image
                                     style={styles.buttonImage}
-                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
+                                    source={require('../../resources/FTC_2021/Images/Stone_Sword.png')} />
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
                             <Text style={styles.itemText}>Side Quests</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
-                                    style={styles.buttonImage}
-                                    source={require('../../resources/FTC_2021/Images/Crossbow.png')} />
+                                    style={styles.sideQuestImage}
+                                    source={require('../../resources/FTC_2021/Images/R_Quest_Alert.png')} />
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -131,5 +131,11 @@ const styles = StyleSheet.create({
         height: 125,
         marginTop: -60,
         marginBottom: -25
+    },
+    sideQuestImage: {
+        width: 75,
+        height: 75,
+        marginTop: -35,
+        marginBottom: 0
     }
 });

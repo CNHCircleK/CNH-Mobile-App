@@ -136,7 +136,7 @@ export default class FTC21HomePage extends Component {
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.header}>
                         <TouchableOpacity style={styles.headerImageContainer} onPress={() => this.setState({modalVisible: true})}>
-                            <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/approvedlogo.png')} />
+                            <Image style={styles.headerImage} source={require('../../resources/FTC_2021/Images/Map.png')} />
                         </TouchableOpacity>
                         <Text style={styles.headerIntro}>WELCOME ADVENTURER!</Text>
                         <Text style={styles.headerTitle}>Fall Training</Text>
