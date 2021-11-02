@@ -35,8 +35,8 @@ export default class DCONAnnouncementsPage extends Component {
             <View style={styles.announcementContainer}>
                 <View style={styles.announcementHeader}>
                     <Text style={styles.announcementTitle}>{item.title}</Text>
+                    <Text style={styles.announcementTime}>{timestamp}</Text>
                 </View>
-                <Text style={styles.announcementTime}>{timestamp}</Text>
                 <Text style={styles.announcementBody}>{item.body}</Text>
             </View>
         );
@@ -46,7 +46,7 @@ export default class DCONAnnouncementsPage extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/approvedlogo.png')} />
+                    {/* <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/approvedlogo.png')} /> */}
                     <Text style={styles.headerIntro}>District Convention 2021</Text>
                     <Text style={styles.headerTitle}>Announcements</Text>
                 </View>
@@ -64,13 +64,20 @@ export default class DCONAnnouncementsPage extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: Res.FTCColors.Darpz,
     },
     header: {
-        paddingTop: 80,
-        paddingBottom: 35,
-        paddingLeft: 25,
-        backgroundColor: Res.DCONColors.Polar
+        alignItems: "flex-start",
+        justifyContent: "flex-end",
+        paddingTop: 50,
+        paddingBottom: 20,
+        paddingLeft: 30,
+        marginBottom: 10,
+        backgroundColor: Res.FTCColors.Darpz,
+        borderColor: Res.FTCColors.Grabt,
+        borderWidth: 0,
+        borderBottomWidth: 1,
     },
     headerImage: {
         position: 'absolute',
@@ -85,6 +92,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         top: 10,
         right: 5,
+        color: Res.FTCColors.Eggshell,
     },
     headerTitle: {        
         fontFamily: "Facultad",
@@ -92,14 +100,15 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign: "left",
         letterSpacing: 2,
-        color: Res.DCONColors.JellyBean,
+        color: Res.FTCColors.Yellop,
         width: 300,
         top: 10,
         right: 5,
     },
     listContainer: {
         padding: 25,
-        paddingTop: 15
+        paddingTop: 15,
+        color: Res.FTCColors.Darpz,
     },
     announcementContainer: {
         marginVertical: 10,
@@ -107,14 +116,16 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.15,
-        backgroundColor: 'white'
+        color: Res.FTCColors.LightPurple,
     },
     announcementHeader: {
-        backgroundColor: Res.DCONColors.Ziggurat,
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        paddingVertical: 15,
-        paddingLeft: 25
+        backgroundColor: Res.FTCColors.Liptz,
+        borderTopLeftRadius: 4,
+        borderTopRightRadius: 4,
+        borderColor: Res.FTCColors.Liptz,
+        paddingLeft: 25,
+        paddingRight: 25,
+        paddingTop: 10
     },
     announcementTitle: {
         fontSize: 18,
@@ -122,15 +133,21 @@ const styles = StyleSheet.create({
         letterSpacing: 0.5
     },
     announcementTime: {
-        paddingLeft: 25,
-        fontStyle: 'italic',
+        fontFamily: 'SpaceGroteskBold',
         fontWeight: '300',
-        fontSize: 13,
-        marginVertical: 10
+        fontSize: 10,
+        paddingTop: 5,
+        paddingBottom: 10,
+        letterSpacing: 1
     },
     announcementBody: {
-        paddingLeft: 25,
-        marginBottom: 20,
-        marginTop: 2
+        fontFamily: 'AvenirNext',
+        backgroundColor: Res.FTCColors.LightPurple,
+        borderBottomRightRadius: 4,
+        borderBottomLeftRadius: 4,
+        paddingTop: 20,
+        paddingHorizontal: 25,
+        paddingBottom: 20,
+        letterSpacing: 1,
     }
 });

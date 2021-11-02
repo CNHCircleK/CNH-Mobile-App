@@ -16,6 +16,7 @@ import FTC2021ActivityPage from "./pages/FTC-2021/FTC2021ActivityPage";
 import FTC2021ResourcesPage from "./pages/FTC-2021/FTC2021ResourcesPage";
 import DCONScheduleDetailsPage from "./pages/FTC-2021/DCONScheduleDetailsPage";
 import FTCAdminPage from "./pages/FTC-2021/FTC2021AdminPage";
+import FTC2021AnnouncementsPage from "./pages/FTC-2021/FTC2021AnnouncementsPage";
 
 
 
@@ -29,7 +30,7 @@ function HomeStackScreen() {
     return (
         <HomeStack.Navigator headerMode="none">
             <HomeStack.Screen name="Home" component={FTC21HomePage} />
-            {/*<HomeStack.Screen name="Announcements" component={DCONAnnouncementsPage} />*/}
+            <HomeStack.Screen name="Announcements" component={FTC2021AnnouncementsPage} />
             <HomeStack.Screen name="Admin" component={FTCAdminPage} />
         </HomeStack.Navigator>
     );
@@ -75,7 +76,7 @@ function FTCTabScreen() {
                             iconName = 'access-time'
                             break;
                         case 'Activities':
-                            iconName = 'assignment'
+                            iconName = 'accessibility'
                             break;
                         case 'Resources':
                             iconName = 'assignment'
