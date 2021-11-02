@@ -136,7 +136,7 @@ export default class FTC21HomePage extends Component {
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.header}>
                         <TouchableOpacity style={styles.headerImageContainer} onPress={() => this.setState({modalVisible: true})}>
-                            <Image style={styles.headerImage} source={require('../../resources/FTC_2021/Images/Map.png')} />
+                            <Image style={styles.headerImage} source={require('../../resources/FTC_2021/Images/Logo.png')} />
                         </TouchableOpacity>
                         <Text style={styles.headerIntro}>WELCOME ADVENTURER!</Text>
                         <Text style={styles.headerTitle}>Fall Training</Text>
@@ -222,11 +222,11 @@ const styles = StyleSheet.create({
         right: 5
     },
     headerImage: {
-        width: 150,
-        height: 150,
+        width: 125,
+        height: 125,
         position: "absolute",
         resizeMode: "contain",
-        right: 20,
+        right: 10
     },
     headerIntro: {
         fontFamily: "SpaceGroteskBold",
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     },
     headerTitle: {        
         fontFamily: "Facultad",
-        fontSize: 32,
+        fontSize: 30,
         fontWeight: "bold",
         textAlign: "left",
         color: Res.FTCColors.Yellop,
@@ -366,11 +366,12 @@ const styles = StyleSheet.create({
         fontFamily: 'Facultad',
     },
     announcementTime: {
-        fontFamily: 'SpaceGrotesk',
+        fontFamily: 'SpaceGroteskBold',
         fontWeight: '300',
         fontSize: 10,
         paddingTop: 5,
-        paddingBottom: 10
+        paddingBottom: 10,
+        letterSpacing: 1
     },
     announcementBody: {
         fontFamily: 'AvenirNext',

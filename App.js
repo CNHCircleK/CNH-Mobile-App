@@ -15,6 +15,8 @@ import FTC2021SchedulePage from "./pages/FTC-2021/FTC2021SchedulePage";
 import FTC2021ActivityPage from "./pages/FTC-2021/FTC2021ActivityPage";
 import FTC2021ResourcesPage from "./pages/FTC-2021/FTC2021ResourcesPage";
 import DCONScheduleDetailsPage from "./pages/FTC-2021/DCONScheduleDetailsPage";
+import FTCAdminPage from "./pages/FTC-2021/FTC2021AdminPage";
+
 
 
 const Stack = createStackNavigator();
@@ -28,7 +30,7 @@ function HomeStackScreen() {
         <HomeStack.Navigator headerMode="none">
             <HomeStack.Screen name="Home" component={FTC21HomePage} />
             {/*<HomeStack.Screen name="Announcements" component={DCONAnnouncementsPage} />*/}
-            {/*}<HomeStack.Screen name="Admin" component={DCONAdminPage} />*/}
+            <HomeStack.Screen name="Admin" component={FTCAdminPage} />
         </HomeStack.Navigator>
     );
 }
@@ -54,6 +56,7 @@ function ResourcesStackScreen() {
     return (
         <ResourcesStack.Navigator headerMode='none'>
             <ResourcesStack.Screen name='Resources' component={FTC2021ResourcesPage} />
+            
         </ResourcesStack.Navigator>
     );
 }
