@@ -6,7 +6,7 @@ import * as firebase from 'firebase'
 import 'firebase/firestore';
 import Res from '@resources';
 
-export default class FTC21HomePage extends Component {
+export default class FTC2021HomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
