@@ -111,7 +111,7 @@ export default class FTC2021SchedulePage extends Component {
             return (
                 <View style={{...styles.eventItem, borderRadius: 0}}>
                     <View style={styles.eventBreakLeft}>
-                        <Image style={styles.eventBreakImage} source={require('../../resources/DCON_2021/Images/happy.png')}/>
+                        <Image style={styles.eventBreakImage} source={require('../../resources/FTC_2021/Icons/Sakura_Fish.png')}/>
                     </View>
                     <View style={styles.eventBreakRight}>
                         <Text style={styles.eventBreakText}>{item.title}</Text>
@@ -133,7 +133,7 @@ export default class FTC2021SchedulePage extends Component {
 
         return (
             <View style={styles.eventItem}>
-                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.DCONColors.VisVis : Res.DCONColors.Rajah}}>
+                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.FTCColors.Yellop : Res.FTCColors.LightPurple}}>
                     <Text style={styles.eventTime}>{startTime} {endTime ? '- ' + endTime : ''}</Text>
                 </View>
                 <View style={styles.eventMiddle}>
@@ -182,24 +182,27 @@ export default class FTC2021SchedulePage extends Component {
                     </View>
                 </Modal>
                 <View style={styles.swiperContainer}>
-                    <Swiper style={styles.swiper} activeDotColor={Res.DCONColors.JellyBean} onIndexChanged={(index) => this.setState({curDay: (index + 5) % 7})}>
+                    <Swiper style={styles.swiper} activeDotColor={Res.FTCColors.Yellop} onIndexChanged={(index) => this.setState({curDay: (index + 5) % 7})}>
                         <View style={styles.swiperCard}>
-                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/SunClouds.png')}/>
-                            <Text style={styles.slideText}>FTC 2021</Text>
+                            <Image style={styles.slideImage} source={require('../../resources/FTC_2021/Icons/Frog_Golem.png')}/>
+                            <Text style={styles.slideText}>FALL TRAINING</Text>
+                            <Text style={styles.slideText}>CONFERENCE 2021</Text>
                             <Text style={styles.slideDayText}>Friday</Text>
-                            <Text style={styles.slideText}>March 19, Day 1</Text>
+                            <Text style={styles.slideText}>November 5, Day 1</Text>
                         </View>
                         <View style={styles.swiperCard}>
-                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/Snow_and_Leaves.png')}/>
-                            <Text style={styles.slideText}>CNH District Convention 2021</Text>
+                            <Image style={styles.slideImage} source={require('../../resources/FTC_2021/Icons/Axolotl.png')}/>
+                            <Text style={styles.slideText}>FALL TRAINING</Text>
+                            <Text style={styles.slideText}>CONFERENCE 2021</Text>
                             <Text style={styles.slideDayText}>Saturday</Text>
-                            <Text style={styles.slideText}>March 20, Day 2</Text>
+                            <Text style={styles.slideText}>November 6, Day 2</Text>
                         </View>
                         <View style={styles.swiperCard}>
-                            <Image style={styles.slideImage} source={require('../../resources/DCON_2021/Images/Rain.png')}/>
-                            <Text style={styles.slideText}>CNH District Convention 2021</Text>
+                            <Image style={styles.slideImage} source={require('../../resources/FTC_2021/Icons/Birb_fish.png')}/>
+                            <Text style={styles.slideText}>FALL TRAINING</Text>
+                            <Text style={styles.slideText}>CONFERENCE 2021</Text>
                             <Text style={styles.slideDayText}>Sunday</Text>
-                            <Text style={styles.slideText}>March 21, Day 3</Text>
+                            <Text style={styles.slideText}>November 7, Day 3</Text>
                         </View>
                     </Swiper>
                 </View>
@@ -217,7 +220,8 @@ export default class FTC2021SchedulePage extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: Res.FTCColors.Darpz,
     },
     modal: {
         justifyContent: 'center',
@@ -260,7 +264,7 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.15,
-        backgroundColor: 'white',
+        backgroundColor: Res.FTCColors.Liptz,
         elevation: 10,
     },
     eventBreakLeft: {
@@ -304,7 +308,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     eventIcon: {
-        height: 14,
+        height: 20,
+        right: 10,
         resizeMode: 'contain'
     },
     eventTime: {
@@ -327,40 +332,59 @@ const styles = StyleSheet.create({
         marginBottom: 10
     }, 
     swiper: {
-        backgroundColor: Res.DCONColors.Polar
+        backgroundColor: Res.FTCColors.LightPurple,
+
     },
     swiperCard: {
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'flex-start',
         paddingLeft: 40,
-        paddingBottom: 50
+        paddingBottom: 50,
+        backgroundColor: Res.FTCColors.Darpz,
+        borderColor: Res.FTCColors.Grabt,
+        borderWidth: 0,
+        borderBottomWidth: 1,
     },
     slideText: {
-        width: 150,
+        fontFamily: "SpaceGroteskBold",
         fontWeight: '300',
-        paddingLeft: 5
+        fontSize: 18,
+        marginBottom: 10,
+        top: 10,
+        right: 5,
+        color: Res.FTCColors.Eggshell,
     },
     slideDayText: {
-        fontSize: 56,
-        color: Res.DCONColors.JellyBean
+        fontFamily: "Facultad",
+        fontSize: 40,
+        fontWeight: "bold",
+        textAlign: "left",
+        letterSpacing: 2,
+        color: Res.FTCColors.Yellop,
+        width: 300,
+        top: 10,
+        right: 5,
     },
     slideImage: {
         position: 'absolute',
         resizeMode: 'contain',
-        width: 250,
-        height: 250,
+        width: 175,
+        height: 175,
         right: -10,
-        bottom: -20
+        top: 60
     },
     workshopButton: {
-        backgroundColor: Res.DCONColors.Gold,
+        alignSelf: 'center',
+        paddingHorizontal: 24,
+        paddingVertical: 8,
         marginTop: 10,
-        paddingHorizontal: 16,
-        paddingVertical: 8
+        marginBottom: 20,
+        backgroundColor: Res.FTCColors.Yellop,
+        borderRadius: 4
     },
     workshopButtonText: {
         fontSize: 12,
-        fontWeight: 'bold'
+        fontFamily: 'Facultad'
     }
 });
