@@ -4,7 +4,7 @@ import { View, StyleSheet, Text, FlatList, TouchableOpacity, Linking, Image } fr
 import { getData } from "../../utils/Firebase";
 import Res from '@resources';
 
-export default class DCONScheduleDetailsPage extends Component {
+export default class FTC2021ScheduleDetailsPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -34,14 +34,13 @@ export default class DCONScheduleDetailsPage extends Component {
         return (
             <View style={styles.workshop}>
                 <Text style={styles.workshopTitle}>{item.title}</Text>
-                <Text style={styles.workshopHosts}>Hosted by {item.hosts}</Text>
+                <Text style={styles.workshopHosts}>Hosted by {item.hosts} | Room {item.room}</Text>
                 <Text style={styles.workshopDesc}>{item.description}</Text>
-                <TouchableOpacity style={{...styles.workshopButton, marginBottom: 10}} onPress={async () => await Linking.openURL(item.link)}>
-                    <Text style={styles.workshopButtonText}>GO TO WORKSHOP</Text>
-                </TouchableOpacity>
                 <TouchableOpacity style={styles.workshopButton} onPress={() => this.updateSelectedWorkshop(item)}>
-                    <Text style={styles.workshopButtonText}>ADD TO SCHEDULE</Text>
+                    <Text style={styles.workshopButtonText}>+</Text>
                 </TouchableOpacity>
+               
+               
             </View>
         );
     }
@@ -50,9 +49,7 @@ export default class DCONScheduleDetailsPage extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <TouchableOpacity style={styles.backButton} onPress={() => this.props.navigation.goBack()}>
-                        <Image style={styles.backImage} source={require('../../resources/DCON_2021/Icons/back_icon.png')}/>
-                    </TouchableOpacity>
+                  
                     <Text style={styles.sessionTitle}>Workshop Session #{this.state.session}</Text>
                     <View style={{width: 30, marginRight: 30}}></View>
                 </View>
@@ -70,7 +67,8 @@ export default class DCONScheduleDetailsPage extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1, 
+        backgroundColor:  Res.FTCColors.Darpz
     },
     contentContainer: {
         paddingBottom: 15
@@ -80,6 +78,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: 70,
+        
     },
     backButton: {
         marginLeft: 30,
@@ -90,7 +89,9 @@ const styles = StyleSheet.create({
     },
     sessionTitle: {
         fontSize: 24,
+        marginLeft: 80,
         fontWeight: 'bold',
+        color: Res.FTCColors.Yellop,
         textAlign: 'center'
     },
     workshop: {
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.15,
-        backgroundColor: 'white'
+        backgroundColor: Res.FTCColors.Liptz
     }, 
     workshopTitle: {
         fontWeight: 'bold',
@@ -117,12 +118,14 @@ const styles = StyleSheet.create({
     },
     workshopButton: {
         alignSelf: 'flex-end',
-        backgroundColor: Res.DCONColors.Gold,
+        backgroundColor: Res.FTCColors.LightPurple,
         paddingHorizontal: 16,
+        marginTop: 15,
         paddingVertical: 8
     },
     workshopButtonText: {
-        fontSize: 12,
+        fontSize: 16,
+        //backgroundColor: Res.FTCColors.LightPurple,
         fontWeight: 'bold'
     }
 });
