@@ -76,7 +76,7 @@ export default class FTC2021HomePage extends Component {
 
         return (
             <View style={styles.eventItem}>
-                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.DCONColors.VisVis : Res.DCONColors.Rajah}}>
+                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.FTCColors.Eggshell : Res.FTCColors.Eggshell}}>
                     <Text style={styles.eventTime}>{startTime} {endTime ? '- ' + endTime : ''}</Text>
                 </View>
                 <View style={styles.eventMiddle}>

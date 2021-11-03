@@ -125,12 +125,6 @@ export default class App extends Component {
 
     async loadFontsAsync() {
         let customFonts = {
-            'Coolvetica': require('./resources/DCON_2021/Fonts/coolvetica.ttf'),
-            'Corpuscare': require('./resources/DCON_2021/Fonts/corpuscare.ttf'),
-            'Malvie': require('./resources/DCON_2021/Fonts/Malvie.otf'),
-            'Plumpfull': require('./resources/DCON_2021/Fonts/Plumpfull.ttf'),
-            'RoundyyRainbows': require('./resources/DCON_2021/Fonts/RoundyRainbows.ttf'),
-
             'Facultad': require('./resources/FTC_2021/Fonts/Facultad-Regular.otf'),
             'Metropolis': require('./resources/FTC_2021/Fonts/Metropolis-Medium.otf'),
             'SpaceGroteskBold': require('./resources/FTC_2021/Fonts/SpaceGrotesk-Bold.otf'),
