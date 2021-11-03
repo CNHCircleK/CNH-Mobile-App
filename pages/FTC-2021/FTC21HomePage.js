@@ -76,7 +76,7 @@ export default class FTC21HomePage extends Component {
 
         return (
             <View style={styles.eventItem}>
-                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.DCONColors.VisVis : Res.DCONColors.Rajah}}>
+                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.FTCColors.LightPurple : Res.FTCColors.LightPurple}}>
                     <Text style={styles.eventTime}>{startTime} {endTime ? '- ' + endTime : ''}</Text>
                 </View>
                 <View style={styles.eventMiddle}>
@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.15,
-        backgroundColor: 'white'
+        backgroundColor: Res.FTCColors.Liptz
     },
     eventBreakLeft: {
         flex: 0.2,
