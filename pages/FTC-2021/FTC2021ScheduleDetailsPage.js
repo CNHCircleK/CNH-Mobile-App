@@ -21,6 +21,8 @@ export default class FTC2021ScheduleDetailsPage extends Component {
     };
 
     updateSelectedWorkshop = async (item) => {
+        item.isSelected = !item.isSelected;
+        item.room = "UWU";
         try {
             await AsyncStorage.setItem('Workshop ' + item.workshop, JSON.stringify(item));
         } catch(e) {
@@ -28,13 +30,14 @@ export default class FTC2021ScheduleDetailsPage extends Component {
         }
 
         this.props.navigation.navigate('Schedule');
+       
     };
 
     renderWorkshop = ({item}) => {
         return (
             <View style={styles.workshop}>
                 <Text style={styles.workshopTitle}>{item.title}</Text>
-                <Text style={styles.workshopHosts}>Hosted by {item.hosts} | Room {item.room}</Text>
+                <Text style={styles.workshopHosts}>Hosted by {item.hosts} | {item.room}</Text>
                 <Text style={styles.workshopDesc}>{item.description}</Text>
                 <TouchableOpacity style={styles.workshopButton} onPress={() => this.updateSelectedWorkshop(item)}>
                     <Text style={styles.workshopButtonText}>+</Text>
