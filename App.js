@@ -11,14 +11,14 @@ import { Asset } from 'expo-asset';
 import Res from '@resources';
 import { SplashScreen } from 'expo';
 
-import FTC21HomePage from "./pages/FTC-2021/FTC21HomePage";
+import FTC2021HomePage from "./pages/FTC-2021/FTC2021HomePage";
 import FTC2021SchedulePage from "./pages/FTC-2021/FTC2021SchedulePage";
 import FTC2021ActivityPage from "./pages/FTC-2021/FTC2021ActivityPage";
 import FTC2021ResourcesPage from "./pages/FTC-2021/FTC2021ResourcesPage";
 import FTC2021WebViewPage from "./pages/FTC-2021/FTC2021WebViewPage";
 import FTC2021ScheduleDetailsPage from "./pages/FTC-2021/FTC2021ScheduleDetailsPage";
 import FTC2021DocumentsPage from "./pages/FTC-2021/FTC2021DocumentsPage";
-import FTCAdminPage from "./pages/FTC-2021/FTC2021AdminPage";
+import FTC2021AdminPage from "./pages/FTC-2021/FTC2021AdminPage";
 import FTC2021AnnouncementsPage from "./pages/FTC-2021/FTC2021AnnouncementsPage";
 
 
@@ -32,9 +32,9 @@ const ResourcesStack = createStackNavigator();
 function HomeStackScreen() {
     return (
         <HomeStack.Navigator headerMode="none">
-            <HomeStack.Screen name="Home" component={FTC21HomePage} />
+            <HomeStack.Screen name="Home" component={FTC2021HomePage} />
             <HomeStack.Screen name="Announcements" component={FTC2021AnnouncementsPage} />
-            <HomeStack.Screen name="Admin" component={FTCAdminPage} />
+            <HomeStack.Screen name="Admin" component={FTC2021AdminPage} />
         </HomeStack.Navigator>
     );
 }
