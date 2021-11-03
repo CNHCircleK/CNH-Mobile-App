@@ -6,8 +6,8 @@
     "owner": "cnhtechsoftware",
     "privacy": "public",
     "splash": {
-      "image": "./resources/DCON_2021/Images/approvedlogo.png",
-      "backgroundColor": "#FFFFFF"
+      "image": "./resources/FTC_2021/Images/cape_animation.gif",
+      "backgroundColor": "#5D4B77"
     },
     "platforms": [
       "ios",

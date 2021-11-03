@@ -9,6 +9,7 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import Res from '@resources';
+import { SplashScreen } from 'expo';
 
 import FTC21HomePage from "./pages/FTC-2021/FTC21HomePage";
 import FTC2021SchedulePage from "./pages/FTC-2021/FTC2021SchedulePage";
@@ -137,35 +138,29 @@ export default class App extends Component {
         };
 
         await Font.loadAsync(customFonts);
+        preloadSplash = async () => {
+            await cacheResources([require('./resources/FTC_2021/Images/cape_animation.gif')]);
+          }
+          preloadRes = async () => {
+            SplashScreen.hide();
+          }
     }
 
     async loadResourcesAsync() {
         let resources = [
-            require('./resources/DCON_2021/Images/approvedlogo.png'),
-            require('./resources/DCON_2021/Images/DCONpackage.jpg'),
-            require('./resources/DCON_2021/Images/happy.png'),
-            require('./resources/DCON_2021/Images/Harley.png'),
-            require('./resources/DCON_2021/Images/Rain.png'),
-            require('./resources/DCON_2021/Images/Sammy.png'),
-            require('./resources/DCON_2021/Images/Snow_and_Leaves.png'),
-            require('./resources/DCON_2021/Images/sun.png'),
-            require('./resources/DCON_2021/Images/SunClouds.png'),
-            require('./resources/DCON_2021/Images/sunny.png'),
-            require('./resources/DCON_2021/Images/WindyWillow.png'),
-            require('./resources/DCON_2021/Icons/arrow_icon.png'),
-            require('./resources/DCON_2021/Icons/back_icon.png'),
-            require('./resources/DCON_2021/Icons/edit_icon.png'),
-            require('./resources/DCON_2021/Icons/exit_icon.png'),
-            require('./resources/DCON_2021/Icons/feedback_icon_selected.png'),
-            require('./resources/DCON_2021/Icons/feedback_icon.png'),
-            require('./resources/DCON_2021/Icons/home_icon_selected.png'),
-            require('./resources/DCON_2021/Icons/info_icon.png'),
-            require('./resources/DCON_2021/Icons/resources_icon_selected.png'),
-            require('./resources/DCON_2021/Icons/resources_icon.png'),
-            require('./resources/DCON_2021/Icons/schedule_icon_selected.png'),
-            require('./resources/DCON_2021/Icons/schedule_icon.png'),
-            require('./resources/DCON_2021/Icons/shop_icon_selected.png'),
-            require('./resources/DCON_2021/Icons/shop_icon.png'),
+            require('./resources/FTC_2021/Images/Acorn_Lantern.png'),
+            require('./resources/FTC_2021/Images/cape_animation.gif'),
+            require('./resources/FTC_2021/Images/Crossbow.png'),
+            require('./resources/FTC_2021/Images/L_Quest_Alert.png'),
+            require('./resources/FTC_2021/Images/Logo.png'),
+            require('./resources/FTC_2021/Images/Map.png'),
+            require('./resources/FTC_2021/Images/R_Quest_Alert.png'),
+            require('./resources/FTC_2021/Images/SAAShiftImage.png'),
+            require('./resources/FTC_2021/Images/Stone_Sword.png'),
+            require('./resources/FTC_2021/Icons/Frog_Golem.png'),
+            require('./resources/FTC_2021/Icons/Frog_Golem_2.png'),
+            require('./resources/FTC_2021/Icons/Glow_Mushroom.png'),
+            require('./resources/FTC_2021/Icons/Sakura_Fish.png'),
         ];
 
         const loadedResources = resources.map(res => {
