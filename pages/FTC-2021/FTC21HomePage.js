@@ -54,7 +54,7 @@ export default class FTC21HomePage extends Component {
             return (
                 <View style={{...styles.eventItem, borderRadius: 0}}>
                     <View style={styles.eventBreakLeft}>
-                        <Image style={styles.eventBreakImage} source={require('../../resources/DCON_2021/Images/happy.png')}/>
+                        <Image style={styles.eventBreakImage} source={require('../../resources/FTC_2021/Icons/Frog_Golem.png')}/>
                     </View>
                     <View style={styles.eventBreakRight}>
                         <Text style={styles.eventBreakText}>{item.title}</Text>
@@ -148,6 +148,7 @@ export default class FTC21HomePage extends Component {
                         {this.state.upcomingEvents.map((event) => this.renderEvent(event))}
                         
                         <View style={styles.buttonContainer}>
+                            {/* <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("ResourcesWebView", {link: 'Map'})}> */}
                             <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Schedule')}>
                                 <Text style={styles.buttonText}>View Map</Text>
                             </TouchableOpacity>
