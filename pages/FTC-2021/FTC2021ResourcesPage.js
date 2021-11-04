@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, ScrollView, StatusBar, Platform, ImageBackground, Image } from 'react-native';
 import Res from '@resources';
-import { block } from 'react-native-reanimated';
 
 export default class FTC2021ResourcesPage extends Component {
     render() {
@@ -21,7 +20,7 @@ export default class FTC2021ResourcesPage extends Component {
                         <Text style = {styles.resourcesText}>Resources</Text>
                     </View>
                     <View style={{ flexDirection:"row", justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Map'}) }>
                             <Text style={styles.itemText}>Map</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
@@ -30,7 +29,7 @@ export default class FTC2021ResourcesPage extends Component {
                             </View>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Program'}) }>
                             <Text style={styles.itemText}>FTC Program</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
@@ -39,7 +38,7 @@ export default class FTC2021ResourcesPage extends Component {
                             </View>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'FAQs'}) }>
                             <Text style={styles.itemText}>FAQs</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
@@ -47,7 +46,7 @@ export default class FTC2021ResourcesPage extends Component {
                                     source={require('../../resources/FTC_2021/Images/Acorn_Lantern.png')} />
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'SAA'}) }>
                             <Text style={styles.itemText}>SAA Shifts</Text>
                             <View style={styles.imagecontainer}>
                                 <Image
