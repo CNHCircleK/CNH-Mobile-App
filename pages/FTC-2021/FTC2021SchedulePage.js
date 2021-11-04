@@ -139,8 +139,8 @@ export default class FTC2021SchedulePage extends Component {
                 <View style={styles.eventMiddle}>
                     <Text style={styles.eventTitle}>{item.title}</Text>
                     {item.workshop ? 
-                        <TouchableOpacity style={{...styles.workshopButton, marginBottom: 10}} onPress={async () => await Linking.openURL(item.location)}>
-                            <Text style={styles.workshopButtonText}>GO TO WORKSHOP</Text>
+                        <TouchableOpacity style={{marginBottom: 10}} onPress={async () => await Linking.openURL(item.location)}>
+                           
                         </TouchableOpacity> :
                         <Text style={styles.eventLocation}>{item.location}</Text>
                     }
