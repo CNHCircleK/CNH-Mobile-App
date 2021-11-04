@@ -69,7 +69,7 @@ export default class FTC2021SchedulePage extends Component {
                     let workshopIndex = await AsyncStorage.getItem('Workshop ' + i + ' Index');
                     workshopIndex = parseInt(workshopIndex);
                     
-                    let updatedWorkshopData = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "title", op: "==", value: workshopData.title}]);
+                    let updatedWorkshopData = await getData('ftc21-schedule-descriptions', undefined, undefined, undefined, [{field: "title", op: "==", value: workshopData.title}]);
 
                     schedule[workshopIndex].title = updatedWorkshopData[0].title;
                     schedule[workshopIndex].location = updatedWorkshopData[0].link;

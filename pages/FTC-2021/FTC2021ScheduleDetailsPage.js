@@ -15,7 +15,7 @@ export default class FTC2021ScheduleDetailsPage extends Component {
 
     componentDidMount = async () => {
         let updatedSession = this.props.route.params.session;
-        let updatedWorkshops = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "workshop", op: "==", value: updatedSession}]);
+        let updatedWorkshops = await getData('ftc21-schedule-descriptions', undefined, undefined, undefined, [{field: "workshop", op: "==", value: updatedSession}]);
 
         this.setState({session: updatedSession, workshops: updatedWorkshops});
     };
@@ -23,7 +23,7 @@ export default class FTC2021ScheduleDetailsPage extends Component {
     updateSelectedWorkshop = async (item) => {
         item.room = "UWU";
         item.isSelected = !item.isSelected;
-        updateData('dcon-schedule-descriptions', {description: item.description, hosts: item.hosts, isSelected: item.isSelected,  room: item.room, title: item.title, workshop: item.workshop});
+        updateData('ftc21-schedule-descriptions', {description: item.description, hosts: item.hosts, isSelected: item.isSelected,  room: item.room, title: item.title, workshop: item.workshop});
         try {
             await AsyncStorage.setItem('Workshop ' + item.workshop, JSON.stringify(item));
         } catch(e) {
