@@ -21,7 +21,7 @@ export default class FTC2021ScheduleDetailsPage extends Component {
     };
 
     updateSelectedWorkshop = async (item) => {
-        item.room = "UWU";
+        //item.room = "UWU";
         item.isSelected = !item.isSelected;
         updateData('ftc21-schedule-descriptions', {description: item.description, hosts: item.hosts, isSelected: item.isSelected,  room: item.room, title: item.title, workshop: item.workshop});
         try {
