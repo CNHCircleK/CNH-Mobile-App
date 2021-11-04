@@ -133,7 +133,7 @@ export default class FTC2021SchedulePage extends Component {
 
         return (
             <View style={styles.eventItem}>
-                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.FTCColors.Yellop : Res.FTCColors.LightPurple}}>
+                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.FTCColors.LightPurple : Res.FTCColors.LightPurple}}>
                     <Text style={styles.eventTime}>{startTime} {endTime ? '- ' + endTime : ''}</Text>
                 </View>
                 <View style={styles.eventMiddle}>

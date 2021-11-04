@@ -29,7 +29,7 @@ export default class DCONAnnouncementsPage extends Component {
     renderAnnouncement = ({item}) => {
         let date = item.timestamp.toLocaleDateString('en-US');
         let time = Platform.OS === 'ios' ? item.timestamp.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'}) : getTimeString(item.timestamp);
-        let timestamp = date + ' | ' + time + ' | ' + item.author;
+        let timestamp = date + ' | ' + time + ' | ' + item.author.toUpperCase();
 
         return (
             <View style={styles.announcementContainer}>
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     },
     announcementTitle: {
         fontSize: 18,
-        fontFamily: 'Coolvetica',
+        fontFamily: 'Facultad',
         letterSpacing: 0.5
     },
     announcementTime: {

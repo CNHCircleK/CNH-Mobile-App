@@ -90,7 +90,7 @@ export default class FTC2021HomePage extends Component {
     renderAnnouncement = (item) => {
         let date = item.timestamp.toLocaleDateString('en-US');
         let time = Platform.OS === 'ios' ? item.timestamp.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'}) : getTimeString(item.timestamp);
-        let timestamp = date + ' | ' + time + ' | ' + item.author;
+        let timestamp = date + ' | ' + time + ' | ' + item.author.toUpperCase();
 
         return (
             <View style={styles.announcementContainer}>
