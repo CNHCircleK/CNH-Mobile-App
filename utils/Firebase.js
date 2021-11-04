@@ -31,6 +31,19 @@ export async function sendData(collection, data) {
     }
 }
 
+export async function updateData(collection, doc, data){
+    let db = firebase.firestore();
+    try {
+        let docRef = await db.collection(collection).doc(doc).set(data);
+        console.log("Document written with ID: ", docRef.id);
+        return true;
+    } catch(error) {
+        console.error("Error updating document: ", error);
+        return false;
+    }
+
+}
+
 export async function appendSheet(feedback) {
     let addMessage = firebase.functions().httpsCallable('gsheets-append');
     let response = await addMessage(feedback);

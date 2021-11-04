@@ -15,30 +15,29 @@ export default class FTC2021DocumentsPage extends Component {
                         <Text style = {styles.resourcesText}>Documents</Text>
                     </View>
                     <View style={{ flexDirection:"row", justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
-
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Techx'}) }>
-                            <Text style={styles.itemText}>Document</Text>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Website'}) }>
+                            <Text style={styles.itemText}>Website</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Merch'}) }>
-                            <Text style={styles.itemText}>Document</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Candidate'}) }>
-                            <Text style={styles.itemText}>Document</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Shoutouts'}) }>
-                            <Text style={styles.itemText}>Document</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Program'}) }>
-                            <Text style={styles.itemText}>Document</Text>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'About'}) }>
+                            <Text style={styles.itemText}>About</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Conduct'}) }>
-                            <Text style={styles.itemText}>Document</Text>
+                            <Text style={styles.itemText}>Code of Conduct</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Website'}) }>
-                            <Text style={styles.itemText}>Document</Text>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Campfire'}) }>
+                            <Text style={styles.itemText}>Campfire Manual</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Meeting'}) }>
-                            <Text style={styles.itemText}>Document</Text>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'SAA Handbook'}) }>
+                            <Text style={styles.itemText}>SAA Handbook</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Packing'}) }>
+                            <Text style={styles.itemText}>Packing Info</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Club Sales Contract'}) }>
+                            <Text style={styles.itemText}>Club Sales Contract</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.item} onPress={ () => navigate("ResourcesWebView", {link: 'Call to FTC'}) }>
+                            <Text style={styles.itemText}>Call to FTC</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>

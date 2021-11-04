@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { Component } from "react";
 import { View, StyleSheet, Text, FlatList, TouchableOpacity, Linking, Image } from 'react-native';
-import { getData } from "../../utils/Firebase";
+import { getData, sendData, updateData} from "../../utils/Firebase";
 import Res from '@resources';
 
 export default class FTC2021ScheduleDetailsPage extends Component {
@@ -21,8 +21,9 @@ export default class FTC2021ScheduleDetailsPage extends Component {
     };
 
     updateSelectedWorkshop = async (item) => {
-        item.isSelected = !item.isSelected;
         item.room = "UWU";
+        item.isSelected = !item.isSelected;
+        updateData('dcon-schedule-descriptions', {description: item.description, hosts: item.hosts, isSelected: item.isSelected,  room: item.room, title: item.title, workshop: item.workshop});
         try {
             await AsyncStorage.setItem('Workshop ' + item.workshop, JSON.stringify(item));
         } catch(e) {
