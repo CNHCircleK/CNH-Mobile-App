@@ -36,7 +36,7 @@ export default class FTC2021SchedulePage extends Component {
     };
 
     setSchedule = async () => {
-        let updatedSchedule = await getData('dcon-schedule');
+        let updatedSchedule = await getData('ftc21-schedule');
 
         updatedSchedule.forEach((event, index) => {
             updatedSchedule[index].startTime = updatedSchedule[index].startTime.toDate();
@@ -52,7 +52,7 @@ export default class FTC2021SchedulePage extends Component {
     };
 
     setDescriptions = async () => {
-        let updatedDescriptions = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "schedule", op: "==", value: true}]);
+        let updatedDescriptions = await getData('ftc21-schedule-descriptions', undefined, undefined, undefined, [{field: "schedule", op: "==", value: true}]);
         
         this.setState({scheduleDescriptions: updatedDescriptions});
     };
