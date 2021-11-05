@@ -21,9 +21,9 @@ export default class FTC2021ScheduleDetailsPage extends Component {
     };
 
     updateSelectedWorkshop = async (item) => {
-        item.room = "UWU";
-        item.isSelected = !item.isSelected;
-        updateData('dcon-schedule-descriptions', {description: item.description, hosts: item.hosts, isSelected: item.isSelected,  room: item.room, title: item.title, workshop: item.workshop});
+        // item.room = "UWU";
+        // item.isSelected = !item.isSelected;
+        // updateData('dcon-schedule-descriptions', {description: item.description, hosts: item.hosts, isSelected: item.isSelected,  room: item.room, title: item.title, workshop: item.workshop});
         try {
             await AsyncStorage.setItem('Workshop ' + item.workshop, JSON.stringify(item));
         } catch(e) {
@@ -31,7 +31,7 @@ export default class FTC2021ScheduleDetailsPage extends Component {
         }
 
         this.props.navigation.navigate('Schedule');
-       
+
     };
 
     renderWorkshop = ({item}) => {
@@ -39,7 +39,7 @@ export default class FTC2021ScheduleDetailsPage extends Component {
             <View style={styles.workshop}>
                 <Text style={styles.workshopTitle}>{item.title}</Text>
                 <Text style={styles.workshopHosts}>Hosted by {item.hosts} | {item.room}</Text>
-                <Text style={styles.workshopDesc}>{item.description}</Text>               
+                <Text style={styles.workshopDesc}>{item.description}</Text>
             </View>
         );
     }
@@ -48,7 +48,7 @@ export default class FTC2021ScheduleDetailsPage extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
-                  
+
                     <Text style={styles.sessionTitle}>Workshop Session #{this.state.session}</Text>
                     <View style={{width: 30, marginRight: 30}}></View>
                 </View>
@@ -66,7 +66,7 @@ export default class FTC2021ScheduleDetailsPage extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, 
+        flex: 1,
         backgroundColor:  Res.FTCColors.Darpz
     },
     contentContainer: {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: 70,
-        
+
     },
     backButton: {
         marginLeft: 30,
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 0, height: 5},
         shadowOpacity: 0.15,
         backgroundColor: Res.FTCColors.Liptz
-    }, 
+    },
     workshopTitle: {
         fontWeight: 'bold',
         fontSize: 17,
