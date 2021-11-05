@@ -133,7 +133,7 @@ export default class FTC2021SchedulePage extends Component {
 
         return (
             <View style={styles.eventItem}>
-                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.FTCColors.Yellop : Res.FTCColors.LightPurple}}>
+                <View style={{...styles.eventLeft, backgroundColor: item.workshop ? Res.FTCColors.LightPurple : Res.FTCColors.LightPurple}}>
                     <Text style={styles.eventTime}>{startTime} {endTime ? '- ' + endTime : ''}</Text>
                 </View>
                 <View style={styles.eventMiddle}>
@@ -188,21 +188,21 @@ export default class FTC2021SchedulePage extends Component {
                             <Text style={styles.slideText}>FALL TRAINING</Text>
                             <Text style={styles.slideText}>CONFERENCE 2021</Text>
                             <Text style={styles.slideDayText}>Friday</Text>
-                            <Text style={styles.slideText}>November 5, Day 1</Text>
+                            <Text style={styles.slideDate}>NOVEMBER 5, DAY 1</Text>
                         </View>
                         <View style={styles.swiperCard}>
                             <Image style={styles.slideImage} source={require('../../resources/FTC_2021/Icons/Axolotl.png')}/>
                             <Text style={styles.slideText}>FALL TRAINING</Text>
                             <Text style={styles.slideText}>CONFERENCE 2021</Text>
                             <Text style={styles.slideDayText}>Saturday</Text>
-                            <Text style={styles.slideText}>November 6, Day 2</Text>
+                            <Text style={styles.slideDate}>NOVEMBER 6, DAY 2</Text>
                         </View>
                         <View style={styles.swiperCard}>
                             <Image style={styles.slideImage} source={require('../../resources/FTC_2021/Icons/Birb_fish.png')}/>
                             <Text style={styles.slideText}>FALL TRAINING</Text>
                             <Text style={styles.slideText}>CONFERENCE 2021</Text>
                             <Text style={styles.slideDayText}>Sunday</Text>
-                            <Text style={styles.slideText}>November 7, Day 3</Text>
+                            <Text style={styles.slideDate}>NOVEMBER 7, DAY 3</Text>
                         </View>
                     </Swiper>
                 </View>
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     modal: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 300,
+        marginTop: 250,
         marginHorizontal: 30,
         paddingTop: 20,
         paddingBottom: 30,
@@ -248,13 +248,11 @@ const styles = StyleSheet.create({
     modalTitle: {
         fontSize: 18,
         fontWeight: 'bold',
-        marginBottom: 20
     },
     modalDesc: {
         fontSize: 14
     },
     contentContainer: {
-        paddingBottom: 20
     },
     eventItem: {
         flexDirection: 'row',
@@ -328,7 +326,7 @@ const styles = StyleSheet.create({
         fontWeight: '300'
     },
     swiperContainer: {
-        height: 250,
+        height: 235,
         marginBottom: 10
     }, 
     swiper: {
@@ -348,31 +346,33 @@ const styles = StyleSheet.create({
     },
     slideText: {
         fontFamily: "SpaceGroteskBold",
-        fontWeight: '300',
-        fontSize: 18,
-        marginBottom: 10,
-        top: 10,
-        right: 5,
+        letterSpacing: 3.55,
         color: Res.FTCColors.Eggshell,
+    },
+    slideDate: {
+        fontFamily: "SpaceGroteskBold",
+        letterSpacing: 3.55,
+        color: Res.FTCColors.Eggshell,
+        paddingBottom: 10
     },
     slideDayText: {
         fontFamily: "Facultad",
-        fontSize: 40,
+        fontSize: 48,
+        paddingBottom: 10,
         fontWeight: "bold",
         textAlign: "left",
-        letterSpacing: 2,
         color: Res.FTCColors.Yellop,
         width: 300,
         top: 10,
         right: 5,
     },
     slideImage: {
-        position: 'absolute',
-        resizeMode: 'contain',
-        width: 175,
-        height: 175,
-        right: -10,
-        top: 60
+        width: 125,
+        height: 125,
+        position: "absolute",
+        resizeMode: "contain",
+        right: 30,
+        top: 50
     },
     workshopButton: {
         alignSelf: 'center',

@@ -29,7 +29,7 @@ export default class DCONAnnouncementsPage extends Component {
     renderAnnouncement = ({item}) => {
         let date = item.timestamp.toLocaleDateString('en-US');
         let time = Platform.OS === 'ios' ? item.timestamp.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'}) : getTimeString(item.timestamp);
-        let timestamp = date + ' | ' + time + ' | ' + item.author;
+        let timestamp = date + ' | ' + time + ' | ' + item.author.toUpperCase();
 
         return (
             <View style={styles.announcementContainer}>
@@ -46,8 +46,8 @@ export default class DCONAnnouncementsPage extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
-                    {/* <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/approvedlogo.png')} /> */}
-                    <Text style={styles.headerIntro}>FALL TRAINING CONFERENCE 2021</Text>
+                    <Text style={styles.headerIntro}>FALL TRAINING</Text>
+                    <Text style={styles.headerIntro}>CONFERENCE 2021</Text>
                     <Text style={styles.headerTitle}>Announcements</Text>
                 </View>
                 <FlatList
@@ -68,43 +68,35 @@ const styles = StyleSheet.create({
         backgroundColor: Res.FTCColors.Darpz,
     },
     header: {
-        alignItems: "flex-start",
-        justifyContent: "flex-end",
+        alignItems: "center",
         paddingTop: 50,
         paddingBottom: 20,
-        paddingLeft: 30,
         marginBottom: 10,
         backgroundColor: Res.FTCColors.Darpz,
         borderColor: Res.FTCColors.Grabt,
         borderWidth: 0,
-        borderBottomWidth: 1,
+        borderBottomWidth: 1
     },
     headerImage: {
         position: 'absolute',
-        top: 30,
-        right: 5,
+        right: 20,
+        bottom: 65,
         width: 150,
         height: 150
     },
     headerIntro: {
         fontFamily: "SpaceGroteskBold",
-        fontWeight: '300',
-        fontSize: 18,
-        marginBottom: 10,
-        top: 10,
-        right: 5,
-        color: Res.FTCColors.Eggshell,
+        letterSpacing: 3.55,
+        color: Res.FTCColors.Eggshell
     },
     headerTitle: {        
         fontFamily: "Facultad",
-        fontSize: 33,
+        fontSize: 42,
         fontWeight: "bold",
-        textAlign: "left",
-        letterSpacing: 2,
         color: Res.FTCColors.Yellop,
-        width: 300,
-        top: 10,
-        right: 5,
+        paddingTop: 10,
+        marginLeft: -1.5,
+        letterSpacing: -1.5
     },
     listContainer: {
         padding: 25,
@@ -130,7 +122,7 @@ const styles = StyleSheet.create({
     },
     announcementTitle: {
         fontSize: 18,
-        fontFamily: 'Coolvetica',
+        fontFamily: 'Facultad',
         letterSpacing: 0.5
     },
     announcementTime: {

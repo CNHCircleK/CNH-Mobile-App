@@ -39,25 +39,26 @@ export default class FTCAdminPage extends Component {
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.header}>
                         {/* <Image style={styles.headerImage} source={require('../../resources/DCON_2021/Images/approvedlogo.png')} /> */}
-                        <Text style={styles.headerIntro}>FALL TRAINING CONFERENCE 2021</Text>
+                        <Text style={styles.headerIntro}>FALL TRAINING</Text>
+                        <Text style={styles.headerIntro}>CONFERENCE 2021</Text>
                         <Text style={styles.headerTitle}>Administrator</Text>
                     </View>
                     <View style={styles.formContainer}>
-                    <Text style={styles.formTitle}>Author</Text>
+                    <Text style={styles.formTitle}>AUTHOR</Text>
                         <TextInput
                             style={styles.formInput}
                             multiline={true}
                             onChangeText={(text) => this.setState({author: text})}
                             value={this.state.author}
                         />
-                        <Text style={styles.formTitle}>Title</Text>
+                        <Text style={styles.formTitle}>TITLE</Text>
                         <TextInput
                             style={styles.formInput}
                             multiline={true}
                             onChangeText={(text) => this.setState({title: text})}
                             value={this.state.title}
                         />
-                        <Text style={styles.formTitle}>Body</Text>
+                        <Text style={styles.formTitle}>BODY</Text>
                         <TextInput
                             style={styles.formInput}
                             multiline={true}

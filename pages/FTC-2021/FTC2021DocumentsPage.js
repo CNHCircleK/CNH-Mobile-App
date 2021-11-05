@@ -10,7 +10,8 @@ export default class FTC2021DocumentsPage extends Component {
            <View style={styles.container}>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.titleShape}>
-                        {/* <Text style = {styles.titleText}>District Convention 2021</Text> */}
+                        <Text style={styles.headerIntro}>FALL TRAINING</Text>
+                        <Text style={styles.headerIntro}>CONFERENCE 2021</Text>
                         <Text style = {styles.resourcesText}>Documents</Text>
                     </View>
                     <View style={{ flexDirection:"row", justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
@@ -83,14 +84,15 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign: "center",
         color: Res.FTCColors.Yellop,
-        letterSpacing: -1.5
+        letterSpacing: -1.5,
+        paddingTop: 10
     },
     titleText: {
-        fontWeight: '300'
+        fontWeight: '300',
     },
     titleShape: {
-        paddingTop: 60,
-        paddingBottom: 40,
+        paddingTop: 50,
+        paddingBottom: 20,
         textAlign: "center",
         marginBottom: 10,
         backgroundColor:  Res.FTCColors.Darpz,
@@ -109,5 +111,12 @@ const styles = StyleSheet.create({
     buttonImage: {
         width: 30,
         height: 30,
+    },
+    headerIntro: {
+        textAlign: "center",
+        fontFamily: "SpaceGroteskBold",
+        letterSpacing: 3.55,
+        color: Res.FTCColors.Eggshell
     }
+    
 });
