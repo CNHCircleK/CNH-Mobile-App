@@ -22,7 +22,7 @@ export default class FTC2021ScheduleDetailsPage extends Component {
 
     updateSelectedWorkshop = async (item) => {
         //item.room = "UWU";
-        item.isSelected = !item.isSelected;
+        //item.isSelected = !item.isSelected;
         updateData('ftc21-schedule-descriptions', {description: item.description, hosts: item.hosts, isSelected: item.isSelected,  room: item.room, title: item.title, workshop: item.workshop});
         try {
             await AsyncStorage.setItem('Workshop ' + item.workshop, JSON.stringify(item));
@@ -40,9 +40,7 @@ export default class FTC2021ScheduleDetailsPage extends Component {
                 <Text style={styles.workshopTitle}>{item.title}</Text>
                 <Text style={styles.workshopHosts}>Hosted by {item.hosts} | {item.room}</Text>
                 <Text style={styles.workshopDesc}>{item.description}</Text>
-                <TouchableOpacity style={styles.workshopButton} onPress={() => this.updateSelectedWorkshop(item)}>
-                    <Text style={styles.workshopButtonText}>+</Text>
-                </TouchableOpacity>
+                
                
                
             </View>
