@@ -9,30 +9,32 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import Res from '@resources';
+import { SplashScreen } from 'expo';
 
-import DCONHomePage from "./pages/DCON/DCONHomePage";
-import DCONAnnouncementsPage from "./pages/DCON/DCONAnnouncementsPage"
-import DCONAdminPage from "./pages/DCON/DCONAdminPage"
-import DCONSchedulePage from "./pages/DCON/DCONSchedulePage";
-import DCONScheduleDetailsPage from "./pages/DCON/DCONScheduleDetailsPage";
-import DCONShopPage from "./pages/DCON/DCONShopPage";
-import DCONResourcesPage from "./pages/DCON/DCONResourcesPage";
-import DCONWebViewPage from "./pages/DCON/DCONWebViewPage";
-import DCONFeedbackPage from "./pages/DCON/DCONFeedbackPage";
+import FTC2021HomePage from "./pages/FTC-2021/FTC2021HomePage";
+import FTC2021SchedulePage from "./pages/FTC-2021/FTC2021SchedulePage";
+import FTC2021ActivityPage from "./pages/FTC-2021/FTC2021ActivityPage";
+import FTC2021ResourcesPage from "./pages/FTC-2021/FTC2021ResourcesPage";
+import FTC2021WebViewPage from "./pages/FTC-2021/FTC2021WebViewPage";
+import FTC2021ScheduleDetailsPage from "./pages/FTC-2021/FTC2021ScheduleDetailsPage";
+import FTC2021DocumentsPage from "./pages/FTC-2021/FTC2021DocumentsPage";
+import FTC2021AdminPage from "./pages/FTC-2021/FTC2021AdminPage";
+import FTC2021AnnouncementsPage from "./pages/FTC-2021/FTC2021AnnouncementsPage";
+
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
 const ScheduleStack = createStackNavigator();
 const ResourcesStack = createStackNavigator();
-const ShopStack = createStackNavigator();
 
 function HomeStackScreen() {
     return (
         <HomeStack.Navigator headerMode="none">
-            <HomeStack.Screen name="Home" component={DCONHomePage} />
-            <HomeStack.Screen name="Announcements" component={DCONAnnouncementsPage} />
-            <HomeStack.Screen name="Admin" component={DCONAdminPage} />
+            <HomeStack.Screen name="Home" component={FTC2021HomePage} />
+            <HomeStack.Screen name="Announcements" component={FTC2021AnnouncementsPage} />
+            <HomeStack.Screen name="Admin" component={FTC2021AdminPage} />
         </HomeStack.Navigator>
     );
 }
@@ -40,31 +42,32 @@ function HomeStackScreen() {
 function ScheduleStackScreen() {
     return (
         <ScheduleStack.Navigator headerMode='none'>
-            <ScheduleStack.Screen name='Schedule' component={DCONSchedulePage} />
-            <ScheduleStack.Screen name='Schedule Details' component={DCONScheduleDetailsPage} />
+            <ScheduleStack.Screen name='Schedule' component={FTC2021SchedulePage} />
+            <ScheduleStack.Screen name='Schedule Details' component={FTC2021ScheduleDetailsPage} />
         </ScheduleStack.Navigator>
     );
 }
 
-function ShopStackScreen() {
+function ActivityStackScreen() {
     return (
-        <ShopStack.Navigator headerMode='none'>
-            <ShopStack.Screen name='Shop' component={DCONShopPage} />
-            <ShopStack.Screen name='ShopWebView' component={DCONWebViewPage} />
-        </ShopStack.Navigator>
+        <ResourcesStack.Navigator headerMode='none'>
+            <ResourcesStack.Screen name='Activities' component={FTC2021ActivityPage} />
+            <ResourcesStack.Screen name='ActivitiesWebView' component={FTC2021WebViewPage} />
+        </ResourcesStack.Navigator>
     );
 }
 
 function ResourcesStackScreen() {
     return (
         <ResourcesStack.Navigator headerMode='none'>
-            <ResourcesStack.Screen name='Resources' component={DCONResourcesPage} />
-            <ResourcesStack.Screen name='ResourcesWebView' component={DCONWebViewPage} />
+            <ResourcesStack.Screen name='Resources' component={FTC2021ResourcesPage} />
+            <ResourcesStack.Screen name='Documents' component={FTC2021DocumentsPage} />
+            <ResourcesStack.Screen name='ResourcesWebView' component={FTC2021WebViewPage} />
         </ResourcesStack.Navigator>
     );
 }
 
-function DCONTabScreen() {
+function FTCTabScreen() {
     return(
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -77,14 +80,11 @@ function DCONTabScreen() {
                         case 'Schedule':
                             iconName = 'access-time'
                             break;
-                        case 'Shop':
-                            iconName = 'shopping-cart'
+                        case 'Activities':
+                            iconName = 'accessibility'
                             break;
                         case 'Resources':
                             iconName = 'assignment'
-                            break;
-                        case 'Feedback':
-                            iconName = 'feedback'
                             break;
                     }
 
@@ -92,10 +92,11 @@ function DCONTabScreen() {
                 }
             })}
             tabBarOptions={{
-                activeTintColor: Res.DCONColors.Rajah,
-                inactiveTintColor: Res.DCONColors.JellyBean,
+                activeTintColor: Res.FTCColors.Liptz,
+                inactiveTintColor: Res.FTCColors.Eggshell,
                 style: {
-                    backgroundColor: 'white'
+                    backgroundColor: Res.FTCColors.Blarp,
+                    borderTopColor: Res.FTCColors.Blarp
                 },
                 labelStyle: {
                     marginBottom: 4,
@@ -108,9 +109,8 @@ function DCONTabScreen() {
         >
             <Tab.Screen name="Home" component={HomeStackScreen} />
             <Tab.Screen name="Schedule" component={ScheduleStackScreen} />
-            <Tab.Screen name="Shop" component={ShopStackScreen} />
+            <Tab.Screen name="Activities" component={ActivityStackScreen} />
             <Tab.Screen name="Resources" component={ResourcesStackScreen} />
-            <Tab.Screen name="Feedback" component={DCONFeedbackPage} />
         </Tab.Navigator>
     );
 }
@@ -125,43 +125,36 @@ export default class App extends Component {
 
     async loadFontsAsync() {
         let customFonts = {
-            'Coolvetica': require('./resources/DCON_2021/Fonts/coolvetica.ttf'),
-            'Corpuscare': require('./resources/DCON_2021/Fonts/corpuscare.ttf'),
-            'Malvie': require('./resources/DCON_2021/Fonts/Malvie.otf'),
-            'Plumpfull': require('./resources/DCON_2021/Fonts/Plumpfull.ttf'),
-            'RoundyyRainbows': require('./resources/DCON_2021/Fonts/RoundyRainbows.ttf')
+            'Facultad': require('./resources/FTC_2021/Fonts/Facultad-Regular.otf'),
+            'Metropolis': require('./resources/FTC_2021/Fonts/Metropolis-Medium.otf'),
+            'SpaceGroteskBold': require('./resources/FTC_2021/Fonts/SpaceGrotesk-Bold.otf'),
+            'AvenirNext': require('./resources/FTC_2021/Fonts/AvenirNextLTPro-Regular.otf')
         };
-        
+
         await Font.loadAsync(customFonts);
+        preloadSplash = async () => {
+            await cacheResources([require('./resources/FTC_2021/Images/cape_animation.gif')]);
+          }
+          preloadRes = async () => {
+            SplashScreen.hide();
+          }
     }
 
     async loadResourcesAsync() {
         let resources = [
-            require('./resources/DCON_2021/Images/approvedlogo.png'),
-            require('./resources/DCON_2021/Images/DCONpackage.jpg'),
-            require('./resources/DCON_2021/Images/happy.png'),
-            require('./resources/DCON_2021/Images/Harley.png'),
-            require('./resources/DCON_2021/Images/Rain.png'),
-            require('./resources/DCON_2021/Images/Sammy.png'),
-            require('./resources/DCON_2021/Images/Snow_and_Leaves.png'),
-            require('./resources/DCON_2021/Images/sun.png'),
-            require('./resources/DCON_2021/Images/SunClouds.png'),
-            require('./resources/DCON_2021/Images/sunny.png'),
-            require('./resources/DCON_2021/Images/WindyWillow.png'),
-            require('./resources/DCON_2021/Icons/arrow_icon.png'),
-            require('./resources/DCON_2021/Icons/back_icon.png'),
-            require('./resources/DCON_2021/Icons/edit_icon.png'),
-            require('./resources/DCON_2021/Icons/exit_icon.png'),
-            require('./resources/DCON_2021/Icons/feedback_icon_selected.png'),
-            require('./resources/DCON_2021/Icons/feedback_icon.png'),
-            require('./resources/DCON_2021/Icons/home_icon_selected.png'),
-            require('./resources/DCON_2021/Icons/info_icon.png'),
-            require('./resources/DCON_2021/Icons/resources_icon_selected.png'),
-            require('./resources/DCON_2021/Icons/resources_icon.png'),
-            require('./resources/DCON_2021/Icons/schedule_icon_selected.png'),
-            require('./resources/DCON_2021/Icons/schedule_icon.png'),
-            require('./resources/DCON_2021/Icons/shop_icon_selected.png'),
-            require('./resources/DCON_2021/Icons/shop_icon.png')
+            require('./resources/FTC_2021/Images/Acorn_Lantern.png'),
+            require('./resources/FTC_2021/Images/cape_animation.gif'),
+            require('./resources/FTC_2021/Images/Crossbow.png'),
+            require('./resources/FTC_2021/Images/L_Quest_Alert.png'),
+            require('./resources/FTC_2021/Images/Logo.png'),
+            require('./resources/FTC_2021/Images/Map.png'),
+            require('./resources/FTC_2021/Images/R_Quest_Alert.png'),
+            require('./resources/FTC_2021/Images/SAAShiftImage.png'),
+            require('./resources/FTC_2021/Images/Stone_Sword.png'),
+            require('./resources/FTC_2021/Icons/Frog_Golem.png'),
+            require('./resources/FTC_2021/Icons/Frog_Golem_2.png'),
+            require('./resources/FTC_2021/Icons/Glow_Mushroom.png'),
+            require('./resources/FTC_2021/Icons/Sakura_Fish.png'),
         ];
 
         const loadedResources = resources.map(res => {
@@ -184,7 +177,7 @@ export default class App extends Component {
             return (
                 <NavigationContainer>
                     <Stack.Navigator headerMode="none">
-                        <Stack.Screen name="DCON Tabs" component={DCONTabScreen} />
+                        <Stack.Screen name="FTC Tabs" component={FTCTabScreen} />
                     </Stack.Navigator>
                 </NavigationContainer>
             );

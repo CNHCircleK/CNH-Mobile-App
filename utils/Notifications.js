@@ -49,12 +49,13 @@ export async function setupNotifications() {
         await sendData('expo-tokens', { token: expoToken });
 }
 
-export async function sendPushNotification(expoPushToken, nTitle, nBody, nData) {
+export async function sendPushNotification(expoPushToken, nTitle, nBody, nData, nAuthor) {
     const message = {
         to: expoPushToken,
         sound: 'default',
         title: nTitle,
         body: nBody,
+        author: nAuthor,
         data: { data: nData || '' },
     };
   
