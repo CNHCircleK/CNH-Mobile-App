@@ -6,7 +6,7 @@ export default class FTC2021WebViewPage extends Component {
         let link;
         switch (this.props.route.params.link) {
             case 'Program':
-                link = 'https://drive.google.com/file/d/14au45P4hiWKVDpbz-N7_2M2t3AMy1dkk/view?ts=6184220b';
+                link = 'https://drive.google.com/file/d/1TYWohEtUvuBHeUmf_IP2oE-bwKq8UUr8/view?usp=sharing';
                 break;
             case 'Conduct':
                 link = 'https://drive.google.com/file/d/1Fsmehjecay3JuCSfjOi6VR96wdyHhSHO/view';
@@ -50,13 +50,7 @@ export default class FTC2021WebViewPage extends Component {
             case 'Team Activities':
                 link = 'https://drive.google.com/file/d/1bC9lYREb3uXRhPXhYm1G_v9EqatjyBrs/view?fbclid=IwAR3rQyVW7ZhtWI11JFsnQSiQB_Gsx3pOoOhZGx6_w2I63zmBdLivCGQv7nY';
                 break;
-        
-
-                
-                
-
         }
-
         return <WebView source={{ uri: link }} style={{ marginTop: 20 }} />;
     }
 }
