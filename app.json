@@ -15,7 +15,6 @@
       "web"
     ],
     "version": "3.0.1",
-    "sdkVersion": "40.0.0",
     "orientation": "portrait",
     "icon": "./assets/solstice_icon.png",
     "updates": {
