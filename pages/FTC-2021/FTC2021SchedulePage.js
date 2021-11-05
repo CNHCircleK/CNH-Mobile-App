@@ -23,7 +23,7 @@ export default class FTC2021SchedulePage extends Component {
         await this.setSchedule();
         await this.setDescriptions();
         await this.setCachedWorkshops();
-        
+
         this.navigationListener = this.props.navigation.addListener('focus', async () => {
             await this.setSchedule();
             await this.setDescriptions();
@@ -53,7 +53,7 @@ export default class FTC2021SchedulePage extends Component {
 
     setDescriptions = async () => {
         let updatedDescriptions = await getData('ftc21-schedule-descriptions', undefined, undefined, undefined, [{field: "schedule", op: "==", value: true}]);
-        
+
         this.setState({scheduleDescriptions: updatedDescriptions});
     };
 
@@ -68,7 +68,7 @@ export default class FTC2021SchedulePage extends Component {
 
                     let workshopIndex = await AsyncStorage.getItem('Workshop ' + i + ' Index');
                     workshopIndex = parseInt(workshopIndex);
-                    
+
                     let updatedWorkshopData = await getData('ftc21-schedule-descriptions', undefined, undefined, undefined, [{field: "title", op: "==", value: workshopData.title}]);
 
                     schedule[workshopIndex].title = updatedWorkshopData[0].title;
@@ -122,7 +122,7 @@ export default class FTC2021SchedulePage extends Component {
 
         let startTime;
         let endTime;
-        
+
         if (Platform.OS === 'ios') {
             startTime = item.startTime.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'});
             endTime = item.endTime?.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
@@ -138,21 +138,21 @@ export default class FTC2021SchedulePage extends Component {
                 </View>
                 <View style={styles.eventMiddle}>
                     <Text style={styles.eventTitle}>{item.title}</Text>
-                    {item.workshop ? 
+                    {item.workshop ?
                         <TouchableOpacity style={{marginBottom: 10}} onPress={async () => await Linking.openURL(item.location)}>
-                           
+
                         </TouchableOpacity> :
                         <Text style={styles.eventLocation}>{item.location}</Text>
                     }
-                    
+
                 </View>
                 <TouchableOpacity style={styles.eventRight} onPress={() => {
                     if (item.workshop) this.navigateDetails(item.workshop);
                     if (item.description) this.setModal(item.title);
                 }}>
                     {item.workshop || item.description ?
-                        <Image 
-                            style={styles.eventIcon} 
+                        <Image
+                            style={styles.eventIcon}
                             source={item.workshop ?
                                 require('../../resources/DCON_2021/Icons/arrow_icon.png') :
                                 require('../../resources/DCON_2021/Icons/info_icon.png')}
@@ -164,6 +164,12 @@ export default class FTC2021SchedulePage extends Component {
             </View>
         );
     };
+
+    onSwipeIndexChanged = (index) => {
+      // yall maybe just put this in a map sometime
+      let newDay = (index + 5) % 7;
+      this.setState({curDay: newDay});
+    }
 
     render() {
         return (
@@ -182,7 +188,7 @@ export default class FTC2021SchedulePage extends Component {
                     </View>
                 </Modal>
                 <View style={styles.swiperContainer}>
-                    <Swiper style={styles.swiper} activeDotColor={Res.FTCColors.Yellop} onIndexChanged={(index) => this.setState({curDay: (index + 5) % 7})}>
+                    <Swiper loop={false} style={styles.swiper} activeDotColor={Res.FTCColors.Yellop} onIndexChanged={(index) => this.onSwipeIndexChanged(index)}>
                         <View style={styles.swiperCard}>
                             <Image style={styles.slideImage} source={require('../../resources/FTC_2021/Icons/Frog_Golem.png')}/>
                             <Text style={styles.slideText}>FALL TRAINING</Text>
@@ -280,10 +286,10 @@ const styles = StyleSheet.create({
     eventBreakImage: {
         width: 50,
         height: 50,
-    }, 
+    },
     eventBreakText: {
         fontWeight: '300'
-    },  
+    },
     eventLeft: {
         flex: 0.3,
         paddingVertical: 20,
@@ -328,7 +334,7 @@ const styles = StyleSheet.create({
     swiperContainer: {
         height: 235,
         marginBottom: 10
-    }, 
+    },
     swiper: {
         backgroundColor: Res.FTCColors.LightPurple,
     },
