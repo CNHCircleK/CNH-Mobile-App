@@ -30,13 +30,13 @@ export default class FTC2021HomePage extends Component {
 
     getEvents = async () => {
         let events = await getData('dcon-schedule', 'startTime', 'asc', 2, [{field: "startTime", op: ">", value: firebase.firestore.Timestamp.now()}])
-        
+
         events.forEach((event, index) => {
             events[index].startTime = events[index].startTime.toDate();
             events[index].endTime = events[index].endTime?.toDate();
         });
-        
-        this.setState({upcomingEvents: events}); 
+
+        this.setState({upcomingEvents: events});
     };
 
     getAnnouncements = async () => {
@@ -116,17 +116,17 @@ export default class FTC2021HomePage extends Component {
                             <TouchableOpacity style={styles.modalCloseContainer} onPress={() => this.setState({modalVisible: false})}>
                                 <Image style={styles.modalClose} source={require('../../resources/DCON_2021/Icons/exit_icon.png')} />
                             </TouchableOpacity>
-                            <TextInput 
-                                style={styles.formInput} 
+                            <TextInput
+                                style={styles.formInput}
                                 onChangeText={(text) => {this.setState({adminPass: text})}}
                                 value={this.state.adminPass}
                             />
-                            <TouchableOpacity 
-                                style={styles.button} 
-                                onPress={() => { 
+                            <TouchableOpacity
+                                style={styles.button}
+                                onPress={() => {
                                     if (this.state.adminPass == 'FrogGolem') {
                                         this.setState({modalVisible: false});
-                                        this.props.navigation.navigate('Admin'); 
+                                        this.props.navigation.navigate('Admin');
                                     }}}>
                                 <Text style={styles.buttonText}>GO</Text>
                             </TouchableOpacity>
@@ -146,10 +146,9 @@ export default class FTC2021HomePage extends Component {
                     <View style={styles.homeContainer}>
                         <Text style={styles.subTitle}>Your Upcoming Sessions</Text>
                         {this.state.upcomingEvents.map((event) => this.renderEvent(event))}
-                        
+
                         <View style={styles.buttonContainer}>
-                            {/* <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("ResourcesWebView", {link: 'Map'})}> */}
-                            <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Schedule')}>
+                            <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("ResourcesWebView", {link: 'Map'})}>
                                 <Text style={styles.buttonText}>View Map</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Schedule')}>
@@ -187,7 +186,7 @@ const styles = StyleSheet.create({
         elevation: 10,
         backgroundColor: Res.FTCColors.Darpz
 
-        
+
     },
     modalCloseContainer: {
         alignSelf: 'flex-end'
@@ -235,7 +234,7 @@ const styles = StyleSheet.create({
         color: Res.FTCColors.Eggshell,
         paddingBottom: 10
     },
-    headerTitle: {        
+    headerTitle: {
         fontFamily: "Facultad",
         fontSize: 30,
         fontWeight: "bold",
@@ -249,7 +248,7 @@ const styles = StyleSheet.create({
         padding: 25,
         backgroundColor: Res.FTCColors.Darpz,
 
-    },  
+    },
     subTitle: {
         fontFamily: 'Facultad',
         fontSize: 28,
@@ -300,10 +299,10 @@ const styles = StyleSheet.create({
     eventBreakImage: {
         width: 50,
         height: 50,
-    }, 
+    },
     eventBreakText: {
         fontWeight: '300'
-    },  
+    },
     eventLeft: {
         flex: 0.3,
         paddingVertical: 20,
