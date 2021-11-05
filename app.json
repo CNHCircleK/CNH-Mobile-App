@@ -28,7 +28,7 @@
       "buildNumber": "3.0.1"
     },
     "android": {
-      "versionCode": 7,
+      "versionCode": 8,
       "package": "com.cnhcki.solstice",
       "useNextNotificationsApi": true,
       "googleServicesFile": "./google-services.json"
