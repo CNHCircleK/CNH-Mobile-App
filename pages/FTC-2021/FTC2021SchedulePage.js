@@ -331,7 +331,6 @@ const styles = StyleSheet.create({
     }, 
     swiper: {
         backgroundColor: Res.FTCColors.LightPurple,
-
     },
     swiperCard: {
         flex: 1,
