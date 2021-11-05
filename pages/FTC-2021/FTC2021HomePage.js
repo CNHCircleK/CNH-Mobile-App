@@ -217,9 +217,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
     },
     headerImageContainer: {
-        position: 'absolute',
-        top: 40,
-        right: 5
     },
     headerImage: {
         width: 125,
