@@ -39,12 +39,7 @@ export default class FTC2021ScheduleDetailsPage extends Component {
             <View style={styles.workshop}>
                 <Text style={styles.workshopTitle}>{item.title}</Text>
                 <Text style={styles.workshopHosts}>Hosted by {item.hosts} | {item.room}</Text>
-                <Text style={styles.workshopDesc}>{item.description}</Text>
-                <TouchableOpacity style={styles.workshopButton} onPress={() => this.updateSelectedWorkshop(item)}>
-                    <Text style={styles.workshopButtonText}>+</Text>
-                </TouchableOpacity>
-               
-               
+                <Text style={styles.workshopDesc}>{item.description}</Text>               
             </View>
         );
     }
