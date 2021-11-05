@@ -36,7 +36,7 @@ export default class FTC2021SchedulePage extends Component {
     };
 
     setSchedule = async () => {
-        let updatedSchedule = await getData('dcon-schedule');
+        let updatedSchedule = await getData('ftc21-schedule');
 
         updatedSchedule.forEach((event, index) => {
             updatedSchedule[index].startTime = updatedSchedule[index].startTime.toDate();
@@ -52,7 +52,7 @@ export default class FTC2021SchedulePage extends Component {
     };
 
     setDescriptions = async () => {
-        let updatedDescriptions = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "schedule", op: "==", value: true}]);
+        let updatedDescriptions = await getData('ftc21-schedule-descriptions', undefined, undefined, undefined, [{field: "schedule", op: "==", value: true}]);
         
         this.setState({scheduleDescriptions: updatedDescriptions});
     };
@@ -69,7 +69,7 @@ export default class FTC2021SchedulePage extends Component {
                     let workshopIndex = await AsyncStorage.getItem('Workshop ' + i + ' Index');
                     workshopIndex = parseInt(workshopIndex);
                     
-                    let updatedWorkshopData = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "title", op: "==", value: workshopData.title}]);
+                    let updatedWorkshopData = await getData('ftc21-schedule-descriptions', undefined, undefined, undefined, [{field: "title", op: "==", value: workshopData.title}]);
 
                     schedule[workshopIndex].title = updatedWorkshopData[0].title;
                     schedule[workshopIndex].location = updatedWorkshopData[0].link;
@@ -139,8 +139,8 @@ export default class FTC2021SchedulePage extends Component {
                 <View style={styles.eventMiddle}>
                     <Text style={styles.eventTitle}>{item.title}</Text>
                     {item.workshop ? 
-                        <TouchableOpacity style={{...styles.workshopButton, marginBottom: 10}} onPress={async () => await Linking.openURL(item.location)}>
-                            <Text style={styles.workshopButtonText}>GO TO WORKSHOP</Text>
+                        <TouchableOpacity style={{marginBottom: 10}} onPress={async () => await Linking.openURL(item.location)}>
+                           
                         </TouchableOpacity> :
                         <Text style={styles.eventLocation}>{item.location}</Text>
                     }

@@ -29,8 +29,8 @@ export default class FTC2021HomePage extends Component {
     };
 
     getEvents = async () => {
-        let events = await getData('dcon-schedule', 'startTime', 'asc', 2, [{field: "startTime", op: ">", value: firebase.firestore.Timestamp.now()}])
-
+        let events = await getData('ftc21-schedule', 'startTime', 'asc', 2, [{field: "startTime", op: ">", value: firebase.firestore.Timestamp.now()}])
+        
         events.forEach((event, index) => {
             events[index].startTime = events[index].startTime.toDate();
             events[index].endTime = events[index].endTime?.toDate();

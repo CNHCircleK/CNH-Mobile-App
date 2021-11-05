@@ -15,7 +15,7 @@ export default class FTC2021ScheduleDetailsPage extends Component {
 
     componentDidMount = async () => {
         let updatedSession = this.props.route.params.session;
-        let updatedWorkshops = await getData('dcon-schedule-descriptions', undefined, undefined, undefined, [{field: "workshop", op: "==", value: updatedSession}]);
+        let updatedWorkshops = await getData('ftc21-schedule-descriptions', undefined, undefined, undefined, [{field: "workshop", op: "==", value: updatedSession}]);
 
         this.setState({session: updatedSession, workshops: updatedWorkshops});
     };
