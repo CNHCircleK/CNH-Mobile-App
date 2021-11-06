@@ -6,7 +6,7 @@ export default class FTC2021WebViewPage extends Component {
         let link;
         switch (this.props.route.params.link) {
             case 'Program':
-                link = 'https://drive.google.com/file/d/1TYWohEtUvuBHeUmf_IP2oE-bwKq8UUr8/view?usp=sharing';
+                link = 'https://drive.google.com/file/d/14au45P4hiWKVDpbz-N7_2M2t3AMy1dkk/view';
                 break;
             case 'Conduct':
                 link = 'https://drive.google.com/file/d/1Fsmehjecay3JuCSfjOi6VR96wdyHhSHO/view';
