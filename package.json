@@ -34,7 +34,7 @@
     "react-native-google-sheet": "0.0.5",
     "react-native-hyperlink": "0.0.19",
     "react-native-picker-select": "^8.0.2",
-    "react-native-reanimated": "~2.2.0",
+    "react-native-reanimated": "~2.10.0",
     "react-native-root-toast": "^3.1.2",
     "react-native-screens": "~3.8.0",
     "react-native-swiper": "^1.6.0-rc.3",
